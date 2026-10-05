@@ -7,6 +7,7 @@ Stand: 5. Oktober 2026. Version 0.2.0 verbindet Quellenrecherche, gezielte Über
 | Prüfung | Nachweis |
 | --- | --- |
 | Paket und Metadaten | Sieben eigenständige Skills; System-Skillvalidator und Repositoryvalidator ausgeführt |
+| Öffentliche Installation | Skills CLI kopierte alle sieben Skills aus GitHub in ein isoliertes Windows-Testprojekt; alle 21 Dateien stimmen bytegenau mit dem ausgewerteten Kandidaten überein; [Nachweis](../evals/results/v0.2.0/installation.json) |
 | Quellen und Gegenargumente | Drei Dossiers mit Primärquellen, Datum, Geltungsbereich und Zugriffsgrenzen; kurze Grundlagen in jedem Skill |
 | Getrennte Reviewperspektiven | Fünf Modellkontexte, gezielte Gegenprüfung und dokumentierte Begrenzung der Regeln; [Review](review.md) |
 | Vollständige Entwicklungseingaben | Sieben Aufgaben, darunter ein sechsseitiges gerendertes PDF mit absichtlich irreführendem Diagramm |

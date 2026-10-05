@@ -1,0 +1,117 @@
+{
+  "checked_at_utc": "2026-10-05T13:00:50.812002+00:00",
+  "source": "https://github.com/timsamart/german-corporate-skills",
+  "published_commit": "42bc3fff77d1caa4de79df79244396552090f5a7",
+  "command": "npx --yes skills add timsamart/german-corporate-skills --skill '*' --agent codex --copy --yes",
+  "environment": "Windows; isolated temporary project; no global installation",
+  "skills_installed": 7,
+  "files_verified": 21,
+  "boundary": "Checks package discovery, copying and byte identity; does not test automatic host selection or task behavior.",
+  "files": [
+    {
+      "path": "skills/business-case-pruefung/references/beispiel.md",
+      "sha256": "573a42995984b98c5026912c9b06ab0395c6b9b62745dfceffc49815d9038570",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/business-case-pruefung/references/grundlagen.md",
+      "sha256": "704c6fda9a1ef9062a5f75c6810ee021dc03bcbf4902075d7832f61a8f705242",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/business-case-pruefung/SKILL.md",
+      "sha256": "f2f976edc69470cb34876f7e1c7577c7a4d3e0544caaa80ac8fd25812b9fdac7",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/entscheidungsvorlage/references/beispiel.md",
+      "sha256": "349eb8287df510aae614d7498a0831e79e8e4c5799f905b4a53be88edeb0bffd",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/entscheidungsvorlage/references/grundlagen.md",
+      "sha256": "d541e8dadf751f9b4e135e1f71058636c58d93b2e529e6105f81f77d4ee10a54",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/entscheidungsvorlage/SKILL.md",
+      "sha256": "c4fd72cdd93bfcc082ddd603dcbd72a166e56dac81d56c5af3db1cc703ed5e95",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/ergebnisprotokoll/references/beispiel.md",
+      "sha256": "a0c497b68fc6e9a1a86476bc970732b5f883a21de124b7b0a04eb1a6fa279951",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/ergebnisprotokoll/references/grundlagen.md",
+      "sha256": "d3adc90bd78ea31805d6605d98d85943081b4b464d42c8ef2f07b82a79ad6668",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/ergebnisprotokoll/SKILL.md",
+      "sha256": "1a3e6e2ee03e12e4cdbabcdd3048d26b2d4edcdac4c614186f7585cb20b5810e",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/gremienvorbereitung/references/beispiel.md",
+      "sha256": "c68fe3a92a8ce1ca9030c181aa0dac62a472e6f307cddb45613354019a30eddf",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/gremienvorbereitung/references/grundlagen.md",
+      "sha256": "042ecb412708c7e6ffc04ad328c70a5f1d2c937baad2795c0da946640aa7df1e",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/gremienvorbereitung/SKILL.md",
+      "sha256": "30531d7e6f73a0011d14ee5f356120633a78128f89d2f87c4764cb775505d67c",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/praesentations-review/references/beispiel.md",
+      "sha256": "1fa390003f4219ad86d218758c2a6cd7b349667cecd1e4dc17c25c8c73873575",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/praesentations-review/references/grundlagen.md",
+      "sha256": "22edffd970f399768315023ee82001eb28886578f786db29641036b149bf07e2",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/praesentations-review/SKILL.md",
+      "sha256": "cbbe686faa2f031f1646599ffab416f47a172cfaa3dc6296018cafc6937a056c",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/projektstatus/references/beispiel.md",
+      "sha256": "d429cb542b4263a56488ced28fecbd1fbf22b8d49876a8cf0b2a5e13f93f7564",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/projektstatus/references/grundlagen.md",
+      "sha256": "f2f9c1f0496c87237b3f77d4e4a32affd161f50d545fada4353bba820a01f854",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/projektstatus/SKILL.md",
+      "sha256": "4576ee340a6f14846d62466487967814e505e1673e5a9f5f1af0a94c3b9fc6a7",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/stakeholder-kommunikation/references/beispiel.md",
+      "sha256": "1ae28d388581742612f32b5b78921cb172d5aa574ce4c0c11ce574c9c3017bd3",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/stakeholder-kommunikation/references/grundlagen.md",
+      "sha256": "47a1ed68de45fc3ded2dc433d7492b6ed72d013dd5bb1a1e313b9ec7927ba7f8",
+      "matches_evaluated_candidate": true
+    },
+    {
+      "path": "skills/stakeholder-kommunikation/SKILL.md",
+      "sha256": "285969cde247b7288bf0b3f4e629102941f0b46d20af3ef244de52ec7d4664e5",
+      "matches_evaluated_candidate": true
+    }
+  ]
+}
