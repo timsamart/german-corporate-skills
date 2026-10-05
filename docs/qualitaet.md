@@ -11,6 +11,7 @@ Die Qualität eines Skills zeigt sich an seinem Verhalten bei einem konkreten Au
 | 16 verhaltensbezogene Testfälle | In [cases.json](../evals/cases.json) vorhanden |
 | Struktur, Metadaten, lokale Dateiverweise und Testfalldaten | Durch [validate.py](../scripts/validate.py) prüfbar; CI führt den Check aus |
 | Zahlen im Präsentations- und Business-Case-Beispiel | Bei Erstellung rechnerisch nachgeprüft |
+| Installation aus dem öffentlichen GitHub-Repository | Alle sieben Skills mit der Skills CLI in eine isolierte Codex-Projektstruktur kopiert; alle 14 Skilldateien per SHA-256 mit der Quelle verglichen |
 | Unabhängige Modellläufe und Vergleich mit einer Ausgangsversion | Noch offen |
 | Visuelle PPTX/PDF-Testfälle | Noch offen; die enthaltene Deckreferenz ist textbasiert |
 
