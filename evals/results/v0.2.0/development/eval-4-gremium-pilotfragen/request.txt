@@ -1,0 +1,4 @@
+Bereite mich auf meinen fünfminütigen Punkt im Lenkungsausschuss vor. Ich brauche einen kurzen gesprochenen Einstieg, genau drei fallbezogene kritische Fragen mit kurzen ehrlichen Antworten und eine klare Abschlussbitte. Berücksichtige Raum für Rückfragen. Maximal 450 Wörter.
+
+Input files:
+evals\fixtures\gremienvorbereitung.md

@@ -1,0 +1,23 @@
+# Prüfung für die Geschäftsführung
+
+Das Deck trägt derzeit keinen belastbaren Rolloutbeschluss. Die folgenden fünf Befunde sind nach ihrer Bedeutung für die Entscheidung geordnet.
+
+1. **F1 und F5 – Der beantragte Betrieb ist nicht freigegeben.** Die 20.000 Euro gelten ausschließlich für synthetische Tests. Kundendatenbetrieb, Betriebsverantwortung und Rolloutbudget sind offen; die ausstehende IT-Antwort ist keine Zustimmung. **Auswirkung:** Die Geschäftsführung soll einen Start beschließen, dessen Voraussetzungen und finanzieller Umfang ungeklärt sind. **Änderung:** F1 auf den tatsächlich entscheidbaren nächsten Schritt zuschneiden. F5 durch eine Statustabelle mit Freigabegegenstand, verantwortlicher Rolle, schriftlichem Nachweis und Termin ersetzen; „Alle Startvoraussetzungen erfüllt“ streichen. Januar 2027 als bedingtes Ziel kennzeichnen.
+
+2. **F2 – Falsche Prozentzahl und begrenzte Wirksamkeitsevidenz.** Von 12 auf 8,4 Minuten sind 3,6 Minuten beziehungsweise **30 %** weniger. Die 80 ausgewählten Fälle ohne Kontrollgruppe erlauben keine verlässliche Übertragung auf den Regelbetrieb. In 60 geprüften Fällen gab es sechs relevante Fehler, also **10 %**; 20 Fälle wurden nicht geprüft. Ohne Vergleichsquote ist weder bessere noch schlechtere Qualität belegt. **Auswirkung:** Nutzen und Zuverlässigkeit erscheinen gesicherter, als die Daten tragen. **Änderung:** Titel „30 % kürzere gemessene Bearbeitungszeit im synthetischen Test“. Repräsentative Vergleichsfälle, vollständige Qualitätsprüfung und Zeitmessung einschließlich Nachbearbeitung als nächsten Nachweis vorsehen.
+
+3. **F3 – Wirtschaftlichkeit überschätzt und mit Zahlungsersparnis verwechselt.** Die Rechnung lautet: 40.000 × 75 % × 3,6/60 × 50 Euro = **90.000 Euro bewertete Kapazität jährlich** beziehungsweise 1.800 Stunden. Bei voller Nutzung und unverändertem Testeffekt ergeben sich nach 45.000 Euro Betriebskosten rechnerisch 45.000 Euro jährlich; im ersten Jahr einschließlich 90.000 Euro Einführung **−45.000 Euro**. Ein späterer Anlauf verschlechtert dies. Ohne Budgetabbau oder vermiedene Einstellungen ist keine zahlungswirksame Einsparung nachgewiesen. **Auswirkung:** Die behaupteten 300.000 Euro und garantierte Amortisation begründen einen falschen Investitionsanreiz. **Änderung:** Garantie streichen; Kapazität, tatsächliche Kosten und realisierbare Zahlungswirkung getrennt zeigen. Fallzahl, Nutzung und Nachbearbeitung mit Szenarien prüfen; die Behandlung der bisherigen 20.000 Euro klären.
+
+4. **F4 – Die sichtbaren Balken überzeichnen den Zeitgewinn.** Die Minutenachse beginnt bei **8**. Dadurch stehen sichtbare Balkenhöhen von 4 und 0,4 Minuten im Verhältnis 10:1; dies suggeriert etwa 90 % statt tatsächlich 30 % Rückgang. Die Zahlenbeschriftung korrigiert diesen visuellen Eindruck nicht. **Auswirkung:** Die Grafik verführt zur Überschätzung des Nutzens. **Änderung:** Balken bei null beginnen lassen; 12 und 8,4 direkt beschriften und „−3,6 Minuten / −30 %“ ergänzen. „80 ausgewählte synthetische Fälle, ohne Kontrollgruppe und Nachbearbeitung“ sichtbar neben die Aussage setzen. Streuung nur ergänzen, wenn entsprechende Daten vorliegen.
+
+5. **F6 – Wertende Optionen ersetzen den Vergleich.** „Stillstand“, „zögerlich“ und „zukunftsfähig“ lenken zum Rollout; ein nächster Prüfpunkt fehlt. Die langen Fließtexte auf F1–F3 und F5–F6 erschweren zusätzlich die Entscheidung in zehn Minuten. **Auswirkung:** Die Sitzung endet leicht mit Zustimmung zur Richtung statt einem ausführbaren Beschluss. **Änderung:** Fortführung, begrenzten Pilot und Rollout anhand derselben Kriterien vergleichen: Kosten, Kapazitätsnutzen, Qualität, Freigaben und Reversibilität. Pro Folie eine Kernaussage mit wenigen Belegen; etwa drei Minuten für Beschluss und Rückfragen reservieren.
+
+## Vorschlag für F6
+
+**Validierung beauftragen – Rollout nach Nachweis entscheiden**
+
+**Beschluss heute:** Begrenzte Validierung mit synthetischen Daten innerhalb der bestehenden Freigabe und des bestätigten Restbudgets. Ein Kundendatenpilot benötigt eine gesonderte Freigabe. Der Rollout bleibt offen.
+
+**Auftrag:** Fachbereich verantwortet Vergleichstest und Nutzenrechnung; IT klärt Betriebsmodell, Kosten und Betriebsverantwortung; Datenschutz bewertet den vorgesehenen Kundendatenbetrieb. Personen und Termine werden im Beschluss benannt.
+
+**Nächster Prüfpunkt:** Vorschlag: sechs Wochen nach Beauftragung. Vorgelegt werden Gesamtzeit einschließlich Nachbearbeitung, vergleichbare Fehlerquoten, Nutzungspotenzial, vollständiges Budget und dokumentierte Freigaben. Messverfahren und Akzeptanzgrenzen werden vor Testbeginn festgelegt. Bei fehlenden Nachweisen wird der Rollout vertagt; bei negativen Ergebnissen wird angepasst oder beendet. Januar bleibt ein bedingtes Ziel.

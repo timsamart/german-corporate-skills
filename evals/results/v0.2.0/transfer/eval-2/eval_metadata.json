@@ -1,0 +1,64 @@
+{
+  "eval_id": 2,
+  "eval_name": "heldout-transfer-T02",
+  "skill": "business-case-pruefung",
+  "source_case_id": "T02",
+  "split": "author_hidden_transfer",
+  "synthetic": true,
+  "prompt": "Prüfe Wirtschaftlichkeitsbehauptung in T02-input.md. Zeige nachvollziehbare Jahresrechnung und einfache Zahlungsamortisation. Trenne Kapazität und Auszahlungen. Rechne zwei verlangte Wartungssensitivitäten ohne weitere Kosten oder Annahmen.",
+  "input_files": [
+    "evals/results/v0.2.0/transfer/source/T02-input.md"
+  ],
+  "assertions": [
+    {
+      "id": "T02-volume",
+      "text": "3.780 m3 jährlich substituiert, vermiedener Bezug 12.096 Euro.",
+      "critical": true,
+      "type": "numeric"
+    },
+    {
+      "id": "T02-cost",
+      "text": "Filter 3.402 Euro, Sensor 1.080 Euro jährlich, laufende Kosten gesamt 7.982 Euro.",
+      "critical": true,
+      "type": "numeric"
+    },
+    {
+      "id": "T02-net",
+      "text": "Finanzieller Nettojahresnutzen 4.114 Euro; 32.912 / 4.114 = acht Jahre.",
+      "critical": true,
+      "type": "numeric"
+    },
+    {
+      "id": "T02-capacity",
+      "text": "7.560 Euro Kapazitätsäquivalent aus 180 h * 42 Euro, ohne Zahlungsrealisierung nicht in Cash-Nutzen/Amortisation.",
+      "critical": true,
+      "type": "numeric_semantic"
+    },
+    {
+      "id": "T02-sensitivity",
+      "text": "Wartung 2.600: Netto 5.014, Amortisation ca. 6,56 Jahre; Wartung 4.400: Netto 3.214, ca. 10,24 Jahre; vernünftige Rundung akzeptiert.",
+      "critical": false,
+      "type": "numeric"
+    },
+    {
+      "id": "T02-plan",
+      "text": "30 % und Jahreswirkungen sichtbar Planannahmen; 21 Tage nicht als Jahresbetriebsbeleg.",
+      "critical": true,
+      "type": "semantic"
+    },
+    {
+      "id": "T02-claim",
+      "text": "19.656 Euro und Dreijahres-Cash-Amortisation kritisch wegen Kapazitätsmonetarisierung und verborgenem Kostenabzug.",
+      "critical": false,
+      "type": "semantic"
+    },
+    {
+      "id": "T02-scope",
+      "text": "Keine unprovided Zusatzkosten, Diskontsatz, Steuern, Personalabbau oder Freigabe erfunden.",
+      "critical": false,
+      "type": "semantic"
+    }
+  ],
+  "candidate_frozen_at_utc": "2026-10-05T11:57:43.871314Z",
+  "fixture_frozen_at_utc": "2026-10-05T11:51:53Z"
+}

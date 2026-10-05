@@ -26,7 +26,11 @@ Lies den Zusammenhang einer Aussage, einschließlich späterer Korrekturen. Tren
 
 Formuliere Beschlüsse inhaltlich präzise. Erhalte Umfang, Bedingungen, Gegenstimmen oder Vorbehalte, soweit sie relevant und dokumentiert sind. Behaupte keine rechtliche Wirksamkeit. Fasse Diskussionen nur soweit zusammen, wie sie ein Ergebnis oder einen offenen Punkt erklären.
 
+Erhalte entscheidungsrelevante Gründe, wenn das Material sie nennt. Bei möglicherweise falsch erkannten Beträgen, Daten oder Namen kennzeichne die Unklarheit und prüfe verfügbare Gegenquellen. Wähle nicht stillschweigend die plausibelste Transkriptvariante.
+
 Jede bestätigte Maßnahme erhält eine Handlung, einen Verantwortlichen und eine Frist, soweit zugesagt. Bleibt ein Feld offen, kennzeichne es. Bei einer unklaren Zusage markiere den Eintrag als „Bestätigung erforderlich“.
+
+Erhalte Bedingungen einer Zusage: „bis Freitag, wenn Dienstag der Zugang vorliegt“ ist keine unbedingte Freitagsfrist. Eine Zusage braucht keine formelle Beschlussformel; ihre Bedeutung ergibt sich aus dem Kontext. Unterscheide Übernahme durch den Verantwortlichen von einer bloßen Zuweisung durch jemand anderen, soweit die belegten Sitzungsregeln dies verlangen.
 
 Überführe relative Termine nur mit gesichertem Sitzungsdatum und eindeutigem Bezug in ein Datum. „Bis Freitag“ bleibt ungeklärt, wenn die betreffende Woche offen ist. Verweise bei strittigen oder folgenreichen Einträgen auf Zeitstempel, Absatz oder Notizpunkt.
 
@@ -36,6 +40,8 @@ Wenn mehrere Quellen widersprechen, kennzeichne den Widerspruch. Erfinde keine e
 
 Liefere auf Deutsch ein zur Prüfung verwendbares Ergebnisprotokoll:
 
+Kennzeichne es als Entwurf aus dem vorliegenden Material. Einen geprüften oder bestätigten Status darfst du nur mit Beleg übernehmen.
+
 1. Sitzungsdaten und Prüfgrundlage.
 2. Bestätigte Beschlüsse mit Bedingungen.
 3. Maßnahmenliste: ID, Handlung, Verantwortlicher, Frist, Status und bei Bedarf Fundstelle.
@@ -44,3 +50,5 @@ Liefere auf Deutsch ein zur Prüfung verwendbares Ergebnisprotokoll:
 Halte eigene Empfehlungen außerhalb des protokollierten Ergebnisses und kennzeichne sie. Übernimm sensible oder persönliche Nebenbemerkungen nur, wenn sie für den Protokollzweck erforderlich sind. Die Bitte um ein Protokoll umfasst nicht dessen Versand.
 
 Lies [das Beispiel](references/beispiel.md), wenn ein unverbindlicher Vorschlag leicht mit einem Beschluss verwechselt werden könnte.
+
+Lies bei Bedarf [Grundlagen](references/grundlagen.md) für Dokumentationszweck und Prüfgrenzen.

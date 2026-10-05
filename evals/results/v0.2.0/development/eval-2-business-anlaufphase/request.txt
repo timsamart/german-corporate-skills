@@ -1,0 +1,4 @@
+Prüfe diesen Business Case für die Geschäftsführung. Zeige die korrekte Rechnung über den vorgegebenen Dreijahreszeitraum, benenne die entscheidenden Fehlbehauptungen und die nötigen Nachweise. Maximal 500 Wörter; keine fehlenden Werte ergänzen.
+
+Input files:
+evals\fixtures\business-case-pruefung.md

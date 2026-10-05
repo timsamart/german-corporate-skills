@@ -1,0 +1,46 @@
+{
+  "expectations": [
+    {
+      "text": "Begrenzt Bitte und Abschluss auf den vierwöchigen Pilot mit synthetischen Daten und 12.000 Euro extern; keine heutige Rolloutbindung.",
+      "passed": true,
+      "evidence": "„12.000 Euro externe Mittel für einen vierwöchigen Test mit synthetischen Daten“ und „Die heutige Freigabe umfasst ausschließlich den Test.“ Die Abschlussbitte bleibt beim gleichen Testumfang; der Zweijahresvertrag wird nur für eine spätere gesonderte Rolloutentscheidung genannt."
+    },
+    {
+      "text": "IT-Schweigen bleibt ausstehende Rückmeldung; Kapazität von 20 Personentagen und Testverantwortung werden nicht als gesichert dargestellt.",
+      "passed": true,
+      "evidence": "„Deren Verfügbarkeit ist noch offen; auch die Rückmeldung der IT fehlt“ sowie „Dass IT das Briefing erhalten hat, ist keine Zustimmung.“ Die geschätzten 20 Personentage bleiben unbestätigt; Zielwerte und eine verantwortliche Person sind vor Start zu klären."
+    },
+    {
+      "text": "CFO-Antwort unterscheidet Kapazität und Cash; die Datenschutzprüfung für synthetische Daten wird nicht auf Kundendaten erweitert.",
+      "passed": true,
+      "evidence": "„Die Kapazitätsrechnung beschreibt mögliche freie Arbeitszeit; daraus folgt noch keine geringere Ausgabe.“ Außerdem: „sie gilt ausdrücklich nicht für Kundendatenbetrieb.“ Die Antwort trennt Kapazitätsgewinn von Cash-Einsparung und wahrt die schriftlich begrenzte Datenschutzaussage."
+    },
+    {
+      "text": "Genau drei konkrete Einwände/Antworten tragen die maßgeblichen offenen Punkte; Prüfkriterien und nächste Freigabe bleiben offen oder sichtbar vorgeschlagen.",
+      "passed": true,
+      "evidence": "Es gibt genau drei nummerierte Fragen zu Finanznutzen, Startfähigkeit und Rollout/Vertrag. Die Antworten tragen die offenen Ressourcen, IT-Rückmeldung und Messziele. „Deshalb schlage ich eine Freigabe mit Bedingungen vor“ kennzeichnet die vorgeschlagene Freigabelogik; eine gesonderte Rolloutentscheidung bleibt erforderlich."
+    },
+    {
+      "text": "Gesprochener Einstieg und Abschluss sind kurz verwendbar, der Zeitplan lässt Rückfragen zu und die Ausgabe bleibt unter 450 Wörtern.",
+      "passed": true,
+      "evidence": "Der Einstieg und „Geben Sie die 12.000 Euro ... unter der Bedingung frei ...?“ sind als gesprochener Text verwendbar. „Die verbleibenden rund zwei Minuten stehen für Rückfragen und die Entscheidung zur Verfügung“ reserviert explizit Rückfragezeit. Unabhängig gezählt: 376 Wörter, unter 450."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Die Ausgabe hat 376 Wörter nach der vorgegebenen Zählregel.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Unabhängig am gespeicherten output.md gezählt: durch Leerraum getrennte Einheiten mit mindestens einem Unicode-Buchstaben oder einer Ziffer; reine Markdown-Marker nicht gezählt."
+    }
+  ],
+  "review_notes": [
+    "Fachliche Aussagen wurden gegen das jeweilige synthetische Source-Fixture geprüft. Die execution.md-Datei ist ein selbst berichteter Werkzeugnachweis, kein vollständiger Ausführungstrace; daraus wurden keine Modell-, Token- oder Zeitmetriken abgeleitet."
+  ]
+}

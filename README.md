@@ -4,9 +4,9 @@
 
 Für Führungskräfte, Projektleitungen und Consultants, die mit KI an echten Arbeitsunterlagen arbeiten: Ein Deck braucht belastbare Aussagen. Eine Entscheidung braucht klare Optionen. Nach einer Sitzung muss erkennbar sein, wer was tatsächlich zugesagt hat.
 
-Die Skills geben einem KI-Agenten konkrete Prüfkriterien, Arbeitsabläufe und Ausgabeformen. Jeder Skill enthält ein vollständig synthetisches, nachvollziehbares Beispiel und lässt sich einzeln verwenden.
+Die Skills geben einem KI-Agenten konkrete Prüfkriterien, Arbeitsabläufe und Ausgabeformen. Jeder Skill enthält ein vollständig synthetisches, nachvollziehbares Beispiel und eine kurze Quellenreferenz mit Anwendungsgrenzen. Alle sieben lassen sich einzeln verwenden.
 
-[English overview](README.en.md) · [Beispiele und Testfälle](docs/qualitaet.md) · [MIT-Lizenz](LICENSE)
+[English overview](README.en.md) · [Recherche](docs/research/README.md) · [Entstehungsprozess](docs/skill-lifecycle.md) · [Prüfergebnisse](docs/qualitaet.md)
 
 ## Der schnellste Einstieg: ein Deck prüfen
 
@@ -93,7 +93,9 @@ Verwende Unternehmensunterlagen in einer dafür zugelassenen Umgebung. Nachricht
 
 ## Qualität und Weiterentwicklung
 
-Version **0.1.0** enthält sieben Skills, sieben ausgearbeitete Beispiele und 16 verhaltensbezogene Testfälle. Der Repositorycheck prüft Paketstruktur, Metadaten, lokale Verweise und Testfalldaten. Die Beispiele sind redaktionelle Referenzen. Ein unabhängiger Benchmark verschiedener Modelle ist noch offen. Der Prüfstatus und das Vorgehen stehen in [Qualität und Evaluation](docs/qualitaet.md).
+Version **0.2.0** enthält sieben Skills, sieben Beispiele und Quellenreferenzen, drei Forschungsdossiers und den dokumentierten Entwicklungsprozess. **28 tatsächliche Aufgabenausgaben** sind öffentlich nachvollziehbar: sieben Aufgaben jeweils mit alter Version, neuer Version und gewöhnlichem Prompting; dazu sieben reservierte Transferfälle. Die [Ergebnisse und Grenzen](docs/qualitaet.md) zeigen konkrete Vollständigkeitsunterschiede, gute Baselines und den noch offenen Schritt zur Prüfung mit echten Nutzern.
+
+Der Repositorycheck prüft Paketstruktur, Metadaten, lokale Verweise und Testdaten. CI zählt die gespeicherten Bewertungen nach. Die ursprünglichen 16 Kurzfälle sind ergänzende Regressionstestspezifikationen. Die Sammlung behauptet keinen allgemeinen Erfolgsprozentsatz.
 
 Beiträge sind willkommen, insbesondere reale, anonymisierte Fehlermuster und dokumentierte Verbesserungen. Lies [CONTRIBUTING.md](CONTRIBUTING.md). Bitte keine vertraulichen Unternehmensunterlagen in öffentliche Issues oder Pull Requests aufnehmen.
 

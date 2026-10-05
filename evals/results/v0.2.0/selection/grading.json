@@ -1,0 +1,581 @@
+{
+  "kind": "Description classification proxy, not observed host skill loading.",
+  "configurations": {
+    "old_skill": {
+      "passed": 28,
+      "total": 28,
+      "negative_passed": 7,
+      "negative_total": 7,
+      "decisions": [
+        {
+          "id": 1,
+          "expected": [
+            "praesentations-review"
+          ],
+          "actual": [
+            "praesentations-review"
+          ],
+          "passed": true,
+          "reason": "Expliziter Auftrag zum Präsentationsreview."
+        },
+        {
+          "id": 2,
+          "expected": [
+            "praesentations-review"
+          ],
+          "actual": [
+            "praesentations-review"
+          ],
+          "passed": true,
+          "reason": "Argumentationsprüfung und konkrete Folienänderungen."
+        },
+        {
+          "id": 3,
+          "expected": [
+            "praesentations-review"
+          ],
+          "actual": [
+            "praesentations-review"
+          ],
+          "passed": true,
+          "reason": "Inhaltliche Prüfung von Klarheit, Zahlen und Diagrammen eines Decks."
+        },
+        {
+          "id": 4,
+          "expected": [],
+          "actual": [],
+          "passed": true,
+          "reason": "Ausschließlich Schriftänderung ohne inhaltliches Review."
+        },
+        {
+          "id": 5,
+          "expected": [
+            "business-case-pruefung"
+          ],
+          "actual": [
+            "business-case-pruefung"
+          ],
+          "passed": true,
+          "reason": "Explizite Prüfung einer Wirtschaftlichkeitsrechnung."
+        },
+        {
+          "id": 6,
+          "expected": [
+            "business-case-pruefung"
+          ],
+          "actual": [
+            "business-case-pruefung"
+          ],
+          "passed": true,
+          "reason": "Belastbarkeit von Einsparungen und Amortisation prüfen."
+        },
+        {
+          "id": 7,
+          "expected": [
+            "business-case-pruefung"
+          ],
+          "actual": [
+            "business-case-pruefung"
+          ],
+          "passed": true,
+          "reason": "Kapazitätsgewinn, Kosten und Zahlungsnutzen wirtschaftlich prüfen."
+        },
+        {
+          "id": 8,
+          "expected": [],
+          "actual": [],
+          "passed": true,
+          "reason": "Einfache Addition ohne fachliche Prüfung."
+        },
+        {
+          "id": 9,
+          "expected": [
+            "entscheidungsvorlage"
+          ],
+          "actual": [
+            "entscheidungsvorlage"
+          ],
+          "passed": true,
+          "reason": "Explizite Entscheidungsvorlage zum Optionsvergleich."
+        },
+        {
+          "id": 10,
+          "expected": [
+            "entscheidungsvorlage"
+          ],
+          "actual": [
+            "entscheidungsvorlage"
+          ],
+          "passed": true,
+          "reason": "Beschluss mit Optionsvergleich und Freigabebedingungen erstellen."
+        },
+        {
+          "id": 11,
+          "expected": [
+            "entscheidungsvorlage"
+          ],
+          "actual": [
+            "entscheidungsvorlage"
+          ],
+          "passed": true,
+          "reason": "Einseitige Entscheidungsvorlage für den Vorstand erstellen."
+        },
+        {
+          "id": 12,
+          "expected": [],
+          "actual": [],
+          "passed": true,
+          "reason": "Einzelwortübersetzung ohne Entscheidungsvorlage."
+        },
+        {
+          "id": 13,
+          "expected": [
+            "gremienvorbereitung"
+          ],
+          "actual": [
+            "gremienvorbereitung"
+          ],
+          "passed": true,
+          "reason": "Explizite Vorbereitung auf einen Lenkungsausschuss."
+        },
+        {
+          "id": 14,
+          "expected": [
+            "gremienvorbereitung"
+          ],
+          "actual": [
+            "gremienvorbereitung"
+          ],
+          "passed": true,
+          "reason": "Kritische Gremienfragen und belegbare Antworten vorbereiten."
+        },
+        {
+          "id": 15,
+          "expected": [
+            "gremienvorbereitung"
+          ],
+          "actual": [
+            "gremienvorbereitung"
+          ],
+          "passed": true,
+          "reason": "Gesprochenen Einstieg, Antworten und klare Abschlussbitte vorbereiten."
+        },
+        {
+          "id": 16,
+          "expected": [],
+          "actual": [],
+          "passed": true,
+          "reason": "Teilnehmerzahl zählen ohne Sitzungsvorbereitung."
+        },
+        {
+          "id": 17,
+          "expected": [
+            "projektstatus"
+          ],
+          "actual": [
+            "projektstatus"
+          ],
+          "passed": true,
+          "reason": "Expliziter Auftrag für einen Ampelbericht."
+        },
+        {
+          "id": 18,
+          "expected": [
+            "projektstatus"
+          ],
+          "actual": [
+            "projektstatus"
+          ],
+          "passed": true,
+          "reason": "Termine, Prognose, Kosten und Probleme zum Managementstatus verdichten."
+        },
+        {
+          "id": 19,
+          "expected": [
+            "projektstatus"
+          ],
+          "actual": [
+            "projektstatus"
+          ],
+          "passed": true,
+          "reason": "Meilensteinabweichung mit Unterstützungsbedarf berichten."
+        },
+        {
+          "id": 20,
+          "expected": [],
+          "actual": [],
+          "passed": true,
+          "reason": "Reine Dateikonvertierung ohne Analyse oder Statusbericht."
+        },
+        {
+          "id": 21,
+          "expected": [
+            "ergebnisprotokoll"
+          ],
+          "actual": [
+            "ergebnisprotokoll"
+          ],
+          "passed": true,
+          "reason": "Explizites Ergebnisprotokoll aus einem Transkript."
+        },
+        {
+          "id": 22,
+          "expected": [
+            "ergebnisprotokoll"
+          ],
+          "actual": [
+            "ergebnisprotokoll"
+          ],
+          "passed": true,
+          "reason": "Beschlüsse, übernommene Aufgaben und Fristen als Maßnahmenliste festhalten."
+        },
+        {
+          "id": 23,
+          "expected": [
+            "ergebnisprotokoll"
+          ],
+          "actual": [
+            "ergebnisprotokoll"
+          ],
+          "passed": true,
+          "reason": "Tatsächliche Sitzungsergebnisse unter Berücksichtigung von Korrekturen festhalten."
+        },
+        {
+          "id": 24,
+          "expected": [],
+          "actual": [],
+          "passed": true,
+          "reason": "Wortgetreue Audiotranskription ohne Protokoll oder Zusammenfassung."
+        },
+        {
+          "id": 25,
+          "expected": [
+            "stakeholder-kommunikation"
+          ],
+          "actual": [
+            "stakeholder-kommunikation"
+          ],
+          "passed": true,
+          "reason": "Expliziter Auftrag für eine diplomatische Mail."
+        },
+        {
+          "id": 26,
+          "expected": [
+            "stakeholder-kommunikation"
+          ],
+          "actual": [
+            "stakeholder-kommunikation"
+          ],
+          "passed": true,
+          "reason": "Arbeitsnachricht sprachlich verbessern und Zusagen bewahren."
+        },
+        {
+          "id": 27,
+          "expected": [
+            "stakeholder-kommunikation"
+          ],
+          "actual": [
+            "stakeholder-kommunikation"
+          ],
+          "passed": true,
+          "reason": "Sachliche Klärungsbitte für einen Kostenkonflikt formulieren."
+        },
+        {
+          "id": 28,
+          "expected": [],
+          "actual": [],
+          "passed": true,
+          "reason": "Privates Gedicht ohne Unternehmenskommunikation."
+        }
+      ]
+    },
+    "new_skill": {
+      "passed": 28,
+      "total": 28,
+      "negative_passed": 7,
+      "negative_total": 7,
+      "decisions": [
+        {
+          "id": 1,
+          "expected": [
+            "praesentations-review"
+          ],
+          "actual": [
+            "praesentations-review"
+          ],
+          "passed": true,
+          "reason": "Explicit request to review a deck."
+        },
+        {
+          "id": 2,
+          "expected": [
+            "praesentations-review"
+          ],
+          "actual": [
+            "praesentations-review"
+          ],
+          "passed": true,
+          "reason": "Review deck argument and propose concrete slide changes."
+        },
+        {
+          "id": 3,
+          "expected": [
+            "praesentations-review"
+          ],
+          "actual": [
+            "praesentations-review"
+          ],
+          "passed": true,
+          "reason": "Review training slides for clarity, numbers and charts."
+        },
+        {
+          "id": 4,
+          "expected": [],
+          "actual": [],
+          "passed": true,
+          "reason": "Font replacement only; no presentation content review requested."
+        },
+        {
+          "id": 5,
+          "expected": [
+            "business-case-pruefung"
+          ],
+          "actual": [
+            "business-case-pruefung"
+          ],
+          "passed": true,
+          "reason": "Explicit request to examine an economic calculation."
+        },
+        {
+          "id": 6,
+          "expected": [
+            "business-case-pruefung"
+          ],
+          "actual": [
+            "business-case-pruefung"
+          ],
+          "passed": true,
+          "reason": "Validate savings claims and payback arithmetic."
+        },
+        {
+          "id": 7,
+          "expected": [
+            "business-case-pruefung"
+          ],
+          "actual": [
+            "business-case-pruefung"
+          ],
+          "passed": true,
+          "reason": "Check capacity gains, assumptions, recurring costs and cash benefits."
+        },
+        {
+          "id": 8,
+          "expected": [],
+          "actual": [],
+          "passed": true,
+          "reason": "Simple addition does not require a corporate review skill."
+        },
+        {
+          "id": 9,
+          "expected": [
+            "entscheidungsvorlage"
+          ],
+          "actual": [
+            "entscheidungsvorlage"
+          ],
+          "passed": true,
+          "reason": "Explicit request for a decision memo comparing contract options."
+        },
+        {
+          "id": 10,
+          "expected": [
+            "entscheidungsvorlage"
+          ],
+          "actual": [
+            "entscheidungsvorlage"
+          ],
+          "passed": true,
+          "reason": "Draft a resolution, comparable options and approval conditions."
+        },
+        {
+          "id": 11,
+          "expected": [
+            "entscheidungsvorlage"
+          ],
+          "actual": [
+            "entscheidungsvorlage"
+          ],
+          "passed": true,
+          "reason": "Create a one-page board decision memo from facts."
+        },
+        {
+          "id": 12,
+          "expected": [],
+          "actual": [],
+          "passed": true,
+          "reason": "Single-word translation is outside the supplied skills."
+        },
+        {
+          "id": 13,
+          "expected": [
+            "gremienvorbereitung"
+          ],
+          "actual": [
+            "gremienvorbereitung"
+          ],
+          "passed": true,
+          "reason": "Explicit request for steering committee preparation."
+        },
+        {
+          "id": 14,
+          "expected": [
+            "gremienvorbereitung"
+          ],
+          "actual": [
+            "gremienvorbereitung"
+          ],
+          "passed": true,
+          "reason": "Prepare critical committee questions and evidence-based answers."
+        },
+        {
+          "id": 15,
+          "expected": [
+            "gremienvorbereitung"
+          ],
+          "actual": [
+            "gremienvorbereitung"
+          ],
+          "passed": true,
+          "reason": "Prepare a spoken opening, answers and closing ask."
+        },
+        {
+          "id": 16,
+          "expected": [],
+          "actual": [],
+          "passed": true,
+          "reason": "Counting names does not require meeting preparation."
+        },
+        {
+          "id": 17,
+          "expected": [
+            "projektstatus"
+          ],
+          "actual": [
+            "projektstatus"
+          ],
+          "passed": true,
+          "reason": "Explicit request for a project traffic-light report."
+        },
+        {
+          "id": 18,
+          "expected": [
+            "projektstatus"
+          ],
+          "actual": [
+            "projektstatus"
+          ],
+          "passed": true,
+          "reason": "Summarize baseline, forecast, costs and issues as project status."
+        },
+        {
+          "id": 19,
+          "expected": [
+            "projektstatus"
+          ],
+          "actual": [
+            "projektstatus"
+          ],
+          "passed": true,
+          "reason": "Report a missed milestone and required management support."
+        },
+        {
+          "id": 20,
+          "expected": [],
+          "actual": [],
+          "passed": true,
+          "reason": "File format conversion without analysis is outside the supplied skills."
+        },
+        {
+          "id": 21,
+          "expected": [
+            "ergebnisprotokoll"
+          ],
+          "actual": [
+            "ergebnisprotokoll"
+          ],
+          "passed": true,
+          "reason": "Explicit request for meeting minutes from a transcript."
+        },
+        {
+          "id": 22,
+          "expected": [
+            "ergebnisprotokoll"
+          ],
+          "actual": [
+            "ergebnisprotokoll"
+          ],
+          "passed": true,
+          "reason": "Produce an action log with decisions, owners and deadlines."
+        },
+        {
+          "id": 23,
+          "expected": [
+            "ergebnisprotokoll"
+          ],
+          "actual": [
+            "ergebnisprotokoll"
+          ],
+          "passed": true,
+          "reason": "Record actual meeting outcomes while distinguishing proposals and corrections."
+        },
+        {
+          "id": 24,
+          "expected": [],
+          "actual": [],
+          "passed": true,
+          "reason": "Verbatim audio transcription explicitly excludes minutes or summary."
+        },
+        {
+          "id": 25,
+          "expected": [
+            "stakeholder-kommunikation"
+          ],
+          "actual": [
+            "stakeholder-kommunikation"
+          ],
+          "passed": true,
+          "reason": "Explicit request for a diplomatic workplace email."
+        },
+        {
+          "id": 26,
+          "expected": [
+            "stakeholder-kommunikation"
+          ],
+          "actual": [
+            "stakeholder-kommunikation"
+          ],
+          "passed": true,
+          "reason": "Revise stakeholder message tone and clarity while preserving commitments."
+        },
+        {
+          "id": 27,
+          "expected": [
+            "stakeholder-kommunikation"
+          ],
+          "actual": [
+            "stakeholder-kommunikation"
+          ],
+          "passed": true,
+          "reason": "Draft a formal, factual clarification request about a cost conflict."
+        },
+        {
+          "id": 28,
+          "expected": [],
+          "actual": [],
+          "passed": true,
+          "reason": "A poem for a child is outside the supplied corporate skills."
+        }
+      ]
+    }
+  }
+}

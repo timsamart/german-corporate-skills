@@ -1,0 +1,32 @@
+{
+  "selections": [
+    {"id": 1, "skills": ["praesentations-review"], "reason": "Expliziter Auftrag zum Präsentationsreview."},
+    {"id": 2, "skills": ["praesentations-review"], "reason": "Argumentationsprüfung und konkrete Folienänderungen."},
+    {"id": 3, "skills": ["praesentations-review"], "reason": "Inhaltliche Prüfung von Klarheit, Zahlen und Diagrammen eines Decks."},
+    {"id": 4, "skills": [], "reason": "Ausschließlich Schriftänderung ohne inhaltliches Review."},
+    {"id": 5, "skills": ["business-case-pruefung"], "reason": "Explizite Prüfung einer Wirtschaftlichkeitsrechnung."},
+    {"id": 6, "skills": ["business-case-pruefung"], "reason": "Belastbarkeit von Einsparungen und Amortisation prüfen."},
+    {"id": 7, "skills": ["business-case-pruefung"], "reason": "Kapazitätsgewinn, Kosten und Zahlungsnutzen wirtschaftlich prüfen."},
+    {"id": 8, "skills": [], "reason": "Einfache Addition ohne fachliche Prüfung."},
+    {"id": 9, "skills": ["entscheidungsvorlage"], "reason": "Explizite Entscheidungsvorlage zum Optionsvergleich."},
+    {"id": 10, "skills": ["entscheidungsvorlage"], "reason": "Beschluss mit Optionsvergleich und Freigabebedingungen erstellen."},
+    {"id": 11, "skills": ["entscheidungsvorlage"], "reason": "Einseitige Entscheidungsvorlage für den Vorstand erstellen."},
+    {"id": 12, "skills": [], "reason": "Einzelwortübersetzung ohne Entscheidungsvorlage."},
+    {"id": 13, "skills": ["gremienvorbereitung"], "reason": "Explizite Vorbereitung auf einen Lenkungsausschuss."},
+    {"id": 14, "skills": ["gremienvorbereitung"], "reason": "Kritische Gremienfragen und belegbare Antworten vorbereiten."},
+    {"id": 15, "skills": ["gremienvorbereitung"], "reason": "Gesprochenen Einstieg, Antworten und klare Abschlussbitte vorbereiten."},
+    {"id": 16, "skills": [], "reason": "Teilnehmerzahl zählen ohne Sitzungsvorbereitung."},
+    {"id": 17, "skills": ["projektstatus"], "reason": "Expliziter Auftrag für einen Ampelbericht."},
+    {"id": 18, "skills": ["projektstatus"], "reason": "Termine, Prognose, Kosten und Probleme zum Managementstatus verdichten."},
+    {"id": 19, "skills": ["projektstatus"], "reason": "Meilensteinabweichung mit Unterstützungsbedarf berichten."},
+    {"id": 20, "skills": [], "reason": "Reine Dateikonvertierung ohne Analyse oder Statusbericht."},
+    {"id": 21, "skills": ["ergebnisprotokoll"], "reason": "Explizites Ergebnisprotokoll aus einem Transkript."},
+    {"id": 22, "skills": ["ergebnisprotokoll"], "reason": "Beschlüsse, übernommene Aufgaben und Fristen als Maßnahmenliste festhalten."},
+    {"id": 23, "skills": ["ergebnisprotokoll"], "reason": "Tatsächliche Sitzungsergebnisse unter Berücksichtigung von Korrekturen festhalten."},
+    {"id": 24, "skills": [], "reason": "Wortgetreue Audiotranskription ohne Protokoll oder Zusammenfassung."},
+    {"id": 25, "skills": ["stakeholder-kommunikation"], "reason": "Expliziter Auftrag für eine diplomatische Mail."},
+    {"id": 26, "skills": ["stakeholder-kommunikation"], "reason": "Arbeitsnachricht sprachlich verbessern und Zusagen bewahren."},
+    {"id": 27, "skills": ["stakeholder-kommunikation"], "reason": "Sachliche Klärungsbitte für einen Kostenkonflikt formulieren."},
+    {"id": 28, "skills": [], "reason": "Privates Gedicht ohne Unternehmenskommunikation."}
+  ]
+}

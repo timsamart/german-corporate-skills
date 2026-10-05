@@ -1,0 +1,6 @@
+Prüfe dieses sechsseitige Deck für die Geschäftsführung. Beantragt wird ein Rollout; für die Sitzung sind zehn Minuten vorgesehen. Prüfe Inhalt und die sichtbare Diagrammdarstellung. Liefere die fünf wichtigsten Befunde mit Foliennummer, Auswirkung und konkreter Änderung sowie einen belastbaren Vorschlag für die Abschlussfolie. Maximal 650 Wörter. Die Dateien enthalten vollständig synthetische Unterlagen.
+
+Input files:
+evals\fixtures\praesentations-review.md
+evals\fixtures\serviceassistenz-deck.pdf
+evals\fixtures\serviceassistenz-chart.png

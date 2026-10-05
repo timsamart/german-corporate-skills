@@ -1,0 +1,46 @@
+{
+  "expectations": [
+    {
+      "text": "Begrenzt Bitte und Abschluss auf den vierwöchigen Pilot mit synthetischen Daten und 12.000 Euro extern; keine heutige Rolloutbindung.",
+      "passed": true,
+      "evidence": "„12.000 Euro externen Mitteln für einen vierwöchigen Test mit synthetischen Daten“ sowie „Einen Rollout beantrage ich heute nicht.“ Der Abschluss fragt nach „diesem begrenzten Test“ und einer „gesonderten Entscheidung über einen späteren Rollout“."
+    },
+    {
+      "text": "IT-Schweigen bleibt ausstehende Rückmeldung; Kapazität von 20 Personentagen und Testverantwortung werden nicht als gesichert dargestellt.",
+      "passed": true,
+      "evidence": "„geschätzt 20 interne Personentage; ihre Verfügbarkeit ist offen“ sowie „IT hat noch nicht geantwortet. Die Durchführung kann ich deshalb noch nicht zusagen.“ Zielwerte und eine verantwortliche Person sollen erst vor Start feststehen; keine gesicherte Testverantwortung wird behauptet."
+    },
+    {
+      "text": "CFO-Antwort unterscheidet Kapazität und Cash; die Datenschutzprüfung für synthetische Daten wird nicht auf Kundendaten erweitert.",
+      "passed": true,
+      "evidence": "„Freie Kapazität ist noch keine Geldersparnis“ beantwortet den CFO-Einwand ehrlich. Datenschutz hat nur „den synthetischen Datenumfang schriftlich für diesen Test bestätigt, ausdrücklich ohne Aussage zum Kundendatenbetrieb“."
+    },
+    {
+      "text": "Genau drei konkrete Einwände/Antworten tragen die maßgeblichen offenen Punkte; Prüfkriterien und nächste Freigabe bleiben offen oder sichtbar vorgeschlagen.",
+      "passed": true,
+      "evidence": "Genau drei Fragen behandeln Finanznutzen, vollständigen Aufwand/Startfähigkeit und Rolloutvertrag/Datenschutz. „Das sind vorgeschlagene Startbedingungen“ lässt Kriterien und Benennung offen. Die Vertragsprüfung ist mit „sollten wir prüfen“ als Empfehlung erkennbar; über Rollout wäre gesondert zu entscheiden."
+    },
+    {
+      "text": "Gesprochener Einstieg und Abschluss sind kurz verwendbar, der Zeitplan lässt Rückfragen zu und die Ausgabe bleibt unter 450 Wörtern.",
+      "passed": true,
+      "evidence": "Der Einstieg und die Abschlussbitte sind kurze Sprechvorlagen. Der Zeitvorschlag reserviert drei Minuten Rückfragen und die Fragen werden als Vorbereitung bezeichnet. Unabhängig gezählt: 343 Wörter, unter 450."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Die Ausgabe hat 343 Wörter nach der vorgegebenen Zählregel.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Unabhängig am gespeicherten output.md gezählt: durch Leerraum getrennte Einheiten mit mindestens einem Unicode-Buchstaben oder einer Ziffer; reine Markdown-Marker nicht gezählt."
+    }
+  ],
+  "review_notes": [
+    "Fachliche Aussagen wurden gegen das jeweilige synthetische Source-Fixture geprüft. Die execution.md-Datei ist ein selbst berichteter Werkzeugnachweis, kein vollständiger Ausführungstrace; daraus wurden keine Modell-, Token- oder Zeitmetriken abgeleitet."
+  ]
+}

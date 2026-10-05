@@ -69,7 +69,8 @@ def validate(root: Path) -> list[str]:
         errors.append("No skills found")
 
     markdown = [path for path in root.rglob("*.md")
-                if ".git" not in path.parts and "runs" not in path.parts]
+                if ".git" not in path.parts and "runs" not in path.parts
+                and ".publication" not in path.parts]
     for path in markdown:
         for target in LINK.findall(path.read_text(encoding="utf-8")):
             target = target.strip().strip("<>")
@@ -118,6 +119,28 @@ def validate(root: Path) -> list[str]:
                 fail(cases_path, f"{case_id}: {field} must be a nonempty string list")
     for skill in skills.keys() - covered:
         fail(cases_path, f"no behavioral cases for {skill}")
+
+    tasks_path = root / "evals" / "tasks.json"
+    try:
+        tasks = json.loads(tasks_path.read_text(encoding="utf-8"))
+        task_ids: set[int] = set()
+        for task in tasks:
+            task_id = task.get("id")
+            if not isinstance(task_id, int) or task_id in task_ids:
+                fail(tasks_path, "invalid or duplicate development task ID")
+            task_ids.add(task_id)
+            if task.get("skill") not in skills or not task.get("prompt"):
+                fail(tasks_path, f"{task_id}: missing skill or prompt")
+            for target in [task.get("input", "")] + task.get("additional_inputs", []):
+                source = (root / "evals" / target).resolve()
+                if not source.is_relative_to(root / "evals") or not source.is_file():
+                    fail(tasks_path, f"{task_id}: invalid fixture {target!r}")
+            assertions = task.get("assertions", [])
+            if not assertions or any(not a.get("text") or not isinstance(a.get("critical"), bool)
+                                     for a in assertions):
+                fail(tasks_path, f"{task_id}: missing assertion text or critical flag")
+    except (OSError, json.JSONDecodeError, TypeError, AttributeError) as exc:
+        fail(tasks_path, f"invalid development tasks: {exc}")
     return errors
 
 

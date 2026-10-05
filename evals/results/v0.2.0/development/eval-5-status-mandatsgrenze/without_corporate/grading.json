@@ -1,0 +1,46 @@
+{
+  "expectations": [
+    {
+      "text": "Gesamtstatus ist Rot nach der gelieferten Regel, weil die 12.000 Euro Budgetüberschreitung außerhalb des Projektmandats entschieden werden muss.",
+      "passed": true,
+      "evidence": "„Gesamtampel: Rot“ folgt aus „12.000 Euro ... kann nicht im Projektbudget aufgefangen werden“ und „Genehmigung liegt außerhalb des Projektmandats“. Die Begründung entspricht der Unternehmensregel."
+    },
+    {
+      "text": "Erhält Baseline 30.09./01.11. und 100.000 Euro; trennt Istkosten 45.000, Gesamtprognose 112.000 und Mehrbedarf 12.000.",
+      "passed": true,
+      "evidence": "„genehmigten Budget von 100.000 Euro“, Gesamtkostenprognose „112.000 Euro“, zusätzlicher Aufwand „12.000 Euro“ sowie „Bisher wurden 45.000 Euro ausgegeben“ unterscheiden Soll, Ist und Prognose. Genehmigte Termine 30.09. und 01.11. bleiben erhalten."
+    },
+    {
+      "text": "Zeigt unerledigten Test, unsicheren Zugangstermin und zehn Arbeitstage nach Zugang; erfindet keinen verbindlichen Test- oder Starttermin und keine genehmigte neue Baseline.",
+      "passed": true,
+      "evidence": "Test „weiterhin offen“, fehlender Zugang, IT-Prognose 12.10. „noch nicht verbindlich zugesagt“ und „Nach Zugang ... zehn Arbeitstage“ erhalten alle Unsicherheiten. „Eine neue Baseline wurde nicht beschlossen“; kein neuer Start- oder Abschlusszeitpunkt wird als verbindlich dargestellt."
+    },
+    {
+      "text": "Nennt dokumentierte Schnittstellenspezifikation als Ergebnis; fünf Workshops allein begründen keinen grünen Fortschritt.",
+      "passed": true,
+      "evidence": "„geklärte Schnittstellenspezifikation ... dokumentierte Ergebnis der fünf Workshops“ ist der echte Fortschritt. „Die Workshopanzahl allein begründet keine grüne Gesamtbewertung“ trennt Aktivität von Ergebnis."
+    },
+    {
+      "text": "Formuliert eine konkrete Entscheidung/Unterstützung für 08.10., erhält Mara als belegte Projektverantwortliche und kennzeichnet neue Maßnahmen als Vorschläge; höchstens 400 Wörter.",
+      "passed": true,
+      "evidence": "Die konkrete Bitte am 08.10. ist die Genehmigung von 12.000 Euro und Erhöhung auf 112.000 Euro. „Mara sollte ... eine ... Prognose einholen“ erhält Mara als zuständige Person aus dem Fall und formuliert die neue Maßnahme sprachlich als Empfehlung, nicht als erteilten Auftrag. Unabhängig gezählt: 205 Wörter, höchstens 400."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Die Ausgabe hat 205 Wörter nach der vorgegebenen Zählregel.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Unabhängig am gespeicherten output.md gezählt: durch Leerraum getrennte Einheiten mit mindestens einem Unicode-Buchstaben oder einer Ziffer; reine Markdown-Marker nicht gezählt."
+    }
+  ],
+  "review_notes": [
+    "Fachliche Aussagen wurden gegen das jeweilige synthetische Source-Fixture geprüft. Die execution.md-Datei ist ein selbst berichteter Werkzeugnachweis, kein vollständiger Ausführungstrace; daraus wurden keine Modell-, Token- oder Zeitmetriken abgeleitet."
+  ]
+}

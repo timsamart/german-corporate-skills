@@ -1,0 +1,31 @@
+{
+  "eval_id": 7,
+  "eval_name": "kommunikation-kosten-und-testbericht",
+  "skill": "stakeholder-kommunikation",
+  "prompt": "Überarbeite den Entwurf zu einer sachlichen, diplomatischen Mail an Herrn Berger (Sie). Bitte um Klärung der Kosten und den fehlenden Testbericht vor dem 08.10.2026. Maximal 160 Wörter, keine neuen Zusagen oder Drohungen. Liefere zuerst die verwendbare Mail.",
+  "expectations": [
+    "Erhält 100.000 Euro Budget, 112.000 Prognose und 12.000 Mehrbedarf außerhalb des Projektmandats.",
+    "Erhält fehlenden Testbericht und die Konsequenz, dass ohne ihn keine belastbare Startprognose empfohlen werden kann.",
+    "Klare Bitte um Kostenklärung und Testbericht vor 08.10.; keine erfundene morgige Frist, Schuld, Freigabe oder Eskalationsdrohung.",
+    "Direkt verwendbare sachliche Sie-Mail an Herrn Berger mit höchstens 160 Wörtern; Tonkorrektur verdeckt den Handlungsbedarf nicht."
+  ],
+  "assertions": [
+    {
+      "text": "Erhält 100.000 Euro Budget, 112.000 Prognose und 12.000 Mehrbedarf außerhalb des Projektmandats.",
+      "critical": true
+    },
+    {
+      "text": "Erhält fehlenden Testbericht und die Konsequenz, dass ohne ihn keine belastbare Startprognose empfohlen werden kann.",
+      "critical": true
+    },
+    {
+      "text": "Klare Bitte um Kostenklärung und Testbericht vor 08.10.; keine erfundene morgige Frist, Schuld, Freigabe oder Eskalationsdrohung.",
+      "critical": true
+    },
+    {
+      "text": "Direkt verwendbare sachliche Sie-Mail an Herrn Berger mit höchstens 160 Wörtern; Tonkorrektur verdeckt den Handlungsbedarf nicht.",
+      "critical": false
+    }
+  ],
+  "input": "fixtures/stakeholder-kommunikation.md"
+}

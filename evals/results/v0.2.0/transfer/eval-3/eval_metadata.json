@@ -1,0 +1,64 @@
+{
+  "eval_id": 3,
+  "eval_name": "heldout-transfer-T03",
+  "skill": "entscheidungsvorlage",
+  "source_case_id": "T03",
+  "split": "author_hidden_transfer",
+  "synthetic": true,
+  "prompt": "Erstelle aus T03-input.md eine verwendbare Entscheidungsvorlage für die Betriebsleitung in den fünf Unternehmensabschnitten. Vergleiche zwei verfügbare Wartungsvarianten über alle 18 Wochen. Formuliere belastbaren Beschluss mit Bedingungen und sichtbaren Unbestätigungen.",
+  "input_files": [
+    "evals/results/v0.2.0/transfer/source/T03-input.md"
+  ],
+  "assertions": [
+    {
+      "id": "T03-format",
+      "text": "Fünf vorgegebene Abschnitte in angegebener Reihenfolge.",
+      "critical": false,
+      "type": "structure"
+    },
+    {
+      "id": "T03-cost",
+      "text": "A 16.200 Euro; B 23.760 Euro; B Mehrkosten 7.560; beide unter 24.000 im gleichen 18-Wochen-Zeitraum.",
+      "critical": true,
+      "type": "numeric"
+    },
+    {
+      "id": "T03-constraint",
+      "text": "A 18 abgesagte Versandläufe überschreitet zehn; B null, daher unterstützt B unter tatsächlichem Entscheidungsrahmen.",
+      "critical": true,
+      "type": "numeric_semantic"
+    },
+    {
+      "id": "T03-condition",
+      "text": "B Beschlussvorschlag bedingt durch schriftliche Samstagsterminbestätigung vor 09.11.2026; keine behauptete Reservierung/Vertrag.",
+      "critical": true,
+      "type": "semantic"
+    },
+    {
+      "id": "T03-owner",
+      "text": "Jana Beck prüft als vorhandene Verantwortliche Bedingung.",
+      "critical": false,
+      "type": "semantic"
+    },
+    {
+      "id": "T03-tradeoff",
+      "text": "Höhere Kosten und offene Dienstleisterverfügbarkeit gegen werktägliche Versandkontinuität.",
+      "critical": false,
+      "type": "semantic"
+    },
+    {
+      "id": "T03-options",
+      "text": "Keine erfundene dritte Option oder Nichtwartung als möglich; bindender Rahmen als intern, nicht erfundenes Gesetz.",
+      "critical": true,
+      "type": "semantic"
+    },
+    {
+      "id": "T03-approval",
+      "text": "Vorschlag statt erfolgte Freigabe; Materialkommentar bewirkt keine erfundene Buchung.",
+      "critical": true,
+      "type": "semantic"
+    }
+  ],
+  "candidate_frozen_at_utc": "2026-10-05T11:57:43.871314Z",
+  "fixture_frozen_at_utc": "2026-10-05T11:51:53Z"
+}

@@ -37,6 +37,10 @@ The skills require no repository-specific services or API keys. Your agent needs
 
 ## Release status
 
-Version 0.1.0 provides seven skills, seven editorial reference examples, and 16 behavioral evaluation cases. Repository validation checks structure and references. Independent model benchmarking remains open. See [quality and evaluation](docs/qualitaet.md) and [contribution guidance](CONTRIBUTING.md).
+Version 0.2.0 provides seven skills with worked examples and scoped source notes, three primary-source [research dossiers](docs/research/README.md), and the complete [creation process](docs/skill-lifecycle.md).
+
+The repository includes **28 actual task outputs**: seven development tasks under three configurations (released v0.1.0, revised skill and ordinary prompting), plus seven previously reserved transfer tasks. Separate model contexts graded the outputs against sources. The evidence records specific completeness differences and strong baselines; real practitioner validation remains pending. See [results and limitations](docs/qualitaet.md), [saved evidence](evals/results/v0.2.0/README.md) and [contribution guidance](CONTRIBUTING.md).
+
+CI validates packaging and recounts saved grades. It does not run fresh model evaluations. The original 16 short cases remain supplementary regression specifications.
 
 Created by [Timotheos Samartzidis](https://github.com/timsamart). [MIT licensed](LICENSE).

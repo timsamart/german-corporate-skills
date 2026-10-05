@@ -23,4 +23,12 @@ python scripts/validate.py
 
 Der Check bestätigt strukturelle Konsistenz. Für eine Verhaltensänderung prüfe außerdem den betroffenen Fall nach [dem Evaluationsverfahren](docs/qualitaet.md) und dokumentiere Modell, Eingabe, Ausgabe und Urteil.
 
+Der vollständige [Entstehungsprozess](docs/skill-lifecycle.md) verbindet Quellenprüfung, schlanke Instruktionen, Vergleich, reservierte Fälle und Veröffentlichung. Vorhandene Ergebnisse lassen sich deterministisch nachzählen:
+
+```bash
+python scripts/summarize_evals.py evals/results/v0.2.0
+```
+
+Dieser Befehl prüft gespeicherte Kriterien und Zählungen. Er startet keinen neuen Modelllauf und bewertet die Bedeutung der Antworten nicht erneut. Bereits öffentliche Transferfälle sind bei einer zukünftigen Überarbeitung Entwicklungsmaterial; ein neuer Transfernachweis benötigt neue, zuvor unbekannte Fälle.
+
 Neue Skills sollten denselben Aufnahmekriterien wie die erste Version folgen: klarer Auftrag, wiederkehrender relevanter Fehler und überprüfbares Ergebnis. Öffne für einen größeren neuen Bereich zunächst ein Issue mit einem Beispiel.

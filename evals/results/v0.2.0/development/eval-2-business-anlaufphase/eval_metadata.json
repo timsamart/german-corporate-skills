@@ -1,0 +1,36 @@
+{
+  "eval_id": 2,
+  "eval_name": "business-anlaufphase",
+  "skill": "business-case-pruefung",
+  "prompt": "Prüfe diesen Business Case für die Geschäftsführung. Zeige die korrekte Rechnung über den vorgegebenen Dreijahreszeitraum, benenne die entscheidenden Fehlbehauptungen und die nötigen Nachweise. Maximal 500 Wörter; keine fehlenden Werte ergänzen.",
+  "expectations": [
+    "Berechnet bei voller Nutzung 1.200 Stunden, 60.000 Euro Bruttokapazitätswert und 30.000 Euro jährlichen Nettoeffekt im Kapazitätsmodell; gibt diesen nicht als Zahlungsüberschuss aus.",
+    "Berücksichtigt im Kapazitätsmodell halben Nutzen und volle Betriebskosten im ersten Jahr: Saldo Jahr 1 -80.000, Jahr 2 +30.000, Jahr 3 +30.000, insgesamt -20.000 Euro; dies sind keine belegten finanziellen Cashflows.",
+    "Weist fehlenden Cash-Realisierungsmechanismus und doppelte Entlastungsbewertung aus; bestätigt keine finanzielle Einsparung oder unterjährige Amortisation.",
+    "Behandelt 8 Prozent Diskontsatz als unbestätigte Annahme und behauptet keinen gesichert positiven Kapitalwert.",
+    "Zeigt verständliche Rechenwege, Nacharbeit/Qualität als offene Wirkung und eine konkrete nächste Prüfhandlung innerhalb von 500 Wörtern."
+  ],
+  "assertions": [
+    {
+      "text": "Berechnet bei voller Nutzung 1.200 Stunden, 60.000 Euro Bruttokapazitätswert und 30.000 Euro jährlichen Nettoeffekt im Kapazitätsmodell; gibt diesen nicht als Zahlungsüberschuss aus.",
+      "critical": true
+    },
+    {
+      "text": "Berücksichtigt im Kapazitätsmodell halben Nutzen und volle Betriebskosten im ersten Jahr: Saldo Jahr 1 -80.000, Jahr 2 +30.000, Jahr 3 +30.000, insgesamt -20.000 Euro; dies sind keine belegten finanziellen Cashflows.",
+      "critical": true
+    },
+    {
+      "text": "Weist fehlenden Cash-Realisierungsmechanismus und doppelte Entlastungsbewertung aus; bestätigt keine finanzielle Einsparung oder unterjährige Amortisation.",
+      "critical": true
+    },
+    {
+      "text": "Behandelt 8 Prozent Diskontsatz als unbestätigte Annahme und behauptet keinen gesichert positiven Kapitalwert.",
+      "critical": true
+    },
+    {
+      "text": "Zeigt verständliche Rechenwege, Nacharbeit/Qualität als offene Wirkung und eine konkrete nächste Prüfhandlung innerhalb von 500 Wörtern.",
+      "critical": false
+    }
+  ],
+  "input": "fixtures/business-case-pruefung.md"
+}

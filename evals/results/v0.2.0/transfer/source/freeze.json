@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "set_id": "author-hidden-transfer-2026-10-05",
+  "frozen_at_utc": "2026-10-05T11:51:53Z",
+  "case_count": 7,
+  "input_file_count": 7,
+  "assertion_count": 56,
+  "tests_executed": 0,
+  "purpose": "Reserved author-hidden synthetic transfer set. Release only after candidate skill revision is frozen.",
+  "hash_algorithm": "SHA-256",
+  "files": [
+    {
+      "path": "manifest.json",
+      "sha256": "14a04a8821754987ba5f4075a67eb4431106fa0d291103766a54c5d9404e49aa",
+      "bytes": 16636
+    },
+    {
+      "path": "T01-input.md",
+      "sha256": "170a4b98ff8425baa44bccc30ac3c19dddab279457365bdbed06e011902e9a61",
+      "bytes": 2100
+    },
+    {
+      "path": "T02-input.md",
+      "sha256": "99ed7395ff37ddadf18c23757493205d66a745482bbe17deb7432834756d56aa",
+      "bytes": 1753
+    },
+    {
+      "path": "T03-input.md",
+      "sha256": "527775921a0279a5b2d110a403a6cc7b1d55a3372940e07f8beab3fe9f88fb1c",
+      "bytes": 1528
+    },
+    {
+      "path": "T04-input.md",
+      "sha256": "e5cdcfe76a13bd6079cb5f6ee22ccaeb301a7477d9b3cabce6027b59e60f7132",
+      "bytes": 1453
+    },
+    {
+      "path": "T05-input.md",
+      "sha256": "66e8de6a0376013f17eca147dd03fabf31065aafa1c43e69bcce6bfd6536f92f",
+      "bytes": 1697
+    },
+    {
+      "path": "T06-input.md",
+      "sha256": "8065027128e5e10784f1b5cede96dd08289eb0543701bdddc3d8485828f08af7",
+      "bytes": 1739
+    },
+    {
+      "path": "T07-input.md",
+      "sha256": "fd7ce3ad6a037c9b4fc7b817e9efe7affe3b562be702d294cc16b259f05eae5e",
+      "bytes": 1367
+    }
+  ]
+}

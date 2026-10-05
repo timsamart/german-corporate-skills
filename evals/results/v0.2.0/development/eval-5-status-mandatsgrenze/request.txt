@@ -1,0 +1,4 @@
+Erstelle einen Managementstatus zum 05.10.2026 für den Lenkungsausschuss am 08.10. Verwende die beigefügte Unternehmensampel. Zeige die wesentlichen Abweichungen, echte Fortschritte und eine konkrete Bitte innerhalb von 400 Wörtern.
+
+Input files:
+evals\fixtures\projektstatus.md

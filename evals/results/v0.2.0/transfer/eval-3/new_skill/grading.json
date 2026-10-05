@@ -1,0 +1,64 @@
+{
+  "expectations": [
+    {
+      "text": "Fünf vorgegebene Abschnitte in angegebener Reihenfolge.",
+      "passed": true,
+      "evidence": "Output sections exactly follow the supplied company template: “1. Beantragter Beschluss”, “2. Vergleich der verfügbaren Varianten”, “3. Empfehlung und Zielkonflikt”, “4. Startbedingungen und Nachweisverantwortung”, “5. Noch offene Angaben”. Their content fulfills each role, including a conditional resolution and actual comparison."
+    },
+    {
+      "text": "A 16.200 Euro; B 23.760 Euro; B Mehrkosten 7.560; beide unter 24.000 im gleichen 18-Wochen-Zeitraum.",
+      "passed": true,
+      "evidence": "Output comparison: A “18 × 900 Euro = 16.200 Euro”; B “18 × 1.320 Euro = 23.760 Euro”; recommendation states “7.560 Euro Mehrkosten”; budget row shows remaining 7.800/240 euros below 24.000. Independent arithmetic from source confirms the common 18-week totals."
+    },
+    {
+      "text": "A 18 abgesagte Versandläufe überschreitet zehn; B null, daher unterstützt B unter tatsächlichem Entscheidungsrahmen.",
+      "passed": true,
+      "evidence": "Output: A has “18” cancelled weekday runs and “acht Absagen über der Grenze”; B “0”. Recommendation: “Variante A ... keine tragfähige Alternative ... 18 Absagen ... erlaubten zehn überschreiten.” Source framework therefore supports B conditional on availability rather than the cheaper incompatible A."
+    },
+    {
+      "text": "B Beschlussvorschlag bedingt durch schriftliche Samstagsterminbestätigung vor 09.11.2026; keine behauptete Reservierung/Vertrag.",
+      "passed": true,
+      "evidence": "Output proposed resolution requires “vollständige Serie aller 18 Samstagstermine vor dem Start schriftlich bestätigt” and checked/documented by Jana Beck; planned start is 09.11.2026. Comparison explicitly says “Feste Samstagsterminserie unbestätigt; kein Vertrag geschlossen”. The source prices do not become reservations/contracts."
+    },
+    {
+      "text": "Jana Beck prüft als vorhandene Verantwortliche Bedingung.",
+      "passed": true,
+      "evidence": "Output start-conditions table: “Jana Beck holt die Bestätigung ein, prüft die Vollständigkeit und dokumentiert das Ergebnis”. Source names Jana Beck as the maintenance lead able to check the written series. Proposed future assignment is framed within the resolution draft rather than fabricated as completed."
+    },
+    {
+      "text": "Höhere Kosten und offene Dienstleisterverfügbarkeit gegen werktägliche Versandkontinuität.",
+      "passed": true,
+      "evidence": "Output recommendation: “7.560 Euro Mehrkosten ... Dafür entfallen 18 werktägliche Versandabsagen”; “wichtigste Unsicherheit ... Verfügbarkeit der vollständigen Samstagsterminserie”; no financial return for preserved runs is invented. This states the cost/continuity/availability tradeoff from source."
+    },
+    {
+      "text": "Keine erfundene dritte Option oder Nichtwartung als möglich; bindender Rahmen als intern, nicht erfundenes Gesetz.",
+      "passed": true,
+      "evidence": "Output compares only A and B and says “Unterlassene Wartung ist keine verfügbare Option”. It calls the ten-cancellation constraint “dokumentierter interner Entscheidungsrahmen” and says “Eine gesetzliche Wartungspflicht wird durch die Unterlagen nicht belegt.” Proposed contract/start responsibilities and re-presentation are implementation suggestions, not an invented third maintenance option."
+    },
+    {
+      "text": "Vorschlag statt erfolgte Freigabe; Materialkommentar bewirkt keine erfundene Buchung.",
+      "passed": true,
+      "evidence": "Output: “Beschlussentwurf zur Entscheidung” and “Dies ist ein beantragter Beschluss; eine bereits erteilte Genehmigung ... nicht belegt.” It explicitly rejects the material comment: “keine Tatsache und wird nicht übernommen”, and preserves unconfirmed Saturday dates/no contract. No real booking or approval is claimed."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "B totals 108 service hours, with 240 euros budget headroom; A has 7.800 euros headroom",
+      "type": "factual",
+      "verified": true,
+      "evidence": "18×6=108; 24.000−23.760=240; 24.000−16.200=7.800, independently recomputed from source."
+    },
+    {
+      "claim": "Contract/start authority assignments are proposed future implementation steps, not established source permissions",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Output calls the relevant responsible roles open and the contract/start steps proposed; this avoids inventing authority while making the conditional draft operational."
+    }
+  ]
+}

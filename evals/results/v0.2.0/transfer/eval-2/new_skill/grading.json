@@ -1,0 +1,58 @@
+{
+  "expectations": [
+    {
+      "text": "3.780 m3 jährlich substituiert, vermiedener Bezug 12.096 Euro.",
+      "passed": true,
+      "evidence": "Output annual table: “12.600 m³ × 30 % | 3.780 m³” and “3.780 m³ × 3,20 Euro/m³ | 12.096 Euro”. Source model supplies those factors; independent arithmetic confirms both."
+    },
+    {
+      "text": "Filter 3.402 Euro, Sensor 1.080 Euro jährlich, laufende Kosten gesamt 7.982 Euro.",
+      "passed": true,
+      "evidence": "Output table: filter “3.780 m³ × 0,90 Euro/m³ | −3.402 Euro”; sensor “90 Euro × 12 Monate | −1.080 Euro”; ongoing outlays “3.402 + 3.500 + 1.080 | 7.982 Euro”. Source inputs and independent recomputation agree."
+    },
+    {
+      "text": "Finanzieller Nettojahresnutzen 4.114 Euro; 32.912 / 4.114 = acht Jahre.",
+      "passed": true,
+      "evidence": "Output: “12.096 − 7.982 ... 4.114 Euro” and “32.912 Euro ÷ 4.114 Euro/Jahr = 8 Jahre.” These are the net cash benefit and simple payback from the supplied complete model, independently recomputed."
+    },
+    {
+      "text": "7.560 Euro Kapazitätsäquivalent aus 180 h * 42 Euro, ohne Zahlungsrealisierung nicht in Cash-Nutzen/Amortisation.",
+      "passed": true,
+      "evidence": "Output: “monetäres Kapazitätsäquivalent von 7.560 Euro pro Jahr: 180 × 42 = 7.560” and “Daher fließen die 7.560 Euro nicht in die Zahlungsamortisation ein.” It preserves unchanged employment/payments from the source and separates capacity from cash."
+    },
+    {
+      "text": "Wartung 2.600: Netto 5.014, Amortisation ca. 6,56 Jahre; Wartung 4.400: Netto 3.214, ca. 10,24 Jahre; vernünftige Rundung akzeptiert.",
+      "passed": true,
+      "evidence": "Output sensitivity table gives 2.600 maintenance → 7.082 ongoing cost, 5.014 net, “ca. 6,56 Jahre”; 4.400 maintenance → 8.882 ongoing cost, 3.214 net, “ca. 10,24 Jahre”. Independent 32.912/5.014 = 6.5640 and /3.214 = 10.2402 confirm the rounded results."
+    },
+    {
+      "text": "30 % und Jahreswirkungen sichtbar Planannahmen; 21 Tage nicht als Jahresbetriebsbeleg.",
+      "passed": true,
+      "evidence": "Output labels the annual table “unter Planannahmen”, all sensitivity cases “Rechnungen unter Planannahmen”, and states “30 % ... Planannahme aus einem begrenzten 21-tägigen technischen Versuch und kein Beleg für den vollen Jahresbetrieb”; results are “keine nachgewiesenen Jahresergebnisse”. This matches the source evidence boundary."
+    },
+    {
+      "text": "19.656 Euro und Dreijahres-Cash-Amortisation kritisch wegen Kapazitätsmonetarisierung und verborgenem Kostenabzug.",
+      "passed": true,
+      "evidence": "Output explains “19.656 Euro ... 12.096 Euro Wasserbezugsvorteil + 7.560 Euro Kapazitätsäquivalent”; this combines different benefit types and fails to deduct “7.982 Euro laufenden Auszahlungen”. It rejects the roughly-three-year cash-payback claim, including in the favorable scenario. Source gives exactly these defects."
+    },
+    {
+      "text": "Keine unprovided Zusatzkosten, Diskontsatz, Steuern, Personalabbau oder Freigabe erfunden.",
+      "passed": true,
+      "evidence": "Output uses only the supplied water/filter/maintenance/sensor/investment values and the two requested maintenance changes. “ohne Abzinsung, Anlaufphase, Steuern oder Restwert” repeats the source boundary rather than adding assumptions; no layoffs, additional cost figures or operational approval are introduced."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Maintenance sensitivities alone produce net 5.014 / 4.114 / 3.214 and payback 6.5640 / 8 / 10.2402 years",
+      "type": "factual",
+      "verified": true,
+      "evidence": "All factors independently recomputed from source; no other assumption changes."
+    }
+  ]
+}

@@ -9,7 +9,7 @@
   {
     "id": "deck-schulung",
     "skill": "praesentations-review",
-    "prompt": "Prüfe den Text eines Schulungsdecks für neue Mitarbeitende. Zweck ist das Verständnis der Reisekosten-Erfassung. F1: Die drei Erfassungsschritte. F2: Ein vollständig durchgerechnetes Beispiel. F3: Eine Übungsaufgabe mit Lösung. Ein Unternehmensprozess ist als verbindliche Quelle beigefügt. Es soll keine Managemententscheidung getroffen werden.",
+    "prompt": "Prüfe nur den Text dieses Schulungsdecks für neue Mitarbeitende. Zweck: Reisekosten-Erfassung; keine Managemententscheidung. Verbindlicher Unternehmensprozess: (1) Datum und Kostenart erfassen, (2) Beleg hochladen, (3) zur Prüfung absenden. F1 nennt genau diese drei Schritte in dieser Reihenfolge. F2: Bahnfahrt 02.10.2026, 48 Euro, Kostenart Fahrt; PDF-Beleg hochladen; Absenden. F3 Übung: Fahrt 03.10., 36 Euro, Beleg vorhanden. Lösung: Datum 03.10. und Fahrt/36 Euro erfassen, Beleg hochladen, absenden. Es gibt keine weitere Prozessvorgabe oder Bilder.",
     "must": ["Prüft Verständlichkeit, Abdeckung und Übungsbezug passend zum Schulungszweck.", "Bezieht den vorhandenen Unternehmensprozess ein."],
     "must_not": ["Wertet das Fehlen eines Beschlusses oder eines Business Case als Fehler.", "Erzwingt eine Managementstoryline."]
   },
@@ -65,7 +65,7 @@
   {
     "id": "gremium-information",
     "skill": "gremienvorbereitung",
-    "prompt": "Bereite meinen fünfminütigen Informationspunkt im Lenkungsausschuss vor. Wir berichten abgeschlossene Tests und die nächste Messung. Heute wird nichts freigegeben oder entschieden. Testzahlen stehen in der beigefügten Übersicht.",
+    "prompt": "Bereite meinen fünfminütigen Informationspunkt im Lenkungsausschuss vor. Heute wird nichts freigegeben oder entschieden. Testübersicht: 20 definierte Fälle ausgeführt, 18 bestanden, 2 Fehler noch offen; Nachtest am 12.10.2026 geplant. Wir berichten abgeschlossene Tests und die nächste Messung. Keine zusätzliche Freigabe oder Budgetentscheidung ist erforderlich.",
     "must": ["Richtet Einstieg und Fragen auf Information und Verständnis aus.", "Bewahrt den angegebenen Charakter des Tagesordnungspunkts."],
     "must_not": ["Erfindet eine Budgetbitte oder einen Beschlussbedarf."]
   },

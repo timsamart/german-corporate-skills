@@ -1,0 +1,186 @@
+{
+  "selections": [
+    {
+      "id": 1,
+      "skills": [
+        "praesentations-review"
+      ],
+      "reason": "Explicit request to review a deck."
+    },
+    {
+      "id": 2,
+      "skills": [
+        "praesentations-review"
+      ],
+      "reason": "Review deck argument and propose concrete slide changes."
+    },
+    {
+      "id": 3,
+      "skills": [
+        "praesentations-review"
+      ],
+      "reason": "Review training slides for clarity, numbers and charts."
+    },
+    {
+      "id": 4,
+      "skills": [],
+      "reason": "Font replacement only; no presentation content review requested."
+    },
+    {
+      "id": 5,
+      "skills": [
+        "business-case-pruefung"
+      ],
+      "reason": "Explicit request to examine an economic calculation."
+    },
+    {
+      "id": 6,
+      "skills": [
+        "business-case-pruefung"
+      ],
+      "reason": "Validate savings claims and payback arithmetic."
+    },
+    {
+      "id": 7,
+      "skills": [
+        "business-case-pruefung"
+      ],
+      "reason": "Check capacity gains, assumptions, recurring costs and cash benefits."
+    },
+    {
+      "id": 8,
+      "skills": [],
+      "reason": "Simple addition does not require a corporate review skill."
+    },
+    {
+      "id": 9,
+      "skills": [
+        "entscheidungsvorlage"
+      ],
+      "reason": "Explicit request for a decision memo comparing contract options."
+    },
+    {
+      "id": 10,
+      "skills": [
+        "entscheidungsvorlage"
+      ],
+      "reason": "Draft a resolution, comparable options and approval conditions."
+    },
+    {
+      "id": 11,
+      "skills": [
+        "entscheidungsvorlage"
+      ],
+      "reason": "Create a one-page board decision memo from facts."
+    },
+    {
+      "id": 12,
+      "skills": [],
+      "reason": "Single-word translation is outside the supplied skills."
+    },
+    {
+      "id": 13,
+      "skills": [
+        "gremienvorbereitung"
+      ],
+      "reason": "Explicit request for steering committee preparation."
+    },
+    {
+      "id": 14,
+      "skills": [
+        "gremienvorbereitung"
+      ],
+      "reason": "Prepare critical committee questions and evidence-based answers."
+    },
+    {
+      "id": 15,
+      "skills": [
+        "gremienvorbereitung"
+      ],
+      "reason": "Prepare a spoken opening, answers and closing ask."
+    },
+    {
+      "id": 16,
+      "skills": [],
+      "reason": "Counting names does not require meeting preparation."
+    },
+    {
+      "id": 17,
+      "skills": [
+        "projektstatus"
+      ],
+      "reason": "Explicit request for a project traffic-light report."
+    },
+    {
+      "id": 18,
+      "skills": [
+        "projektstatus"
+      ],
+      "reason": "Summarize baseline, forecast, costs and issues as project status."
+    },
+    {
+      "id": 19,
+      "skills": [
+        "projektstatus"
+      ],
+      "reason": "Report a missed milestone and required management support."
+    },
+    {
+      "id": 20,
+      "skills": [],
+      "reason": "File format conversion without analysis is outside the supplied skills."
+    },
+    {
+      "id": 21,
+      "skills": [
+        "ergebnisprotokoll"
+      ],
+      "reason": "Explicit request for meeting minutes from a transcript."
+    },
+    {
+      "id": 22,
+      "skills": [
+        "ergebnisprotokoll"
+      ],
+      "reason": "Produce an action log with decisions, owners and deadlines."
+    },
+    {
+      "id": 23,
+      "skills": [
+        "ergebnisprotokoll"
+      ],
+      "reason": "Record actual meeting outcomes while distinguishing proposals and corrections."
+    },
+    {
+      "id": 24,
+      "skills": [],
+      "reason": "Verbatim audio transcription explicitly excludes minutes or summary."
+    },
+    {
+      "id": 25,
+      "skills": [
+        "stakeholder-kommunikation"
+      ],
+      "reason": "Explicit request for a diplomatic workplace email."
+    },
+    {
+      "id": 26,
+      "skills": [
+        "stakeholder-kommunikation"
+      ],
+      "reason": "Revise stakeholder message tone and clarity while preserving commitments."
+    },
+    {
+      "id": 27,
+      "skills": [
+        "stakeholder-kommunikation"
+      ],
+      "reason": "Draft a formal, factual clarification request about a cost conflict."
+    },
+    {
+      "id": 28,
+      "skills": [],
+      "reason": "A poem for a child is outside the supplied corporate skills."
+    }
+  ]
+}

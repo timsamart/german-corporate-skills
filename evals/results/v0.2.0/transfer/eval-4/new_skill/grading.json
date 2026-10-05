@@ -1,0 +1,67 @@
+{
+  "expectations": [
+    {
+      "text": "Gesamtplan 77.000 Euro über 75.000 Eigenfreigabe; Empfehlung an Geschäftsführung, keine verbindliche Eigenfreigabe.",
+      "passed": true,
+      "evidence": "Output opening: “insgesamt 77.000 Euro”; “Marktgremium kann diesen Plan nicht selbst verbindlich freigeben ... Grenze ... 75.000 Euro”; “Geschäftsführung hat noch nicht entschieden.” 68.000 + necessary 9.000 = 77.000 independently confirms the complete plan exceeds the mandate. The requested and closing action remains a recommendation."
+    },
+    {
+      "text": "Falls thematisiert: Anzahlung 13.600 Euro (20 % von 68.000), nicht erstattbar; weitere Stornierungskosten offen.",
+      "passed": true,
+      "evidence": "Output Q3: “20 Prozent des Messepakets ... 13.600 Euro”; “bei Stornierung nicht erstattbar”; “Weitere Stornierungskosten ... nicht ... Unser gesamtes Ausstiegsrisiko ... noch nicht beziffern.” Source terms and independent 0.20 × 68.000 calculation confirm the amount; unknown additional cancellation charges remain open."
+    },
+    {
+      "text": "300.000 kein sicherer Umsatz; 27 Kontakte, drei Erstgespräche, keine belegte Zuordnung Vertragsumsatz.",
+      "passed": true,
+      "evidence": "Output intro gives “27 qualifizierte Kontakte und drei Erstgespräche” at another event, “kein Nachweis für Umsatz auf dieser Messe”. Q1 states “zugerechneter Abschluss oder messbarer Umsatz fehlt” and “300.000 Euro ... unbelegt”. It preserves source uncertainty and does not treat hoped-for turnover as secure."
+    },
+    {
+      "text": "Logistik/Personalverfügbarkeit unbestätigt; Empfang/Prüfung nicht Zusage.",
+      "passed": true,
+      "evidence": "Output Q4: “noch nicht bestätigt”; logistics received documents and team lead is reviewing planning; “Beides ist keine Verfügbarkeitszusage.” This matches source and distinguishes receipt/review from staff/logistics commitment."
+    },
+    {
+      "text": "Höchstens fünf fallspezifische entscheidende Fragen, kurze mündliche Antworten mit Unsicherheit und Klärung.",
+      "passed": true,
+      "evidence": "Output has exactly five numbered critical questions, tailored to economics, total approval authority, cancellation exposure, capacity and deadline. Each answer is 42–54 whitespace-separated words, states the source-known/unknown position and a clarification or decision route. No generic extra question list is added."
+    },
+    {
+      "text": "19.11.2026 Annahmefrist bleibt; kein Auftrag/Annahme behauptet, Abschluss passend zur Empfehlung.",
+      "passed": true,
+      "evidence": "Output preserves “19. November 2026”, says “Angebot ... noch nicht angenommen”, and closes by requesting recommendation or clarification/re-presentation before the deadline; “Die verbindliche Entscheidung liegt bei der Geschäftsführung.” It never represents acceptance or ordering as accomplished."
+    },
+    {
+      "text": "Keine erfundenen Motive aus Spekulation oder Beteiligungszustimmung.",
+      "passed": true,
+      "evidence": "Output: “Die Vermutung, jemand wolle den Vertrieb ‘ausbremsen’, hat keine Tatsachengrundlage und eignet sich nicht als Argument.” No actor motive or stakeholder agreement is inferred from the unsupported suspicion, receipt or review."
+    },
+    {
+      "text": "Für vier Minuten verwendbares Briefing, keine lange Standardfragenliste oder sachfremde neue Vorlage.",
+      "passed": true,
+      "evidence": "Output separates a 73-word opening, five concise prepared answers and a 59-word closing; these spoken sections total 364 whitespace-separated words. It expressly says “Die fünf Fragen unten sind Vorbereitung, kein zusätzlicher Monolog” and assigns time for actual questions. This is usable four-minute preparation, without claiming a measured rehearsal or requiring the entire 712-token written support material be read aloud."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "364 words across opening, five answers and closing; no measured speaking test",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Independent word counts are 73+54+42+45+43+48+59=364. These are a length check, not measured speaking duration. execution.md explicitly labels timing approximate and says no rehearsal occurred."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Falls thematisiert: Anzahlung 13.600 Euro (20 % von 68.000), nicht erstattbar; weitere Stornierungskosten offen.",
+        "reason": "The conditional 'Falls thematisiert' would let an output omit the known, non-refundable 13.600-euro deposit and still satisfy this assertion. For a briefing whose prompt requires costs and open points to remain visible, require inclusion of the deposit/cancellation exposure. This output includes it correctly and passes."
+      }
+    ],
+    "overall": "One omission loophole in the deposit criterion; no source-fact disagreement or failed expectation in this output."
+  }
+}

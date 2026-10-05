@@ -1,0 +1,41 @@
+{
+  "eval_id": 1,
+  "eval_name": "deck-serviceassistenz",
+  "skill": "praesentations-review",
+  "prompt": "Prüfe dieses sechsseitige Deck für die Geschäftsführung. Beantragt wird ein Rollout; für die Sitzung sind zehn Minuten vorgesehen. Prüfe Inhalt und die sichtbare Diagrammdarstellung. Liefere die fünf wichtigsten Befunde mit Foliennummer, Auswirkung und konkreter Änderung sowie einen belastbaren Vorschlag für die Abschlussfolie. Maximal 650 Wörter. Die Dateien enthalten vollständig synthetische Unterlagen.",
+  "expectations": [
+    "Korrigiert F2 von 40 auf 30 Prozent und begrenzt den Testbefund; keine Kontrollgruppe und fehlende Nacharbeit bleiben erkennbar.",
+    "Rechnet F3 auf 1.800 Stunden und 90.000 Euro jährlichen Bruttokapazitätswert; bestätigt weder 300.000 Euro noch Cash-Einsparung.",
+    "Unterscheidet 45.000 Euro jährlichen Nettokapazitätseffekt und 2 Jahre vereinfachte Amortisation von gesicherter finanzieller Amortisation.",
+    "Identifiziert nach tatsächlichem Bildzugriff die bei 8 beginnende Balkenachse auf F4 als verzerrend und empfiehlt eine Nullbasis.",
+    "Zeigt den Widerspruch auf F5 und die begrenzte Freigabe auf F1; behauptet keine IT-Zustimmung oder Kundendatenfreigabe.",
+    "Liefert priorisierte, folienbezogene Reparaturen und eine engere, bedingte Abschlussbitte ohne erfundene Zuständigkeit, Budgetfreigabe oder Rolloutgenehmigung; hält 650 Wörter ein."
+  ],
+  "assertions": [
+    {
+      "text": "Korrigiert F2 von 40 auf 30 Prozent und begrenzt den Testbefund; keine Kontrollgruppe und fehlende Nacharbeit bleiben erkennbar.",
+      "critical": true
+    },
+    {
+      "text": "Rechnet F3 auf 1.800 Stunden und 90.000 Euro jährlichen Bruttokapazitätswert; bestätigt weder 300.000 Euro noch Cash-Einsparung.",
+      "critical": true
+    },
+    {
+      "text": "Unterscheidet 45.000 Euro jährlichen Nettokapazitätseffekt und 2 Jahre vereinfachte Amortisation von gesicherter finanzieller Amortisation.",
+      "critical": true
+    },
+    {
+      "text": "Identifiziert nach tatsächlichem Bildzugriff die bei 8 beginnende Balkenachse auf F4 als verzerrend und empfiehlt eine Nullbasis.",
+      "critical": false
+    },
+    {
+      "text": "Zeigt den Widerspruch auf F5 und die begrenzte Freigabe auf F1; behauptet keine IT-Zustimmung oder Kundendatenfreigabe.",
+      "critical": true
+    },
+    {
+      "text": "Liefert priorisierte, folienbezogene Reparaturen und eine engere, bedingte Abschlussbitte ohne erfundene Zuständigkeit, Budgetfreigabe oder Rolloutgenehmigung; hält 650 Wörter ein.",
+      "critical": false
+    }
+  ],
+  "input": "fixtures/praesentations-review.md"
+}

@@ -1,0 +1,4 @@
+Erstelle aus den Unterlagen eine kompakte Entscheidungsvorlage von maximal einer Seite beziehungsweise 450 Wörtern für die Geschäftsführung. Beschlusssatz, vergleichbare Optionen, Empfehlung und Bedingungen müssen verwendbar sein. Bewahre die Unsicherheit über den späteren Ersatz.
+
+Input files:
+evals\fixtures\entscheidungsvorlage.md

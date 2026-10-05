@@ -1,0 +1,4 @@
+Erstelle aus diesem Transkriptausschnitt ein knappes Ergebnisprotokoll mit Beschlüssen, Maßnahmen und offenen Punkten. Es ist ein Entwurf zur Prüfung, kein bestätigtes Protokoll. Maximal 450 Wörter.
+
+Input files:
+evals\fixtures\ergebnisprotokoll.md

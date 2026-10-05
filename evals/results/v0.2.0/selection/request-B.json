@@ -1,0 +1,146 @@
+{
+  "skills": [
+    {
+      "name": "business-case-pruefung",
+      "description": "Challenge a German corporate business case or Wirtschaftlichkeitsrechnung. Use to check benefit claims, cost completeness, ROI or payback arithmetic, scenario assumptions, and the distinction between capacity gains and cash savings."
+    },
+    {
+      "name": "entscheidungsvorlage",
+      "description": "Write or review a German decision memo: Entscheidungsvorlage, Beschlussvorlage, comparable options, proposed resolution, resources and conditions. Use when the requested artifact is a decision paper; reviewing slides or rehearsing meeting answers are separate jobs."
+    },
+    {
+      "name": "ergebnisprotokoll",
+      "description": "Create German meeting minutes and an action log from notes or transcripts. Use for Ergebnisprotokoll, Beschlussprotokoll, Maßnahmenliste, and follow-up while preserving the difference between discussion, proposal, decision, and commitment."
+    },
+    {
+      "name": "gremienvorbereitung",
+      "description": "Prepare a speaker for a German management or steering committee meeting: Gremienvorbereitung, opening, critical questions, evidence-bounded answers and closing ask. Use for meeting rehearsal and Q&A, rather than writing the decision memo or reviewing the slide deck."
+    },
+    {
+      "name": "praesentations-review",
+      "description": "Review an existing German corporate presentation deck: Präsentationsreview, Folienkritik, argument, evidence, charts and specific slide repairs. Use for decision, information or training decks; meeting Q&A preparation belongs to gremienvorbereitung."
+    },
+    {
+      "name": "projektstatus",
+      "description": "Write a German project status report or escalation from project updates: Projektstatus, Ampelbericht, approved baseline, current forecast, deviations and support request. Use for reporting project health, rather than generic email polishing or decision-paper drafting."
+    },
+    {
+      "name": "stakeholder-kommunikation",
+      "description": "Draft or revise German workplace emails and stakeholder messages. Use for clear management requests, diplomatic disagreement, difficult updates, cross-functional coordination, and corporate language that preserves facts and commitments."
+    }
+  ],
+  "requests": [
+    {
+      "id": 1,
+      "prompt": "Nutze praesentations-review für mein Deck."
+    },
+    {
+      "id": 2,
+      "prompt": "Prüfe die Argumentation dieses Foliensatzes für unseren Kunden und nenne konkrete Folienänderungen."
+    },
+    {
+      "id": 3,
+      "prompt": "Die Schulung läuft morgen. Sind die Folien klar, die Zahlen richtig und die Diagramme fair?"
+    },
+    {
+      "id": 4,
+      "prompt": "Ändere ausschließlich die Schrift dieser Folien auf Arial; prüfe ihren Inhalt nicht."
+    },
+    {
+      "id": 5,
+      "prompt": "Bitte eine business-case-pruefung unserer Wirtschaftlichkeitsrechnung."
+    },
+    {
+      "id": 6,
+      "prompt": "Sind die behaupteten Einsparungen und die Amortisation rechnerisch und wirtschaftlich belastbar?"
+    },
+    {
+      "id": 7,
+      "prompt": "Wir gewinnen freie Stunden. Kontrolliere die Annahmen, laufenden Kosten und den Zahlungsnutzen vor dem CFO-Termin."
+    },
+    {
+      "id": 8,
+      "prompt": "Addiere 17 und 25. Nur das Ergebnis."
+    },
+    {
+      "id": 9,
+      "prompt": "Erstelle eine entscheidungsvorlage für die beiden Vertragsoptionen."
+    },
+    {
+      "id": 10,
+      "prompt": "Ich brauche einen Beschlusssatz mit einheitlichem Optionsvergleich und Freigabebedingungen."
+    },
+    {
+      "id": 11,
+      "prompt": "Für den Vorstand morgen soll aus unseren Fakten eine einseitige Entscheidungsvorlage entstehen."
+    },
+    {
+      "id": 12,
+      "prompt": "Übersetze nur das Wort Entscheidung ins Englische."
+    },
+    {
+      "id": 13,
+      "prompt": "Hilf mir mit gremienvorbereitung für den Lenkungsausschuss."
+    },
+    {
+      "id": 14,
+      "prompt": "Welche kritischen Fragen könnte das Gremium stellen und wie antworte ich auf Basis der Unterlagen?"
+    },
+    {
+      "id": 15,
+      "prompt": "Ich habe fünf Minuten Redezeit und brauche einen gesprochenen Einstieg, Antworten und Abschlussbitte."
+    },
+    {
+      "id": 16,
+      "prompt": "Berechne die Gesamtzahl der Teilnehmer aus dieser Namensliste. Sonst nichts."
+    },
+    {
+      "id": 17,
+      "prompt": "Nutze projektstatus für meinen Ampelbericht."
+    },
+    {
+      "id": 18,
+      "prompt": "Verdichte Solltermine, aktuelle Prognose, Kosten und Probleme zu einem Managementstatus."
+    },
+    {
+      "id": 19,
+      "prompt": "Der Meilenstein ist gerissen. Das Management braucht einen Projektbericht mit benötigter Unterstützung."
+    },
+    {
+      "id": 20,
+      "prompt": "Konvertiere die vorhandene CSV-Datei in eine XLSX-Datei ohne Analyse."
+    },
+    {
+      "id": 21,
+      "prompt": "Schreibe ein ergebnisprotokoll aus dem Transkript."
+    },
+    {
+      "id": 22,
+      "prompt": "Was haben wir beschlossen, welche Aufgaben wurden übernommen und welche Fristen gelten? Erstelle eine Maßnahmenliste."
+    },
+    {
+      "id": 23,
+      "prompt": "Die Notizen enthalten Vorschläge und spätere Korrekturen; halte die echten Sitzungsergebnisse fest."
+    },
+    {
+      "id": 24,
+      "prompt": "Transkribiere diese Audiodatei wortgetreu. Keine Zusammenfassung und kein Protokoll."
+    },
+    {
+      "id": 25,
+      "prompt": "Nutze stakeholder-kommunikation für eine diplomatische Mail."
+    },
+    {
+      "id": 26,
+      "prompt": "Mache meine Nachricht an den Fachbereich klarer und freundlicher, ohne Zusagen oder Fristen zu ändern."
+    },
+    {
+      "id": 27,
+      "prompt": "Wir siezen uns und haben einen Konflikt um die Kosten. Formuliere eine sachliche Klärungsbitte."
+    },
+    {
+      "id": 28,
+      "prompt": "Schreibe ein Gedicht über den Herbst für meine Tochter."
+    }
+  ]
+}

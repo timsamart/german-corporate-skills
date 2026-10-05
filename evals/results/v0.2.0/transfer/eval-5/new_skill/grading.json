@@ -1,0 +1,58 @@
+{
+  "expectations": [
+    {
+      "text": "Genehmigtes Ende 30.06.2027 getrennt von bedingter Prognose 29.06; kein genehmigtes Rebaselining.",
+      "passed": true,
+      "evidence": "Output opening: “genehmigte Abschlusstermin bleibt ... 30.06.2027”; table gives conditional 29.06 forecast. End: “als neue Planung vorgeschlagen. Eine geänderte Ausgangsplanung wurde nicht genehmigt.” Source-approved baseline is kept distinct from the proposed, crane-dependent forecast."
+    },
+    {
+      "text": "Vermessung Ist 14.05 vs Soll 13.05; Kran unerledigt Soll 15.05, Prognose 27.05.",
+      "passed": true,
+      "evidence": "Output milestone table gives Vermessung Soll 13.05.2027, confirmed Ist 14.05.2027; Kranaufstellung Soll 15.05.2027, “Unerledigt”, forecast 27.05.2027. Independent date difference 27−15 May is 12 calendar days; survey is one day late. No overdue milestone is represented as complete."
+    },
+    {
+      "text": "14.000 Euro Kostenüberschreitung ca. 6,67 %, daher Kostenampel gelb nach vorhandener Definition.",
+      "passed": true,
+      "evidence": "Output: “Kostenampel: Gelb”; 224.000 total, 14.000 above approved 210.000 and “6,7 %”. Independent 14.000/210.000 × 100 = 6.6667%; source definition >5 through 10% is yellow, making the rounded classification correct."
+    },
+    {
+      "text": "Kostenfarbe nicht offizielle Termin-/Gesamtfarbe; keine erfundene verbindliche Gesamtampel.",
+      "passed": true,
+      "evidence": "Output explicitly limits the color to “Kostenampel” and states “Eine verbindliche Termin- oder Gesamtampel besteht nicht.” It explains timing uncertainty in words without inventing an official timing or overall color."
+    },
+    {
+      "text": "39.000 und 136.000 in 224.000 enthalten; nicht atop Gesamtkosten aufgeschlagen.",
+      "passed": true,
+      "evidence": "Output: “39.000 Euro Abrechnungen und ... 136.000 Euro ... bereits in ... 224.000 Euro enthalten. Sie werden nicht zusätzlich aufgeschlagen.” It distinguishes billed/contracted amounts and correctly derives 185.000 remaining forecast after billed 39.000; no double counting."
+    },
+    {
+      "text": "Aktuelles Kranproblem vs zukünftige Terminwirkung getrennt; Prognose setzt unbestätigte Verfügbarkeit voraus.",
+      "passed": true,
+      "evidence": "Output separates “Eingetretenes Problem” (crane unavailable, milestone incomplete) from “Terminrisiko” (forecast fails if availability does not materialize). “unbestätigte Kranverfügbarkeit am 27.05.2027” qualifies 29.06 completion. This matches source issue vs future impact."
+    },
+    {
+      "text": "Betriebsleitung Entscheidung bis 24.05.2027 über verbindliche Ersatzanfrage; Elif Arslan korrekt; kein Partnerzusagen; Finanzierung 14.000 offen.",
+      "passed": true,
+      "evidence": "Output support table requests Betriebsleitung decision “Bis 24.05.2027” on a binding cost-neutral partner-work crane inquiry; Elif Arslan is the construction lead pursuing it; “Partnerwerk hat noch nicht zugesagt”. The 14.000 funding gap remains open. A matching funding-clarification deadline is explicitly labelled “Vorschlag”, not falsely attributed to source."
+    },
+    {
+      "text": "Vier Meetings nicht als belegter Planfortschritt; keine Schuld oder erfolgte externe Eskalation erfunden.",
+      "passed": true,
+      "evidence": "Output actual-progress entries are anchored to the completed survey and incomplete crane, not the four coordination meetings in the flawed source draft. It assigns no blame and reports the already-source-stated inquiry without inventing external escalation, completed rescue or partner commitment."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Survey completed one calendar day late; crane forecast 12 calendar days after baseline; forecast residual after billing 185.000",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Independent dates and arithmetic confirm 14−13 May=1, 27−15 May=12, 224.000−39.000=185.000. Output preserves contracted 136.000 within that residual."
+    }
+  ]
+}

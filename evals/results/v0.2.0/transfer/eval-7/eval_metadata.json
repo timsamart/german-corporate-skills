@@ -1,0 +1,64 @@
+{
+  "eval_id": 7,
+  "eval_name": "heldout-transfer-T07",
+  "skill": "stakeholder-kommunikation",
+  "source_case_id": "T07",
+  "split": "author_hidden_transfer",
+  "synthetic": true,
+  "prompt": "Schreibe kurze sachliche diplomatische Teams-Nachricht nach Auftrag in T07-input.md. Korrigiere ungesicherte Aussagen ausdrücklich vor Nachricht. Zahlen, Ungewissheit, Klärungsbitte, Frist und Auswirkung erhalten. Keine Ersatz-/Erstattungs-/Eskalationszusage hinzufügen.",
+  "input_files": [
+    "evals/results/v0.2.0/transfer/source/T07-input.md"
+  ],
+  "assertions": [
+    {
+      "id": "T07-changes",
+      "text": "Vor Nachricht kurzer Hinweis auf Bedeutungsänderungen an ungeklärter Fehlmenge/Schuld/Ersatz/Erstattung/Eskalation.",
+      "critical": false,
+      "type": "semantic"
+    },
+    {
+      "id": "T07-facts",
+      "text": "L-742, bestellt 48, Packzettel/Fahrerquittung 48 vs erste Zählung 44 als Differenz, nicht belegter Fehlversand.",
+      "critical": true,
+      "type": "numeric_semantic"
+    },
+    {
+      "id": "T07-unknown",
+      "text": "Keine Ursache/Verantwortung zugeschrieben; zweite Zählung und anderer Standort nicht als geprüft.",
+      "critical": true,
+      "type": "semantic"
+    },
+    {
+      "id": "T07-request",
+      "text": "Konkrete Klärungsbitte an Frau Malik anhand Pack-/Versandunterlagen.",
+      "critical": false,
+      "type": "semantic"
+    },
+    {
+      "id": "T07-deadline",
+      "text": "20.09.2027 16:00 bleibt, interne Mengenfreigabe ohne Klärung nicht möglich.",
+      "critical": true,
+      "type": "semantic"
+    },
+    {
+      "id": "T07-promises",
+      "text": "Keine vereinbarte Ersatzlieferung, Erstattung/Buchung, Vertragsstrafe oder Eskalationsdrohung.",
+      "critical": true,
+      "type": "semantic"
+    },
+    {
+      "id": "T07-tone",
+      "text": "Kurzes förmliches Sie im Teams-Chat, keine E-Mail-Betreffpflicht/erfundene Vertrautheit.",
+      "critical": false,
+      "type": "qualitative"
+    },
+    {
+      "id": "T07-draft",
+      "text": "Entwurf ohne behaupteten Versand oder externe Handlung.",
+      "critical": true,
+      "type": "semantic"
+    }
+  ],
+  "candidate_frozen_at_utc": "2026-10-05T11:57:43.871314Z",
+  "fixture_frozen_at_utc": "2026-10-05T11:51:53Z"
+}

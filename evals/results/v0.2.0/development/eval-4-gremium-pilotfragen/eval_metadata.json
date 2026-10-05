@@ -1,0 +1,36 @@
+{
+  "eval_id": 4,
+  "eval_name": "gremium-pilotfragen",
+  "skill": "gremienvorbereitung",
+  "prompt": "Bereite mich auf meinen fünfminütigen Punkt im Lenkungsausschuss vor. Ich brauche einen kurzen gesprochenen Einstieg, genau drei fallbezogene kritische Fragen mit kurzen ehrlichen Antworten und eine klare Abschlussbitte. Berücksichtige Raum für Rückfragen. Maximal 450 Wörter.",
+  "expectations": [
+    "Begrenzt Bitte und Abschluss auf den vierwöchigen Pilot mit synthetischen Daten und 12.000 Euro extern; keine heutige Rolloutbindung.",
+    "IT-Schweigen bleibt ausstehende Rückmeldung; Kapazität von 20 Personentagen und Testverantwortung werden nicht als gesichert dargestellt.",
+    "CFO-Antwort unterscheidet Kapazität und Cash; die Datenschutzprüfung für synthetische Daten wird nicht auf Kundendaten erweitert.",
+    "Genau drei konkrete Einwände/Antworten tragen die maßgeblichen offenen Punkte; Prüfkriterien und nächste Freigabe bleiben offen oder sichtbar vorgeschlagen.",
+    "Gesprochener Einstieg und Abschluss sind kurz verwendbar, der Zeitplan lässt Rückfragen zu und die Ausgabe bleibt unter 450 Wörtern."
+  ],
+  "assertions": [
+    {
+      "text": "Begrenzt Bitte und Abschluss auf den vierwöchigen Pilot mit synthetischen Daten und 12.000 Euro extern; keine heutige Rolloutbindung.",
+      "critical": true
+    },
+    {
+      "text": "IT-Schweigen bleibt ausstehende Rückmeldung; Kapazität von 20 Personentagen und Testverantwortung werden nicht als gesichert dargestellt.",
+      "critical": true
+    },
+    {
+      "text": "CFO-Antwort unterscheidet Kapazität und Cash; die Datenschutzprüfung für synthetische Daten wird nicht auf Kundendaten erweitert.",
+      "critical": true
+    },
+    {
+      "text": "Genau drei konkrete Einwände/Antworten tragen die maßgeblichen offenen Punkte; Prüfkriterien und nächste Freigabe bleiben offen oder sichtbar vorgeschlagen.",
+      "critical": false
+    },
+    {
+      "text": "Gesprochener Einstieg und Abschluss sind kurz verwendbar, der Zeitplan lässt Rückfragen zu und die Ausgabe bleibt unter 450 Wörtern.",
+      "critical": false
+    }
+  ],
+  "input": "fixtures/gremienvorbereitung.md"
+}

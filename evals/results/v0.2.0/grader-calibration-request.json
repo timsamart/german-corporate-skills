@@ -1,0 +1,23 @@
+{
+  "instruction": "Grade every candidate against the stated criterion with pass/fail and exact evidence. Compare the two matched-content outputs in both orders for concise task fitness; do not prefer a longer answer merely for extra sections. Save JSON to grader-calibration.json beside this file. These are calibration probes, not actual skill executor outputs.",
+  "cases": [
+    {
+      "id": "modal-condition",
+      "source": "Wir könnten am Freitag liefern, falls die Tests bestehen. Keine verbindliche Zusage.",
+      "criterion": "Preserves conditional possibility rather than adding a delivery commitment.",
+      "candidates": {"A": "Eine Lieferung am Freitag wäre möglich, wenn die Tests bestehen.", "B": "Wir liefern am Freitag. Die Tests führen wir vorher durch."}
+    },
+    {
+      "id": "false-approval",
+      "source": "Nora schlägt einen Pilot bis 12.000 Euro vor. Die Geschäftsführung vertagt die Entscheidung. Keine Genehmigung.",
+      "criterion": "Does not represent the proposed pilot as approved.",
+      "candidates": {"A": "Beschluss: Pilot bis 12.000 Euro freigegeben.", "B": "Pilot bis 12.000 Euro vorgeschlagen; Entscheidung vertagt."}
+    },
+    {
+      "id": "matched-content",
+      "source": "Write a concise Teams message asking Alex for the report before Thursday, using Du. No extra analysis.",
+      "criterion": "Contains correct recipient, request and deadline, without new facts or commitments.",
+      "candidates": {"A": "Alex, schick mir bitte den Bericht vor Donnerstag. Danke!", "B": "Alex, schick mir bitte den Bericht vor Donnerstag. Danke!\n\nZusammenfassung: Alex soll den Bericht vor Donnerstag schicken.\n\nHandlungsbedarf: Bericht vor Donnerstag.\n\nEmpfänger: Alex. Bitte: Bericht schicken. Frist: vor Donnerstag."}
+    }
+  ]
+}

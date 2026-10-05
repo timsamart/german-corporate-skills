@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Berechnet bei voller Nutzung 1.200 Stunden, 60.000 Euro Bruttokapazitätswert und 30.000 Euro jährlichen Nettoeffekt im Kapazitätsmodell; gibt diesen nicht als Zahlungsüberschuss aus.",
+      "passed": true,
+      "evidence": "The bullet calculation derives '1.200 Stunden/Jahr' and '1.200 × 50 Euro = 60.000 Euro/Jahr'; the table's full-year balance is +30.000 after recurring costs. 'Dies ist eine Kapazitätsbewertung, keine Zahlungsrendite' prevents treating that net model benefit as cash."
+    },
+    {
+      "text": "Berücksichtigt im Kapazitätsmodell halben Nutzen und volle Betriebskosten im ersten Jahr: Saldo Jahr 1 -80.000, Jahr 2 +30.000, Jahr 3 +30.000, insgesamt -20.000 Euro; dies sind keine belegten finanziellen Cashflows.",
+      "passed": true,
+      "evidence": "The table gives first-year 600 hours/30.000 capacity with full 30.000 recurring and 80.000 introduction costs; balances are −80.000, +30.000, +30.000, total −20.000. This independently matches 150.000 capacity minus 170.000 costs and is expressly a capacity valuation."
+    },
+    {
+      "text": "Weist fehlenden Cash-Realisierungsmechanismus und doppelte Entlastungsbewertung aus; bestätigt keine finanzielle Einsparung oder unterjährige Amortisation.",
+      "passed": true,
+      "evidence": "'Unveränderte Belegschaft und Rückstandsabbau belegen keine zahlungswirksame Einsparung'; 'Derselbe Zeitgewinn wird doppelt gezählt'. The output rejects sub-year payback and states there is no amortization within the given horizon even in the capacity model."
+    },
+    {
+      "text": "Behandelt 8 Prozent Diskontsatz als unbestätigte Annahme und behauptet keinen gesichert positiven Kapitalwert.",
+      "passed": true,
+      "evidence": "The 8% guaranteed-positive-NPV claim is labeled 'Unbelegt'; the output requires a 'begründeten Diskontsatz, Zahlungszeitpunkte und zahlungswirksame Effekte'. Execution.md also identifies 8% as unsupported; no approved rate or guaranteed positive NPV is asserted."
+    },
+    {
+      "text": "Zeigt verständliche Rechenwege, Nacharbeit/Qualität als offene Wirkung und eine konkrete nächste Prüfhandlung innerhalb von 500 Wörtern.",
+      "passed": true,
+      "evidence": "Stepwise formulas and the annual table supply the calculation. Quality work is unmeasured; the proposed test measures actual use and time 'einschließlich Prüfung, Ausnahmen und Nachbearbeitung', and proves backlog/quality effects and cost completeness. Count: 361 whitespace items containing letters/numbers, below 500."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

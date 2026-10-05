@@ -17,3 +17,5 @@ Präsentationsreview ist der Einstieg, weil sich seine Wirkung an einer einzelne
 Eine allgemeine Zusammenfassung und ein allgemeiner Übersetzer bringen für diese Sammlung zu wenig zusätzliche Prüflogik. Unternehmensrecht, regulatorische Freigaben und branchenspezifische Compliance benötigen eigene Quellen und einen engeren Auftrag. Sie sind mögliche spätere Erweiterungen mit eigener Validierung.
 
 Die erste Version stellt Sprache, Artefakte und konkrete Fehlerbilder in den Mittelpunkt. Sie leitet keine universelle Arbeitsweise aus einer Nationalität ab.
+
+Die Auswahl ist eine fachlich begründete Designhypothese. Es wurde keine Häufigkeitsstudie in realen Unternehmen durchgeführt. [Recherche](research/README.md), [Entstehungsprozess](skill-lifecycle.md) und [ausgeführte Evaluation](qualitaet.md) zeigen die Grundlage und den tatsächlichen Prüfstand.

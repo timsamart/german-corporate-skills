@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Berechnet bei voller Nutzung 1.200 Stunden, 60.000 Euro Bruttokapazitätswert und 30.000 Euro jährlichen Nettoeffekt im Kapazitätsmodell; gibt diesen nicht als Zahlungsüberschuss aus.",
+      "passed": true,
+      "evidence": "The output derives 24.000 used cases, 3 minutes saved per case, '1.200 Stunden × 50 Euro = 60.000 Euro jährlichen Kapazitätswert'. The full-year table deducts 30.000 annual costs to +30.000. 'Sie belegt keinen entsprechenden Zahlungsrückfluss' explicitly limits the capacity result."
+    },
+    {
+      "text": "Berücksichtigt im Kapazitätsmodell halben Nutzen und volle Betriebskosten im ersten Jahr: Saldo Jahr 1 -80.000, Jahr 2 +30.000, Jahr 3 +30.000, insgesamt -20.000 Euro; dies sind keine belegten finanziellen Cashflows.",
+      "passed": true,
+      "evidence": "The table separately lists half first-year capacity (30.000), the full 80.000 introduction cost and 30.000 recurring cost; balances are −80.000, +30.000, +30.000, sum −20.000. The following sentence states that the model values free hours and proves no corresponding cash return."
+    },
+    {
+      "text": "Weist fehlenden Cash-Realisierungsmechanismus und doppelte Entlastungsbewertung aus; bestätigt keine finanzielle Einsparung oder unterjährige Amortisation.",
+      "passed": true,
+      "evidence": "Budget reduction/avoided hiring are 'nicht beschlossen'; hours address backlog. The extra 10% 'beschreibt denselben Zeitgewinn und darf nicht zusätzlich als Nutzen zählen'. No three-year modeled payback or financial payback is demonstrated, so the under-one-year claim is rejected."
+    },
+    {
+      "text": "Behandelt 8 Prozent Diskontsatz als unbestätigte Annahme und behauptet keinen gesichert positiven Kapitalwert.",
+      "passed": true,
+      "evidence": "For 'Bei 8 % sicher positiver Kapitalwert' it says 'Dafür fehlt eine belastbare Grundlage' and 'ein verbindlicher Kalkulationszins ist nicht vorgegeben', with cash timings/returns still to clarify. No secured positive NPV is asserted."
+    },
+    {
+      "text": "Zeigt verständliche Rechenwege, Nacharbeit/Qualität als offene Wirkung und eine konkrete nächste Prüfhandlung innerhalb von 500 Wörtern.",
+      "passed": true,
+      "evidence": "The case count/time saving/value calculation and year-by-year table are understandable. Quality assurance/afterwork and stable quality require evidence; a limited test with budget, success and stopping criteria is proposed as the next verification step. Count: 364 whitespace items containing letters/numbers, below 500."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

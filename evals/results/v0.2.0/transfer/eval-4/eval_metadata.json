@@ -1,0 +1,64 @@
+{
+  "eval_id": 4,
+  "eval_name": "heldout-transfer-T04",
+  "skill": "gremienvorbereitung",
+  "source_case_id": "T04",
+  "split": "author_hidden_transfer",
+  "synthetic": true,
+  "prompt": "Bereite mich mit T04-input.md auf vier Minuten im Marktgremium vor. Ziel ist Empfehlung an Geschäftsführung. Liefere kurzen mündlichen Einstieg, höchstens fünf kritische Fragen mit ehrlichen Antworten und passenden Abschluss. Kosten, Befugnisse und offene Punkte erhalten.",
+  "input_files": [
+    "evals/results/v0.2.0/transfer/source/T04-input.md"
+  ],
+  "assertions": [
+    {
+      "id": "T04-mandate",
+      "text": "Gesamtplan 77.000 Euro über 75.000 Eigenfreigabe; Empfehlung an Geschäftsführung, keine verbindliche Eigenfreigabe.",
+      "critical": true,
+      "type": "numeric_semantic"
+    },
+    {
+      "id": "T04-deposit",
+      "text": "Falls thematisiert: Anzahlung 13.600 Euro (20 % von 68.000), nicht erstattbar; weitere Stornierungskosten offen.",
+      "critical": true,
+      "type": "numeric_semantic"
+    },
+    {
+      "id": "T04-revenue",
+      "text": "300.000 kein sicherer Umsatz; 27 Kontakte, drei Erstgespräche, keine belegte Zuordnung Vertragsumsatz.",
+      "critical": true,
+      "type": "semantic"
+    },
+    {
+      "id": "T04-logistics",
+      "text": "Logistik/Personalverfügbarkeit unbestätigt; Empfang/Prüfung nicht Zusage.",
+      "critical": true,
+      "type": "semantic"
+    },
+    {
+      "id": "T04-questions",
+      "text": "Höchstens fünf fallspezifische entscheidende Fragen, kurze mündliche Antworten mit Unsicherheit und Klärung.",
+      "critical": false,
+      "type": "qualitative"
+    },
+    {
+      "id": "T04-deadline",
+      "text": "19.11.2026 Annahmefrist bleibt; kein Auftrag/Annahme behauptet, Abschluss passend zur Empfehlung.",
+      "critical": false,
+      "type": "semantic"
+    },
+    {
+      "id": "T04-motives",
+      "text": "Keine erfundenen Motive aus Spekulation oder Beteiligungszustimmung.",
+      "critical": true,
+      "type": "semantic"
+    },
+    {
+      "id": "T04-brief",
+      "text": "Für vier Minuten verwendbares Briefing, keine lange Standardfragenliste oder sachfremde neue Vorlage.",
+      "critical": false,
+      "type": "qualitative"
+    }
+  ],
+  "candidate_frozen_at_utc": "2026-10-05T11:57:43.871314Z",
+  "fixture_frozen_at_utc": "2026-10-05T11:51:53Z"
+}

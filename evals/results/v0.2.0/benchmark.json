@@ -1,0 +1,311 @@
+{
+  "metadata": {
+    "skill_name": "german-corporate-skills",
+    "timestamp": "2026-10-05",
+    "evals_run": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "runs_per_configuration": 1
+  },
+  "run_summary": {
+    "new_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      }
+    },
+    "old_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      }
+    },
+    "without_corporate": {
+      "pass_rate": {
+        "mean": 0.919047619047619,
+        "stddev": 0.15378814535195373,
+        "min": 0.6,
+        "max": 1.0
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.00"
+    }
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 6,
+        "total": 6,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 6,
+        "total": 6,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_corporate",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 6,
+        "failed": 1,
+        "pass_rate": 0.8333333333333334
+      },
+      "notes": [
+        "F3 gives '45.000 Euro jährlich' after operating costs and 'im ersten Jahr ... −45.000 Euro', distinguishing capacity from cash. It never states the required two-year simplified payback (90.000 / 45.000 = 2), so this combined criterion is incomplete."
+      ]
+    },
+    {
+      "eval_id": 2,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_corporate",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_corporate",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "without_corporate",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "without_corporate",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "without_corporate",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "total": 5,
+        "failed": 2,
+        "pass_rate": 0.6
+      },
+      "notes": [
+        "„Karim (IT) | 14.10.2026; korrigierte und von Nora festgehaltene Frist“ erhält den richtigen endgültigen Termin. Die frühere Zusage „bis Freitag“ (Quelle 00:05) wird jedoch nirgends genannt; dadurch ist die konkrete Änderung dieser früheren Frist nicht nachvollziehbar festgehalten.",
+        "Die Ausgabe ist als „Entwurf zur Prüfung“ und „Nicht bestätigt und nicht versandt“ bezeichnet; die Maßnahmenliste ist lesbar und hat unabhängig gezählt 169 Wörter. Es fehlen jedoch Fundstellen vollständig: Kein folgenreicher Beschluss und keine Aufgabe verweist auf die verfügbaren Zeitmarken oder eine andere genaue Quellstelle."
+      ]
+    },
+    {
+      "eval_id": 7,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 4,
+        "total": 4,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 4,
+        "total": 4,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "configuration": "without_corporate",
+      "run_number": 1,
+      "result": {
+        "passed": 4,
+        "total": 4,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    }
+  ],
+  "notes": [
+    "Descriptive development-criterion completion, equally weighted by task. Not population accuracy.",
+    "New vs released skill ties on these seven tasks. Ordinary prompting has three completeness omissions.",
+    "Seven candidate-only transfer runs are separately reported and excluded from this comparison.",
+    "Exact model id, sampling, runtime and token metrics unavailable; omitted rather than set to zero.",
+    "One run per task/configuration. Shared-filesystem procedural isolation; model graders; human usability pending."
+  ]
+}

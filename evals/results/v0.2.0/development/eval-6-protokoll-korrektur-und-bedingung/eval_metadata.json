@@ -1,0 +1,36 @@
+{
+  "eval_id": 6,
+  "eval_name": "protokoll-korrektur-und-bedingung",
+  "skill": "ergebnisprotokoll",
+  "prompt": "Erstelle aus diesem Transkriptausschnitt ein knappes Ergebnisprotokoll mit Beschlüssen, Maßnahmen und offenen Punkten. Es ist ein Entwurf zur Prüfung, kein bestätigtes Protokoll. Maximal 450 Wörter.",
+  "expectations": [
+    "Dokumentiert den bedingten Pilot 4 Wochen/12.000 Euro, Kapazität und Owner als Voraussetzungen; 40.000 Euro Rollout bleiben Vorschlag/offen.",
+    "Hält Karims endgültig bestätigte Frist 14.10.2026 und die Änderung der früheren Freitagsfrist nachvollziehbar fest.",
+    "Erhält Lenas bestätigte Kriterienaufgabe bis 07.10.; weist unbekanntem Sprecher4 oder Compliance keine bestätigte Aufgabe zu.",
+    "Bewahrt die ausdrücklich erforderliche Folgebestätigung; automatische Zustimmung und nächster Sitzungstermin werden nicht erfunden.",
+    "Ausgabe ist Entwurf mit nachvollziehbaren Fundstellen zu folgenreichen Punkten und gut lesbarer Maßnahmenliste, höchstens 450 Wörter; keine Versandbehauptung."
+  ],
+  "assertions": [
+    {
+      "text": "Dokumentiert den bedingten Pilot 4 Wochen/12.000 Euro, Kapazität und Owner als Voraussetzungen; 40.000 Euro Rollout bleiben Vorschlag/offen.",
+      "critical": true
+    },
+    {
+      "text": "Hält Karims endgültig bestätigte Frist 14.10.2026 und die Änderung der früheren Freitagsfrist nachvollziehbar fest.",
+      "critical": true
+    },
+    {
+      "text": "Erhält Lenas bestätigte Kriterienaufgabe bis 07.10.; weist unbekanntem Sprecher4 oder Compliance keine bestätigte Aufgabe zu.",
+      "critical": true
+    },
+    {
+      "text": "Bewahrt die ausdrücklich erforderliche Folgebestätigung; automatische Zustimmung und nächster Sitzungstermin werden nicht erfunden.",
+      "critical": true
+    },
+    {
+      "text": "Ausgabe ist Entwurf mit nachvollziehbaren Fundstellen zu folgenreichen Punkten und gut lesbarer Maßnahmenliste, höchstens 450 Wörter; keine Versandbehauptung.",
+      "critical": false
+    }
+  ],
+  "input": "fixtures/ergebnisprotokoll.md"
+}

@@ -24,6 +24,8 @@ Entferne Floskeln, die keine Information beitragen. Ersetze Nominalketten durch 
 
 Wenn mehrere Anliegen unterschiedliche Empfänger oder Fristen haben, mache sie im Text nachvollziehbar oder schlage eine sinnvolle Aufteilung vor. Füge keine zusätzlichen Zusagen ein, um die Nachricht geschmeidiger zu machen.
 
+Prüfe nach dem Kürzen: Wer handelt, was wird verlangt, welche Zahl und Frist gelten, welche Bedingung oder Verneinung bleibt und wie verbindlich ist die Aussage? Modalwörter tragen Bedeutung: „kann“, „darf“, „muss“, „soll“ und „könnte“ sind nicht austauschbar. „Wir könnten Freitag liefern, falls die Tests bestehen“ darf keine Lieferzusage werden. Verwende Fachbegriffe konsistent; aktiver Stil darf keinen unbekannten Akteur erfinden.
+
 ## Ergebnis
 
 Liefere zuerst eine unmittelbar verwendbare Nachricht. Ergänze bei Bedarf einen knappen Hinweis zu einer noch fehlenden verbindlichen Angabe. Schreibe Varianten nur, wenn sie gewünscht sind oder einen tatsächlich wichtigen Tonunterschied zeigen.
@@ -31,3 +33,5 @@ Liefere zuerst eine unmittelbar verwendbare Nachricht. Ergänze bei Bedarf einen
 Bei einer reinen Überarbeitung halte den Inhalt stabil. Zeige eine Bedeutungsänderung ausdrücklich, bevor sie als versandfertige Fassung erscheint. Diese Fähigkeit erstellt Entwürfe; Versand braucht einen entsprechenden Auftrag.
 
 Lies [das Beispiel](references/beispiel.md), wenn ein klarer Widerspruch ohne zusätzliche Schuldzuweisung formuliert werden soll.
+
+Lies bei Bedarf [Grundlagen](references/grundlagen.md) für Sprachprinzipien und den Vorrang der Bedeutung.

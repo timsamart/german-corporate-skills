@@ -1,0 +1,184 @@
+[
+  {
+    "id": 1,
+    "prompt": "Nutze praesentations-review für mein Deck.",
+    "expected": [
+      "praesentations-review"
+    ]
+  },
+  {
+    "id": 2,
+    "prompt": "Prüfe die Argumentation dieses Foliensatzes für unseren Kunden und nenne konkrete Folienänderungen.",
+    "expected": [
+      "praesentations-review"
+    ]
+  },
+  {
+    "id": 3,
+    "prompt": "Die Schulung läuft morgen. Sind die Folien klar, die Zahlen richtig und die Diagramme fair?",
+    "expected": [
+      "praesentations-review"
+    ]
+  },
+  {
+    "id": 4,
+    "prompt": "Ändere ausschließlich die Schrift dieser Folien auf Arial; prüfe ihren Inhalt nicht.",
+    "expected": []
+  },
+  {
+    "id": 5,
+    "prompt": "Bitte eine business-case-pruefung unserer Wirtschaftlichkeitsrechnung.",
+    "expected": [
+      "business-case-pruefung"
+    ]
+  },
+  {
+    "id": 6,
+    "prompt": "Sind die behaupteten Einsparungen und die Amortisation rechnerisch und wirtschaftlich belastbar?",
+    "expected": [
+      "business-case-pruefung"
+    ]
+  },
+  {
+    "id": 7,
+    "prompt": "Wir gewinnen freie Stunden. Kontrolliere die Annahmen, laufenden Kosten und den Zahlungsnutzen vor dem CFO-Termin.",
+    "expected": [
+      "business-case-pruefung"
+    ]
+  },
+  {
+    "id": 8,
+    "prompt": "Addiere 17 und 25. Nur das Ergebnis.",
+    "expected": []
+  },
+  {
+    "id": 9,
+    "prompt": "Erstelle eine entscheidungsvorlage für die beiden Vertragsoptionen.",
+    "expected": [
+      "entscheidungsvorlage"
+    ]
+  },
+  {
+    "id": 10,
+    "prompt": "Ich brauche einen Beschlusssatz mit einheitlichem Optionsvergleich und Freigabebedingungen.",
+    "expected": [
+      "entscheidungsvorlage"
+    ]
+  },
+  {
+    "id": 11,
+    "prompt": "Für den Vorstand morgen soll aus unseren Fakten eine einseitige Entscheidungsvorlage entstehen.",
+    "expected": [
+      "entscheidungsvorlage"
+    ]
+  },
+  {
+    "id": 12,
+    "prompt": "Übersetze nur das Wort Entscheidung ins Englische.",
+    "expected": []
+  },
+  {
+    "id": 13,
+    "prompt": "Hilf mir mit gremienvorbereitung für den Lenkungsausschuss.",
+    "expected": [
+      "gremienvorbereitung"
+    ]
+  },
+  {
+    "id": 14,
+    "prompt": "Welche kritischen Fragen könnte das Gremium stellen und wie antworte ich auf Basis der Unterlagen?",
+    "expected": [
+      "gremienvorbereitung"
+    ]
+  },
+  {
+    "id": 15,
+    "prompt": "Ich habe fünf Minuten Redezeit und brauche einen gesprochenen Einstieg, Antworten und Abschlussbitte.",
+    "expected": [
+      "gremienvorbereitung"
+    ]
+  },
+  {
+    "id": 16,
+    "prompt": "Berechne die Gesamtzahl der Teilnehmer aus dieser Namensliste. Sonst nichts.",
+    "expected": []
+  },
+  {
+    "id": 17,
+    "prompt": "Nutze projektstatus für meinen Ampelbericht.",
+    "expected": [
+      "projektstatus"
+    ]
+  },
+  {
+    "id": 18,
+    "prompt": "Verdichte Solltermine, aktuelle Prognose, Kosten und Probleme zu einem Managementstatus.",
+    "expected": [
+      "projektstatus"
+    ]
+  },
+  {
+    "id": 19,
+    "prompt": "Der Meilenstein ist gerissen. Das Management braucht einen Projektbericht mit benötigter Unterstützung.",
+    "expected": [
+      "projektstatus"
+    ]
+  },
+  {
+    "id": 20,
+    "prompt": "Konvertiere die vorhandene CSV-Datei in eine XLSX-Datei ohne Analyse.",
+    "expected": []
+  },
+  {
+    "id": 21,
+    "prompt": "Schreibe ein ergebnisprotokoll aus dem Transkript.",
+    "expected": [
+      "ergebnisprotokoll"
+    ]
+  },
+  {
+    "id": 22,
+    "prompt": "Was haben wir beschlossen, welche Aufgaben wurden übernommen und welche Fristen gelten? Erstelle eine Maßnahmenliste.",
+    "expected": [
+      "ergebnisprotokoll"
+    ]
+  },
+  {
+    "id": 23,
+    "prompt": "Die Notizen enthalten Vorschläge und spätere Korrekturen; halte die echten Sitzungsergebnisse fest.",
+    "expected": [
+      "ergebnisprotokoll"
+    ]
+  },
+  {
+    "id": 24,
+    "prompt": "Transkribiere diese Audiodatei wortgetreu. Keine Zusammenfassung und kein Protokoll.",
+    "expected": []
+  },
+  {
+    "id": 25,
+    "prompt": "Nutze stakeholder-kommunikation für eine diplomatische Mail.",
+    "expected": [
+      "stakeholder-kommunikation"
+    ]
+  },
+  {
+    "id": 26,
+    "prompt": "Mache meine Nachricht an den Fachbereich klarer und freundlicher, ohne Zusagen oder Fristen zu ändern.",
+    "expected": [
+      "stakeholder-kommunikation"
+    ]
+  },
+  {
+    "id": 27,
+    "prompt": "Wir siezen uns und haben einen Konflikt um die Kosten. Formuliere eine sachliche Klärungsbitte.",
+    "expected": [
+      "stakeholder-kommunikation"
+    ]
+  },
+  {
+    "id": 28,
+    "prompt": "Schreibe ein Gedicht über den Herbst für meine Tochter.",
+    "expected": []
+  }
+]

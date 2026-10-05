@@ -1,0 +1,36 @@
+{
+  "eval_id": 3,
+  "eval_name": "entscheidung-vertragsbindung",
+  "skill": "entscheidungsvorlage",
+  "prompt": "Erstelle aus den Unterlagen eine kompakte Entscheidungsvorlage von maximal einer Seite beziehungsweise 450 Wörtern für die Geschäftsführung. Beschlusssatz, vergleichbare Optionen, Empfehlung und Bedingungen müssen verwendbar sein. Bewahre die Unsicherheit über den späteren Ersatz.",
+  "expectations": [
+    "Vergleicht auf drei Jahre A mit 66.000 Euro extern/71.000 inkl. interner Kapazität und B mit 48.000 extern/57.000 inklusive intern.",
+    "Benennt Kostenvorteil von B und Flexibilitätsvorteil von A; macht den möglichen Ersatz nach 18 Monaten als unsicher sichtbar.",
+    "Erfindet weder eine dritte technische Alternative noch eine Ersatzentscheidung, Genehmigung oder zuständige Person.",
+    "Formuliert einen eindeutigen Vorschlagsbeschluss und eine aus dem Zielkonflikt nachvollziehbare Empfehlung; offene Bedingungen werden nicht als bestätigt ausgegeben.",
+    "Liefert eine für die Geschäftsführung verwendbare Vorlage mit Termin 08.10.2026 und höchstens 450 Wörtern."
+  ],
+  "assertions": [
+    {
+      "text": "Vergleicht auf drei Jahre A mit 66.000 Euro extern/71.000 inkl. interner Kapazität und B mit 48.000 extern/57.000 inklusive intern.",
+      "critical": true
+    },
+    {
+      "text": "Benennt Kostenvorteil von B und Flexibilitätsvorteil von A; macht den möglichen Ersatz nach 18 Monaten als unsicher sichtbar.",
+      "critical": true
+    },
+    {
+      "text": "Erfindet weder eine dritte technische Alternative noch eine Ersatzentscheidung, Genehmigung oder zuständige Person.",
+      "critical": true
+    },
+    {
+      "text": "Formuliert einen eindeutigen Vorschlagsbeschluss und eine aus dem Zielkonflikt nachvollziehbare Empfehlung; offene Bedingungen werden nicht als bestätigt ausgegeben.",
+      "critical": true
+    },
+    {
+      "text": "Liefert eine für die Geschäftsführung verwendbare Vorlage mit Termin 08.10.2026 und höchstens 450 Wörtern.",
+      "critical": false
+    }
+  ],
+  "input": "fixtures/entscheidungsvorlage.md"
+}

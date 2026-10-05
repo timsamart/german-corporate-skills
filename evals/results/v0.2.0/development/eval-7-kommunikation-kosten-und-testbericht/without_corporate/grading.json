@@ -1,0 +1,41 @@
+{
+  "expectations": [
+    {
+      "text": "Erhält 100.000 Euro Budget, 112.000 Prognose und 12.000 Mehrbedarf außerhalb des Projektmandats.",
+      "passed": true,
+      "evidence": "„100.000 Euro Gesamtbudget“, „Gesamtkostenprognose von 112.000 Euro“ und „Die Projektleitung kann zusätzliche 12.000 Euro nicht innerhalb ihres Mandats freigeben“ erhalten die drei Beträge und die Mandatsgrenze."
+    },
+    {
+      "text": "Erhält fehlenden Testbericht und die Konsequenz, dass ohne ihn keine belastbare Startprognose empfohlen werden kann.",
+      "passed": true,
+      "evidence": "„fehlenden vorherigen Testbericht“ wird angefordert; „Ohne den vorherigen Testbericht kann die Projektleitung derzeit keine belastbare Startprognose empfehlen“ erhält die sachliche Konsequenz."
+    },
+    {
+      "text": "Klare Bitte um Kostenklärung und Testbericht vor 08.10.; keine erfundene morgige Frist, Schuld, Freigabe oder Eskalationsdrohung.",
+      "passed": true,
+      "evidence": "„den Kostenstand vor diesem Termin zu klären“ und „Bitte senden Sie uns daher auch diesen Bericht vor dem 08.10.2026“ sind klare Bitten. Kein morgen-Termin, Vorwurf der Fehlerursache, Freigabe oder Eskalationsdrohung wird ergänzt."
+    },
+    {
+      "text": "Direkt verwendbare sachliche Sie-Mail an Herrn Berger mit höchstens 160 Wörtern; Tonkorrektur verdeckt den Handlungsbedarf nicht.",
+      "passed": true,
+      "evidence": "Die Ausgabe beginnt direkt mit Betreff und „Sehr geehrter Herr Berger“, benutzt „Sie“ und bleibt sachlich. Die konkrete Abweichung, Mandatsgrenze, Startunsicherheit und erforderlichen Handlungen bleiben sichtbar. Unabhängig gezählt: 100 Wörter, höchstens 160."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Die Ausgabe hat 100 Wörter nach der vorgegebenen Zählregel.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Unabhängig am gespeicherten output.md gezählt: durch Leerraum getrennte Einheiten mit mindestens einem Unicode-Buchstaben oder einer Ziffer; reine Markdown-Marker nicht gezählt."
+    }
+  ],
+  "review_notes": [
+    "Fachliche Aussagen wurden gegen das jeweilige synthetische Source-Fixture geprüft. Die execution.md-Datei ist ein selbst berichteter Werkzeugnachweis, kein vollständiger Ausführungstrace; daraus wurden keine Modell-, Token- oder Zeitmetriken abgeleitet."
+  ]
+}

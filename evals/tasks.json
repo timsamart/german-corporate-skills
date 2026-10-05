@@ -1,0 +1,209 @@
+[
+  {
+    "id": 1,
+    "name": "deck-serviceassistenz",
+    "skill": "praesentations-review",
+    "input": "fixtures/praesentations-review.md",
+    "additional_inputs": [
+      "fixtures/serviceassistenz-deck.pdf",
+      "fixtures/serviceassistenz-chart.png"
+    ],
+    "prompt": "Prüfe dieses sechsseitige Deck für die Geschäftsführung. Beantragt wird ein Rollout; für die Sitzung sind zehn Minuten vorgesehen. Prüfe Inhalt und die sichtbare Diagrammdarstellung. Liefere die fünf wichtigsten Befunde mit Foliennummer, Auswirkung und konkreter Änderung sowie einen belastbaren Vorschlag für die Abschlussfolie. Maximal 650 Wörter. Die Dateien enthalten vollständig synthetische Unterlagen.",
+    "assertions": [
+      {
+        "text": "Korrigiert F2 von 40 auf 30 Prozent und begrenzt den Testbefund; keine Kontrollgruppe und fehlende Nacharbeit bleiben erkennbar.",
+        "critical": true
+      },
+      {
+        "text": "Rechnet F3 auf 1.800 Stunden und 90.000 Euro jährlichen Bruttokapazitätswert; bestätigt weder 300.000 Euro noch Cash-Einsparung.",
+        "critical": true
+      },
+      {
+        "text": "Unterscheidet 45.000 Euro jährlichen Nettokapazitätseffekt und 2 Jahre vereinfachte Amortisation von gesicherter finanzieller Amortisation.",
+        "critical": true
+      },
+      {
+        "text": "Identifiziert nach tatsächlichem Bildzugriff die bei 8 beginnende Balkenachse auf F4 als verzerrend und empfiehlt eine Nullbasis.",
+        "critical": false
+      },
+      {
+        "text": "Zeigt den Widerspruch auf F5 und die begrenzte Freigabe auf F1; behauptet keine IT-Zustimmung oder Kundendatenfreigabe.",
+        "critical": true
+      },
+      {
+        "text": "Liefert priorisierte, folienbezogene Reparaturen und eine engere, bedingte Abschlussbitte ohne erfundene Zuständigkeit, Budgetfreigabe oder Rolloutgenehmigung; hält 650 Wörter ein.",
+        "critical": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "business-anlaufphase",
+    "skill": "business-case-pruefung",
+    "input": "fixtures/business-case-pruefung.md",
+    "prompt": "Prüfe diesen Business Case für die Geschäftsführung. Zeige die korrekte Rechnung über den vorgegebenen Dreijahreszeitraum, benenne die entscheidenden Fehlbehauptungen und die nötigen Nachweise. Maximal 500 Wörter; keine fehlenden Werte ergänzen.",
+    "assertions": [
+      {
+        "text": "Berechnet bei voller Nutzung 1.200 Stunden, 60.000 Euro Bruttokapazitätswert und 30.000 Euro jährlichen Nettoeffekt im Kapazitätsmodell; gibt diesen nicht als Zahlungsüberschuss aus.",
+        "critical": true
+      },
+      {
+        "text": "Berücksichtigt im Kapazitätsmodell halben Nutzen und volle Betriebskosten im ersten Jahr: Saldo Jahr 1 -80.000, Jahr 2 +30.000, Jahr 3 +30.000, insgesamt -20.000 Euro; dies sind keine belegten finanziellen Cashflows.",
+        "critical": true
+      },
+      {
+        "text": "Weist fehlenden Cash-Realisierungsmechanismus und doppelte Entlastungsbewertung aus; bestätigt keine finanzielle Einsparung oder unterjährige Amortisation.",
+        "critical": true
+      },
+      {
+        "text": "Behandelt 8 Prozent Diskontsatz als unbestätigte Annahme und behauptet keinen gesichert positiven Kapitalwert.",
+        "critical": true
+      },
+      {
+        "text": "Zeigt verständliche Rechenwege, Nacharbeit/Qualität als offene Wirkung und eine konkrete nächste Prüfhandlung innerhalb von 500 Wörtern.",
+        "critical": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "entscheidung-vertragsbindung",
+    "skill": "entscheidungsvorlage",
+    "input": "fixtures/entscheidungsvorlage.md",
+    "prompt": "Erstelle aus den Unterlagen eine kompakte Entscheidungsvorlage von maximal einer Seite beziehungsweise 450 Wörtern für die Geschäftsführung. Beschlusssatz, vergleichbare Optionen, Empfehlung und Bedingungen müssen verwendbar sein. Bewahre die Unsicherheit über den späteren Ersatz.",
+    "assertions": [
+      {
+        "text": "Vergleicht auf drei Jahre A mit 66.000 Euro extern/71.000 inkl. interner Kapazität und B mit 48.000 extern/57.000 inklusive intern.",
+        "critical": true
+      },
+      {
+        "text": "Benennt Kostenvorteil von B und Flexibilitätsvorteil von A; macht den möglichen Ersatz nach 18 Monaten als unsicher sichtbar.",
+        "critical": true
+      },
+      {
+        "text": "Erfindet weder eine dritte technische Alternative noch eine Ersatzentscheidung, Genehmigung oder zuständige Person.",
+        "critical": true
+      },
+      {
+        "text": "Formuliert einen eindeutigen Vorschlagsbeschluss und eine aus dem Zielkonflikt nachvollziehbare Empfehlung; offene Bedingungen werden nicht als bestätigt ausgegeben.",
+        "critical": true
+      },
+      {
+        "text": "Liefert eine für die Geschäftsführung verwendbare Vorlage mit Termin 08.10.2026 und höchstens 450 Wörtern.",
+        "critical": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "gremium-pilotfragen",
+    "skill": "gremienvorbereitung",
+    "input": "fixtures/gremienvorbereitung.md",
+    "prompt": "Bereite mich auf meinen fünfminütigen Punkt im Lenkungsausschuss vor. Ich brauche einen kurzen gesprochenen Einstieg, genau drei fallbezogene kritische Fragen mit kurzen ehrlichen Antworten und eine klare Abschlussbitte. Berücksichtige Raum für Rückfragen. Maximal 450 Wörter.",
+    "assertions": [
+      {
+        "text": "Begrenzt Bitte und Abschluss auf den vierwöchigen Pilot mit synthetischen Daten und 12.000 Euro extern; keine heutige Rolloutbindung.",
+        "critical": true
+      },
+      {
+        "text": "IT-Schweigen bleibt ausstehende Rückmeldung; Kapazität von 20 Personentagen und Testverantwortung werden nicht als gesichert dargestellt.",
+        "critical": true
+      },
+      {
+        "text": "CFO-Antwort unterscheidet Kapazität und Cash; die Datenschutzprüfung für synthetische Daten wird nicht auf Kundendaten erweitert.",
+        "critical": true
+      },
+      {
+        "text": "Genau drei konkrete Einwände/Antworten tragen die maßgeblichen offenen Punkte; Prüfkriterien und nächste Freigabe bleiben offen oder sichtbar vorgeschlagen.",
+        "critical": false
+      },
+      {
+        "text": "Gesprochener Einstieg und Abschluss sind kurz verwendbar, der Zeitplan lässt Rückfragen zu und die Ausgabe bleibt unter 450 Wörtern.",
+        "critical": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "status-mandatsgrenze",
+    "skill": "projektstatus",
+    "input": "fixtures/projektstatus.md",
+    "prompt": "Erstelle einen Managementstatus zum 05.10.2026 für den Lenkungsausschuss am 08.10. Verwende die beigefügte Unternehmensampel. Zeige die wesentlichen Abweichungen, echte Fortschritte und eine konkrete Bitte innerhalb von 400 Wörtern.",
+    "assertions": [
+      {
+        "text": "Gesamtstatus ist Rot nach der gelieferten Regel, weil die 12.000 Euro Budgetüberschreitung außerhalb des Projektmandats entschieden werden muss.",
+        "critical": true
+      },
+      {
+        "text": "Erhält Baseline 30.09./01.11. und 100.000 Euro; trennt Istkosten 45.000, Gesamtprognose 112.000 und Mehrbedarf 12.000.",
+        "critical": true
+      },
+      {
+        "text": "Zeigt unerledigten Test, unsicheren Zugangstermin und zehn Arbeitstage nach Zugang; erfindet keinen verbindlichen Test- oder Starttermin und keine genehmigte neue Baseline.",
+        "critical": true
+      },
+      {
+        "text": "Nennt dokumentierte Schnittstellenspezifikation als Ergebnis; fünf Workshops allein begründen keinen grünen Fortschritt.",
+        "critical": false
+      },
+      {
+        "text": "Formuliert eine konkrete Entscheidung/Unterstützung für 08.10., erhält Mara als belegte Projektverantwortliche und kennzeichnet neue Maßnahmen als Vorschläge; höchstens 400 Wörter.",
+        "critical": false
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "protokoll-korrektur-und-bedingung",
+    "skill": "ergebnisprotokoll",
+    "input": "fixtures/ergebnisprotokoll.md",
+    "prompt": "Erstelle aus diesem Transkriptausschnitt ein knappes Ergebnisprotokoll mit Beschlüssen, Maßnahmen und offenen Punkten. Es ist ein Entwurf zur Prüfung, kein bestätigtes Protokoll. Maximal 450 Wörter.",
+    "assertions": [
+      {
+        "text": "Dokumentiert den bedingten Pilot 4 Wochen/12.000 Euro, Kapazität und Owner als Voraussetzungen; 40.000 Euro Rollout bleiben Vorschlag/offen.",
+        "critical": true
+      },
+      {
+        "text": "Hält Karims endgültig bestätigte Frist 14.10.2026 und die Änderung der früheren Freitagsfrist nachvollziehbar fest.",
+        "critical": true
+      },
+      {
+        "text": "Erhält Lenas bestätigte Kriterienaufgabe bis 07.10.; weist unbekanntem Sprecher4 oder Compliance keine bestätigte Aufgabe zu.",
+        "critical": true
+      },
+      {
+        "text": "Bewahrt die ausdrücklich erforderliche Folgebestätigung; automatische Zustimmung und nächster Sitzungstermin werden nicht erfunden.",
+        "critical": true
+      },
+      {
+        "text": "Ausgabe ist Entwurf mit nachvollziehbaren Fundstellen zu folgenreichen Punkten und gut lesbarer Maßnahmenliste, höchstens 450 Wörter; keine Versandbehauptung.",
+        "critical": false
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "kommunikation-kosten-und-testbericht",
+    "skill": "stakeholder-kommunikation",
+    "input": "fixtures/stakeholder-kommunikation.md",
+    "prompt": "Überarbeite den Entwurf zu einer sachlichen, diplomatischen Mail an Herrn Berger (Sie). Bitte um Klärung der Kosten und den fehlenden Testbericht vor dem 08.10.2026. Maximal 160 Wörter, keine neuen Zusagen oder Drohungen. Liefere zuerst die verwendbare Mail.",
+    "assertions": [
+      {
+        "text": "Erhält 100.000 Euro Budget, 112.000 Prognose und 12.000 Mehrbedarf außerhalb des Projektmandats.",
+        "critical": true
+      },
+      {
+        "text": "Erhält fehlenden Testbericht und die Konsequenz, dass ohne ihn keine belastbare Startprognose empfohlen werden kann.",
+        "critical": true
+      },
+      {
+        "text": "Klare Bitte um Kostenklärung und Testbericht vor 08.10.; keine erfundene morgige Frist, Schuld, Freigabe oder Eskalationsdrohung.",
+        "critical": true
+      },
+      {
+        "text": "Direkt verwendbare sachliche Sie-Mail an Herrn Berger mit höchstens 160 Wörtern; Tonkorrektur verdeckt den Handlungsbedarf nicht.",
+        "critical": false
+      }
+    ]
+  }
+]

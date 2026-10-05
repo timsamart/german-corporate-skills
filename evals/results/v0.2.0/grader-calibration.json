@@ -1,0 +1,45 @@
+{
+  "cases": [
+    {
+      "id": "modal-condition",
+      "candidates": {
+        "A": {
+          "passed": true,
+          "evidence": "'wäre möglich, wenn die Tests bestehen' preserves both possibility and the condition."
+        },
+        "B": {
+          "passed": false,
+          "evidence": "'Wir liefern am Freitag' makes an unconditional delivery commitment; conducting tests beforehand does not preserve the source condition or absence of a binding promise."
+        }
+      }
+    },
+    {
+      "id": "false-approval",
+      "candidates": {
+        "A": {
+          "passed": false,
+          "evidence": "'Beschluss: Pilot bis 12.000 Euro freigegeben' asserts approval despite the source saying the decision was deferred and no approval was given."
+        },
+        "B": {
+          "passed": true,
+          "evidence": "'vorgeschlagen; Entscheidung vertagt' correctly preserves the proposed status and deferred decision."
+        }
+      }
+    },
+    {
+      "id": "matched-content",
+      "candidates": {
+        "A": {
+          "passed": true,
+          "evidence": "'Alex, schick mir bitte den Bericht vor Donnerstag' names Alex, requests the report, uses Du and preserves the deadline without new facts or commitments."
+        },
+        "B": {
+          "passed": true,
+          "evidence": "The same opening request correctly names Alex and asks for the report 'vor Donnerstag'; the extra sections repeat those facts without adding facts or commitments. They reduce fitness for the source request for a concise message with no extra analysis."
+        }
+      },
+      "preference_A_then_B": "A",
+      "preference_B_then_A": "A"
+    }
+  ]
+}

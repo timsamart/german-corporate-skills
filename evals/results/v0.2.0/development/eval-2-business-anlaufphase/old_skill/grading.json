@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Berechnet bei voller Nutzung 1.200 Stunden, 60.000 Euro Bruttokapazitätswert und 30.000 Euro jährlichen Nettoeffekt im Kapazitätsmodell; gibt diesen nicht als Zahlungsüberschuss aus.",
+      "passed": true,
+      "evidence": "The calculation gives '40.000 × 60 % × 3 / 60 = 1.200 Stunden/Jahr' and '1.200 × 50 = 60.000 Euro/Jahr'. The table shows +30.000 Euro in each full year after 30.000 operating costs. 'Kapazitätsäquivalent, keine Geldfreisetzung' and the cash warning prevent treating this as a payment surplus."
+    },
+    {
+      "text": "Berücksichtigt im Kapazitätsmodell halben Nutzen und volle Betriebskosten im ersten Jahr: Saldo Jahr 1 -80.000, Jahr 2 +30.000, Jahr 3 +30.000, insgesamt -20.000 Euro; dies sind keine belegten finanziellen Cashflows.",
+      "passed": true,
+      "evidence": "The table has year 1: 600 hours/30.000 capacity/110.000 costs/−80.000 balance, year 2 +30.000, year 3 +30.000 and total −20.000. Independently, 30.000 − 30.000 − 80.000 = −80.000; −80.000 + 30.000 + 30.000 = −20.000. The output calls these capacity-model figures, not cashflows."
+    },
+    {
+      "text": "Weist fehlenden Cash-Realisierungsmechanismus und doppelte Entlastungsbewertung aus; bestätigt keine finanzielle Einsparung oder unterjährige Amortisation.",
+      "passed": true,
+      "evidence": "'Die Belegschaft bleibt gleich; Rückstandsabbau ist kein belegter Zahlungsrückgang' explains the missing cash realization. 'Derselbe Zeitgewinn wird doppelt gezählt' rejects the extra 10% benefit, and 'Innerhalb der drei Jahre erfolgt keine Amortisation' rejects sub-year payback."
+    },
+    {
+      "text": "Behandelt 8 Prozent Diskontsatz als unbestätigte Annahme und behauptet keinen gesichert positiven Kapitalwert.",
+      "passed": true,
+      "evidence": "'Der Zins ist nur eine Entwurfsannahme. Zahlungswirksamer Nutzen und genaue Zahlungszeitpunkte fehlen; ein belastbarer Kapitalwert ist nicht berechenbar.' This treats 8% as unconfirmed and rejects a guaranteed positive NPV."
+    },
+    {
+      "text": "Zeigt verständliche Rechenwege, Nacharbeit/Qualität als offene Wirkung und eine konkrete nächste Prüfhandlung innerhalb von 500 Wörtern.",
+      "passed": true,
+      "evidence": "The explicit case/time/hour/value formulas and annual table make the calculation intelligible. Additional quality work is 'noch unberücksichtigt'; the next action is to measure 'Zeitgewinn einschließlich Prüfung und Nacharbeit' in the limited test and document costs/cash realization. Count: 345 whitespace items containing letters/numbers, below 500."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

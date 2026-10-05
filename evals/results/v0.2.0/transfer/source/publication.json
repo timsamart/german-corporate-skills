@@ -1,0 +1,45 @@
+{
+  "reason": "Only absolute path prefixes are cleaned; original frozen hashes are retained. Input prose and original byte line endings are preserved.",
+  "files": [
+    {
+      "path": "manifest.json",
+      "original_frozen_sha256": "14a04a8821754987ba5f4075a67eb4431106fa0d291103766a54c5d9404e49aa",
+      "published_sha256": "14a04a8821754987ba5f4075a67eb4431106fa0d291103766a54c5d9404e49aa"
+    },
+    {
+      "path": "T01-input.md",
+      "original_frozen_sha256": "170a4b98ff8425baa44bccc30ac3c19dddab279457365bdbed06e011902e9a61",
+      "published_sha256": "170a4b98ff8425baa44bccc30ac3c19dddab279457365bdbed06e011902e9a61"
+    },
+    {
+      "path": "T02-input.md",
+      "original_frozen_sha256": "99ed7395ff37ddadf18c23757493205d66a745482bbe17deb7432834756d56aa",
+      "published_sha256": "99ed7395ff37ddadf18c23757493205d66a745482bbe17deb7432834756d56aa"
+    },
+    {
+      "path": "T03-input.md",
+      "original_frozen_sha256": "527775921a0279a5b2d110a403a6cc7b1d55a3372940e07f8beab3fe9f88fb1c",
+      "published_sha256": "527775921a0279a5b2d110a403a6cc7b1d55a3372940e07f8beab3fe9f88fb1c"
+    },
+    {
+      "path": "T04-input.md",
+      "original_frozen_sha256": "e5cdcfe76a13bd6079cb5f6ee22ccaeb301a7477d9b3cabce6027b59e60f7132",
+      "published_sha256": "e5cdcfe76a13bd6079cb5f6ee22ccaeb301a7477d9b3cabce6027b59e60f7132"
+    },
+    {
+      "path": "T05-input.md",
+      "original_frozen_sha256": "66e8de6a0376013f17eca147dd03fabf31065aafa1c43e69bcce6bfd6536f92f",
+      "published_sha256": "66e8de6a0376013f17eca147dd03fabf31065aafa1c43e69bcce6bfd6536f92f"
+    },
+    {
+      "path": "T06-input.md",
+      "original_frozen_sha256": "8065027128e5e10784f1b5cede96dd08289eb0543701bdddc3d8485828f08af7",
+      "published_sha256": "8065027128e5e10784f1b5cede96dd08289eb0543701bdddc3d8485828f08af7"
+    },
+    {
+      "path": "T07-input.md",
+      "original_frozen_sha256": "fd7ce3ad6a037c9b4fc7b817e9efe7affe3b562be702d294cc16b259f05eae5e",
+      "published_sha256": "fd7ce3ad6a037c9b4fc7b817e9efe7affe3b562be702d294cc16b259f05eae5e"
+    }
+  ]
+}

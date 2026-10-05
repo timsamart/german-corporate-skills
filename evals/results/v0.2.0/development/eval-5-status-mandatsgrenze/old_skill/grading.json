@@ -1,0 +1,46 @@
+{
+  "expectations": [
+    {
+      "text": "Gesamtstatus ist Rot nach der gelieferten Regel, weil die 12.000 Euro Budgetüberschreitung außerhalb des Projektmandats entschieden werden muss.",
+      "passed": true,
+      "evidence": "„Gesamtampel: Rot“ wird begründet mit „zusätzliche Mittel erfordern eine Entscheidung außerhalb des Projektmandats“ und dem nicht auffangbaren Integrationsaufwand von 12.000 Euro. Das entspricht der gelieferten Unternehmensregel."
+    },
+    {
+      "text": "Erhält Baseline 30.09./01.11. und 100.000 Euro; trennt Istkosten 45.000, Gesamtprognose 112.000 und Mehrbedarf 12.000.",
+      "passed": true,
+      "evidence": "Die Sollspalte enthält „Abschluss 30.09.2026“, Start „01.11.2026“ und „100.000 Euro“. „Gesamtkostenprognose 112.000 Euro; bisher ausgegeben 45.000 Euro“ und „Mehrbedarf 12.000 Euro“ bleiben sauber getrennt."
+    },
+    {
+      "text": "Zeigt unerledigten Test, unsicheren Zugangstermin und zehn Arbeitstage nach Zugang; erfindet keinen verbindlichen Test- oder Starttermin und keine genehmigte neue Baseline.",
+      "passed": true,
+      "evidence": "„Nicht abgeschlossen; Infrastrukturzugang fehlt“, IT-Zugang 12.10. „ohne verbindliche Zusage“ und „Danach benötigt die Testleitung zehn Arbeitstage“ erhalten die Testlage. „Eine neue Baseline wurde nicht beschlossen“ und die fehlende Startprognose verhindern erfundene Zusagen."
+    },
+    {
+      "text": "Nennt dokumentierte Schnittstellenspezifikation als Ergebnis; fünf Workshops allein begründen keinen grünen Fortschritt.",
+      "passed": true,
+      "evidence": "„Die Schnittstellenspezifikation ist als dokumentiertes Ergebnis der fünf Workshops geklärt.“ Workshops allein belegen „keinen Fortschritt bei Testabschluss oder Startbereitschaft“; die unbelegte grüne Ampel wird sachlich verworfen."
+    },
+    {
+      "text": "Formuliert eine konkrete Entscheidung/Unterstützung für 08.10., erhält Mara als belegte Projektverantwortliche und kennzeichnet neue Maßnahmen als Vorschläge; höchstens 400 Wörter.",
+      "passed": true,
+      "evidence": "„Konkrete Entscheidung am 08.10.: Bitte genehmigen Sie ... 12.000 Euro und erhöhen Sie das Projektbudget auf 112.000 Euro“ ist ein konkreter Managemententscheid. „Projektleitung: Mara“ erhält die belegte Rolle. Neue Koordinations- und IT-Maßnahmen stehen unter „Vorgeschlagene Unterstützung und Maßnahmen“. Unabhängig gezählt: 270 Wörter, höchstens 400."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Die Ausgabe hat 270 Wörter nach der vorgegebenen Zählregel.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Unabhängig am gespeicherten output.md gezählt: durch Leerraum getrennte Einheiten mit mindestens einem Unicode-Buchstaben oder einer Ziffer; reine Markdown-Marker nicht gezählt."
+    }
+  ],
+  "review_notes": [
+    "Fachliche Aussagen wurden gegen das jeweilige synthetische Source-Fixture geprüft. Die execution.md-Datei ist ein selbst berichteter Werkzeugnachweis, kein vollständiger Ausführungstrace; daraus wurden keine Modell-, Token- oder Zeitmetriken abgeleitet."
+  ]
+}

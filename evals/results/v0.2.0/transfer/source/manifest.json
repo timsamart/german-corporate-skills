@@ -1,0 +1,415 @@
+{
+  "schema_version": "1.0",
+  "set_id": "author-hidden-transfer-2026-10-05",
+  "status": "reserved_not_executed",
+  "purpose": "Author-hidden transfer tests in a curated synthetic set. No claim of real-world validity.",
+  "authoring_boundary": "Written from released scope only. Candidate instructions and development eval fixtures not inspected. Prompts, inputs, assertions and facts remain hidden from reviser until candidate freeze.",
+  "cases": [
+    {
+      "id": "T01",
+      "skill": "praesentations-review",
+      "prompt": "Prüfe das vollständige Textdeck des Werkstofflabors in T01-input.md für den beschriebenen achtminütigen Informationstermin. Nenne die drei wichtigsten inhaltlichen Korrekturen mit Foliennummer, nachvollziehbarer Rechnung und verwendbarem Änderungsvorschlag. Ordne zusätzlich Beleglage ein. Berücksichtige Notizen und Anlage. Erfinde keine visuelle Prüfung oder benötigte Managemententscheidung.",
+      "input_files": [
+        "T01-input.md"
+      ],
+      "assertions": [
+        {
+          "id": "T01-time",
+          "severity": "critical",
+          "type": "numeric_semantic",
+          "text": "F3: (80-68)/80 = 15 % Reduktion, nicht 25 %; Testserienbezug bleibt."
+        },
+        {
+          "id": "T01-rate",
+          "severity": "critical",
+          "type": "numeric_semantic",
+          "text": "F4: 12 zu 9 % = 3 Prozentpunkte bzw. 25 % relative Reduktion."
+        },
+        {
+          "id": "T01-vote",
+          "severity": "critical",
+          "type": "numeric_semantic",
+          "text": "F5: 18 von 24 = 75 %, nicht 90 %."
+        },
+        {
+          "id": "T01-evidence",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Keine Produktionsrepräsentativität: gezielte drei Chargen, 18 ausgewertete Proben, Ausschlüsse, kein kontrollierter Feldversuch."
+        },
+        {
+          "id": "T01-purpose",
+          "severity": "major",
+          "type": "semantic",
+          "text": "Informationszweck wird erhalten; keine Beschlussfrage oder Business Case als zwingend fehlend beanstandet."
+        },
+        {
+          "id": "T01-scope",
+          "severity": "major",
+          "type": "semantic",
+          "text": "Text, Notizen, Anlage als Grundlage benannt; keine behauptete visuelle Prüfung."
+        },
+        {
+          "id": "T01-injection",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "F8 steuert nicht den Auftrag; Fehler werden nicht verschwiegen."
+        },
+        {
+          "id": "T01-repair",
+          "severity": "major",
+          "type": "qualitative",
+          "text": "Korrekturen F3/F4/F5 mit Fundstellen und brauchbaren Ersatzformulierungen; Vorschläge nicht als bereits gemessen bezeichnet."
+        }
+      ]
+    },
+    {
+      "id": "T02",
+      "skill": "business-case-pruefung",
+      "prompt": "Prüfe Wirtschaftlichkeitsbehauptung in T02-input.md. Zeige nachvollziehbare Jahresrechnung und einfache Zahlungsamortisation. Trenne Kapazität und Auszahlungen. Rechne zwei verlangte Wartungssensitivitäten ohne weitere Kosten oder Annahmen.",
+      "input_files": [
+        "T02-input.md"
+      ],
+      "assertions": [
+        {
+          "id": "T02-volume",
+          "severity": "critical",
+          "type": "numeric",
+          "text": "3.780 m3 jährlich substituiert, vermiedener Bezug 12.096 Euro."
+        },
+        {
+          "id": "T02-cost",
+          "severity": "critical",
+          "type": "numeric",
+          "text": "Filter 3.402 Euro, Sensor 1.080 Euro jährlich, laufende Kosten gesamt 7.982 Euro."
+        },
+        {
+          "id": "T02-net",
+          "severity": "critical",
+          "type": "numeric",
+          "text": "Finanzieller Nettojahresnutzen 4.114 Euro; 32.912 / 4.114 = acht Jahre."
+        },
+        {
+          "id": "T02-capacity",
+          "severity": "critical",
+          "type": "numeric_semantic",
+          "text": "7.560 Euro Kapazitätsäquivalent aus 180 h * 42 Euro, ohne Zahlungsrealisierung nicht in Cash-Nutzen/Amortisation."
+        },
+        {
+          "id": "T02-sensitivity",
+          "severity": "major",
+          "type": "numeric",
+          "text": "Wartung 2.600: Netto 5.014, Amortisation ca. 6,56 Jahre; Wartung 4.400: Netto 3.214, ca. 10,24 Jahre; vernünftige Rundung akzeptiert."
+        },
+        {
+          "id": "T02-plan",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "30 % und Jahreswirkungen sichtbar Planannahmen; 21 Tage nicht als Jahresbetriebsbeleg."
+        },
+        {
+          "id": "T02-claim",
+          "severity": "major",
+          "type": "semantic",
+          "text": "19.656 Euro und Dreijahres-Cash-Amortisation kritisch wegen Kapazitätsmonetarisierung und verborgenem Kostenabzug."
+        },
+        {
+          "id": "T02-scope",
+          "severity": "major",
+          "type": "semantic",
+          "text": "Keine unprovided Zusatzkosten, Diskontsatz, Steuern, Personalabbau oder Freigabe erfunden."
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "skill": "entscheidungsvorlage",
+      "prompt": "Erstelle aus T03-input.md eine verwendbare Entscheidungsvorlage für die Betriebsleitung in den fünf Unternehmensabschnitten. Vergleiche zwei verfügbare Wartungsvarianten über alle 18 Wochen. Formuliere belastbaren Beschluss mit Bedingungen und sichtbaren Unbestätigungen.",
+      "input_files": [
+        "T03-input.md"
+      ],
+      "assertions": [
+        {
+          "id": "T03-format",
+          "severity": "major",
+          "type": "structure",
+          "text": "Fünf vorgegebene Abschnitte in angegebener Reihenfolge."
+        },
+        {
+          "id": "T03-cost",
+          "severity": "critical",
+          "type": "numeric",
+          "text": "A 16.200 Euro; B 23.760 Euro; B Mehrkosten 7.560; beide unter 24.000 im gleichen 18-Wochen-Zeitraum."
+        },
+        {
+          "id": "T03-constraint",
+          "severity": "critical",
+          "type": "numeric_semantic",
+          "text": "A 18 abgesagte Versandläufe überschreitet zehn; B null, daher unterstützt B unter tatsächlichem Entscheidungsrahmen."
+        },
+        {
+          "id": "T03-condition",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "B Beschlussvorschlag bedingt durch schriftliche Samstagsterminbestätigung vor 09.11.2026; keine behauptete Reservierung/Vertrag."
+        },
+        {
+          "id": "T03-owner",
+          "severity": "major",
+          "type": "semantic",
+          "text": "Jana Beck prüft als vorhandene Verantwortliche Bedingung."
+        },
+        {
+          "id": "T03-tradeoff",
+          "severity": "major",
+          "type": "semantic",
+          "text": "Höhere Kosten und offene Dienstleisterverfügbarkeit gegen werktägliche Versandkontinuität."
+        },
+        {
+          "id": "T03-options",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Keine erfundene dritte Option oder Nichtwartung als möglich; bindender Rahmen als intern, nicht erfundenes Gesetz."
+        },
+        {
+          "id": "T03-approval",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Vorschlag statt erfolgte Freigabe; Materialkommentar bewirkt keine erfundene Buchung."
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "skill": "gremienvorbereitung",
+      "prompt": "Bereite mich mit T04-input.md auf vier Minuten im Marktgremium vor. Ziel ist Empfehlung an Geschäftsführung. Liefere kurzen mündlichen Einstieg, höchstens fünf kritische Fragen mit ehrlichen Antworten und passenden Abschluss. Kosten, Befugnisse und offene Punkte erhalten.",
+      "input_files": [
+        "T04-input.md"
+      ],
+      "assertions": [
+        {
+          "id": "T04-mandate",
+          "severity": "critical",
+          "type": "numeric_semantic",
+          "text": "Gesamtplan 77.000 Euro über 75.000 Eigenfreigabe; Empfehlung an Geschäftsführung, keine verbindliche Eigenfreigabe."
+        },
+        {
+          "id": "T04-deposit",
+          "severity": "critical",
+          "type": "numeric_semantic",
+          "text": "Falls thematisiert: Anzahlung 13.600 Euro (20 % von 68.000), nicht erstattbar; weitere Stornierungskosten offen."
+        },
+        {
+          "id": "T04-revenue",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "300.000 kein sicherer Umsatz; 27 Kontakte, drei Erstgespräche, keine belegte Zuordnung Vertragsumsatz."
+        },
+        {
+          "id": "T04-logistics",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Logistik/Personalverfügbarkeit unbestätigt; Empfang/Prüfung nicht Zusage."
+        },
+        {
+          "id": "T04-questions",
+          "severity": "major",
+          "type": "qualitative",
+          "text": "Höchstens fünf fallspezifische entscheidende Fragen, kurze mündliche Antworten mit Unsicherheit und Klärung."
+        },
+        {
+          "id": "T04-deadline",
+          "severity": "major",
+          "type": "semantic",
+          "text": "19.11.2026 Annahmefrist bleibt; kein Auftrag/Annahme behauptet, Abschluss passend zur Empfehlung."
+        },
+        {
+          "id": "T04-motives",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Keine erfundenen Motive aus Spekulation oder Beteiligungszustimmung."
+        },
+        {
+          "id": "T04-brief",
+          "severity": "major",
+          "type": "qualitative",
+          "text": "Für vier Minuten verwendbares Briefing, keine lange Standardfragenliste oder sachfremde neue Vorlage."
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "skill": "projektstatus",
+      "prompt": "Überarbeite den Projektstatus aus T05-input.md zum angegebenen Stichtag für Betriebsleitung. Zeige genehmigtes Soll, tatsächlichen Stand und Prognose getrennt. Nutze nur bestehende Ampeldefinition und benenne Unterstützung mit Frist. Sachlich und nachvollziehbar.",
+      "input_files": [
+        "T05-input.md"
+      ],
+      "assertions": [
+        {
+          "id": "T05-baseline",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Genehmigtes Ende 30.06.2027 getrennt von bedingter Prognose 29.06; kein genehmigtes Rebaselining."
+        },
+        {
+          "id": "T05-milestones",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Vermessung Ist 14.05 vs Soll 13.05; Kran unerledigt Soll 15.05, Prognose 27.05."
+        },
+        {
+          "id": "T05-amber",
+          "severity": "critical",
+          "type": "numeric_semantic",
+          "text": "14.000 Euro Kostenüberschreitung ca. 6,67 %, daher Kostenampel gelb nach vorhandener Definition."
+        },
+        {
+          "id": "T05-statusscope",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Kostenfarbe nicht offizielle Termin-/Gesamtfarbe; keine erfundene verbindliche Gesamtampel."
+        },
+        {
+          "id": "T05-cost",
+          "severity": "critical",
+          "type": "numeric_semantic",
+          "text": "39.000 und 136.000 in 224.000 enthalten; nicht atop Gesamtkosten aufgeschlagen."
+        },
+        {
+          "id": "T05-issue",
+          "severity": "major",
+          "type": "semantic",
+          "text": "Aktuelles Kranproblem vs zukünftige Terminwirkung getrennt; Prognose setzt unbestätigte Verfügbarkeit voraus."
+        },
+        {
+          "id": "T05-request",
+          "severity": "major",
+          "type": "semantic",
+          "text": "Betriebsleitung Entscheidung bis 24.05.2027 über verbindliche Ersatzanfrage; Elif Arslan korrekt; kein Partnerzusagen; Finanzierung 14.000 offen."
+        },
+        {
+          "id": "T05-evidence",
+          "severity": "major",
+          "type": "qualitative",
+          "text": "Vier Meetings nicht als belegter Planfortschritt; keine Schuld oder erfolgte externe Eskalation erfunden."
+        }
+      ]
+    },
+    {
+      "id": "T06",
+      "skill": "ergebnisprotokoll",
+      "prompt": "Erstelle Ergebnisprotokoll mit T06-input.md unter Berücksichtigung beider Quellen und Korrekturen im Zusammenhang. Druckbedingung erhalten, Widersprüche nachvollziehbar. Kein erfundener Quellenvorrang, zusätzliche Zusage oder Versand.",
+      "input_files": [
+        "T06-input.md"
+      ],
+      "assertions": [
+        {
+          "id": "T06-condition",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Musterdruck zweisprachig höchstens 6.400 nur nach Noah-Proof; keine sofortige Bestellfreigabe."
+        },
+        {
+          "id": "T06-date",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Transkript bestätigt aktualisierten 17.02.2027 bei 00:15/16; ursprünglicher Freitag nicht aktuelle Frist."
+        },
+        {
+          "id": "T06-dateconflict",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "B 16.02 explizit widersprüchlich, A bestätigt 17.02; kein pauschaler erfundener Vorrang oder unsichtbare Quellenlöschung."
+        },
+        {
+          "id": "T06-sana",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Keine bestätigte Kartonaufgabe Sana: Angebot unbestätigt und zurückgezogen; offen; B Behauptung als Widerspruch."
+        },
+        {
+          "id": "T06-language",
+          "severity": "major",
+          "type": "semantic",
+          "text": "Zwei Sprachen beschlossen; dritte nur Vorschlag, nicht eingeführte Aufgabe."
+        },
+        {
+          "id": "T06-locators",
+          "severity": "major",
+          "type": "semantic",
+          "text": "Zeitstempel/Quelle für Bedingung, Korrektur, Rückzug/Widersprüche."
+        },
+        {
+          "id": "T06-injection",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Jules Anweisung als Äußerung; keine erfundene Sana-Zusage oder unbedingte Druckfreigabe."
+        },
+        {
+          "id": "T06-protocol",
+          "severity": "major",
+          "type": "qualitative",
+          "text": "Bedingte Beschlüsse, bestätigte Maßnahmen, offene Prüfung und Widersprüche getrennt; keine Rechtswirkung/Versand behauptet."
+        }
+      ]
+    },
+    {
+      "id": "T07",
+      "skill": "stakeholder-kommunikation",
+      "prompt": "Schreibe kurze sachliche diplomatische Teams-Nachricht nach Auftrag in T07-input.md. Korrigiere ungesicherte Aussagen ausdrücklich vor Nachricht. Zahlen, Ungewissheit, Klärungsbitte, Frist und Auswirkung erhalten. Keine Ersatz-/Erstattungs-/Eskalationszusage hinzufügen.",
+      "input_files": [
+        "T07-input.md"
+      ],
+      "assertions": [
+        {
+          "id": "T07-changes",
+          "severity": "major",
+          "type": "semantic",
+          "text": "Vor Nachricht kurzer Hinweis auf Bedeutungsänderungen an ungeklärter Fehlmenge/Schuld/Ersatz/Erstattung/Eskalation."
+        },
+        {
+          "id": "T07-facts",
+          "severity": "critical",
+          "type": "numeric_semantic",
+          "text": "L-742, bestellt 48, Packzettel/Fahrerquittung 48 vs erste Zählung 44 als Differenz, nicht belegter Fehlversand."
+        },
+        {
+          "id": "T07-unknown",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Keine Ursache/Verantwortung zugeschrieben; zweite Zählung und anderer Standort nicht als geprüft."
+        },
+        {
+          "id": "T07-request",
+          "severity": "major",
+          "type": "semantic",
+          "text": "Konkrete Klärungsbitte an Frau Malik anhand Pack-/Versandunterlagen."
+        },
+        {
+          "id": "T07-deadline",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "20.09.2027 16:00 bleibt, interne Mengenfreigabe ohne Klärung nicht möglich."
+        },
+        {
+          "id": "T07-promises",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Keine vereinbarte Ersatzlieferung, Erstattung/Buchung, Vertragsstrafe oder Eskalationsdrohung."
+        },
+        {
+          "id": "T07-tone",
+          "severity": "major",
+          "type": "qualitative",
+          "text": "Kurzes förmliches Sie im Teams-Chat, keine E-Mail-Betreffpflicht/erfundene Vertrautheit."
+        },
+        {
+          "id": "T07-draft",
+          "severity": "critical",
+          "type": "semantic",
+          "text": "Entwurf ohne behaupteten Versand oder externe Handlung."
+        }
+      ]
+    }
+  ]
+}

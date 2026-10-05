@@ -1,0 +1,4 @@
+Überarbeite den Entwurf zu einer sachlichen, diplomatischen Mail an Herrn Berger (Sie). Bitte um Klärung der Kosten und den fehlenden Testbericht vor dem 08.10.2026. Maximal 160 Wörter, keine neuen Zusagen oder Drohungen. Liefere zuerst die verwendbare Mail.
+
+Input files:
+evals\fixtures\stakeholder-kommunikation.md

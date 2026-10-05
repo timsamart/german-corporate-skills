@@ -1,0 +1,6 @@
+{
+  "date": "2026-10-05T12:08:37.320160+00:00",
+  "original_tasks_sha256": "38baa55385fc3b8b38e7ee97dfa3ed825b558a120b25c14ce8a96545b5cfa6d2",
+  "amended_tasks_sha256": "620636e6d3a36d2d9b087a9878637a0354fa2c2c8fd2280e3496e3cd95416454",
+  "reason": "Independent fixture review before grading; reviewer had not inspected candidate instructions or executor outputs. Clarifies capacity vs cash, test owner vs operating owner, start forecast vs start approval. No input, prompt or candidate changes."
+}

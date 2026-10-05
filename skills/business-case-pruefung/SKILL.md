@@ -16,19 +16,24 @@ Nutze belegte Eingaben. Ergänze fehlende Werte nur als sichtbare Annahme, mögl
 
 ## Nutzen und Kosten prüfen
 
-Lege eine Tabelle an: Eingabe oder Behauptung, Quelle/Fundstelle, Einheit, Status und Wirkung auf das Ergebnis. Unterscheide gemessene Werte, Planannahmen, Anbieterangaben und Rechenergebnisse. Ein dokumentierter Pilotwert ist noch kein Nachweis für den gesamten Betrieb.
+Mache Eingaben oder Behauptungen mit Quelle/Fundstelle, Einheit, Status und Wirkung auf das Ergebnis nachvollziehbar. Eine Tabelle hilft bei mehreren Annahmen; für eine kleine Rechnung genügt eine knappe Darstellung. Unterscheide gemessene Werte, Planannahmen, Anbieterangaben und Rechenergebnisse. Ein dokumentierter Pilotwert ist noch kein Nachweis für den gesamten Betrieb.
 
 Prüfe besonders:
 
 - **Mengengerüst:** Fälle pro Zeitraum, betroffener Anteil, tatsächliche Nutzung und Anlaufphase. Vermeide eine doppelte Berücksichtigung desselben Adoptionsfaktors.
 - **Zeitgewinn:** Ausgangszeit, neue Zeit, relative Veränderung und Zusatzarbeit für Prüfung, Ausnahmen und Nachbearbeitung.
 - **Nutzenart:** Freie Stunden, monetäres Kapazitätsäquivalent, vermiedene zukünftige Kosten, Umsatzwirkung oder realisierte zahlungswirksame Einsparung. Für jede Umwandlung braucht es einen Mechanismus.
+- **Geschäftsziel:** Kapazität, Qualität oder kürzere Wartezeit können einen tragfähigen Nutzen bilden, auch bei unveränderten Ausgaben. Beurteile sie am tatsächlichen Ziel; lehne sie nicht allein wegen fehlender Cash-Einsparung ab.
 - **Kosten:** Einführung, Integration, Schulung, Betrieb und Wartung, soweit im Material relevant. Interne Arbeitszeit und Auszahlungen getrennt ausweisen. Unbekannte Positionen offen lassen.
 - **Vergleich:** Dieselbe Ausgangssituation und derselbe Zeitraum für alle Optionen. Abhängigkeiten, Folgeaufwand und mögliche Doppelzählungen sichtbar machen.
+
+Bei Fortführen/Abbrechen trenne bereits unwiderruflich entstandene Ausgaben von zukünftigen, durch die Entscheidung veränderten Kosten. Ein früher unterschriebener Vertrag kann noch relevante Kündigungs- oder Zahlungspflichten erzeugen. Vergleiche bei materiell unterschiedlichen Verläufen die einzelnen Perioden, einschließlich bereitgestellter Anlauf-, Ausstiegs- und Restwertannahmen; halte Preisbasis und Zahlungszeitpunkte konsistent.
 
 Rechne zunächst das vorgelegte Modell nach. Korrigiere belegte Fehler und trenne eine erweiterte Modellannahme von einer Rechenkorrektur. Nutze eine einfache Amortisation nur bei ausreichend stabilen jährlichen Nettoeffekten: einmaliger Aufwand / jährlicher Nettoeffekt. Nicht positiver Nettoeffekt bedeutet keine endliche einfache Amortisation.
 
 Bei ROI benenne die verwendete Definition und den Zeitraum. Verwende abgezinste Verfahren nur bei passender Fragestellung und vorliegendem oder explizit angenommenem Diskontsatz. Behaupte keine finanzielle Freigabe aufgrund einer plausiblen Rechnung.
+
+Gewichtete Bewertungen brauchen Kriterien, Gewichte, Skalen und deren Herkunft. Markiere eigene Gewichtungen als Vorschlag. Verrechne Nutzwertpunkte nicht mit Euro. Bei einem einfachen kurzfristigen Fall genügt eine nachvollziehbare kleine Rechnung; erweitere das Modell nur, wenn dies die Aussage verändern kann.
 
 ## Robustheit und Ergebnis
 
@@ -37,3 +42,5 @@ Variiere die wenigen Annahmen, die die Entscheidung verändern könnten. Nutze b
 Antworte auf Deutsch mit einem Kurzurteil, einer überprüfbaren Rechnung, den wichtigsten Unsicherheiten und dem nächsten sinnvollen Nachweis. Benenne, was das Modell belegt und was eine operative oder finanzielle Entscheidung zusätzlich braucht.
 
 Lies [das durchgerechnete Beispiel](references/beispiel.md), wenn Nutzenmonetarisierung, Anlaufphase oder einfache Amortisation im Mittelpunkt stehen. Übertrage dessen Eingaben nicht auf den aktuellen Fall.
+
+Lies bei Bedarf [Grundlagen](references/grundlagen.md) für die Herkunft der Methoden und ihre Anwendungsgrenzen.

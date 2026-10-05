@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Vergleicht auf drei Jahre A mit 66.000 Euro extern/71.000 inkl. interner Kapazität und B mit 48.000 extern/57.000 inklusive intern.",
+      "passed": true,
+      "evidence": "The comparison table gives A '66.000 + 5.000 = 71.000 Euro' and B '48.000 + 9.000 = 57.000 Euro' for 36 months, explicitly labeling external/internal components. It preserves that internal effort is full-cost valuation rather than extra external payout."
+    },
+    {
+      "text": "Benennt Kostenvorteil von B und Flexibilitätsvorteil von A; macht den möglichen Ersatz nach 18 Monaten als unsicher sichtbar.",
+      "passed": true,
+      "evidence": "A is recommended to weight flexibility more heavily; B is 14.000 Euro cheaper over 36 months. Replacement after 18 months 'wird erwogen, ist aber weder beschlossen noch gesichert', and the memo says no certain numeric ranking exists without a credible replacement probability."
+    },
+    {
+      "text": "Erfindet weder eine dritte technische Alternative noch eine Ersatzentscheidung, Genehmigung oder zuständige Person.",
+      "passed": true,
+      "evidence": "The technical comparison remains A/B; strategy clarification is an allowed procedural option. Responsible role is still to be named. The proposed future replacement decision is required rather than invented, and the source statement 'Ein bereits gefasster Beschluss liegt nicht vor' is retained."
+    },
+    {
+      "text": "Formuliert einen eindeutigen Vorschlagsbeschluss und eine aus dem Zielkonflikt nachvollziehbare Empfehlung; offene Bedingungen werden nicht als bestätigt ausgegeben.",
+      "passed": true,
+      "evidence": "'Beschlussvorschlag: Die Geschäftsführung beauftragt Option A ...' gives a clear current proposal, with capacity confirmation pending. Recommendation A explicitly accepts the 14.000 Euro flexibility premium; B is an alternative if the three-year bind is accepted. Strategy review, role/date and future replacement decision are proposed/open rather than confirmed."
+    },
+    {
+      "text": "Liefert eine für die Geschäftsführung verwendbare Vorlage mit Termin 08.10.2026 und höchstens 450 Wörtern.",
+      "passed": true,
+      "evidence": "The memo is addressed to the Geschäftsführung with 'Entscheidungstermin: 08.10.2026'; usable A/B comparison and proposal/conditions are present. Open start date and role are marked to complete before use. Count: 354 whitespace items containing letters/numbers, below 450."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

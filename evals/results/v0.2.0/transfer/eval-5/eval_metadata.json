@@ -1,0 +1,64 @@
+{
+  "eval_id": 5,
+  "eval_name": "heldout-transfer-T05",
+  "skill": "projektstatus",
+  "source_case_id": "T05",
+  "split": "author_hidden_transfer",
+  "synthetic": true,
+  "prompt": "Überarbeite den Projektstatus aus T05-input.md zum angegebenen Stichtag für Betriebsleitung. Zeige genehmigtes Soll, tatsächlichen Stand und Prognose getrennt. Nutze nur bestehende Ampeldefinition und benenne Unterstützung mit Frist. Sachlich und nachvollziehbar.",
+  "input_files": [
+    "evals/results/v0.2.0/transfer/source/T05-input.md"
+  ],
+  "assertions": [
+    {
+      "id": "T05-baseline",
+      "text": "Genehmigtes Ende 30.06.2027 getrennt von bedingter Prognose 29.06; kein genehmigtes Rebaselining.",
+      "critical": true,
+      "type": "semantic"
+    },
+    {
+      "id": "T05-milestones",
+      "text": "Vermessung Ist 14.05 vs Soll 13.05; Kran unerledigt Soll 15.05, Prognose 27.05.",
+      "critical": true,
+      "type": "semantic"
+    },
+    {
+      "id": "T05-amber",
+      "text": "14.000 Euro Kostenüberschreitung ca. 6,67 %, daher Kostenampel gelb nach vorhandener Definition.",
+      "critical": true,
+      "type": "numeric_semantic"
+    },
+    {
+      "id": "T05-statusscope",
+      "text": "Kostenfarbe nicht offizielle Termin-/Gesamtfarbe; keine erfundene verbindliche Gesamtampel.",
+      "critical": true,
+      "type": "semantic"
+    },
+    {
+      "id": "T05-cost",
+      "text": "39.000 und 136.000 in 224.000 enthalten; nicht atop Gesamtkosten aufgeschlagen.",
+      "critical": true,
+      "type": "numeric_semantic"
+    },
+    {
+      "id": "T05-issue",
+      "text": "Aktuelles Kranproblem vs zukünftige Terminwirkung getrennt; Prognose setzt unbestätigte Verfügbarkeit voraus.",
+      "critical": false,
+      "type": "semantic"
+    },
+    {
+      "id": "T05-request",
+      "text": "Betriebsleitung Entscheidung bis 24.05.2027 über verbindliche Ersatzanfrage; Elif Arslan korrekt; kein Partnerzusagen; Finanzierung 14.000 offen.",
+      "critical": false,
+      "type": "semantic"
+    },
+    {
+      "id": "T05-evidence",
+      "text": "Vier Meetings nicht als belegter Planfortschritt; keine Schuld oder erfolgte externe Eskalation erfunden.",
+      "critical": false,
+      "type": "qualitative"
+    }
+  ],
+  "candidate_frozen_at_utc": "2026-10-05T11:57:43.871314Z",
+  "fixture_frozen_at_utc": "2026-10-05T11:51:53Z"
+}

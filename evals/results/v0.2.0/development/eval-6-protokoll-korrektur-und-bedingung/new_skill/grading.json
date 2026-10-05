@@ -1,0 +1,46 @@
+{
+  "expectations": [
+    {
+      "text": "Dokumentiert den bedingten Pilot 4 Wochen/12.000 Euro, Kapazität und Owner als Voraussetzungen; 40.000 Euro Rollout bleiben Vorschlag/offen.",
+      "passed": true,
+      "evidence": "„vierwöchiger Pilot mit höchstens 12.000 Euro externen Kosten“ und „Vor dem Start müssen die internen Kapazitäten und die Testverantwortung bestätigt werden“ erhalten den bedingten Pilot. „Lenas vorgeschlagene Freigabe von 40.000 Euro: keine Freigabe dokumentiert; Entscheidung offen“ erhält den Rollout als Vorschlag."
+    },
+    {
+      "text": "Hält Karims endgültig bestätigte Frist 14.10.2026 und die Änderung der früheren Freitagsfrist nachvollziehbar fest.",
+      "passed": true,
+      "evidence": "M1: „Karim | 14.10.2026 | Zugesagt; ersetzt die ursprüngliche Freitagsfrist. Von Karim korrigiert und von Nora festgehalten. (00:05, 00:14–00:15)“. Sowohl endgültige Bestätigung als auch frühere Frist und Änderung sind nachvollziehbar."
+    },
+    {
+      "text": "Erhält Lenas bestätigte Kriterienaufgabe bis 07.10.; weist unbekanntem Sprecher4 oder Compliance keine bestätigte Aufgabe zu.",
+      "passed": true,
+      "evidence": "M2 hält „Lena | 07.10.2026 | Zugesagt“ für die Vorlage vorgeschlagener Kriterien fest. Die Compliance-Prüfung bleibt „unverbindlicher Vorschlag von ‚Sprecher 4‘; keine beschlossene oder zugesagte Maßnahme“; keine Aufgabe wird ihm oder Compliance bestätigt zugewiesen."
+    },
+    {
+      "text": "Bewahrt die ausdrücklich erforderliche Folgebestätigung; automatische Zustimmung und nächster Sitzungstermin werden nicht erfunden.",
+      "passed": true,
+      "evidence": "„Die Messkriterien werden im nächsten Termin ausdrücklich bestätigt. Eine automatische Bestätigung ... ist ausgeschlossen“ (00:18–00:19). Der nächste Termin steht unter offenen Punkten mit „Termin und Organisation sind offen“."
+    },
+    {
+      "text": "Ausgabe ist Entwurf mit nachvollziehbaren Fundstellen zu folgenreichen Punkten und gut lesbarer Maßnahmenliste, höchstens 450 Wörter; keine Versandbehauptung.",
+      "passed": true,
+      "evidence": "Titel „Entwurf zur Prüfung“ und „weder bestätigt noch versandt“ sind korrekt. Relevante Beschlüsse, Maßnahmen, Korrektur und offene Punkte besitzen prüfbare Zeitfundstellen. Die Maßnahmenliste weist Handlung, Verantwortliche und Frist lesbar aus. Unabhängig gezählt: 223 Wörter, höchstens 450."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Die Ausgabe hat 223 Wörter nach der vorgegebenen Zählregel.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Unabhängig am gespeicherten output.md gezählt: durch Leerraum getrennte Einheiten mit mindestens einem Unicode-Buchstaben oder einer Ziffer; reine Markdown-Marker nicht gezählt."
+    }
+  ],
+  "review_notes": [
+    "Fachliche Aussagen wurden gegen das jeweilige synthetische Source-Fixture geprüft. Die execution.md-Datei ist ein selbst berichteter Werkzeugnachweis, kein vollständiger Ausführungstrace; daraus wurden keine Modell-, Token- oder Zeitmetriken abgeleitet."
+  ]
+}

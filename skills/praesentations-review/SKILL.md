@@ -1,6 +1,6 @@
 ---
 name: praesentations-review
-description: "Review German corporate presentation decks for a Vorstand, Geschäftsführung, Lenkungsausschuss, client, or Fachbereich. Use for Präsentationsreview, Folienkritik, storyline, decision readiness, and specific slide improvements."
+description: "Review an existing German corporate presentation deck: Präsentationsreview, Folienkritik, argument, evidence, charts and specific slide repairs. Use for decision, information or training decks; meeting Q&A preparation belongs to gremienvorbereitung."
 license: MIT
 ---
 
@@ -11,6 +11,8 @@ Prüfe, ob die Präsentation ihren konkreten Zweck für das Publikum erfüllt. E
 ## Auftrag und Material
 
 Leite Zielgruppe, Präsentationszweck, gewünschte Entscheidung und Zeitbudget aus dem Auftrag ab. Frage nur nach einer Angabe, wenn sie das Urteil wesentlich verändern würde. Bei fehlendem Kontext darfst du eine Arbeitsannahme nennen und beginnen. Übernimm Unternehmensvorlagen und Vorgaben des Nutzers.
+
+Unterscheide Vortrag, Vorabunterlage und Nachschlagewerk. Ein Vortrag braucht mündlich erfassbare Aussagen; eine Vorabunterlage kann die nachvollziehbare Herleitung enthalten. Erzwinge bei einer offenen Untersuchung keine eindeutige Empfehlung, die die Evidenz noch nicht trägt.
 
 Prüfe das gesamte zugängliche Deck einschließlich relevanter Notizen und Anlagen. Gib an, welche Folien du tatsächlich geprüft hast und ob Text, Notizen und/oder gerenderte Folien verfügbar waren. Bei einer Stichprobe oder fehlenden Folien begrenze das Urteil auf diesen Ausschnitt.
 
@@ -33,6 +35,8 @@ Lies zuerst die gesamte Argumentation. Prüfe dann die Stellen, an denen das Pub
 | Darstellung | Tragen Titel, Diagramme und Reihenfolge die Aussage? Nur bei Bildzugriff: Sind Details lesbar und visuelle Vergleiche fair? |
 
 Bei einem Entscheidungsdeck suche eine verständliche Beschlussfrage: Gegenstand, Umfang, Mittel, Bedingungen und nächster Entscheidungspunkt. Erfinde fehlende Budgets, Zuständigkeiten oder Freigaben nicht. Bei einem Informationsdeck ist ein fehlender Beschluss kein Fehler.
+
+Bei Diagrammen prüfe Maßeinheit, Zeitraum, Bezugsgröße, Quelle und die Unterscheidung von Ist, Plan und Prognose. Bei Bildzugriff prüfe auch Achsen und sichtbare Vergleichsflächen: Wenn Balkenlängen Gesamtwerte vergleichen, brauchen sie eine Nullbasis, sonst wird das Verhältnis verzerrt. Bereichsbalken und Wasserfallsegmente stellen andere Größen dar; prüfe die tatsächliche Kodierung. Linien und Punktdiagramme dürfen für die Fragestellung einen klar erkennbaren Ausschnitt nutzen. Farbe allein sollte keine entscheidende Unterscheidung tragen. Ein Bild erlaubt eine konkrete Beobachtung, aber keinen vollständigen Barrierefreiheitsnachweis.
 
 Prüfe Rechts- oder Complianceaussagen nur soweit sie den Auftrag betreffen. Unterscheide die Aussage im Deck, ihre Quelle und eine tatsächlich verifizierte Anforderung. Eine fehlende Freigabe ist nicht automatisch ein Rechtsverstoß.
 
@@ -60,3 +64,5 @@ Antworte standardmäßig auf Deutsch in dieser anpassbaren Form:
 Ein kosmetischer Befund darf einen wesentlichen inhaltlichen Fehler nicht verdecken. Vermeide pauschale Punktescores, wenn kein begründetes Bewertungsmodell vereinbart wurde. Bestätige die Qualität bereits guter Folien konkret und knapp.
 
 Lies [das durchgerechnete Beispiel](references/beispiel.md), wenn Zahlenkritik, textbasiertes Review oder eine Beschlussfolie hilfreich sind. Die Beispieldaten gehören ausschließlich zum fiktiven Fall.
+
+Für die Herkunft der Kriterien und ihre Grenzen lies bei Bedarf [Grundlagen](references/grundlagen.md). Kommunikationskonventionen werden erst durch den konkreten Auftrag oder eine Unternehmensvorgabe zum Prüfmaßstab.

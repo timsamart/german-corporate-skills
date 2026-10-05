@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Vergleicht auf drei Jahre A mit 66.000 Euro extern/71.000 inkl. interner Kapazität und B mit 48.000 extern/57.000 inklusive intern.",
+      "passed": true,
+      "evidence": "The 36-month table explicitly gives A: external 66.000 + internal 5.000 = 71.000 Euro and B: external 48.000 + internal 9.000 = 57.000 Euro. Independent calculation: 3 × 22.000 = 66.000; 48.000 is the whole B term. Internal costs are explicitly not extra external payments."
+    },
+    {
+      "text": "Benennt Kostenvorteil von B und Flexibilitätsvorteil von A; macht den möglichen Ersatz nach 18 Monaten als unsicher sichtbar.",
+      "passed": true,
+      "evidence": "Recommendation A is a 'bewusste Gewichtung der Kündigungsflexibilität'; B costs 14.000 Euro less in total over 36 months. The possible 18-month replacement is 'weder entschieden noch gesichert', and no probability is inferred."
+    },
+    {
+      "text": "Erfindet weder eine dritte technische Alternative noch eine Ersatzentscheidung, Genehmigung oder zuständige Person.",
+      "passed": true,
+      "evidence": "Only A/B are technical offers; strategy clarification is correctly a procedural alternative allowed by the source. 'Status: Beschlussvorschlag; Zustimmung liegt nicht vor.' Responsible person and review date remain to be named; no existing owner, approval or replacement decision is invented."
+    },
+    {
+      "text": "Formuliert einen eindeutigen Vorschlagsbeschluss und eine aus dem Zielkonflikt nachvollziehbare Empfehlung; offene Bedingungen werden nicht als bestätigt ausgegeben.",
+      "passed": true,
+      "evidence": "The proposed decision clearly commissions A subject to budget/capacity confirmation. The recommendation explains the 14.000 Euro three-year premium for flexibility and openly states that A is not a proven economic optimum without a replacement probability. Conditions are explicitly prerequisites, not confirmed facts."
+    },
+    {
+      "text": "Liefert eine für die Geschäftsführung verwendbare Vorlage mit Termin 08.10.2026 und höchstens 450 Wörtern.",
+      "passed": true,
+      "evidence": "The memo addresses the Geschäftsführung, gives 'Entscheidungstermin: 08.10.2026', and supplies a usable proposal, comparison, recommendation and open implementation conditions. Count: 346 whitespace items containing letters/numbers, below 450."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

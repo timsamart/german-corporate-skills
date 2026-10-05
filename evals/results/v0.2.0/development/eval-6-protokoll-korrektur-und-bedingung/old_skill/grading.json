@@ -1,0 +1,46 @@
+{
+  "expectations": [
+    {
+      "text": "Dokumentiert den bedingten Pilot 4 Wochen/12.000 Euro, Kapazität und Owner als Voraussetzungen; 40.000 Euro Rollout bleiben Vorschlag/offen.",
+      "passed": true,
+      "evidence": "„vierwöchiger Pilot mit höchstens 12.000 Euro externen Kosten“, Kapazitäts- und Testverantwortungsbestätigung vor Start, sowie „Rollout und Freigabe von 40.000 Euro: Vorschlag von Lena, keine dokumentierte Freigabe“ entsprechen 00:02–00:04."
+    },
+    {
+      "text": "Hält Karims endgültig bestätigte Frist 14.10.2026 und die Änderung der früheren Freitagsfrist nachvollziehbar fest.",
+      "passed": true,
+      "evidence": "M1 hat „Karim | 14.10.2026 | Zugesagt; korrigierte Frist von Nora festgehalten“ (00:05, 00:14–00:15). Die separate Fristkorrektur erklärt, dass „bis Freitag“ durch den 14.10.2026 ersetzt wurde und nicht mehr gilt."
+    },
+    {
+      "text": "Erhält Lenas bestätigte Kriterienaufgabe bis 07.10.; weist unbekanntem Sprecher4 oder Compliance keine bestätigte Aufgabe zu.",
+      "passed": true,
+      "evidence": "M2 enthält „Lena | 07.10.2026 | Zugesagt; Kriterien noch nicht bestätigt“ (00:11, 00:19). Compliance-Prüfung: „unverbindlicher Vorschlag des nicht identifizierten Sprechers 4; Auftrag, Verantwortlichkeit und Frist sind nicht bestätigt“."
+    },
+    {
+      "text": "Bewahrt die ausdrücklich erforderliche Folgebestätigung; automatische Zustimmung und nächster Sitzungstermin werden nicht erfunden.",
+      "passed": true,
+      "evidence": "„im nächsten Termin ausdrücklich bestätigt. Ausbleibende Rückmeldungen gelten nicht als Bestätigung. Der nächste Termin ist noch nicht festgelegt“ (Nora, 00:19) bewahrt die Folgebestätigung vollständig."
+    },
+    {
+      "text": "Ausgabe ist Entwurf mit nachvollziehbaren Fundstellen zu folgenreichen Punkten und gut lesbarer Maßnahmenliste, höchstens 450 Wörter; keine Versandbehauptung.",
+      "passed": true,
+      "evidence": "„Entwurf zur Prüfung“ und „weder bestätigt noch versandt“ sind klar. Die Beschlüsse und Maßnahmen besitzen Zeitfundstellen; die tabellarische Liste und Fristkorrektur sind prüfbar. Unabhängig gezählt: 244 Wörter, höchstens 450."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Die Ausgabe hat 244 Wörter nach der vorgegebenen Zählregel.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Unabhängig am gespeicherten output.md gezählt: durch Leerraum getrennte Einheiten mit mindestens einem Unicode-Buchstaben oder einer Ziffer; reine Markdown-Marker nicht gezählt."
+    }
+  ],
+  "review_notes": [
+    "Fachliche Aussagen wurden gegen das jeweilige synthetische Source-Fixture geprüft. Die execution.md-Datei ist ein selbst berichteter Werkzeugnachweis, kein vollständiger Ausführungstrace; daraus wurden keine Modell-, Token- oder Zeitmetriken abgeleitet."
+  ]
+}

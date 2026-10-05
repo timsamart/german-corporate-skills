@@ -17,3 +17,4 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r requirements-dev.txt
       - run: python scripts/validate.py
+      - run: python scripts/summarize_evals.py evals/results/v0.2.0

@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Vergleicht auf drei Jahre A mit 66.000 Euro extern/71.000 inkl. interner Kapazität und B mit 48.000 extern/57.000 inklusive intern.",
+      "passed": true,
+      "evidence": "The three-year table shows A: external 66.000 Euro/internal 5.000/total 71.000 and B: external 48.000/internal 9.000/total 57.000. It distinguishes the internal full-cost valuation from external payments, matching the independent arithmetic."
+    },
+    {
+      "text": "Benennt Kostenvorteil von B und Flexibilitätsvorteil von A; macht den möglichen Ersatz nach 18 Monaten als unsicher sichtbar.",
+      "passed": true,
+      "evidence": "The recommendation names A's Kündbarkeit and the 14.000 Euro full-term premium; the tradeoff section gives B's 18.000 external/14.000 total saving. The 18-month replacement is 'lediglich eine Möglichkeit; eine Entscheidung dazu fehlt', with no probability or expected value assumed."
+    },
+    {
+      "text": "Erfindet weder eine dritte technische Alternative noch eine Ersatzentscheidung, Genehmigung oder zuständige Person.",
+      "passed": true,
+      "evidence": "Only A and B are technical alternatives. The quoted approval wording is clearly labeled 'Beschlussvorschlag' and followed by 'Eine Zustimmung liegt bisher nicht vor'. The Fachteam's strategy clarification is a proposed next action, not an invented existing responsible person or replacement decision."
+    },
+    {
+      "text": "Formuliert einen eindeutigen Vorschlagsbeschluss und eine aus dem Zielkonflikt nachvollziehbare Empfehlung; offene Bedingungen werden nicht als bestätigt ausgegeben.",
+      "passed": true,
+      "evidence": "The proposal clearly commissions A subject to written confirmation of cancellation/billing terms and would return B to the Geschäftsführung only if the longer use were confirmed. Flexibility versus cost is explained; the 29-month threshold is derived under an explicitly unconfirmed prorated-billing assumption, with open conditions preserved."
+    },
+    {
+      "text": "Liefert eine für die Geschäftsführung verwendbare Vorlage mit Termin 08.10.2026 und höchstens 450 Wörtern.",
+      "passed": true,
+      "evidence": "The compact memo names 'Geschäftsführung · Entscheidung am 08.10.2026 · Beschlussvorschlag', includes a comparable cost table, recommendation and operative conditions. Count: 319 whitespace items containing letters/numbers, below 450."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

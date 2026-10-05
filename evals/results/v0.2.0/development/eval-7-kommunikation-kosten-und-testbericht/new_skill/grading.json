@@ -1,0 +1,41 @@
+{
+  "expectations": [
+    {
+      "text": "Erhält 100.000 Euro Budget, 112.000 Prognose und 12.000 Mehrbedarf außerhalb des Projektmandats.",
+      "passed": true,
+      "evidence": "„100.000 Euro Gesamtbudget“, „112.000 Euro Gesamtkostenprognose“ und „zusätzlichen 12.000 Euro nicht im eigenen Mandat freigeben“ erhalten Soll, Prognose und nicht selbst genehmigbaren Mehrbedarf."
+    },
+    {
+      "text": "Erhält fehlenden Testbericht und die Konsequenz, dass ohne ihn keine belastbare Startprognose empfohlen werden kann.",
+      "passed": true,
+      "evidence": "„noch fehlenden vorherigen Testbericht“ und „Solange der Testbericht fehlt, kann die Projektleitung keine belastbare Startprognose empfehlen“ bewahren die Informationslücke und ihre Konsequenz."
+    },
+    {
+      "text": "Klare Bitte um Kostenklärung und Testbericht vor 08.10.; keine erfundene morgige Frist, Schuld, Freigabe oder Eskalationsdrohung.",
+      "passed": true,
+      "evidence": "„Bitte stellen Sie beides vor diesem Termin bereit“ bezieht sich auf den 08.10.2026. „Bitte klären Sie die Differenz ... und gleichen Sie die Angaben entsprechend ab“ fordert Kostenklärung; der Bericht wird nochmals ausdrücklich angefordert. Keine neue Frist, Schuldzuweisung, Freigabe oder Drohung."
+    },
+    {
+      "text": "Direkt verwendbare sachliche Sie-Mail an Herrn Berger mit höchstens 160 Wörtern; Tonkorrektur verdeckt den Handlungsbedarf nicht.",
+      "passed": true,
+      "evidence": "Die Mail steht zuerst, hat eine passende Anrede „Sehr geehrter Herr Berger“ und Sie-Form. Der Handlungsbedarf ist trotz höflichem Dank klar. Unabhängig gezählt: 111 Wörter einschließlich Betreff, Anrede und Namensplatzhalter, höchstens 160."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "claims": [
+    {
+      "claim": "Die Ausgabe hat 111 Wörter nach der vorgegebenen Zählregel.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Unabhängig am gespeicherten output.md gezählt: durch Leerraum getrennte Einheiten mit mindestens einem Unicode-Buchstaben oder einer Ziffer; reine Markdown-Marker nicht gezählt."
+    }
+  ],
+  "review_notes": [
+    "Fachliche Aussagen wurden gegen das jeweilige synthetische Source-Fixture geprüft. Die execution.md-Datei ist ein selbst berichteter Werkzeugnachweis, kein vollständiger Ausführungstrace; daraus wurden keine Modell-, Token- oder Zeitmetriken abgeleitet."
+  ]
+}

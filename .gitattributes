@@ -1,1 +1,8 @@
 * text=auto eol=lf
+*.pdf binary
+*.png binary
+# Preserve the evaluated skill and evidence bytes used by SHA-256 manifests.
+skills/** -text
+evals/fixtures/** -text
+evals/results/** -text
+evals/tasks.json -text

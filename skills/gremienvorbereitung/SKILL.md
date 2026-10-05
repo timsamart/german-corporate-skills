@@ -1,6 +1,6 @@
 ---
 name: gremienvorbereitung
-description: "Prepare German managers and project leads for a Vorstand, Geschäftsführung, steering committee, or Lenkungsausschuss meeting. Use for Gremienvorbereitung, decision-focused agendas, credible objections, question-and-answer preparation, and a clear meeting ask."
+description: "Prepare a speaker for a German management or steering committee meeting: Gremienvorbereitung, opening, critical questions, evidence-bounded answers and closing ask. Use for meeting rehearsal and Q&A, rather than writing the decision memo or reviewing the slide deck."
 license: MIT
 ---
 
@@ -28,6 +28,8 @@ Für jede wichtige Frage liefere eine kurze mündliche Antwort mit:
 - der verbleibenden Unsicherheit,
 - einem konkreten Klärungsschritt, falls die Antwort fehlt.
 
+Gib eine Fundstelle als knappe Vorbereitungshilfe, wenn sie verfügbar ist; halte sie außerhalb des gesprochenen Satzes. Priorisiere den Einwand, der die Bitte tatsächlich umkehren könnte. Plane bei knapper Redezeit Raum für Rückfragen ein, statt die gesamte Zeit mit einem ausformulierten Monolog zu füllen.
+
 Erfinde keine Antwort, um souverän zu wirken. Ein ehrliches „Das ist noch offen; für die Freigabe brauchen wir …“ kann eine tragfähige Antwort sein. Vorgeschlagene Fristen und Verantwortliche klar kennzeichnen.
 
 ## Verwendbares Briefing
@@ -43,3 +45,5 @@ Liefere auf Deutsch, angepasst an den Termin:
 Empfehle Vorgespräche nur mit einem konkreten Klärungsziel. Die Vorbereitung selbst ist kein Auftrag, jemanden anzuschreiben oder einen Termin zu buchen. Wenn eine Simulation gewünscht ist, stelle plausible Fragen nacheinander und bewerte die Antworten anhand des bereitgestellten Materials.
 
 Lies [das Beispiel](references/beispiel.md), wenn ein unbelegter Finanznutzen oder eine fehlende Freigabe im Gremium diskutiert werden könnte.
+
+Lies bei Bedarf [Grundlagen](references/grundlagen.md). Unternehmensmandate und der tatsächliche Sitzungszweck bestimmen den Auftrag.
