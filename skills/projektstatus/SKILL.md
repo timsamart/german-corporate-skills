@@ -22,6 +22,8 @@ Trenne Istkosten, prognostizierte Restkosten und erwartete Gesamtkosten, soweit 
 
 ## Bericht schreiben
 
+Prüfe bei gefährdeten Terminen die verfügbare Kapazität und konkurrierende Zusagen, soweit sie belegt sind. Eine benannte Person ist noch keine verfügbare Ressource. Zeige, wer eine Priorität ändern darf und welche belegten Folgen Verschiebung, Umfangsänderung oder Umverteilung hätten. Vergleiche eine neue Prognose mit vorhandenen ähnlichen abgeschlossenen Arbeiten, wenn das Material sie enthält; erhalte Unterschiede und Stichprobengrenzen.
+
 Beginne mit der relevanten Veränderung und ihrer Wirkung auf das Projektziel. Berichte wesentliche Fortschritte als Ergebnisse mit Beleg oder Fundstelle. Bündele unwichtige Aktivitäten oder lasse sie weg.
 
 Bei jeder wesentlichen Abweichung zeige:
@@ -43,3 +45,5 @@ Liefere auf Deutsch einen verwendbaren Statusbericht oder eine Eskalationsnachri
 Lies [das Beispiel](references/beispiel.md), wenn eine unbegründete grüne Ampel oder ein gefährdeter Meilenstein vorliegt.
 
 Lies bei Bedarf [Grundlagen](references/grundlagen.md). Ein Team kann eine Abweichung im eigenen Mandat beheben; erzeuge dann keinen zusätzlichen Managementbeschluss.
+
+Lies [Kapazität und Prognose](references/arbeitsweise.md), wenn dieselben Ressourcen mehrere Zusagen tragen oder die Terminannahme vergleichbaren Erfahrungen widerspricht. Bilde daraus eine konkrete Unterstützung oder Abwägung, ohne einen frei erfundenen Risikozuschlag.

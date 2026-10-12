@@ -1,0 +1,39 @@
+{
+  "expectations": [
+    {
+      "text": "Stellt das Fristziel für 80 Fälle und die heute mögliche Prüfung in den Mittelpunkt, statt die Frage auf einen sofortigen Anbieterkauf zu verengen.",
+      "passed": true,
+      "evidence": "Die heutige Entscheidungsfrage lautet, welche Prüfung für '80 Servicefälle monatlich innerhalb von zwei Tagen' beauftragt wird. Der Beschlussvorschlag betrifft den internen Prozessversuch; die Ausgabe erklärt, eine Anbieterbeauftragung liege außerhalb des heutigen Mandats. Anlass und Prüfmaßstab stellen die Fristwirkung in den Mittelpunkt."
+    },
+    {
+      "text": "Berücksichtigt die belegte Prozessoption mit 12.000 Euro/sechs Wochen; Anbieterwerte 90.000/75.000 und Kapazität 800 bleiben korrekt.",
+      "passed": true,
+      "evidence": "Beschlussvorschlag und Tabelle nennen den belegten Prozessversuch mit 12.000 Euro, sechs Wochen, ohne Mehrjahresbindung. Anbieter A steht mit 90.000 Euro einmalig und 800 Fällen/Monat, B mit 75.000 Euro einmalig und ebenfalls 800 Fällen/Monat. Offene laufende Kosten und ungemessene Fristwirkung werden erhalten."
+    },
+    {
+      "text": "Beschlussvorschlag wahrt die 20.000-Euro-Prüfbefugnis und trennt spätere Software-/Vertragsentscheidung; keine tatsächliche Freigabe behauptet.",
+      "passed": true,
+      "evidence": "Die Tabelle nennt 'im Prüfmandat bis 20.000 Euro' beim Prozessversuch und einen späteren Vertragsbeschluss durch die Geschäftsführung bei beiden Anbietern. Der Text steht unter 'Beschlussvorschlag' und 'Empfehlung des Verfassers'; der spätere Softwarebedarf erfordert erst eine Vertragsvorlage. Keine bereits erfolgte Freigabe wird behauptet."
+    },
+    {
+      "text": "Nennt fehlende Fristwirkung als entscheidungsrelevante Information und offene Umsetzung/Verantwortung, ohne eine garantierte Wirkung oder einen Besitzer zu erfinden.",
+      "passed": true,
+      "evidence": "Alle Optionen weisen die fehlende Fristwirkung aus; Auswahl wird ohne Wirkungsnachweis als nicht belastbar erklärt. Ein Prozessverantwortlicher, interner Aufwand und Berichtstermin sind 'vor Beginn festzulegen' und 'offen'. Der Versuch hat 'weiterhin ungewisse Zielerreichung'; weder Wirkung noch ein vorhandener Besitzer wird erfunden."
+    },
+    {
+      "text": "Zuerst eine verwendbare kompakte Vorlage innerhalb 330 Wörter; keine erfundene Frist, Gewichtung oder Scheinobjektivität.",
+      "passed": true,
+      "evidence": "Die Antwort beginnt unmittelbar mit einer verwendbaren Entscheidungsvorlage, heutiger Frage und Beschlussvorschlag. 277 Wörter nach whitespace-getrennter Zählung der Tokens mit Buchstabe oder Zahl, unter 330. Fehlende Entscheidungsfrist/Dringlichkeit wird ausdrücklich dokumentiert; Berichtstermin bleibt offen. Es werden keine Gewichte oder Punktbewertungen erfunden; vorgeschlagener Prüfmaßstab ist das Quellziel 80 Fälle/zwei Tage."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "word_count": {
+    "count": 277,
+    "method": "Whitespace-separated tokens containing at least one Unicode letter or number; complete output.md including headings and table text."
+  }
+}

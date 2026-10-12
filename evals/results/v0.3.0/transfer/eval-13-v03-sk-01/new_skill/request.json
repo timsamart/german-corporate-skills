@@ -1,0 +1,8 @@
+{
+  "task": "Formuliere eine Antwort an Sophie, die ich als Projektleiterin senden kann. Sie soll eine klare und verlässliche Aussage zu Termin und Preis bekommen und wissen, was als Nächstes passiert. Die Zusammenarbeit ist gut; bitte freundlich und ohne unnötige interne Details. Maximal 250 Wörter.",
+  "input": "evals/results/v0.3.0/transfer/source/sources/v03-sk-01.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/stakeholder-kommunikation",
+  "output": "evals/results/v0.3.0/transfer/eval-13-v03-sk-01/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/transfer/eval-13-v03-sk-01/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

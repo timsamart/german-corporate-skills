@@ -1,0 +1,31 @@
+{
+  "id": 7,
+  "name": "mail-sicht-und-ungeklaerte-eingaben",
+  "skill": "stakeholder-kommunikation",
+  "input": "fixtures/mail-sicht-und-ungeklaerte-eingaben.md",
+  "prompt": "Formuliere eine sachliche Klärungsmail in Sie-Form an Herrn Berger. Die Behauptung über Absicht soll durch die belegte Sachlage ersetzt werden. Keine neue Frist und keine zusätzlichen Zusagen. Höchstens 150 Wörter.",
+  "word_limit": 150,
+  "assertions": [
+    {
+      "text": "Ersetzt Absicht/Schuld durch die belegte Anfrage 08.10. und Antwort 09.10.; behauptet nicht fälschlich eine ausgebliebene Antwort.",
+      "critical": true
+    },
+    {
+      "text": "Erhält fehlendes Mengengerüst und Integrationskosten sowie offene Budgetentscheidung.",
+      "critical": true
+    },
+    {
+      "text": "Konkrete Klärungsbitte ermöglicht Ergänzung/Korrektur und setzt keine bereits erteilte Zustimmung voraus.",
+      "critical": false
+    },
+    {
+      "text": "Keine neue Frist, Lieferzusage, erfundener Eingabenbesitzer oder Drohung; die Konsequenz für die nächste Entscheidung bleibt sichtbar.",
+      "critical": true
+    },
+    {
+      "text": "Zuerst direkt verwendbare sachliche Sie-Mail an Herrn Berger innerhalb 150 Wörter, keine Gesprächsmethodenerklärung.",
+      "critical": false
+    }
+  ],
+  "published_input": "../../../../v0.3.0/fixtures/mail-sicht-und-ungeklaerte-eingaben.md"
+}

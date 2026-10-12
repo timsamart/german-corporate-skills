@@ -1,0 +1,31 @@
+{
+  "id": "v03-ps-02",
+  "skill": "projektstatus",
+  "prompt": "Bitte mach aus der Notiz zwei kurze Sätze für unseren Teamchat. Die Kollegen brauchen den aktuellen Stand und den nächsten Schritt. Maximal 120 Wörter.",
+  "input": "sources/v03-ps-02.md",
+  "assertions": [
+    {
+      "text": "Berichtet korrekt, dass alle drei vorgesehenen Workshops stattgefunden haben, ohne den gesamten Übergabeprozess für abgeschlossen zu erklären.",
+      "critical": true
+    },
+    {
+      "text": "Nennt die Bereitstellung der Ergebnisprotokolle durch Lea bis Freitag, 16. Oktober, im Teamordner als nächsten Schritt.",
+      "critical": true
+    },
+    {
+      "text": "Liefert zwei direkt verwendbare, kurze Teamchat-Sätze innerhalb von 120 Wörtern.",
+      "critical": false
+    },
+    {
+      "text": "Erfindet keine offenen Entscheidungen, Kapazitätsprobleme oder Termingefährdung.",
+      "critical": true
+    },
+    {
+      "text": "Fügt keine Eskalationsbitte, formale Managementampel, Risikoanalyse oder neue Planungsaufgabe hinzu.",
+      "critical": false
+    }
+  ],
+  "name": "v03-ps-02",
+  "word_limit": 120,
+  "published_input": "../source/sources/v03-ps-02.md"
+}

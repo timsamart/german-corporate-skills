@@ -1,0 +1,8 @@
+{
+  "task": "Erstelle ein Ergebnisprotokoll aus dem Gespräch. Ich brauche die tatsächlichen Festlegungen, die offenen Punkte und die Aufgaben mit ihren vereinbarten Terminen. Es soll auch nach zwei Wochen noch eindeutig sein. Maximal 300 Wörter.",
+  "input": "evals/results/v0.3.0/transfer/source/sources/v03-ep-01.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/ergebnisprotokoll",
+  "output": "evals/results/v0.3.0/transfer/eval-11-v03-ep-01/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/transfer/eval-11-v03-ep-01/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

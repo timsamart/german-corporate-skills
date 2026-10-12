@@ -30,4 +30,10 @@ Die Methodenperspektive prüfte die drei ersten Änderungen und die eingeschrän
 
 Evidenz, Logik, fachliche Gültigkeit, strategische Passung, Umsetzbarkeit, Governance und Verständlichkeit wurden getrennt geprüft. Die fachlichen und redaktionellen Korrekturen sind im Kandidaten enthalten. Aussagen über Wirksamkeit sind weiterhin an die dokumentierten Ergebnisse und Grenzen gebunden. Die anfängliche Modellbewertung war überwiegend „pass/revise“, mit mittlerer qualitativer Zuversicht; es wurde keine kalibrierte Erfolgswahrscheinlichkeit berechnet.
 
-Ein separater Gegenprüfer hat die veröffentlichten Aussagen, Zählungen, Kandidatenhashes und Ausgaben anhand der gespeicherten Ergebnisse kontrolliert. Alle sieben Prüflinsen tragen die begrenzte Veröffentlichung; die qualitative Zuversicht ist mittel. Der [abschließende Prüfstatus](qualitaet.md#abschließende-gegenprüfung) nennt die Nachweise und verbleibenden Grenzen.
+Ein separater Gegenprüfer hat die v0.2.0-Aussagen, Zählungen, Kandidatenhashes und Ausgaben anhand der gespeicherten Ergebnisse kontrolliert. Alle sieben Prüflinsen tragen diese begrenzte Veröffentlichung; die qualitative Zuversicht ist mittel. Der [historische Prüfstatus](qualitaet-v0.2.0.md#abschließende-gegenprüfung) nennt die Nachweise und verbleibenden Grenzen.
+
+## Revision v0.3.0, 12. Oktober 2026
+
+Ein frischer Modellkontext prüfte alle sieben Instruktionen und Referenzen, ohne Zugriff auf die reservierten Fälle oder Vergleichsausgaben. Die Korrekturen vor dem Freeze betrafen den beauftragten Deckumfang, konsistente Kapazitätsperioden und die Grenze von Investitionsurteilen, wirksame Aufgaben unter dokumentiertem Mandat sowie eine unbelegte Zusage im bisherigen Statusbeispiel. Eine Entwurfsformulierung wurde sprachlich korrigiert.
+
+Diese Prüfung bestätigt Instruktionskonsistenz innerhalb des geprüften Materials. Sie ist keine neue menschliche Expertenrunde und keine vollständige Prüfung der zugrunde liegenden Bücher. Die Verhaltensergebnisse und der abschließende Veröffentlichungsstatus stehen im aktuellen [Qualitätsbericht](qualitaet.md).

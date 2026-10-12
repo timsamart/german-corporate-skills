@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Erhält Evas Entscheidung nach Beratung für Nord; Alex' Gegenposition wird nicht zu Konsens oder Zustimmung zum Umfang.",
+      "passed": true,
+      "evidence": "Quelle 00:02–00:03 und Mandat: Eva entscheidet nach Beratung Nord; Alex lehnt Umfang ab, akzeptiert Entscheidungsweg. Ausgabe erhält die Rolle und Entscheidung sowie 'seine Zustimmung zum Umfang ist damit nicht belegt'. Kein Konsens wird ergänzt."
+    },
+    {
+      "text": "Tom liefert am 16.10.2026 mit der Bedingung Zugang bis 14.10.; bei fehlendem Zugang Terminabstimmung, keine unbedingte Zusage.",
+      "passed": true,
+      "evidence": "Quelle 00:04/00:06: Liefertermin 16.10., bedingt durch Zugang bis 14.10.; andernfalls Neuabstimmung. M1 nennt beide Daten als 2026 und ausdrücklich die nötige Neuabstimmung. Der Schluss hält fest, dass ein neuer Termin noch nicht vereinbart wurde."
+    },
+    {
+      "text": "Maßnahmenliste erhält den vereinbarten Abschlussnachweis kategorisierte Fehler mit dokumentiertem Nachtest und gemeinsame Prüfung am 19.10.2026.",
+      "passed": true,
+      "evidence": "Quelle 00:05–00:06: Fehler mit Kategorie und dokumentiertem Nachtest, gemeinsame Prüfung 19.10., Tom übernimmt Kriterien/Prüfung. M1 enthält den Fehler-/Nachtestnachweis, M2 die gemeinsame Prüfung durch Eva und Tom am 19.10.2026. Der Absatz zum Abschlusskriterium erhält Toms ausdrückliche Übernahme und trennt Berichtslieferung von Abschluss."
+    },
+    {
+      "text": "Süd bleibt späterer Vorschlag/Entscheidungspunkt ohne bestätigte Aufgabe oder Besitzer; Nord wird nicht erweitert.",
+      "passed": true,
+      "evidence": "Quelle 00:07–00:08: Süd ist Mias Vorschlag, heute bleibt Nord, Süd später ohne Aufgabe. Ausgabe führt dies als offenen Vorschlag, nennt ausdrücklich keine Aufgabe/keinen Entscheidungstermin und weist Süd niemandem zu. M1 bleibt der Testbericht für Nord."
+    },
+    {
+      "text": "Entwurf mit nachvollziehbaren Fundstellen zu wesentlichen Punkten, höchstens 300 Wörter; keine Versand- oder Bestätigungsbehauptung.",
+      "passed": true,
+      "evidence": "Whitespace-Wörter mit mindestens einem Buchstaben oder einer Ziffer: 209, innerhalb 300. 'Entwurf ... zur Prüfung' ist ausdrücklich vorhanden. Entscheidung, Gegenposition, Maßnahmen und Süd erhalten konkrete Fundstellen 00:02, 00:03, 00:04–00:06, 00:07–00:08. Kein Versand oder bereits erfolgte Bestätigung wird behauptet."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

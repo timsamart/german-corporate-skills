@@ -120,7 +120,13 @@ def validate(root: Path) -> list[str]:
     for skill in skills.keys() - covered:
         fail(cases_path, f"no behavioral cases for {skill}")
 
-    tasks_path = root / "evals" / "tasks.json"
+    task_paths = [root / "evals" / "tasks.json"] + sorted((root / "evals").glob("v*/tasks.json"))
+    for tasks_path in task_paths:
+        validate_tasks(tasks_path, skills, fail)
+    return errors
+
+
+def validate_tasks(tasks_path: Path, skills: dict[str, Path], fail) -> None:
     try:
         tasks = json.loads(tasks_path.read_text(encoding="utf-8"))
         task_ids: set[int] = set()
@@ -132,8 +138,8 @@ def validate(root: Path) -> list[str]:
             if task.get("skill") not in skills or not task.get("prompt"):
                 fail(tasks_path, f"{task_id}: missing skill or prompt")
             for target in [task.get("input", "")] + task.get("additional_inputs", []):
-                source = (root / "evals" / target).resolve()
-                if not source.is_relative_to(root / "evals") or not source.is_file():
+                source = (tasks_path.parent / target).resolve()
+                if not source.is_relative_to(tasks_path.parent) or not source.is_file():
                     fail(tasks_path, f"{task_id}: invalid fixture {target!r}")
             assertions = task.get("assertions", [])
             if not assertions or any(not a.get("text") or not isinstance(a.get("critical"), bool)
@@ -141,7 +147,6 @@ def validate(root: Path) -> list[str]:
                 fail(tasks_path, f"{task_id}: missing assertion text or critical flag")
     except (OSError, json.JSONDecodeError, TypeError, AttributeError) as exc:
         fail(tasks_path, f"invalid development tasks: {exc}")
-    return errors
 
 
 if __name__ == "__main__":

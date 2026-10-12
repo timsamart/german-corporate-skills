@@ -1,0 +1,320 @@
+{
+  "metadata": {
+    "skill_name": "german-corporate-skills",
+    "timestamp": "2026-10-12",
+    "evals_run": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "runs_per_configuration": 1
+  },
+  "run_summary": {
+    "new_skill": {
+      "pass_rate": {
+        "mean": 0.9714285714285714,
+        "stddev": 0.07559289460184543,
+        "min": 0.8,
+        "max": 1.0
+      }
+    },
+    "old_skill": {
+      "pass_rate": {
+        "mean": 0.9428571428571428,
+        "stddev": 0.0975900072948533,
+        "min": 0.8,
+        "max": 1.0
+      }
+    },
+    "without_corporate": {
+      "pass_rate": {
+        "mean": 0.9142857142857143,
+        "stddev": 0.10690449676496973,
+        "min": 0.8,
+        "max": 1.0
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.029"
+    }
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 4,
+        "total": 5,
+        "failed": 1,
+        "pass_rate": 0.8
+      },
+      "notes": [
+        "F4 verdichtet zu Wochenwerten und Details in einer Anlage; 'Beide bestätigten Ausfälle separat mit Zeitpunkt, bekannter Dauer und Auswirkungen ausweisen; fehlende Angaben offen markieren.' Es wird ausdrücklich erklärt, dass die tatsächliche Darstellung ohne Bild offenbleibt; keine Achse wird behauptet. Der vollständige Maßstab fehlt dennoch: Die Ausgabe begründet die Reparatur für eine Vorabunterlage, erläutert aber keinen unterschiedlichen Bedarf von Monitoring und Entscheidungsvorbereitung. Dies ist eine Auslassung dieses Teilkriteriums, keine erfundene Beobachtung oder falsche Aussage."
+      ]
+    },
+    {
+      "eval_id": 1,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 4,
+        "total": 5,
+        "failed": 1,
+        "pass_rate": 0.8
+      },
+      "notes": [
+        "F4 schlägt eine Wochenübersicht mit Details als Anlage vor und fordert, 'Die zwei bestätigten Ausfälle ausdrücklich markieren'; 'Aggregation darf sie nicht verdecken'. Außerdem: 'kein geprüftes Layouturteil', ohne Achsenbehauptung. Der zusammengesetzte Maßstab wird dennoch nicht vollständig erfüllt: Die Ausgabe erklärt nicht den unterschiedlichen Informationsbedarf einer Vorabunterlage gegenüber Betriebsmonitoring. 'Auf die Entscheidung ausrichten' und die Verdichtung behandeln nur die Vorabunterlage. Dies ist eine ausgelassene Unterscheidung, keine falsche Aussage oder erfundene Visualprüfung."
+      ]
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_corporate",
+      "run_number": 1,
+      "result": {
+        "passed": 4,
+        "total": 5,
+        "failed": 1,
+        "pass_rate": 0.8
+      },
+      "notes": [
+        "F4 empfiehlt eine Wochenübersicht für eine Geschäftsführungsentscheidung, verschiebt Minutendaten in den Anhang und markiert 'beide bestätigten Ausfälle'; fehlende Auswirkungen werden gekennzeichnet. Die Ausgabe schließt visuelle Prüfungen ohne gerenderte Folien aus und behauptet keine Achse. Es fehlt jedoch die in der gesamten Assertion geforderte inhaltliche Unterscheidung zum Betriebsmonitoring: Dessen anderer Informationsbedarf wird nicht erläutert. Die Reparatur ist für die Vorabunterlage geeignet, aber dieser Teil des Maßstabs ist ausgelassen; es liegt keine falsche Monitoring- oder Layoutaussage vor."
+      ]
+    },
+    {
+      "eval_id": 2,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_corporate",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_corporate",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 4,
+        "total": 5,
+        "failed": 1,
+        "pass_rate": 0.8
+      },
+      "notes": [
+        "Ausgabe fragt im Abschluss nur, ob die Ausarbeitung und Vorlage der bereits gewählten Pilotoption vereinbart und dafür Verantwortliche sowie Termin festgelegt werden können. Keine Frage prüft, ob eine engere oder andere Bitte sinnvoll ist. Die 'Rückfalloption' benennt eine offene Zuständigkeit, stellt aber keine solche Klärungsfrage. Dies ist eine Auslassung; eine bereits zugesagte Umsetzung wird nicht falsch behauptet."
+      ]
+    },
+    {
+      "eval_id": 4,
+      "configuration": "without_corporate",
+      "run_number": 1,
+      "result": {
+        "passed": 4,
+        "total": 5,
+        "failed": 1,
+        "pass_rate": 0.8
+      },
+      "notes": [
+        "Die Abschlussfrage bittet um Unterstützung der festgelegten Pilotvorbereitung und fragt nach der Person für Umfang, Verantwortung und Kapazitätsklärung. Sie eröffnet keine engere oder andere Bitte und prüft nicht, ob die Kapazität auch einen kleineren Pilot trägt. Die übrigen Fragen sind vorformulierte Einwände mit Antworten. Dies ist eine fehlende adaptive Klärungsfrage, keine falsche Umsetzungszusage."
+      ]
+    },
+    {
+      "eval_id": 5,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "without_corporate",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "without_corporate",
+      "run_number": 1,
+      "result": {
+        "passed": 4,
+        "total": 5,
+        "failed": 1,
+        "pass_rate": 0.8
+      },
+      "notes": [
+        "Whitespace-Wörter mit mindestens einem Buchstaben oder einer Ziffer: 132, somit innerhalb 300; keine Versand- oder Bestätigungsbehauptung. Es fehlt aber eine Kennzeichnung als Entwurf und es fehlen nachvollziehbare Fundstellen zu den wesentlichen Entscheidungen/Äußerungen: keine Zeitmarken 00:02–00:08 oder entsprechende Quellenzuordnung. 'im Ausschnitt' betrifft nur den Zugangsdatenbesitzer und ersetzt dies nicht. Zwei erforderliche Bestandteile sind ausgelassen."
+      ]
+    },
+    {
+      "eval_id": 7,
+      "configuration": "new_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "configuration": "without_corporate",
+      "run_number": 1,
+      "result": {
+        "passed": 5,
+        "total": 5,
+        "failed": 0,
+        "pass_rate": 1.0
+      },
+      "notes": []
+    }
+  ],
+  "notes": [
+    "Descriptive criterion completion on seven synthetic tasks, equally weighted; not population accuracy.",
+    "Candidate meets one additional noncritical criterion versus v0.2.0: an adaptive clarification question.",
+    "All three configurations fail the same ambiguous compound deck criterion; original grades remain unchanged.",
+    "Fourteen candidate-only transfer cases are reported separately and excluded from this comparison.",
+    "One run per task/configuration; model graders; shared filesystem with procedural read restrictions.",
+    "Exact model id, sampling, time, tokens and full tool traces unavailable; metrics omitted, never set to zero.",
+    "Human practitioner validation and repeatability remain untested."
+  ]
+}

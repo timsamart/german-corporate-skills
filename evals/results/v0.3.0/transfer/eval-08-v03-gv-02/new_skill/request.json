@@ -1,0 +1,8 @@
+{
+  "task": "Ich brauche nur einen sachlichen Tagesordnungstitel und einen kurzen Zwecktext für unsere Bereichsrunde. Das Format ist unten beschrieben. Bitte so formulieren, dass ich es direkt in die Einladung setzen kann. Maximal 120 Wörter.",
+  "input": "evals/results/v0.3.0/transfer/source/sources/v03-gv-02.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/gremienvorbereitung",
+  "output": "evals/results/v0.3.0/transfer/eval-08-v03-gv-02/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/transfer/eval-08-v03-gv-02/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

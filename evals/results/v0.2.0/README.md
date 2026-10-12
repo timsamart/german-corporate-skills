@@ -1,6 +1,6 @@
 # Ausgeführte Evaluation: v0.2.0
 
-Datum: 5. Oktober 2026. Vollständig synthetische Daten. Der [Qualitätsbericht](../../../docs/qualitaet.md) erläutert die Ergebnisse; [summary.json](summary.json) zählt die gespeicherten Bewertungen nach.
+Datum: 5. Oktober 2026. Vollständig synthetische Daten. Der [historische Qualitätsbericht](../../../docs/qualitaet-v0.2.0.md) erläutert diese Ergebnisse; [summary.json](summary.json) zählt die gespeicherten Bewertungen nach.
 
 ## Versuchsaufbau
 
@@ -16,7 +16,7 @@ Die 28 Aufgabenausgaben bearbeiten **14 unterschiedliche Aufträge**, jeweils ei
 ## Konfigurationen
 
 - `old_skill`: vollständiger Skillordner aus [v0.1.0](https://github.com/timsamart/german-corporate-skills/releases/tag/v0.1.0), Commit `6b982909e758d820cae87c703de49b0df8c9cd8c`. Alle 14 Dateien wurden vor dem Vergleich bytegenau gegen diesen Commit geprüft.
-- `new_skill`: eingefrorener v0.2.0-Kandidat mit 21 Dateien. Die Hashes stehen in [freeze.json](freeze.json). Die veröffentlichte Skillfassung entspricht diesen Dateien.
+- `new_skill`: eingefrorener v0.2.0-Kandidat mit 21 Dateien. Die Hashes stehen in [freeze.json](freeze.json). Die damalige veröffentlichte Skillfassung entspricht den jetzt zusätzlich erhaltenen [Kandidatendateien](candidate/skills/). Sie bleiben auch bei späteren Änderungen der aktuellen Skills bytegenau nachprüfbar.
 - `without_corporate`: identischer Auftrag und Eingaben mit den gleichen verfügbaren Werkzeugen, ohne Lesen dieser Corporate-Skillinstruktionen.
 
 Ausführung: Codex-Kollaboration mit frischen Subagentkontexten pro Aufgabe, geerbter aktiver Modellkonfiguration, denselben verfügbaren PowerShell-/Python-/Bildwerkzeugen. Der genaue Modellbezeichner und Samplingparameter wurden vom Harness nicht offengelegt. Es wurden keine Werte dafür erfunden. Die Leseregel gestattet nur Auftrag, zugehörige Eingaben und gegebenenfalls den ausgewählten Skill samt Referenzen.

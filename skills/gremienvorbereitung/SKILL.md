@@ -16,6 +16,8 @@ Leite Interessen aus dem bereitgestellten Kontext ab. Weise Personen keine Motiv
 
 ## Vorbereitung entwickeln
 
+Kläre anhand der Unterlagen, wer entscheidet, wer beraten wird und welche betriebliche Mitwirkung noch aussteht. Ein überzeugender Vortrag ersetzt keine vereinbarte Umsetzung. Bereite einen offenen Einwand als echte Klärungsfrage vor, deren Antwort die Bitte ändern darf; eine Frage wie „Wann setzen Sie das um?“ setzt bereits Zustimmung voraus. Eine beratende Person kann eine Empfehlung vertreten; kennzeichne diese Rolle, statt ihr Neutralität oder Entscheidungsrecht zuzuschreiben.
+
 Formuliere den Satz, mit dem der Vortrag beginnt: Anliegen, konkrete Bitte und stärkster belegter Grund. Bewahre relevante Unsicherheiten auch in einer kurzen mündlichen Fassung.
 
 Prüfe, ob die Unterlagen die konkrete Bitte tragen. Ist nur ein Pilot belastbar, darf die Vorbereitung keine Zustimmung für einen vollständigen Rollout nahelegen. Kläre welche Fragen heute zu entscheiden sind und welche später beantwortet werden können.
@@ -47,3 +49,5 @@ Empfehle Vorgespräche nur mit einem konkreten Klärungsziel. Die Vorbereitung s
 Lies [das Beispiel](references/beispiel.md), wenn ein unbelegter Finanznutzen oder eine fehlende Freigabe im Gremium diskutiert werden könnte.
 
 Lies bei Bedarf [Grundlagen](references/grundlagen.md). Unternehmensmandate und der tatsächliche Sitzungszweck bestimmen den Auftrag.
+
+Lies [Mandat und Einwände klären](references/arbeitsweise.md), wenn Auftraggeber, Entscheider und betriebliche Mitwirkung auseinanderfallen oder ein Einwand vor dem Termin ungeklärt bleibt. Eine reine Information braucht keine zusätzliche Freigabe.

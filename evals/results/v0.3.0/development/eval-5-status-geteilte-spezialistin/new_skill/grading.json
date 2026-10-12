@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Zeigt sieben benötigte gegenüber fünf verfügbaren Tagen, mindestens zwei Tage Kapazitätskonflikt; die beiden Termine sind so nicht zugleich erfüllbar.",
+      "passed": true,
+      "evidence": "Quelle: A vier Tage, B drei, dieselbe Spezialistin fünf Tage und keine Parallelarbeit. Ausgabe nennt alle drei Werte sowie 'Beide Zusagen ... nicht gemeinsam erfüllbar' und mindestens zwei fehlende Tage. Nachrechnung: 4 + 3 = 7; 7 - 5 = 2. Beide dargestellten Verteilungen und Restbedarfe sind richtig."
+    },
+    {
+      "text": "Die genehmigten Termine 23.10. bleiben Soll; kein erfundenes verbindliches neues Datum oder stilles Rebaselining.",
+      "passed": true,
+      "evidence": "Quelle: Genehmigte Termine 23.10.2026, neue Gesamtprognose nicht bestätigt. Ausgabe erhält beide Daten und ausdrücklich 'Die genehmigten Termine bleiben die Vergleichsbasis'. Der 16.10. wird klar als vorgeschlagene Entscheidungsfrist bezeichnet, nicht als neuer verbindlicher Projektabschluss oder bestätigtes Rebaselining."
+    },
+    {
+      "text": "Benötigte Unterstützung richtet sich auf eine Prioritäts-/Reihenfolgeentscheidung des Bereichsleiters mit Folgen, nicht allein auf generisch mehr Ressourcen.",
+      "passed": true,
+      "evidence": "Ausgabe richtet die Unterstützung an die Reihenfolgeentscheidung des Bereichsleiters. Sie nennt dessen Entscheidungsrecht sowie das fehlende Recht der Projektleitungen, die jeweils andere Zusage aufzuheben. Beide Optionen zeigen die Folgen von jeweils zwei unerfüllten Spezialistinnentagen; eine Ressourcenbitte ersetzt diese Entscheidung nicht."
+    },
+    {
+      "text": "Fehlende Folgekapazität und Abhängigkeiten bleiben offen; Ersatz, Wochenende, Fortschrittsquote oder bereits beschlossene Priorisierung werden nicht erfunden.",
+      "passed": true,
+      "evidence": "Ausgabe erhält fehlenden Ersatz, nicht zugesagtes Wochenende und fehlende Angaben zur anschließenden Abnahme und weiteren Testkapazität. Sie sagt, Fortschrittsquote/Ampel seien nicht ableitbar, keine wirksame Gegenmaßnahme sei belegt und die Folgemaßnahme sei vorgeschlagen, noch keine Zusage. Keine neue Folgekapazität oder beschlossene Priorisierung wird erfunden."
+    },
+    {
+      "text": "Verwendbarer kompakter Status innerhalb 280 Wörter, der Vorarbeiten von Abnahme/Testabschluss unterscheidet.",
+      "passed": true,
+      "evidence": "Whitespace-Wörter mit mindestens einem Buchstaben oder einer Ziffer: 251, innerhalb 280. Der kompakte Bericht nennt abgeschlossene Vorarbeiten, unerfüllbare Abschlusszusagen und offene Gesamtprognose getrennt und enthält eine konkrete Entscheidungsbitte samt Folgen."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

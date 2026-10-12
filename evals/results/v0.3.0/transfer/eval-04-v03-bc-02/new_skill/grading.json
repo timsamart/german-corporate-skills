@@ -1,0 +1,46 @@
+{
+  "expectations": [
+    {
+      "text": "Berechnet A mit 1.480 Euro und B mit viermal 350 plus 200 gleich 1.600 Euro.",
+      "passed": true,
+      "evidence": "Source A: 1.280 annual fee plus one 200 setup; B: four 350 quarterly fees plus one 200 setup. Independently computed A = 1.280 + 200 = 1.480; B = 4 × 350 + 200 = 1.600. Output gives these exact calculations and totals."
+    },
+    {
+      "text": "Korrigiert die Ersparnis zugunsten A auf 120 Euro und empfiehlt A anhand des niedrigeren gegebenen Gesamtpreises.",
+      "passed": true,
+      "evidence": "Independently computed 1.600 - 1.480 = 120 Euro. Output concludes \"empfehlen wir Angebot A, da es insgesamt 120 Euro netto günstiger ist\", correcting the source draft claim of only 20 Euro saving."
+    },
+    {
+      "text": "Vergleicht denselben Leistungsumfang über dasselbe eine Jahr und behandelt die genannten Zahlen als Nettobeträge.",
+      "passed": true,
+      "evidence": "Source says ten users, the same performance scope, a fixed one-year duration, matching cancellation terms, and all amounts net. Output explicitly specifies \"zehn Nutzern\", \"genau einem Jahr\", \"identischem Leistungsumfang\" and matching cancellation conditions, with each price and the saving marked netto."
+    },
+    {
+      "text": "Liefert zwei bis drei direkt übernehmbare Sätze innerhalb von 120 Wörtern.",
+      "passed": true,
+      "evidence": "Output comprises exactly three directly reusable procurement-note sentences. Independently counted 61 eligible whitespace tokens, below 120."
+    },
+    {
+      "text": "Erfindet keine Produktivitätsgewinne, zusätzliche Risiken, abweichenden Vertragsbedingungen oder Notwendigkeit eines umfangreichen Business Case.",
+      "passed": true,
+      "evidence": "Every factual comparison in the three sentences is supplied by the source: ten users, one year, identical performance and cancellation terms, fee arithmetic, and lower net total. No productivity gains, additional risks, changed contract terms, or larger business-case requirement is introduced."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "word_count": 61,
+  "word_count_method": "Whitespace-delimited tokens containing at least one Unicode letter or number; complete output.md including headings and table cells.",
+  "claims": [
+    {
+      "evidence": "1.280 + 200 = 1.480; 4 × 350 + 200 = 1.600; difference = 120.",
+      "claim": "A costs 1.480, B costs 1.600, and A saves 120 Euro net",
+      "type": "factual",
+      "verified": true
+    }
+  ],
+  "review_type": "Independent model review against original assertions, raw source, and supplied output; not human validation."
+}

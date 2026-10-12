@@ -1,0 +1,48 @@
+{
+  "expectations": [
+    {
+      "text": "Bestätigt weder den Produktivstart am 1. Dezember noch die 80.000 Euro als verbindlich und überschreitet die Befugnis der Projektleiterin nicht.",
+      "passed": true,
+      "evidence": "Source sources/v03-sk-01.md permits the project leader to share goals/nonbinding estimates, not to release a binding quote. Output calls 1 December a goal, says “Eine verbindliche Zusage ist heute noch nicht möglich”, and calls 80,000 euros an “unverbindliche Kostenschätzung”. Neither production date nor final price is bindingly confirmed; the separately offered demo is authorized by the source."
+    },
+    {
+      "text": "Nennt die beiden Voraussetzungen für das technische Ziel: 20 anonymisierte Beispielakten von Sophie bis 14. November und Security-Freigabe bis 20. November.",
+      "passed": true,
+      "evidence": "Source conditions the technical goal on Sophie delivering 20 anonymized sample files by 14 November and Security approval by 20 November. Output names both conditions with correct owner, amount and dates, and says the production date is unsecured without both."
+    },
+    {
+      "text": "Kennzeichnet 80.000 Euro netto als noch nicht freigegebene Schätzung für das erste Jahr; beschreibt den Umfang mit Integration und Jahreslizenz, ohne einen dauerhaften Gesamtpreis oder enthaltene Reisen/Zusatzfunktionen zu behaupten.",
+      "passed": false,
+      "evidence": "Source specifies an estimate 'noch nicht freigegeben', 80,000 euros net for year one, 50,000 integration + 30,000 annual license, excluding travel/optional features. Independent sum: 50,000 + 30,000 = 80,000. Output preserves amount, net basis, year one, integration/license, workspace/workflow and exclusions and says final price is not agreed. However, “unverbindliche Kostenschätzung”, no binding quote and no agreed final price do not state that the estimate itself is still unapproved. This required part is omitted, so the compound assertion fails. This is an omission of approval status, not price fabrication or an unauthorized binding commitment."
+    },
+    {
+      "text": "Macht das bereits zugesagte Update am 21. November zu Security-Ergebnis und verbindlichem Angebot erkennbar.",
+      "passed": true,
+      "evidence": "Source already promises a 21 November update on the Security result and status of the binding offer. Output says “Am 21. November erhalten Sie wie zugesagt mein Update” and names both subjects, preserving the existing commitment."
+    },
+    {
+      "text": "Bietet den tatsächlich möglichen geführten Demonstrationstermin am 1. Dezember als Zwischenstand an und unterscheidet ihn klar vom Produktivbetrieb mit Kundenakten.",
+      "passed": true,
+      "evidence": "Source authorizes a bindingly possible guided 1 December demo independent of customer data, with prepared examples as an interim result, not productive customer-file checks. Output offers this demo, keeps independence from Sophie's files and explicitly excludes “produktive Prüfung Ihrer Kundenakten”. This is supported, not an invented new commitment."
+    },
+    {
+      "text": "Liefert eine freundliche direkt verwendbare Kundenantwort innerhalb von 250 Wörtern, die Termin und Preis beantwortet, ohne interne Governance auszubreiten oder neue Zusagen und Anforderungen zu erfinden.",
+      "passed": true,
+      "evidence": "Independent entire-output word count: 201, below 250. Output has friendly subject/greeting/closing, answers date and price, sets out the existing next action, avoids internal decision authority and adds no unsupported requirements or promises. The approval-status omission is evaluated under assertion 3, not counted again as fabrication."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.8333333333333334
+  },
+  "word_count": 201,
+  "word_count_method": "Split the entire output.md on Unicode whitespace (\\s+); count each resulting token containing at least one Unicode letter or number (\\p{L} or \\p{N}). Include headings, labels and table text; exclude punctuation-only/Markdown-only tokens.",
+  "review_type": "Independent model review; not human validation",
+  "eval_feedback": [
+    "Assertion 3 requires the estimate's unapproved status, while the prompt discourages unnecessary internal details. 'Unverbindlich', no binding quote and no agreed final price communicate noncommitment but are not equivalent to unapproved estimate. Under the frozen all-parts rule this is an omission/fail; this borderline distinction should be clarified before using the criterion as a general customer-communication standard.",
+    "Assertion 4's 'verbindlichem Angebot' refers in the source to status of that offer, not guaranteed delivery of an approved offer on 21 November. The output's 'Stand des verbindlichen Angebots' correctly preserves that.",
+    "Synthetic fixture; independent model review, not human validation."
+  ]
+}

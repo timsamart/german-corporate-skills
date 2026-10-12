@@ -1,0 +1,31 @@
+{
+  "id": "v03-ev-02",
+  "skill": "entscheidungsvorlage",
+  "prompt": "Die Teamleiterin hat den Workshoptermin bereits entschieden. Formuliere daraus einen kurzen Entscheidungseintrag fürs Team-Wiki mit dem Anlass. Ich möchte ihn direkt einfügen können. Maximal 120 Wörter.",
+  "input": "sources/v03-ev-02.md",
+  "assertions": [
+    {
+      "text": "Dokumentiert die bereits am 10. Oktober getroffene Entscheidung von Teamleiterin Nadine, statt eine neue Wahl oder Freigabe anzustoßen.",
+      "critical": true
+    },
+    {
+      "text": "Nennt den 20. Oktober, 09:00 bis 12:00 Uhr und Raum B06 korrekt.",
+      "critical": true
+    },
+    {
+      "text": "Gibt die Verfügbarkeit aller sechs Teammitglieder als Anlass wieder.",
+      "critical": false
+    },
+    {
+      "text": "Stellt die externen Beobachter nicht als notwendige Teilnehmende oder als offene Voraussetzung dar.",
+      "critical": true
+    },
+    {
+      "text": "Liefert einen kurzen, direkt einfügbaren Wiki-Eintrag innerhalb von 120 Wörtern und verlangt keine Optionenmatrix, Gremienbefassung oder erneute Einladung.",
+      "critical": false
+    }
+  ],
+  "name": "v03-ev-02",
+  "word_limit": 120,
+  "published_input": "../source/sources/v03-ev-02.md"
+}

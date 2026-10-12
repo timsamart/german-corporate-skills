@@ -1,0 +1,1 @@
+Stand 12. Oktober: Alle drei Übergabeworkshops haben stattgefunden, und daraus sind keine Entscheidungen offen. Lea stellt die Ergebnisprotokolle bis Freitag, 16. Oktober, im Teamordner bereit; der Übergabeprozess läuft anschließend weiter.

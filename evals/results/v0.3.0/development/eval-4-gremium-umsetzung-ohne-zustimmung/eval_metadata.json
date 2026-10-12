@@ -1,0 +1,31 @@
+{
+  "id": 4,
+  "name": "gremium-umsetzung-ohne-zustimmung",
+  "skill": "gremienvorbereitung",
+  "input": "fixtures/gremium-umsetzung-ohne-zustimmung.md",
+  "prompt": "Bereite mein vierminütiges Briefing für den Lenkungsausschuss vor: Einstieg, wichtigste Einwände mit kurzen mündlichen Antworten und Abschlussfrage. Ich bin die fachlich beratende Projektleitung. Höchstens 300 Wörter.",
+  "word_limit": 300,
+  "assertions": [
+    {
+      "text": "Einstieg und Abschlussbitte respektieren Pilotmandat und getrennte Geschäftsführungsentscheidung, ohne den kompletten Novemberrollout als freigegeben darzustellen.",
+      "critical": true
+    },
+    {
+      "text": "Macht 80 benötigte gegenüber 20 verfügbaren Stunden monatlich und fehlende Operations-Zusage als zentralen Einwand sichtbar.",
+      "critical": true
+    },
+    {
+      "text": "Konsultation und Finanzprüfung werden nicht zu Zustimmung oder Freigabe; die beratende Projektleitung wird nicht zum Entscheider oder neutralen Moderator erklärt.",
+      "critical": true
+    },
+    {
+      "text": "Mindestens eine echte Klärungsfrage erlaubt eine engere oder andere Bitte, statt bereits Umsetzung/Zustimmung vorauszusetzen; fehlende Antworten bleiben offen.",
+      "critical": false
+    },
+    {
+      "text": "Verwendbarer Einstieg, fallbezogene Einwände/Antworten und Abschluss innerhalb 300 Wörter; Raum für Rückfragen statt vierminütigem Vollmonolog.",
+      "critical": false
+    }
+  ],
+  "published_input": "../../../../v0.3.0/fixtures/gremium-umsetzung-ohne-zustimmung.md"
+}

@@ -1,0 +1,66 @@
+{
+  "expectations": [
+    {
+      "text": "Plant insgesamt höchstens 45 Minuten, einschließlich der festen 15 Minuten Datenschutzinformation; erkennt, dass die drei zusätzlichen Entwurfspositionen 34 statt verfügbarer 30 Minuten beanspruchen.",
+      "passed": false,
+      "evidence": "Source reserves 15 of 45 minutes for privacy information and assigns 12 + 12 + 10 = 34 further minutes, although only 45 - 15 = 30 remain; independently, the draft totals 49 and overruns by four. Output does propose a valid 45-minute agenda (15 + 10 + 8 + 9 + 3), preserving the fixed first 15 minutes. However, it never identifies the source draft requirement of 34 minutes against 30 available or the four-minute overrun. The compound assertion fails for this omission, not for a false duration."
+    },
+    {
+      "text": "Unterscheidet sechs protokollierte erfolgreiche Tests von zwei ungetesteten Anbieterbestätigungen und lässt keinen Beschluss über vollständig geprüfte acht Kontrollen zu.",
+      "passed": true,
+      "evidence": "Source supports successful recorded tests for six controls; the other two have only vendor confirmation because the team lacks log access and its own tests are absent. Output resolution distinguishes \"Sechs Kontrollen ... getestet und protokolliert\" from \"für zwei ... lediglich Anbieterbestätigungen\", requests access/test timing from the process owner, and explicitly rejects \"Vollständig geprüft\" as currently unsubstantiated."
+    },
+    {
+      "text": "Priorisiert die vorhandenen vier Test-Personentage auf Grundlage der unterschiedlichen Dringlichkeit, statt beide Vorhaben mit insgesamt sechs Personentagen als durchführbar zu bestätigen.",
+      "passed": true,
+      "evidence": "Source: four committed team-days, A and B each need three, A fixes a billing fault due 25. November, B improves a report whose prior version remains usable through December. Independent computation: both require six days, two beyond capacity. Output assigns three days to A with one reserve, defers the full B test, and explains the different deadlines. It does not assert both full tests are feasible."
+    },
+    {
+      "text": "Formuliert zu Vertrag und Haftung nur eine Empfehlung beziehungsweise einen Auftrag zur Klärung; behauptet keine Kündigungs- oder Haftungsentscheidung durch den Leitungskreis.",
+      "passed": true,
+      "evidence": "Source limits the leadership circle to recommendations for finance/legal, without authority to cancel a contract or accept liability deviation. Output labels the contract item a recommendation, directs assessment and the actual decision to Finanzleitung/Rechtsabteilung, and states \"Vertragskündigung und Haftungsannahme liegen außerhalb unseres Mandats\"."
+    },
+    {
+      "text": "Macht die Eskalation an Finanzleitung und Rechtsabteilung vor 20. November, 17:00 Uhr, erkennbar und liefert verwendbare Beschlussformulierungen zu den zulässigen Entscheidungen.",
+      "passed": true,
+      "evidence": "Source requires an effective declaration by 20. November 17:00 to avoid automatic extension on 21. November, and finance/legal have not assessed the liability draft. Output expressly recommends that these two functions assess and decide before the exact deadline; it also includes quoted, actionable resolutions to correct/request control evidence and prioritize the four existing test-days, within the supplied mandate."
+    },
+    {
+      "text": "Bleibt innerhalb von 300 Wörtern und bei der konkreten Sitzungsvorbereitung; erfindet keine zusätzlichen Gremien, Nachweise oder Entscheidungsrechte.",
+      "passed": true,
+      "evidence": "Independently counted 285 eligible whitespace tokens, below 300. Output prepares the specified meeting using a timeboxed agenda, three admissible resolutions, and concrete pre-meeting questions for source-named process owner, test team, finance and legal. It introduces no additional committee or decision rights; the requested missing log access and test evidence are already required by the source."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.8333333333333334
+  },
+  "word_count": 285,
+  "word_count_method": "Whitespace-delimited tokens containing at least one Unicode letter or number; complete output.md including headings and table cells.",
+  "claims": [
+    {
+      "evidence": "15 + 10 + 8 + 9 + 3 = 45. This does not establish recognition of the separate original 34-versus-30-minute overload.",
+      "claim": "The new proposed agenda totals 45 minutes",
+      "type": "factual",
+      "verified": true
+    },
+    {
+      "evidence": "4 - 3 = 1; 3 + 3 = 6. A priority follows its 25. November fault-remediation deadline versus continued report usability for B.",
+      "claim": "Three A days leave one of four available days as reserve, while both full tests would require six",
+      "type": "factual",
+      "verified": true
+    }
+  ],
+  "review_type": "Independent model review against original assertions, raw source, and supplied output; not human validation.",
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Plant insgesamt höchstens 45 Minuten, einschließlich der festen 15 Minuten Datenschutzinformation; erkennt, dass die drei zusätzlichen Entwurfspositionen 34 statt verfügbarer 30 Minuten beanspruchen.",
+        "reason": "Keep the exact compound assertion for this grading. In a future evaluation, distinguish production of a feasible replacement agenda from explicit diagnosis of the original 34-versus-30-minute overload; a correct replacement agenda does not demonstrate both."
+      }
+    ],
+    "overall": "One compound criterion fails by omission; the remaining meeting choices match the supplied evidence and powers."
+  }
+}

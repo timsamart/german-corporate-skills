@@ -47,3 +47,11 @@ Neue Fälle werden von einem separaten Autor erstellt und bleiben bis zur Kandid
 Veröffentliche Version, Eingaben, Ausgaben, begründete Bewertungen und verbleibende Fehler. Berichte kleine synthetische Stichproben mit ihren tatsächlichen Fallzahlen; daraus folgt keine allgemeine Erfolgsquote. Paketprüfung, Installation, Verhaltensprüfung, Auswahl und Praxistauglichkeit bleiben getrennte Nachweise.
 
 Der [Qualitätsbericht](qualitaet.md) dokumentiert, welche Schritte tatsächlich ausgeführt wurden. Neue reale Fehlermuster kommen als autorisierte, anonymisierte Regressionen hinzu. Eine Änderung wird erst nach den für sie relevanten Prüfungen veröffentlicht.
+
+## Vertiefung in v0.3.0
+
+Die [Buchanalyse](research/books-for-next-version.md) führte zu [sieben gezielten Arbeitsweisen](research/methods-v0.3.0.md). In die Instruktionen wurden nur redaktionelle Anwendungen tatsächlich eingesehener Erklärungen, Artikel, Zusammenfassungen und Leseproben übernommen. Vollständige Bücher und unzugängliche Vorlagen wurden nicht als gelesen ausgegeben.
+
+Die Instruktionsgegenprüfung korrigierte vier konkrete Punkte vor dem Einfrieren: gezielte Deckaufträge bleiben gezielt; ein Kapazitätsunterschied allein beweist keine ungeeignete Investition; Aufgaben können unter belegtem Mandat wirksam zugewiesen werden; ein Statusbeispiel bewahrt Möglichkeit statt einer neuen Zusage. Eine sprachliche Entwurfskorrektur wurde ebenfalls aufgenommen.
+
+Der Vergleich nutzt die unveränderte v0.2.0-Fassung, den eingefrorenen Kandidaten und identische Aufträge ohne Corporate-Skill. Pro Skill kamen zwei separat erstellte reservierte Fälle hinzu, darunter ein kleiner Auftrag als Gegenprobe gegen unnötige Verfahren. Die [Nachweise](../evals/results/v0.3.0/README.md) trennen ausgeführte Antworten, Bewertungen und noch offene Praxisvalidierung.

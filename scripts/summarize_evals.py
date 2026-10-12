@@ -22,8 +22,9 @@ def verify_evidence_hashes(directory: Path) -> None:
     def check(path: Path, expected: str) -> None:
         assert hashlib.sha256(path.read_bytes()).hexdigest() == expected, f"{path}: frozen hash mismatch"
 
+    candidate_root = directory / "candidate" if (directory / "candidate/skills").is_dir() else repo
     for relative, digest in freeze["candidate_files"].items():
-        check(repo / relative, digest)
+        check(candidate_root / relative, digest)
     for relative, digest in freeze["fixture_files"].items():
         check(repo / "evals/fixtures" / relative, digest)
     amendment = json.loads((directory / "assertion-amendment.json").read_text(encoding="utf-8"))

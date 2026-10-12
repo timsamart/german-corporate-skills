@@ -1,0 +1,8 @@
+{
+  "task": "Prüfe diese fünf Textfolien als Vorabunterlage für die Geschäftsführung. Liefere die drei wichtigsten Änderungen mit Folienbezug und einen tragfähigen Vorschlag für den Abschluss. Es stehen keine gerenderten Folien zur Verfügung. Höchstens 350 Wörter.",
+  "input": "evals/v0.3.0/fixtures/deck-argument-und-lesesituation.md",
+  "skill": null,
+  "output": "evals/results/v0.3.0/development/eval-1-deck-argument-und-lesesituation/without_corporate/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/development/eval-1-deck-argument-und-lesesituation/without_corporate/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

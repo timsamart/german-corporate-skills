@@ -1,0 +1,49 @@
+{
+  "expectations": [
+    {
+      "text": "Hält den 20. November als internes Planungsziel mit offener Security-Prüfung und Budgetfreigabe fest; behauptet keine endgültige Pilotfreigabe.",
+      "passed": true,
+      "evidence": "Source sources/v03-ep-01.md closes with 20 November accepted only as an internal planning goal, pending Security review and budget approval, without final pilot release. Output says “20. November … interne Planungsziel”, records Tom's internal-planning acceptance and Security/budget dependencies, and explicitly excludes final pilot approval."
+    },
+    {
+      "text": "Dokumentiert den Konflikt um den 19. November als ungeklärte Kundenkommunikation, statt Toms behauptetes Versprechen als bestätigte Tatsache oder bereits widerlegt darzustellen.",
+      "passed": true,
+      "evidence": "Source juxtaposes Tom's alleged promise of 19 November with Lea finding only a desired date and Tom's pending clarification. Output reports “Tom erklärt, diesen Termin versprochen zu haben” and “Die Verbindlichkeit ist strittig”, neither adopting the promise as established nor treating it as disproved."
+    },
+    {
+      "text": "Bewahrt Maliks Bedingung für die Prüfung am 18. November: vollständige Protokolldaten bis 16. November, 12:00 Uhr; hält Leas entsprechende Aufgabe mit diesem Termin fest.",
+      "passed": true,
+      "evidence": "Source conditions Malik's 18 November review on full logs arriving by 16 November, 12:00, and records Lea's delivery commitment. Output M1 assigns full logs to Lea with that deadline; M2 gives Malik's 18 November review with the same complete-data arrival condition."
+    },
+    {
+      "text": "Erfasst Evas schriftliches Angebot über 12.000 Euro netto bis 13. November sowie Leas Nachfrage bei Nora bis 13. November, ohne eine Budgetfreigabe oder einen Antworttermin Noras zu erfinden.",
+      "passed": true,
+      "evidence": "Source gives Eva's written 12,000-euro net offer to Lea by 13 November, Lea's inquiry to Nora by 13 November, and no promised Nora response time. Output M3 records written offer/owner/recipient/date, while the budget paragraph preserves 12,000 net. M4 records Lea's inquiry/date. It says approval remains outstanding and no response time is promised."
+    },
+    {
+      "text": "Erfasst Toms Klärungsaufgabe als Aufgabe ohne vereinbarten Termin und respektiert Noras ausschließliche Freigabebefugnis über 10.000 Euro sowie ihre Abwesenheit.",
+      "passed": true,
+      "evidence": "Source leaves Tom's clarification without a deadline; only absent Nora can authorize over 10,000 euros, with no deputy. Output M5 says “Kein Termin vereinbart”, identifies Nora as absent, preserves her exclusive authority and lack of deputy. Independent comparison: 12,000 − 10,000 = 2,000 euros above the threshold."
+    },
+    {
+      "text": "Liefert ein knappes verwendbares Ergebnisprotokoll innerhalb von 300 Wörtern, ohne fremde Beschlüsse, zusätzliche Rollen, nicht vereinbarte Aufgaben oder ein neues Protokoll-Freigabeverfahren einzuführen.",
+      "passed": true,
+      "evidence": "Independent entire-output word count: 232, below 300. Output preserves given agreements, tasks and unresolved points without inventing decisions, roles or task deadlines. Its heading “Entwurf zur Prüfung” supplies document status only, with no new approver, approval task, deadline or formal acceptance workflow."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1
+  },
+  "word_count": 232,
+  "word_count_method": "Split the entire output.md on Unicode whitespace (\\s+); count each resulting token containing at least one Unicode letter or number (\\p{L} or \\p{N}). Include headings, labels and table text; exclude punctuation-only/Markdown-only tokens.",
+  "review_type": "Independent model review; not human validation",
+  "eval_feedback": [
+    "'Entwurf zur Prüfung' is borderline under a ban on a new protocol approval process, but a heading alone does not establish one. If even draft/check labels are forbidden, the criterion should say so.",
+    "Synthetic-source disclaimer and repeated missing-year explanation reduce concision but are not fabrication or a failing frozen assertion.",
+    "M3's amount is evaluated together with the budget paragraph; the criterion does not require all elements in one table cell.",
+    "Synthetic fixture; independent model review, not human validation."
+  ]
+}

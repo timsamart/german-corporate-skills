@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "name": "deck-argument-und-lesesituation",
+    "skill": "praesentations-review",
+    "input": "fixtures/deck-argument-und-lesesituation.md",
+    "prompt": "Prüfe diese fünf Textfolien als Vorabunterlage für die Geschäftsführung. Liefere die drei wichtigsten Änderungen mit Folienbezug und einen tragfähigen Vorschlag für den Abschluss. Es stehen keine gerenderten Folien zur Verfügung. Höchstens 350 Wörter.",
+    "word_limit": 350,
+    "assertions": [
+      {
+        "text": "Begrenzt die Rolloutschlussfolgerung aus F2/F3 durch Pilotumfang, Auswahl und fehlende Betriebsdaten; begründet die fehlende Verbindung der Argumentation.",
+        "critical": true
+      },
+      {
+        "text": "Erhält oder rechnet die Zeitänderung als 30 Prozent; behauptet keine gesicherte kausale Wirkung oder Cash-Einsparung.",
+        "critical": true
+      },
+      {
+        "text": "Reparatur für F4 unterscheidet Vorabunterlage und Monitoring; Verdichtung erhält die zwei Ausfälle, ohne ein gesehenes Layout oder eine Achse zu behaupten.",
+        "critical": false
+      },
+      {
+        "text": "Ersetzt auf F5 die unbelegte Einigkeit/Startbehauptung durch einen als Vorschlag erkennbaren, von fehlenden Nachweisen begrenzten nächsten Schritt.",
+        "critical": true
+      },
+      {
+        "text": "Drei priorisierte Änderungen mit eindeutigen Folienbezügen und verwendbarer Abschlussidee; höchstens 350 Wörter, keine erfundenen Verantwortlichen oder Mittel.",
+        "critical": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "nutzenpfad-und-doppelte-stunden",
+    "skill": "business-case-pruefung",
+    "input": "fixtures/nutzenpfad-und-doppelte-stunden.md",
+    "prompt": "Prüfe den Case für die Projektleitung. Gib ein kurzes wirtschaftliches Urteil, die korrigierte Rechnung und die wichtigsten Klärungen vor der Entscheidung. Das Ziel ist der Abbau von Rückständen. Höchstens 330 Wörter.",
+    "word_limit": 330,
+    "assertions": [
+      {
+        "text": "Rechnet 800 Stunden und 48.000 Euro Kapazitätsäquivalent; addiert dieselben Stunden nicht zu 96.000 Euro Nutzen.",
+        "critical": true
+      },
+      {
+        "text": "Unterscheidet Kapazitätsnutzen vom unbelegten Cash-/Personalabbau; Rückstandsabbau bleibt ein legitimes Ziel.",
+        "critical": true
+      },
+      {
+        "text": "Berücksichtigt 30.000 Euro einmalig und 12.000 Euro jährlich; ein gegebenenfalls genannter Netto-/Paybackwert bleibt ein vereinfachtes Kapazitätsmodell mit unbestätigter voller Wirkung.",
+        "critical": true
+      },
+      {
+        "text": "Klärungen enthalten erforderliche betriebliche Nutzung/Änderung, Nutzenübernahme, Ausgangsrückstand/Ziel sowie Messzeitpunkt; Frau Wolf wird keine bestehende Zuständigkeit zugeschrieben.",
+        "critical": false
+      },
+      {
+        "text": "Verwendbares Urteil und Rechnung innerhalb 330 Wörter; keine erfundenen Gehälter, Adoptionsraten, Diskontsätze oder Freigaben.",
+        "critical": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "entscheidung-umfang-vor-anbieter",
+    "skill": "entscheidungsvorlage",
+    "input": "fixtures/entscheidung-umfang-vor-anbieter.md",
+    "prompt": "Erstelle eine kompakte Entscheidungsvorlage aus den Unterlagen. Sie soll in der Sitzung verwendbar sein und die heutige Entscheidungsfrage klar machen. Höchstens 330 Wörter.",
+    "word_limit": 330,
+    "assertions": [
+      {
+        "text": "Stellt das Fristziel für 80 Fälle und die heute mögliche Prüfung in den Mittelpunkt, statt die Frage auf einen sofortigen Anbieterkauf zu verengen.",
+        "critical": true
+      },
+      {
+        "text": "Berücksichtigt die belegte Prozessoption mit 12.000 Euro/sechs Wochen; Anbieterwerte 90.000/75.000 und Kapazität 800 bleiben korrekt.",
+        "critical": true
+      },
+      {
+        "text": "Beschlussvorschlag wahrt die 20.000-Euro-Prüfbefugnis und trennt spätere Software-/Vertragsentscheidung; keine tatsächliche Freigabe behauptet.",
+        "critical": true
+      },
+      {
+        "text": "Nennt fehlende Fristwirkung als entscheidungsrelevante Information und offene Umsetzung/Verantwortung, ohne eine garantierte Wirkung oder einen Besitzer zu erfinden.",
+        "critical": false
+      },
+      {
+        "text": "Zuerst eine verwendbare kompakte Vorlage innerhalb 330 Wörter; keine erfundene Frist, Gewichtung oder Scheinobjektivität.",
+        "critical": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "gremium-umsetzung-ohne-zustimmung",
+    "skill": "gremienvorbereitung",
+    "input": "fixtures/gremium-umsetzung-ohne-zustimmung.md",
+    "prompt": "Bereite mein vierminütiges Briefing für den Lenkungsausschuss vor: Einstieg, wichtigste Einwände mit kurzen mündlichen Antworten und Abschlussfrage. Ich bin die fachlich beratende Projektleitung. Höchstens 300 Wörter.",
+    "word_limit": 300,
+    "assertions": [
+      {
+        "text": "Einstieg und Abschlussbitte respektieren Pilotmandat und getrennte Geschäftsführungsentscheidung, ohne den kompletten Novemberrollout als freigegeben darzustellen.",
+        "critical": true
+      },
+      {
+        "text": "Macht 80 benötigte gegenüber 20 verfügbaren Stunden monatlich und fehlende Operations-Zusage als zentralen Einwand sichtbar.",
+        "critical": true
+      },
+      {
+        "text": "Konsultation und Finanzprüfung werden nicht zu Zustimmung oder Freigabe; die beratende Projektleitung wird nicht zum Entscheider oder neutralen Moderator erklärt.",
+        "critical": true
+      },
+      {
+        "text": "Mindestens eine echte Klärungsfrage erlaubt eine engere oder andere Bitte, statt bereits Umsetzung/Zustimmung vorauszusetzen; fehlende Antworten bleiben offen.",
+        "critical": false
+      },
+      {
+        "text": "Verwendbarer Einstieg, fallbezogene Einwände/Antworten und Abschluss innerhalb 300 Wörter; Raum für Rückfragen statt vierminütigem Vollmonolog.",
+        "critical": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "status-geteilte-spezialistin",
+    "skill": "projektstatus",
+    "input": "fixtures/status-geteilte-spezialistin.md",
+    "prompt": "Schreibe den Status für den Bereichsleiter und die konkrete Unterstützung, die wir benötigen. Keine allgemeine Projektmanagementerklärung. Höchstens 280 Wörter.",
+    "word_limit": 280,
+    "assertions": [
+      {
+        "text": "Zeigt sieben benötigte gegenüber fünf verfügbaren Tagen, mindestens zwei Tage Kapazitätskonflikt; die beiden Termine sind so nicht zugleich erfüllbar.",
+        "critical": true
+      },
+      {
+        "text": "Die genehmigten Termine 23.10. bleiben Soll; kein erfundenes verbindliches neues Datum oder stilles Rebaselining.",
+        "critical": true
+      },
+      {
+        "text": "Benötigte Unterstützung richtet sich auf eine Prioritäts-/Reihenfolgeentscheidung des Bereichsleiters mit Folgen, nicht allein auf generisch mehr Ressourcen.",
+        "critical": false
+      },
+      {
+        "text": "Fehlende Folgekapazität und Abhängigkeiten bleiben offen; Ersatz, Wochenende, Fortschrittsquote oder bereits beschlossene Priorisierung werden nicht erfunden.",
+        "critical": true
+      },
+      {
+        "text": "Verwendbarer kompakter Status innerhalb 280 Wörter, der Vorarbeiten von Abnahme/Testabschluss unterscheidet.",
+        "critical": false
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "protokoll-entscheidungsweg-und-nachtest",
+    "skill": "ergebnisprotokoll",
+    "input": "fixtures/protokoll-entscheidungsweg-und-nachtest.md",
+    "prompt": "Erstelle das Ergebnisprotokoll und die Maßnahmenliste aus diesem Ausschnitt. Bitte nur das, was die Sitzung trägt. Höchstens 300 Wörter.",
+    "word_limit": 300,
+    "assertions": [
+      {
+        "text": "Erhält Evas Entscheidung nach Beratung für Nord; Alex' Gegenposition wird nicht zu Konsens oder Zustimmung zum Umfang.",
+        "critical": true
+      },
+      {
+        "text": "Tom liefert am 16.10.2026 mit der Bedingung Zugang bis 14.10.; bei fehlendem Zugang Terminabstimmung, keine unbedingte Zusage.",
+        "critical": true
+      },
+      {
+        "text": "Maßnahmenliste erhält den vereinbarten Abschlussnachweis kategorisierte Fehler mit dokumentiertem Nachtest und gemeinsame Prüfung am 19.10.2026.",
+        "critical": false
+      },
+      {
+        "text": "Süd bleibt späterer Vorschlag/Entscheidungspunkt ohne bestätigte Aufgabe oder Besitzer; Nord wird nicht erweitert.",
+        "critical": true
+      },
+      {
+        "text": "Entwurf mit nachvollziehbaren Fundstellen zu wesentlichen Punkten, höchstens 300 Wörter; keine Versand- oder Bestätigungsbehauptung.",
+        "critical": false
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "mail-sicht-und-ungeklaerte-eingaben",
+    "skill": "stakeholder-kommunikation",
+    "input": "fixtures/mail-sicht-und-ungeklaerte-eingaben.md",
+    "prompt": "Formuliere eine sachliche Klärungsmail in Sie-Form an Herrn Berger. Die Behauptung über Absicht soll durch die belegte Sachlage ersetzt werden. Keine neue Frist und keine zusätzlichen Zusagen. Höchstens 150 Wörter.",
+    "word_limit": 150,
+    "assertions": [
+      {
+        "text": "Ersetzt Absicht/Schuld durch die belegte Anfrage 08.10. und Antwort 09.10.; behauptet nicht fälschlich eine ausgebliebene Antwort.",
+        "critical": true
+      },
+      {
+        "text": "Erhält fehlendes Mengengerüst und Integrationskosten sowie offene Budgetentscheidung.",
+        "critical": true
+      },
+      {
+        "text": "Konkrete Klärungsbitte ermöglicht Ergänzung/Korrektur und setzt keine bereits erteilte Zustimmung voraus.",
+        "critical": false
+      },
+      {
+        "text": "Keine neue Frist, Lieferzusage, erfundener Eingabenbesitzer oder Drohung; die Konsequenz für die nächste Entscheidung bleibt sichtbar.",
+        "critical": true
+      },
+      {
+        "text": "Zuerst direkt verwendbare sachliche Sie-Mail an Herrn Berger innerhalb 150 Wörter, keine Gesprächsmethodenerklärung.",
+        "critical": false
+      }
+    ]
+  }
+]

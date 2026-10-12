@@ -1,0 +1,8 @@
+{
+  "task": "Schreib eine kurze Teams-Nachricht an die fünf Kolleginnen und Kollegen, die an der Vorstellung teilnehmen. Ich möchte nur die Raumänderung sauber weitergeben. Maximal 120 Wörter.",
+  "input": "evals/results/v0.3.0/transfer/source/sources/v03-sk-02.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/stakeholder-kommunikation",
+  "output": "evals/results/v0.3.0/transfer/eval-14-v03-sk-02/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/transfer/eval-14-v03-sk-02/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Ersetzt Absicht/Schuld durch die belegte Anfrage 08.10. und Antwort 09.10.; behauptet nicht fälschlich eine ausgebliebene Antwort.",
+      "passed": true,
+      "evidence": "Quelle: Anfrage 08.10.2026, Antwort 09.10.2026 mit fehlenden Eingaben. Ausgabe nennt beide Daten und die tatsächliche Antwort; die Absichts-/Schuldbehauptung ist vollständig durch die belegte Sachlage ersetzt. Keine Behauptung ausbleibender Antwort."
+    },
+    {
+      "text": "Erhält fehlendes Mengengerüst und Integrationskosten sowie offene Budgetentscheidung.",
+      "passed": true,
+      "evidence": "Ausgabe nennt 'Mengengerüst und ... Integrationskosten' als fehlend, noch nicht übermittelt und 'Eine Budgetentscheidung liegt nicht vor'. Dies entspricht allen drei offenen Quellpunkten."
+    },
+    {
+      "text": "Konkrete Klärungsbitte ermöglicht Ergänzung/Korrektur und setzt keine bereits erteilte Zustimmung voraus.",
+      "passed": true,
+      "evidence": "Ausgabe fragt konkret nach Anforderungen an die fehlenden Angaben und 'wie lässt sich aus Ihrer Sicht klären, wer sie bereitstellen kann?' Das eröffnet Bergers Ergänzung/Korrektur und die Zuständigkeitsklärung; Zustimmung wird nicht als vorhanden vorausgesetzt."
+    },
+    {
+      "text": "Keine neue Frist, Lieferzusage, erfundener Eingabenbesitzer oder Drohung; die Konsequenz für die nächste Entscheidung bleibt sichtbar.",
+      "passed": true,
+      "evidence": "Quelle: Eingabenbesitzer offen, keine Frist, nächste Entscheidung ohne Kostenklärung offen. Ausgabe erhält diese Punkte und fragt nur nach einem möglichen Schritt. Kein Besitzer wird zugewiesen, keine Lieferung zugesagt, keine neue Frist oder Drohung genannt; die Entscheidungskonsequenz bleibt ausdrücklich sichtbar."
+    },
+    {
+      "text": "Zuerst direkt verwendbare sachliche Sie-Mail an Herrn Berger innerhalb 150 Wörter, keine Gesprächsmethodenerklärung.",
+      "passed": true,
+      "evidence": "Whitespace-Wörter mit mindestens einem Buchstaben oder einer Ziffer: 108, innerhalb 150. Das Artefakt beginnt unmittelbar mit Betreff und 'Guten Tag Herr Berger', enthält eine sachliche Sie-Mail und Grußformel. Keine Gesprächsmethodenerklärung."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

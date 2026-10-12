@@ -1,0 +1,57 @@
+{
+  "expectations": [
+    {
+      "text": "Berechnet die externe Auszahlung über drei Jahre korrekt mit 180.000 plus dreimal 120.000 gleich 540.000 Euro und bestätigt den behaupteten positiven Rückfluss von 90.000 Euro nicht.",
+      "passed": true,
+      "evidence": "Source costs: 180.000 Euro external setup, 90.000 annual license, and 30.000 annual hosting during 2027-2029. Independently computed 180.000 + 3 × (90.000 + 30.000) = 540.000 Euro. Output table totals setup at 180.000 and license/hosting at 360.000, explicitly gives the no-savings cash balance as -540.000, and rejects full rollout. It acknowledges only the arithmetic of the applicant expression 3 × 210.000 - 540.000 = 90.000, then explains the wrong benefit timing and cash classification; it does not validate a positive cash return."
+    },
+    {
+      "text": "Unterscheidet die mögliche Entlastung von 130.000 Euro ab 2028 von zahlungswirksamen Personaleinsparungen, da keine entsprechende Personalmaßnahme geplant ist.",
+      "passed": true,
+      "evidence": "Source: two FTE may be freed from 2028, valued at 130.000 annually, with no redundancy, contract expiry, or avoided hire planned. Output shows the capacity value only in 2028 and 2029 and states \"Die Personalauszahlungen bleiben unverändert\" and that the FTE release is a planning assumption, separating it from cash savings."
+    },
+    {
+      "text": "Kennzeichnet 80.000 Euro jährlich ab 2028 als bedingten, noch nicht gesicherten Nutzen; weist darauf hin, dass 2,4 Prozent die Grenze von höchstens 2,0 Prozent überschreiten.",
+      "passed": true,
+      "evidence": "Source: external reduction of 80.000 annually may start in 2028 only after acceptance at <=2,0 percent false alarms; pilot is 2,4 percent and acceptance/contract change are absent. Output labels the benefit \"bedingt\", puts 80.000 in 2028 and 2029 only, and says \"Der dokumentierte Pilotwert von 2,4 Prozent erfüllt die Bedingung nicht\". Independently, 2,4 > 2,0 by 0,4 percentage points."
+    },
+    {
+      "text": "Ordnet 500 mal 80 gleich 40.000 Euro interne Arbeit als Kapazitäts- beziehungsweise Opportunitätskosten ein und respektiert die ausdrücklich vorgegebene vollständige Aufwandserfassung der Einrichtung 2027.",
+      "passed": true,
+      "evidence": "Source: 500 internal hours at 80 Euro are from existing capacity and generate no additional payout; finance requires all setup expensed in 2027 with no asset capitalization. Independently 500 × 80 = 40.000. Output calls this \"kalkulatorische Ressourcen ohne zusätzliche Auszahlung\" and states the 180.000 setup is fully 2027 expense, with neither capitalization nor distribution."
+    },
+    {
+      "text": "Macht die korrigierte Zahlungsrechnung verwendbar: derzeit keine bestätigten Einsparungen gegen 540.000 Euro Auszahlungen; selbst mit erfüllter Prüfer-Bedingung wären nur 160.000 Euro in 2028 und 2029 und damit 380.000 Euro Nettoauszahlung belegt.",
+      "passed": true,
+      "evidence": "Output gives annual conditional cash balances -300.000, -40.000, -40.000, totaling -380.000, and states that without acceptance and contractual change there are no demonstrated payout savings, with -540.000 balance. Independent recomputation: 2 × 80.000 = 160.000 for 2028/2029; 540.000 - 160.000 = 380.000 net cash outlay. The table clearly separates capacity value from payout savings."
+    },
+    {
+      "text": "Gibt eine klare Empfehlung zur heutigen Vollfreigabe und priorisiert eine entscheidende Klärung aus den gelieferten Angaben, ohne neue Nutzenarten, Finanzierungsmodelle oder ein umfangreiches Bewertungsprogramm zu erfinden; maximal 300 Wörter.",
+      "passed": true,
+      "evidence": "Output opens \"Vollausbau heute nicht freigeben\" and prioritizes whether the <=2,0-percent acceptance condition and binding contract reduction from 2028 are achievable. These are the source-defined dependencies of the only possible cash benefit. Independently counted 217 eligible whitespace tokens, below 300. No new benefit type, financing model, or comprehensive evaluation program is proposed; the optional capacity/quality rationale calls only for concrete ownership and usage evidence."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1
+  },
+  "word_count": 217,
+  "word_count_method": "Whitespace-delimited tokens containing at least one Unicode letter or number; complete output.md including headings and table cells.",
+  "claims": [
+    {
+      "evidence": "180.000 + 3 × (90.000 + 30.000) = 540.000; only 2 × 80.000 = 160.000 possible external savings in 2028-2029.",
+      "claim": "The corrected conditional cash balance is -380.000 Euro and the no-confirmed-savings balance is -540.000 Euro",
+      "type": "factual",
+      "verified": true
+    },
+    {
+      "evidence": "2 × 130.000 + 2 × 80.000 - 540.000 - 500 × 80 = -160.000. This is expressly a noncash resources calculation, not evidence that benefits are achieved.",
+      "claim": "At full capacity realization and conditional external savings the resource balance is -160.000 Euro",
+      "type": "factual",
+      "verified": true
+    }
+  ],
+  "review_type": "Independent model review against original assertions, raw source, and supplied output; not human validation."
+}

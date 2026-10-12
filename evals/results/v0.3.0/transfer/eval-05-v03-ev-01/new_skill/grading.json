@@ -1,0 +1,57 @@
+{
+  "expectations": [
+    {
+      "text": "Grenzt den möglichen Architektur-Beschluss von der ausstehenden Investitionsentscheidung über 60.000 Euro, der Datenschutzfreigabe und der Personalzuweisung ab; erteilt dem Board keine fremden Befugnisse.",
+      "passed": true,
+      "evidence": "Source allows the board to choose a conditional target architecture but not release money or substitute privacy approval/staff allocation. Output resolution requires the Investitionsausschuss to release 60.000 Euro, privacy approval of the seven-year retention, and binding assignment of 0,5 additional FTE before implementation. For the bridge it explicitly says \"das Board gibt dafür kein Geld frei\"."
+    },
+    {
+      "text": "Gibt eine begründete Empfehlung und eine abstimmbare Formulierung, deren unmittelbare Bindung auf die Auswahl der Zielarchitektur beschränkt bleibt.",
+      "passed": true,
+      "evidence": "Output recommends B because it creates the common database, while identifying investment, staff, and privacy dependencies. The proposed vote begins \"Das Architekturboard wählt das zentrale Ereignisregister (B) als Zielarchitektur unter folgenden verbindlichen Voraussetzungen\"; its immediate commitment is architecture selection, with implementation allowed only after all prerequisites are documented."
+    },
+    {
+      "text": "Stellt die Zustimmung der Beteiligten nicht als uneingeschränkt dar und benennt die offenen Bedingungen für B: Aufbewahrung, Geld und 0,5 Vollzeitäquivalente für den Betrieb.",
+      "passed": true,
+      "evidence": "Source department supports B only if retention is secured; operations refuses handover without 0,5 additional FTE; the 60.000 investment is not approved. Output calls departmental and operations support conditional, denies unrestricted agreement, and names all three missing conditions in both the resolution and options table."
+    },
+    {
+      "text": "Zeigt einen realistischen Übergang mit der angebotenen Verlängerung A für 15.000 Euro bis 31. Januar und beachtet die Entscheidungsfrist 31. Oktober sowie die Befugnis der Projektleitung.",
+      "passed": true,
+      "evidence": "Source offers extension of A for 15.000 until 31. Januar, with the decision due at the supplier by 31. Oktober; project management has authority up to 20.000 and 15.000 budget available. Output says the extension must reach the supplier by 31. Oktober and recommends project management extend A for 15.000 through 31. Januar within its authority and budget."
+    },
+    {
+      "text": "Beachtet die tatsächliche Entscheidungsfolge mit Datenschutz-Rückmeldung am 1. November, Investitionsausschuss am 5. November und sechs Wochen Umsetzung ab einem freigegebenen Start.",
+      "passed": true,
+      "evidence": "Source dates: privacy feedback 1. November, investment committee 5. November, earliest start after its release, then six weeks implementation. Output repeats both feedback/decision dates, states earliest start 5. November with six weeks thereafter, and adds that other prerequisites remain open. The resolution prevents starting merely because the calendar reaches 5. November."
+    },
+    {
+      "text": "Liefert innerhalb von 300 Wörtern eine verwendbare Entscheidungsvorlage, ohne Zustimmung, Budget oder Termine als bereits erteilt zu erfinden und ohne einen zusätzlichen umfassenden Architekturprozess aufzusetzen.",
+      "passed": true,
+      "evidence": "Independently counted 265 eligible whitespace tokens, below 300. Output provides a usable resolution, options comparison, rationale, transition and unresolved conditions. It does not claim approvals, funding or the implementation date have already been granted, and adds no comprehensive architecture process. The combined 75.000 extension-plus-implementation amount is an explicitly proposed total, independently verified as 15.000 + 60.000."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1
+  },
+  "word_count": 265,
+  "word_count_method": "Whitespace-delimited tokens containing at least one Unicode letter or number; complete output.md including headings and table cells.",
+  "claims": [
+    {
+      "evidence": "Source amounts are 15.000 and 60.000; their sum is 75.000. No amount for extra 0,5 FTE is supplied.",
+      "claim": "The proposed A bridge plus B implementation requires 75.000 Euro before the additional personnel costs",
+      "type": "factual",
+      "verified": true
+    },
+    {
+      "evidence": "These are explicitly labelled open questions inferred from missing source information; the output does not invent an assigned authority or an agreed solution.",
+      "claim": "The final confirmation responsibility and any continuity solution beyond 31. Januar are unresolved",
+      "type": "factual",
+      "verified": true
+    }
+  ],
+  "review_type": "Independent model review against original assertions, raw source, and supplied output; not human validation."
+}

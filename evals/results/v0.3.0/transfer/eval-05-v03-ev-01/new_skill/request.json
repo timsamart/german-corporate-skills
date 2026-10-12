@@ -1,0 +1,8 @@
+{
+  "task": "Erstelle die Entscheidungsvorlage für das Architekturboard morgen. Ich brauche eine begründete Empfehlung und eine Beschlussformulierung, über die dieses Board tatsächlich abstimmen kann. Zeige knapp, wie wir bis zur Umsetzung arbeitsfähig bleiben und welche verbindlichen Voraussetzungen noch fehlen. Maximal 300 Wörter.",
+  "input": "evals/results/v0.3.0/transfer/source/sources/v03-ev-01.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/entscheidungsvorlage",
+  "output": "evals/results/v0.3.0/transfer/eval-05-v03-ev-01/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/transfer/eval-05-v03-ev-01/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

@@ -1,0 +1,8 @@
+{
+  "task": "Wir bestellen eine Teamlizenz für genau ein Jahr. Bitte prüfe die beiden Preise und schreib zwei bis drei Sätze, die ich in die Beschaffungsnotiz übernehmen kann. Entscheidend ist der niedrigere Gesamtpreis bei gleichem Leistungsumfang. Maximal 120 Wörter.",
+  "input": "evals/results/v0.3.0/transfer/source/sources/v03-bc-02.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/business-case-pruefung",
+  "output": "evals/results/v0.3.0/transfer/eval-04-v03-bc-02/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/transfer/eval-04-v03-bc-02/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

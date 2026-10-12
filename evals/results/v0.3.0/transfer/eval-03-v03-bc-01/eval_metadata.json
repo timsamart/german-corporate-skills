@@ -1,0 +1,35 @@
+{
+  "id": "v03-bc-01",
+  "skill": "business-case-pruefung",
+  "prompt": "Bitte prüfe den Freigabeantrag für die automatische Dokumentenprüfung. Ich brauche eine kurze Empfehlung, eine korrigierte Dreijahresrechnung und die entscheidende Voraussetzung, die wir als Erstes klären sollten. Rechne mit den hier gelieferten Angaben; der Bereich will heute über den Vollausbau entscheiden. Maximal 300 Wörter.",
+  "input": "sources/v03-bc-01.md",
+  "assertions": [
+    {
+      "text": "Berechnet die externe Auszahlung über drei Jahre korrekt mit 180.000 plus dreimal 120.000 gleich 540.000 Euro und bestätigt den behaupteten positiven Rückfluss von 90.000 Euro nicht.",
+      "critical": true
+    },
+    {
+      "text": "Unterscheidet die mögliche Entlastung von 130.000 Euro ab 2028 von zahlungswirksamen Personaleinsparungen, da keine entsprechende Personalmaßnahme geplant ist.",
+      "critical": true
+    },
+    {
+      "text": "Kennzeichnet 80.000 Euro jährlich ab 2028 als bedingten, noch nicht gesicherten Nutzen; weist darauf hin, dass 2,4 Prozent die Grenze von höchstens 2,0 Prozent überschreiten.",
+      "critical": true
+    },
+    {
+      "text": "Ordnet 500 mal 80 gleich 40.000 Euro interne Arbeit als Kapazitäts- beziehungsweise Opportunitätskosten ein und respektiert die ausdrücklich vorgegebene vollständige Aufwandserfassung der Einrichtung 2027.",
+      "critical": true
+    },
+    {
+      "text": "Macht die korrigierte Zahlungsrechnung verwendbar: derzeit keine bestätigten Einsparungen gegen 540.000 Euro Auszahlungen; selbst mit erfüllter Prüfer-Bedingung wären nur 160.000 Euro in 2028 und 2029 und damit 380.000 Euro Nettoauszahlung belegt.",
+      "critical": false
+    },
+    {
+      "text": "Gibt eine klare Empfehlung zur heutigen Vollfreigabe und priorisiert eine entscheidende Klärung aus den gelieferten Angaben, ohne neue Nutzenarten, Finanzierungsmodelle oder ein umfangreiches Bewertungsprogramm zu erfinden; maximal 300 Wörter.",
+      "critical": false
+    }
+  ],
+  "name": "v03-bc-01",
+  "word_limit": 300,
+  "published_input": "../source/sources/v03-bc-01.md"
+}

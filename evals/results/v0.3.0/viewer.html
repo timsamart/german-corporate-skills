@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eval Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" integrity="sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --surface: #ffffff;
+      --border: #e8e6dc;
+      --text: #141413;
+      --text-muted: #b0aea5;
+      --accent: #d97757;
+      --accent-hover: #c4613f;
+      --green: #788c5d;
+      --green-bg: #eef2e8;
+      --red: #c44;
+      --red-bg: #fceaea;
+      --header-bg: #141413;
+      --header-text: #faf9f5;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .header .instructions {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
+    }
+    .header .progress {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      text-align: right;
+    }
+
+    /* ---- Main content ---- */
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      flex-shrink: 0;
+    }
+    .section-header {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .section-body {
+      padding: 1rem;
+    }
+
+    /* ---- Config badge ---- */
+    .config-badge {
+      display: inline-block;
+      padding: 0.2rem 0.625rem;
+      border-radius: 9999px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-left: 0.75rem;
+      vertical-align: middle;
+    }
+    .config-badge.config-primary {
+      background: rgba(33, 150, 243, 0.12);
+      color: #1976d2;
+    }
+    .config-badge.config-baseline {
+      background: rgba(255, 193, 7, 0.15);
+      color: #f57f17;
+    }
+
+    /* ---- Prompt ---- */
+    .prompt-text {
+      white-space: pre-wrap;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Outputs ---- */
+    .output-file {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .output-file + .output-file {
+      margin-top: 1rem;
+    }
+    .output-file-header {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .output-file-header .dl-btn {
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-decoration: none;
+      cursor: pointer;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .output-file-header .dl-btn:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .output-file-content {
+      padding: 0.75rem;
+      overflow-x: auto;
+    }
+    .output-file-content pre {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .output-file-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .output-file-content iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+    .output-file-content table {
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+      width: 100%;
+    }
+    .output-file-content table td,
+    .output-file-content table th {
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.5rem;
+      text-align: left;
+    }
+    .output-file-content table th {
+      background: var(--bg);
+      font-weight: 600;
+    }
+    .output-file-content .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .output-file-content .download-link:hover {
+      background: var(--border);
+    }
+    .empty-state {
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* ---- Feedback ---- */
+    .prev-feedback {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.625rem 0.75rem;
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .prev-feedback-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+    }
+    .feedback-textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      resize: vertical;
+      color: var(--text);
+    }
+    .feedback-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .feedback-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      min-height: 1.1em;
+    }
+
+    /* ---- Grades (collapsible) ---- */
+    .grades-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .grades-toggle:hover {
+      color: var(--accent);
+    }
+    .grades-toggle .arrow {
+      margin-right: 0.5rem;
+      transition: transform 0.15s;
+      font-size: 0.75rem;
+    }
+    .grades-toggle .arrow.open {
+      transform: rotate(90deg);
+    }
+    .grades-content {
+      display: none;
+      margin-top: 0.75rem;
+    }
+    .grades-content.open {
+      display: block;
+    }
+    .grades-summary {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .grade-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .grade-pass { background: var(--green-bg); color: var(--green); }
+    .grade-fail { background: var(--red-bg); color: var(--red); }
+    .assertion-list {
+      list-style: none;
+    }
+    .assertion-item {
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem;
+    }
+    .assertion-item:last-child { border-bottom: none; }
+    .assertion-status {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+    .assertion-status.pass { color: var(--green); }
+    .assertion-status.fail { color: var(--red); }
+    .assertion-evidence {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      padding-left: 1.5rem;
+    }
+
+    /* ---- View tabs ---- */
+    .view-tabs {
+      display: flex;
+      gap: 0;
+      padding: 0 2rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .view-tab {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .view-tab:hover { color: var(--text); }
+    .view-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .view-panel { display: none; }
+    .view-panel.active { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+
+    /* ---- Benchmark view ---- */
+    .benchmark-view {
+      padding: 1.5rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .benchmark-table {
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.8125rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .benchmark-table th, .benchmark-table td {
+      padding: 0.625rem 0.75rem;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .benchmark-table th {
+      font-family: 'Poppins', sans-serif;
+      background: var(--header-bg);
+      color: var(--header-text);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .benchmark-table tr:hover { background: var(--bg); }
+    .benchmark-table tr.benchmark-row-with { background: rgba(33, 150, 243, 0.06); }
+    .benchmark-table tr.benchmark-row-without { background: rgba(255, 193, 7, 0.06); }
+    .benchmark-table tr.benchmark-row-with:hover { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-without:hover { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-table tr.benchmark-row-avg { font-weight: 600; border-top: 2px solid var(--border); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-with { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-without { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-delta-positive { color: var(--green); font-weight: 600; }
+    .benchmark-delta-negative { color: var(--red); font-weight: 600; }
+    .benchmark-notes {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .benchmark-notes h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .benchmark-notes ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+    .benchmark-notes li {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-bottom: 0.375rem;
+    }
+    .benchmark-empty {
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    /* ---- Navigation ---- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .nav-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .done-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .done-btn:hover {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .done-btn.ready {
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+    .done-btn.ready:hover {
+      background: var(--accent-hover);
+    }
+    /* ---- Done overlay ---- */
+    .done-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .done-overlay.visible {
+      display: flex;
+    }
+    .done-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+    }
+    .done-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .done-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .done-card .btn-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .done-card button {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .done-card button:hover {
+      background: var(--bg);
+    }
+    /* ---- Toast ---- */
+    .toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 200;
+    }
+    .toast.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" style="height:100vh; display:flex; flex-direction:column;">
+    <div class="header">
+      <div>
+        <h1>Eval Review: <span id="skill-name"></span></h1>
+        <div class="instructions">Review each output and leave feedback below. Navigate with arrow keys or buttons. When done, copy feedback and paste into Claude Code.</div>
+      </div>
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- View tabs (only shown when benchmark data exists) -->
+    <div class="view-tabs" id="view-tabs" style="display:none;">
+      <button class="view-tab active" onclick="switchView('outputs')">Outputs</button>
+      <button class="view-tab" onclick="switchView('benchmark')">Benchmark</button>
+    </div>
+
+    <!-- Outputs panel (qualitative review) -->
+    <div class="view-panel active" id="panel-outputs">
+    <div class="main">
+      <!-- Prompt -->
+      <div class="section">
+        <div class="section-header">Prompt <span class="config-badge" id="config-badge" style="display:none;"></span></div>
+        <div class="section-body">
+          <div class="prompt-text" id="prompt-text"></div>
+        </div>
+      </div>
+
+      <!-- Outputs -->
+      <div class="section">
+        <div class="section-header">Output</div>
+        <div class="section-body" id="outputs-body">
+          <div class="empty-state">No output files found</div>
+        </div>
+      </div>
+
+      <!-- Previous Output (collapsible) -->
+      <div class="section" id="prev-outputs-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="togglePrevOutputs()">
+            <span class="arrow" id="prev-outputs-arrow">&#9654;</span>
+            Previous Output
+          </div>
+        </div>
+        <div class="grades-content" id="prev-outputs-content"></div>
+      </div>
+
+      <!-- Grades (collapsible) -->
+      <div class="section" id="grades-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="toggleGrades()">
+            <span class="arrow" id="grades-arrow">&#9654;</span>
+            Formal Grades
+          </div>
+        </div>
+        <div class="grades-content" id="grades-content"></div>
+      </div>
+
+      <!-- Feedback -->
+      <div class="section">
+        <div class="section-header">Your Feedback</div>
+        <div class="section-body">
+          <textarea
+            class="feedback-textarea"
+            id="feedback"
+            placeholder="What do you think of this output? Any issues, suggestions, or things that look great?"
+          ></textarea>
+          <div class="feedback-status" id="feedback-status"></div>
+          <div class="prev-feedback" id="prev-feedback" style="display:none;">
+            <div class="prev-feedback-label">Previous feedback</div>
+            <div id="prev-feedback-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav" id="outputs-nav">
+      <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">&#8592; Previous</button>
+      <button class="done-btn" id="done-btn" onclick="showDoneDialog()">Submit All Reviews</button>
+      <button class="nav-btn" id="next-btn" onclick="navigate(1)">Next &#8594;</button>
+    </div>
+    </div><!-- end panel-outputs -->
+
+    <!-- Benchmark panel (quantitative stats) -->
+    <div class="view-panel" id="panel-benchmark">
+      <div class="benchmark-view" id="benchmark-content">
+        <div class="benchmark-empty">No benchmark data available. Run a benchmark to see quantitative results here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Done overlay -->
+  <div class="done-overlay" id="done-overlay">
+    <div class="done-card">
+      <h2>Review Complete</h2>
+      <p>Your feedback has been saved. Go back to your Claude Code session and tell Claude you're done reviewing.</p>
+      <div class="btn-row">
+        <button onclick="closeDoneDialog()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ---- Embedded data (injected by generate_review.py) ----
+    const EMBEDDED_DATA = {"skill_name": "German Corporate Skills v0.3.0", "runs": [{"id": "eval-1-deck-argument-und-lesesituation-new_skill", "prompt": "Pr\u00c3\u00bcfe diese f\u00c3\u00bcnf Textfolien als Vorabunterlage f\u00c3\u00bcr die Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung. Liefere die drei wichtigsten \u00c3\u201enderungen mit Folienbezug und einen tragf\u00c3\u00a4higen Vorschlag f\u00c3\u00bcr den Abschluss. Es stehen keine gerenderten Folien zur Verf\u00c3\u00bcgung. H\u00c3\u00b6chstens 350 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "**Kurzurteil und Pr\u00c3\u00bcfgrundlage:** Die Vorabunterlage tr\u00c3\u00a4gt eine Freigabe f\u00c3\u00bcr 15 Standorte noch nicht. Gepr\u00c3\u00bcft wurden F1\u00e2\u20ac\u201cF5 als Text einschlie\u00c3\u0178lich der Tabellenbeschreibung. Ohne gerenderte Folien sind Layout, Schriftgr\u00c3\u00b6\u00c3\u0178e, Kontrast und sichtbare Diagrammkodierung nicht beurteilbar.\n\n**Die drei wichtigsten \u00c3\u201enderungen**\n\n1. **P1 \u00e2\u20ac\u201c F1\u00e2\u20ac\u201cF3: Schlussfolgerung auf den Pilotbefund begrenzen.** Von 12 auf 8,4 Minuten sind 3,6 Minuten beziehungsweise 30 % weniger Zeit pro Fall. Ein Standort, 20 freiwillige Nutzer und sechs Wochen ohne Kontrollgruppe belegen weder eine urs\u00c3\u00a4chliche Wirkung noch den Nutzen an allen Standorten. Ausnahmen, Nacharbeit sowie Betriebs- und Integrationskosten fehlen. F2 erh\u00c3\u00a4lt den Titel \u00e2\u20ac\u017eIm Pilot: 30 % weniger Zeit pro Fall; Gesamtwirkung offen\u00e2\u20ac\u0153. Die Beweisbehauptung in F3 entf\u00c3\u00a4llt. F1 beantragt zun\u00c3\u00a4chst die Vorbereitung einer belastbaren Erweiterungsentscheidung. F\u00c3\u00bcr die Vorabunterlage die Herleitung samt Grenzen aufnehmen und Fortf\u00c3\u00bchrung, begrenzte Erweiterung und Rollout nach Nutzenbeleg, Kosten und Risiken vergleichbar gegen\u00c3\u00bcberstellen.\n\n2. **P1 \u00e2\u20ac\u201c F5: Zustimmung und Startstatus richtigstellen.** \u00e2\u20ac\u017eDie Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung ist sich einig; ab morgen starten\u00e2\u20ac\u0153 behauptet eine nicht dokumentierte Entscheidung. Tats\u00c3\u00a4chlich liegt ein Reviewauftrag vor; Zustimmung und Verantwortung f\u00c3\u00bcr eine Erweiterung fehlen. Titel ersetzen durch \u00e2\u20ac\u017eEntscheidung \u00c3\u00bcber das weitere Vorgehen steht aus\u00e2\u20ac\u0153. Den untenstehenden Beschlussvorschlag als Vorschlag kennzeichnen und fehlende Zust\u00c3\u00a4ndigkeiten sichtbar lassen.\n\n3. **P2 \u00e2\u20ac\u201c F4: Daten f\u00c3\u00bcr die Entscheidung verdichten.** Minutengenaue Anrufzahlen \u00c3\u00bcber sechs Wochen erschweren den \u00c3\u0153berblick in einer Vorabunterlage. Vorgeschlagen: Wochenwerte mit einheitlicher Bezugsgr\u00c3\u00b6\u00c3\u0178e und kurzem Hinweis auf die Entscheidungsrelevanz. Beide best\u00c3\u00a4tigten Ausf\u00c3\u00a4lle separat mit Zeitpunkt, bekannter Dauer und Auswirkungen ausweisen; fehlende Angaben offen markieren. Die Detaildaten k\u00c3\u00b6nnen in eine Anlage. Aggregation darf die Ausf\u00c3\u00a4lle nicht verdecken. Ob die tats\u00c3\u00a4chliche Darstellung dies leistet, bleibt ohne Bild offen.\n\n**Vorschlag f\u00c3\u00bcr den Abschluss auf F5**\n\n\u00e2\u20ac\u017eZur Entscheidung vorgeschlagen: Die Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung beauftragt die Ausarbeitung einer begrenzten Erweiterungspr\u00c3\u00bcfung. Vor einer Startfreigabe sind Standorte, Zeitraum, Budgetbedarf und Verantwortliche festzulegen. Die n\u00c3\u00a4chste Vorlage enth\u00c3\u00a4lt vergleichbare Standortdaten, Ausnahmen, Nacharbeit, Ausf\u00c3\u00a4lle und vollst\u00c3\u00a4ndige Betriebs- und Integrationskosten. Erst darauf folgt eine gesonderte Entscheidung \u00c3\u00bcber die Erweiterung oder den Rollout auf 15 Standorte.\u00e2\u20ac\u0153\n"}], "grading": {"expectations": [{"text": "Begrenzt die Rolloutschlussfolgerung aus F2/F3 durch Pilotumfang, Auswahl und fehlende Betriebsdaten; begr\u00c3\u00bcndet die fehlende Verbindung der Argumentation.", "passed": true, "evidence": "F1-F3 begrenzt den Schluss ausdr\u00c3\u00bccklich durch 'Ein Standort, 20 freiwillige Nutzer und sechs Wochen ohne Kontrollgruppe' und fehlende Ausnahmen, Nacharbeit sowie Betriebs-/Integrationskosten. Diese Daten 'belegen weder eine urs\u00c3\u00a4chliche Wirkung noch den Nutzen an allen Standorten'. Die Beweisbehauptung in F3 entf\u00c3\u00a4llt; F1 wird auf die Vorbereitung einer belastbaren Erweiterungsentscheidung begrenzt. Damit werden Quelle F2/F3 und die fehlende argumentative Verbindung ber\u00c3\u00bccksichtigt."}, {"text": "Erh\u00c3\u00a4lt oder rechnet die Zeit\u00c3\u00a4nderung als 30 Prozent; behauptet keine gesicherte kausale Wirkung oder Cash-Einsparung.", "passed": true, "evidence": "Ausgabe: '3,6 Minuten beziehungsweise 30 % weniger Zeit pro Fall' bei 12 auf 8,4 Minuten. Nachrechnung: (12 - 8,4) / 12 = 30 %. Der Satz 'belegen weder eine urs\u00c3\u00a4chliche Wirkung noch den Nutzen an allen Standorten' verhindert eine gesicherte Kausalbehauptung; Cash-Einsparungen werden nicht behauptet."}, {"text": "Reparatur f\u00c3\u00bcr F4 unterscheidet Vorabunterlage und Monitoring; Verdichtung erh\u00c3\u00a4lt die zwei Ausf\u00c3\u00a4lle, ohne ein gesehenes Layout oder eine Achse zu behaupten.", "passed": false, "evidence": "F4 verdichtet zu Wochenwerten und Details in einer Anlage; 'Beide best\u00c3\u00a4tigten Ausf\u00c3\u00a4lle separat mit Zeitpunkt, bekannter Dauer und Auswirkungen ausweisen; fehlende Angaben offen markieren.' Es wird ausdr\u00c3\u00bccklich erkl\u00c3\u00a4rt, dass die tats\u00c3\u00a4chliche Darstellung ohne Bild offenbleibt; keine Achse wird behauptet. Der vollst\u00c3\u00a4ndige Ma\u00c3\u0178stab fehlt dennoch: Die Ausgabe begr\u00c3\u00bcndet die Reparatur f\u00c3\u00bcr eine Vorabunterlage, erl\u00c3\u00a4utert aber keinen unterschiedlichen Bedarf von Monitoring und Entscheidungsvorbereitung. Dies ist eine Auslassung dieses Teilkriteriums, keine erfundene Beobachtung oder falsche Aussage."}, {"text": "Ersetzt auf F5 die unbelegte Einigkeit/Startbehauptung durch einen als Vorschlag erkennbaren, von fehlenden Nachweisen begrenzten n\u00c3\u00a4chsten Schritt.", "passed": true, "evidence": "F5 nennt eine nicht dokumentierte Entscheidung und fehlende Zustimmung/Verantwortung. Der neue Titel lautet 'Entscheidung \u00c3\u00bcber das weitere Vorgehen steht aus'. Der Abschluss hei\u00c3\u0178t 'Zur Entscheidung vorgeschlagen' und fordert vor Start Standorte, Zeitraum, Budgetbedarf und Verantwortliche sowie Standortdaten, Nacharbeit, Ausf\u00c3\u00a4lle und vollst\u00c3\u00a4ndige Kosten. Erweiterung/Rollout folgt erst in einer gesonderten Entscheidung."}, {"text": "Drei priorisierte \u00c3\u201enderungen mit eindeutigen Folienbez\u00c3\u00bcgen und verwendbarer Abschlussidee; h\u00c3\u00b6chstens 350 W\u00c3\u00b6rter, keine erfundenen Verantwortlichen oder Mittel.", "passed": true, "evidence": "Drei priorisierte \u00c3\u201enderungen mit P1/P1/P2 und Folienbez\u00c3\u00bcgen F1-F3, F5, F4 sowie ein unmittelbar verwendbarer F5-Beschlussvorschlag. 310 W\u00c3\u00b6rter nach whitespace-getrennter Z\u00c3\u00a4hlung der Tokens mit Buchstabe oder Zahl, unter 350. Verantwortliche und Budgetbedarf werden zur Festlegung vorgeschlagen, ohne Namen oder Mittel zu erfinden."}], "summary": {"passed": 4, "failed": 1, "total": 5, "pass_rate": 0.8}, "word_count": {"count": 310, "method": "Whitespace-separated tokens containing at least one Unicode letter or number; complete output.md including headings and table text."}, "eval_feedback": {"suggestions": [{"assertion": "Reparatur f\u00c3\u00bcr F4 unterscheidet Vorabunterlage und Monitoring; Verdichtung erh\u00c3\u00a4lt die zwei Ausf\u00c3\u00a4lle, ohne ein gesehenes Layout oder eine Achse zu behaupten.", "reason": "Die Formulierung l\u00c3\u00a4sst offen, ob passende Verdichtung f\u00c3\u00bcr die Vorabunterlage bereits eine Unterscheidung zu Monitoring darstellt oder ob der unterschiedliche Informationsbedarf beider Zwecke erl\u00c3\u00a4utert werden muss. Hier wurde die gesamte Assertion gepr\u00c3\u00bcft und eine nur f\u00c3\u00bcr die Vorabunterlage begr\u00c3\u00bcndete Reparatur als Auslassung dieses Teilkriteriums gewertet. Ein expliziter semantischer Ma\u00c3\u0178stab w\u00c3\u00bcrde die Reproduzierbarkeit erh\u00c3\u00b6hen, ohne ein bestimmtes Schlagwort zu verlangen."}], "overall": "Sonstige Teilkriterien sind aus Text und Quelle direkt pr\u00c3\u00bcfbar; fehlende Renderings begrenzen jede visuelle Aussage."}}}, {"id": "eval-1-deck-argument-und-lesesituation-old_skill", "prompt": "Pr\u00c3\u00bcfe diese f\u00c3\u00bcnf Textfolien als Vorabunterlage f\u00c3\u00bcr die Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung. Liefere die drei wichtigsten \u00c3\u201enderungen mit Folienbezug und einen tragf\u00c3\u00a4higen Vorschlag f\u00c3\u00bcr den Abschluss. Es stehen keine gerenderten Folien zur Verf\u00c3\u00bcgung. H\u00c3\u00b6chstens 350 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "# Review der Vorabunterlage\n\nDie Unterlage tr\u00c3\u00a4gt die Freigabe f\u00c3\u00bcr 15 Standorte derzeit nicht. Gepr\u00c3\u00bcft wurden F1\u00e2\u20ac\u201cF5 als Text einschlie\u00c3\u0178lich der Tabellenbeschreibung. Ohne gerenderte Folien sind Schriftgr\u00c3\u00b6\u00c3\u0178e, Kontrast und tats\u00c3\u00a4chliche Diagrammdarstellung nicht beurteilbar.\n\n## Die drei wichtigsten \u00c3\u201enderungen\n\n1. **P1 \u00e2\u20ac\u201c F1/F5: Entscheidungsfrage und Status korrigieren.** \u00e2\u20ac\u017eDie Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung ist sich einig; ab morgen starten\u00e2\u20ac\u0153 behauptet eine nicht dokumentierte Zustimmung. Der heutige Auftrag ist ein Review vor der Sitzung. F1 auf \u00e2\u20ac\u017eRollout auf 15 Standorte: Entscheidungsgrundlage und offene Voraussetzungen\u00e2\u20ac\u0153 \u00c3\u00a4ndern. F5 muss einen ausdr\u00c3\u00bccklich vorgeschlagenen Beschluss mit Umfang, Bedingungen und n\u00c3\u00a4chstem Entscheidungspunkt enthalten. Zust\u00c3\u00a4ndigkeit, Mittel und Termin sind offen auszuweisen; ein Start darf nicht als beschlossen erscheinen.\n\n2. **P1 \u00e2\u20ac\u201c F2/F3: Beobachtung und Schlussfolgerung verbinden.** 12 auf 8,4 Minuten entsprechen 3,6 Minuten beziehungsweise 30 % weniger Zeit pro Fall. Der Pilot umfasst einen Standort, 20 freiwillige Nutzer und sechs Wochen. Ohne Kontrollgruppe sowie Erfassung von Ausnahmen und Nacharbeit ist weder die Ursache noch der Gesamtnutzen gesichert. \u00e2\u20ac\u017eAlle Standorte profitieren sofort\u00e2\u20ac\u0153 durch \u00e2\u20ac\u017ePilot zeigt k\u00c3\u00bcrzere Bearbeitungszeit; \u00c3\u0153bertragbarkeit und Wirtschaftlichkeit offen\u00e2\u20ac\u0153 ersetzen. F\u00c3\u00bcr die Vorabunterlage Messgrenzen erl\u00c3\u00a4utern und Fortf\u00c3\u00bchrung, weitere Erprobung und Rollout nach denselben Kriterien vergleichen: Nutzenbeleg, Betriebs- und Integrationskosten, Risiken sowie Aufwand. Fehlende Werte kennzeichnen.\n\n3. **P2 \u00e2\u20ac\u201c F4: Datentabelle auf die Entscheidung ausrichten.** Minutengenaue Anrufzahlen \u00c3\u00bcber sechs Wochen erschweren die \u00c3\u0153bersicht. Eine Wochen\u00c3\u00bcbersicht mit klarer Einheit, Zeitraum und Datenherkunft vorschlagen; Details als Anlage. Die zwei best\u00c3\u00a4tigten Ausf\u00c3\u00a4lle ausdr\u00c3\u00bccklich markieren und mit ihrem Einfluss auf die Auswertung erl\u00c3\u00a4utern, soweit belegbar. Aggregation darf sie nicht verdecken. Dies ist eine Empfehlung zur Informationsstruktur, kein gepr\u00c3\u00bcftes Layouturteil.\n\n## Vorschlag f\u00c3\u00bcr den Abschluss auf F5\n\n\u00e2\u20ac\u017e**Empfehlung f\u00c3\u00bcr die Sitzung:** Den Rollout auf 15 Standorte vorerst zur\u00c3\u00bcckstellen. Als n\u00c3\u00a4chsten Schritt eine belastbare Entscheidungsvorlage erarbeiten: vollst\u00c3\u00a4ndige Zeitmessung einschlie\u00c3\u0178lich Ausnahmen und Nacharbeit, Vergleichsbasis, Pr\u00c3\u00bcfung weiterer Standortbedingungen sowie Betriebs- und Integrationskosten. Verantwortliche und Vorlagefrist sind in der Sitzung festzulegen. Anschlie\u00c3\u0178end entscheidet die Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung \u00c3\u00bcber weitere Erprobung oder Rollout einschlie\u00c3\u0178lich Umfang und Mitteln.\u00e2\u20ac\u0153\n\nDieser Text ist ein Beschlussvorschlag; Zustimmung und Umsetzungsauftrag liegen noch nicht vor.\n"}], "grading": {"expectations": [{"text": "Begrenzt die Rolloutschlussfolgerung aus F2/F3 durch Pilotumfang, Auswahl und fehlende Betriebsdaten; begr\u00c3\u00bcndet die fehlende Verbindung der Argumentation.", "passed": true, "evidence": "F2/F3 sind ausdr\u00c3\u00bccklich verbunden: 'Der Pilot umfasst einen Standort, 20 freiwillige Nutzer und sechs Wochen'; Kontrollgruppe, Ausnahmen und Nacharbeit fehlen, 'weder die Ursache noch der Gesamtnutzen gesichert'. F3 wird durch '\u00c3\u0153bertragbarkeit und Wirtschaftlichkeit offen' ersetzt; Betriebs- und Integrationskosten sowie weitere Standortbedingungen werden als fehlende Entscheidungsgrundlagen verlangt. Das entspricht Quelle F2/F3 und erkl\u00c3\u00a4rt, warum die Pilotbeobachtung den Rollout auf 15 Standorte nicht tr\u00c3\u00a4gt."}, {"text": "Erh\u00c3\u00a4lt oder rechnet die Zeit\u00c3\u00a4nderung als 30 Prozent; behauptet keine gesicherte kausale Wirkung oder Cash-Einsparung.", "passed": true, "evidence": "Ausgabe: '12 auf 8,4 Minuten entsprechen 3,6 Minuten beziehungsweise 30 % weniger Zeit pro Fall.' Nachrechnung: (12 - 8,4) / 12 = 0,30. 'Weder die Ursache noch der Gesamtnutzen gesichert' grenzt Kausalit\u00c3\u00a4t ab; eine gesicherte Cash-Einsparung wird nicht behauptet."}, {"text": "Reparatur f\u00c3\u00bcr F4 unterscheidet Vorabunterlage und Monitoring; Verdichtung erh\u00c3\u00a4lt die zwei Ausf\u00c3\u00a4lle, ohne ein gesehenes Layout oder eine Achse zu behaupten.", "passed": false, "evidence": "F4 schl\u00c3\u00a4gt eine Wochen\u00c3\u00bcbersicht mit Details als Anlage vor und fordert, 'Die zwei best\u00c3\u00a4tigten Ausf\u00c3\u00a4lle ausdr\u00c3\u00bccklich markieren'; 'Aggregation darf sie nicht verdecken'. Au\u00c3\u0178erdem: 'kein gepr\u00c3\u00bcftes Layouturteil', ohne Achsenbehauptung. Der zusammengesetzte Ma\u00c3\u0178stab wird dennoch nicht vollst\u00c3\u00a4ndig erf\u00c3\u00bcllt: Die Ausgabe erkl\u00c3\u00a4rt nicht den unterschiedlichen Informationsbedarf einer Vorabunterlage gegen\u00c3\u00bcber Betriebsmonitoring. 'Auf die Entscheidung ausrichten' und die Verdichtung behandeln nur die Vorabunterlage. Dies ist eine ausgelassene Unterscheidung, keine falsche Aussage oder erfundene Visualpr\u00c3\u00bcfung."}, {"text": "Ersetzt auf F5 die unbelegte Einigkeit/Startbehauptung durch einen als Vorschlag erkennbaren, von fehlenden Nachweisen begrenzten n\u00c3\u00a4chsten Schritt.", "passed": true, "evidence": "F1/F5 nennt die Zustimmung 'nicht dokumentiert' und korrigiert den Reviewstatus gem\u00c3\u00a4\u00c3\u0178 Quelle F5. Der eigenst\u00c3\u00a4ndige F5-Text steht unter 'Vorschlag f\u00c3\u00bcr den Abschluss' und empfiehlt, den Rollout vorerst zur\u00c3\u00bcckzustellen und Zeitmessung, Vergleichsbasis, weitere Standortbedingungen und Kosten nachzuliefern. Abschlie\u00c3\u0178end ausdr\u00c3\u00bccklich: 'Zustimmung und Umsetzungsauftrag liegen noch nicht vor.'"}, {"text": "Drei priorisierte \u00c3\u201enderungen mit eindeutigen Folienbez\u00c3\u00bcgen und verwendbarer Abschlussidee; h\u00c3\u00b6chstens 350 W\u00c3\u00b6rter, keine erfundenen Verantwortlichen oder Mittel.", "passed": true, "evidence": "Genau drei geordnete \u00c3\u201enderungen mit P1/P1/P2 und Folienbez\u00c3\u00bcgen F1/F5, F2/F3, F4; verwendbarer Abschlussvorschlag f\u00c3\u00bcr F5. 318 W\u00c3\u00b6rter nach whitespace-getrennter Z\u00c3\u00a4hlung nur von Tokens mit Buchstabe oder Zahl, somit unter 350. Verantwortliche, Mittel und Termin werden offen ausgewiesen oder zur Festlegung vorgeschlagen, nicht erfunden."}], "summary": {"passed": 4, "failed": 1, "total": 5, "pass_rate": 0.8}, "word_count": {"count": 318, "method": "Whitespace-separated tokens containing at least one Unicode letter or number; complete output.md including headings and table text."}, "eval_feedback": {"suggestions": [{"assertion": "Reparatur f\u00c3\u00bcr F4 unterscheidet Vorabunterlage und Monitoring; Verdichtung erh\u00c3\u00a4lt die zwei Ausf\u00c3\u00a4lle, ohne ein gesehenes Layout oder eine Achse zu behaupten.", "reason": "Die Formulierung l\u00c3\u00a4sst offen, ob passende Verdichtung f\u00c3\u00bcr die Vorabunterlage bereits eine Unterscheidung zu Monitoring darstellt oder ob der unterschiedliche Informationsbedarf beider Zwecke erl\u00c3\u00a4utert werden muss. Hier wurde die gesamte Assertion gepr\u00c3\u00bcft und eine nur f\u00c3\u00bcr die Vorabunterlage begr\u00c3\u00bcndete Reparatur als Auslassung dieses Teilkriteriums gewertet. Ein expliziter semantischer Ma\u00c3\u0178stab w\u00c3\u00bcrde die Reproduzierbarkeit erh\u00c3\u00b6hen, ohne ein bestimmtes Schlagwort zu verlangen."}], "overall": "Sonstige Teilkriterien sind aus Text und Quelle direkt pr\u00c3\u00bcfbar; fehlende Renderings begrenzen jede visuelle Aussage."}}}, {"id": "eval-1-deck-argument-und-lesesituation-without_corporate", "prompt": "Pr\u00c3\u00bcfe diese f\u00c3\u00bcnf Textfolien als Vorabunterlage f\u00c3\u00bcr die Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung. Liefere die drei wichtigsten \u00c3\u201enderungen mit Folienbezug und einen tragf\u00c3\u00a4higen Vorschlag f\u00c3\u00bcr den Abschluss. Es stehen keine gerenderten Folien zur Verf\u00c3\u00bcgung. H\u00c3\u00b6chstens 350 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "Die Unterlage tr\u00c3\u00a4gt derzeit keine Freigabe f\u00c3\u00bcr 15 Standorte. Die drei wichtigsten \u00c3\u201enderungen:\n\n1. **F1\u00e2\u20ac\u201cF3: Entscheidung und Evidenz aufeinander abstimmen.** F1 sollte \u00e2\u20ac\u017eEntscheidung \u00c3\u00bcber die n\u00c3\u00a4chste Erprobungsstufe\u00e2\u20ac\u0153 hei\u00c3\u0178en. In F2 sank die beobachtete Zeit pro Fall von 12 auf 8,4 Minuten, also um 3,6 Minuten beziehungsweise 30 %. Das ist ein Pilotergebnis aus einem Standort mit 20 freiwilligen Nutzern \u00c3\u00bcber sechs Wochen. Ohne Kontrollgruppe und Erfassung von Ausnahmen und Nacharbeit ist weder die Ursache noch der vollst\u00c3\u00a4ndige Nutzen belegt. Ersetzen Sie F3 durch: \u00e2\u20ac\u017eDer Pilot zeigt Potenzial; \u00c3\u0153bertragbarkeit und Wirtschaftlichkeit sind noch offen.\u00e2\u20ac\u0153 Erg\u00c3\u00a4nzen Sie die fehlenden Betriebs- und Integrationskosten sowie den Pr\u00c3\u00bcfbedarf f\u00c3\u00bcr weitere Standorte. Die Behauptung eines sofortigen Nutzens f\u00c3\u00bcr alle Standorte entf\u00c3\u00a4llt.\n\n2. **F4: Die Daten f\u00c3\u00bcr eine Gesch\u00c3\u00a4ftsf\u00c3\u00bchrungsentscheidung verdichten.** Die minutengenaue Tabelle geh\u00c3\u00b6rt in den Anhang. Auf der Hauptfolie gen\u00c3\u00bcgt eine Wochen\u00c3\u00bcbersicht mit Anrufvolumen, relevanten Schwankungen und beiden best\u00c3\u00a4tigten Ausf\u00c3\u00a4llen als ausdr\u00c3\u00bccklich markierten Ereignissen. Ausf\u00c3\u00a4lle d\u00c3\u00bcrfen durch Aggregation nicht verschwinden. Erl\u00c3\u00a4utern Sie ihre belegten Auswirkungen und kennzeichnen Sie fehlende Angaben. Verbinden Sie die \u00c3\u0153bersicht mit der Entscheidungsfrage: Welche Hinweise liefert sie auf Belastbarkeit und Betriebsrisiken einer Erweiterung? Mangels gerenderter Folien lassen sich Lesbarkeit, visuelle Gewichtung und tats\u00c3\u00a4chliche Sichtbarkeit der Ausf\u00c3\u00a4lle nicht pr\u00c3\u00bcfen.\n\n3. **F5: Zustimmung, Start und Verantwortung korrekt darstellen.** Streichen Sie \u00e2\u20ac\u017eDie Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung ist sich einig; ab morgen starten\u00e2\u20ac\u0153. Der aktuelle Stand ist ein Review vor der Sitzung. Die Abschlussfolie muss Entscheidungsoptionen, offene Voraussetzungen und zu benennende Verantwortung zeigen. Sie muss als eigenst\u00c3\u00a4ndig lesbare Vorabunterlage verst\u00c3\u00a4ndlich sein; eine m\u00c3\u00bcndliche Erl\u00c3\u00a4uterung darf fehlende Entscheidungsgrundlagen nicht ersetzen.\n\n**Vorschlag f\u00c3\u00bcr den Abschluss:**\n\n\u00e2\u20ac\u017e**Empfehlung: eine begrenzte n\u00c3\u00a4chste Erprobung vorbereiten.** Die Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung entscheidet in der Sitzung, ob sie diese Vorbereitung beauftragt. Vor einer Erweiterungsfreigabe sind Standortauswahl, Gesamtkosten, Erfassung von Ausnahmen und Nacharbeit sowie Erfolgs- und Abbruchkriterien vorzulegen. Daf\u00c3\u00bcr sind eine verantwortliche Person und ein Termin zu benennen. Der Rollout auf 15 Standorte bleibt eine sp\u00c3\u00a4tere, gesonderte Entscheidung.\u00e2\u20ac\u0153\n"}], "grading": {"expectations": [{"text": "Begrenzt die Rolloutschlussfolgerung aus F2/F3 durch Pilotumfang, Auswahl und fehlende Betriebsdaten; begr\u00c3\u00bcndet die fehlende Verbindung der Argumentation.", "passed": true, "evidence": "F1-F3 wird von Freigabe auf 'Entscheidung \u00c3\u00bcber die n\u00c3\u00a4chste Erprobungsstufe' umgestellt. Die Ausgabe nennt einen Standort, 20 freiwillige Nutzer und sechs Wochen sowie fehlende Kontrollgruppe, Ausnahmen und Nacharbeit. 'Weder die Ursache noch der vollst\u00c3\u00a4ndige Nutzen belegt', fehlende Betriebs-/Integrationskosten und Pr\u00c3\u00bcfbedarf weiterer Standorte begr\u00c3\u00bcnden, warum Quelle F2 die universelle sofortige Wirkung aus F3 nicht tr\u00c3\u00a4gt."}, {"text": "Erh\u00c3\u00a4lt oder rechnet die Zeit\u00c3\u00a4nderung als 30 Prozent; behauptet keine gesicherte kausale Wirkung oder Cash-Einsparung.", "passed": true, "evidence": "Ausgabe: 'von 12 auf 8,4 Minuten, also um 3,6 Minuten beziehungsweise 30 %'. Nachrechnung: 3,6 / 12 = 30 %. Die Formulierung 'beobachtete Zeit' und 'weder die Ursache noch der vollst\u00c3\u00a4ndige Nutzen belegt' behauptet keine Kausalit\u00c3\u00a4t. Es gibt keine gesicherte Cash-Einsparung."}, {"text": "Reparatur f\u00c3\u00bcr F4 unterscheidet Vorabunterlage und Monitoring; Verdichtung erh\u00c3\u00a4lt die zwei Ausf\u00c3\u00a4lle, ohne ein gesehenes Layout oder eine Achse zu behaupten.", "passed": false, "evidence": "F4 empfiehlt eine Wochen\u00c3\u00bcbersicht f\u00c3\u00bcr eine Gesch\u00c3\u00a4ftsf\u00c3\u00bchrungsentscheidung, verschiebt Minutendaten in den Anhang und markiert 'beide best\u00c3\u00a4tigten Ausf\u00c3\u00a4lle'; fehlende Auswirkungen werden gekennzeichnet. Die Ausgabe schlie\u00c3\u0178t visuelle Pr\u00c3\u00bcfungen ohne gerenderte Folien aus und behauptet keine Achse. Es fehlt jedoch die in der gesamten Assertion geforderte inhaltliche Unterscheidung zum Betriebsmonitoring: Dessen anderer Informationsbedarf wird nicht erl\u00c3\u00a4utert. Die Reparatur ist f\u00c3\u00bcr die Vorabunterlage geeignet, aber dieser Teil des Ma\u00c3\u0178stabs ist ausgelassen; es liegt keine falsche Monitoring- oder Layoutaussage vor."}, {"text": "Ersetzt auf F5 die unbelegte Einigkeit/Startbehauptung durch einen als Vorschlag erkennbaren, von fehlenden Nachweisen begrenzten n\u00c3\u00a4chsten Schritt.", "passed": true, "evidence": "F5 streicht die unbelegte Einigkeit/Startbehauptung und nennt den aktuellen Review vor der Sitzung. Der Abschluss ist ausdr\u00c3\u00bccklich 'Vorschlag' und 'Empfehlung: eine begrenzte n\u00c3\u00a4chste Erprobung vorbereiten'. Die Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung entscheidet erst in der Sitzung; Standortauswahl, Gesamtkosten, Ausnahmen/Nacharbeit sowie Erfolgs-/Abbruchkriterien m\u00c3\u00bcssen vorliegen. Rollout bleibt eine sp\u00c3\u00a4tere gesonderte Entscheidung."}, {"text": "Drei priorisierte \u00c3\u201enderungen mit eindeutigen Folienbez\u00c3\u00bcgen und verwendbarer Abschlussidee; h\u00c3\u00b6chstens 350 W\u00c3\u00b6rter, keine erfundenen Verantwortlichen oder Mittel.", "passed": true, "evidence": "Drei in Reihenfolge pr\u00c3\u00a4sentierte wichtigste \u00c3\u201enderungen mit eindeutigen Folienbez\u00c3\u00bcgen F1-F3, F4 und F5; konkreter Abschlussvorschlag. 306 W\u00c3\u00b6rter nach whitespace-getrennter Z\u00c3\u00a4hlung der Tokens mit Buchstabe oder Zahl, somit unter 350. Eine verantwortliche Person und ein Termin sind erst zu benennen; weder bestehende Verantwortliche noch finanzielle Mittel werden erfunden."}], "summary": {"passed": 4, "failed": 1, "total": 5, "pass_rate": 0.8}, "word_count": {"count": 306, "method": "Whitespace-separated tokens containing at least one Unicode letter or number; complete output.md including headings and table text."}, "eval_feedback": {"suggestions": [{"assertion": "Reparatur f\u00c3\u00bcr F4 unterscheidet Vorabunterlage und Monitoring; Verdichtung erh\u00c3\u00a4lt die zwei Ausf\u00c3\u00a4lle, ohne ein gesehenes Layout oder eine Achse zu behaupten.", "reason": "Die Formulierung l\u00c3\u00a4sst offen, ob passende Verdichtung f\u00c3\u00bcr die Vorabunterlage bereits eine Unterscheidung zu Monitoring darstellt oder ob der unterschiedliche Informationsbedarf beider Zwecke erl\u00c3\u00a4utert werden muss. Hier wurde die gesamte Assertion gepr\u00c3\u00bcft und eine nur f\u00c3\u00bcr die Vorabunterlage begr\u00c3\u00bcndete Reparatur als Auslassung dieses Teilkriteriums gewertet. Ein expliziter semantischer Ma\u00c3\u0178stab w\u00c3\u00bcrde die Reproduzierbarkeit erh\u00c3\u00b6hen, ohne ein bestimmtes Schlagwort zu verlangen."}], "overall": "Sonstige Teilkriterien sind aus Text und Quelle direkt pr\u00c3\u00bcfbar; fehlende Renderings begrenzen jede visuelle Aussage."}}}, {"id": "eval-2-nutzenpfad-und-doppelte-stunden-new_skill", "prompt": "Pr\u00c3\u00bcfe den Case f\u00c3\u00bcr die Projektleitung. Gib ein kurzes wirtschaftliches Urteil, die korrigierte Rechnung und die wichtigsten Kl\u00c3\u00a4rungen vor der Entscheidung. Das Ziel ist der Abbau von R\u00c3\u00bcckst\u00c3\u00a4nden. H\u00c3\u00b6chstens 330 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "**Kurzurteil:** Der R\u00c3\u00bcckstandsabbau kann den Einsatz wirtschaftlich rechtfertigen. Der Anbieter \u00c3\u00bcberzeichnet jedoch den Nutzen durch Doppelz\u00c3\u00a4hlung. Die Rechnung zeigt ein potenzielles Kapazit\u00c3\u00a4ts\u00c3\u00a4quivalent; die betriebliche Wirkung ist noch unbest\u00c3\u00a4tigt. Eine belastbare Freigabegrundlage fehlt.\n\n**Korrigierte Rechnung:** Grundlage sind die Planwerte des synthetischen Cases: 12.000 tats\u00c3\u00a4chlich assistiert bearbeitete F\u00c3\u00a4lle j\u00c3\u00a4hrlich, vier Minuten Nettozeitgewinn einschlie\u00c3\u0178lich Pr\u00c3\u00bcfarbeit und 60 \u00e2\u201a\u00ac/Stunde als Rechenwert.\n\n| Gr\u00c3\u00b6\u00c3\u0178e | Rechnung | Ergebnis |\n| --- | --- | --- |\n| Freie Kapazit\u00c3\u00a4t | 12.000 \u00c3\u2014 4 / 60 | 800 Stunden/Jahr |\n| Kapazit\u00c3\u00a4ts\u00c3\u00a4quivalent | 800 \u00c3\u2014 60 \u00e2\u201a\u00ac | 48.000 \u00e2\u201a\u00ac/Jahr |\n| Nach laufenden Auszahlungen | 48.000 \u00e2\u02c6\u2019 12.000 \u00e2\u201a\u00ac | 36.000 \u00e2\u201a\u00ac/Jahr |\n| Auszahlungen im ersten Jahr | 30.000 + 12.000 \u00e2\u201a\u00ac | 42.000 \u00e2\u201a\u00ac |\n| Kapazit\u00c3\u00a4tssaldo im ersten Jahr | 48.000 \u00e2\u02c6\u2019 42.000 \u00e2\u201a\u00ac | +6.000 \u00e2\u201a\u00ac |\n\nDie Anbieterpositionen von jeweils 48.000 \u00e2\u201a\u00ac beruhen auf denselben 800 Stunden. Ihre gemeinsame Obergrenze betr\u00c3\u00a4gt 48.000 \u00e2\u201a\u00ac, nicht 96.000 \u00e2\u201a\u00ac. Eine zus\u00c3\u00a4tzliche Personaleinsparung ist unbelegt: Stellenabbau oder geringere Auszahlungen wurden nicht beschlossen.\n\nBei sofortiger voller, gleichm\u00c3\u00a4\u00c3\u0178iger und stabiler Wirkung ergibt die einfache **Kapazit\u00c3\u00a4tsamortisation** 30.000 / 36.000 = 0,83 Jahre beziehungsweise zehn Monate. Diese Annahmen sind unbest\u00c3\u00a4tigt. Zahlungsseitig stehen den genannten Auszahlungen keine belegten Einsparungen gegen\u00c3\u00bcber; eine Cash-Amortisation ist nicht nachgewiesen. Bei 12.000 F\u00c3\u00a4llen deckt rechnerisch bereits eine Minute Nettozeitgewinn je Fall die laufenden Kosten im Kapazit\u00c3\u00a4tsmodell, jedoch noch nicht die Einf\u00c3\u00bchrung.\n\n**Vor der Entscheidung kl\u00c3\u00a4ren:**\n\n- Tats\u00c3\u00a4chliche Nutzung, Nettozeitgewinn und Anlaufverlauf messen; best\u00c3\u00a4tigen, ob die genannten Kosten alle entscheidungsrelevanten Aufw\u00c3\u00a4nde umfassen.\n- Festlegen, welcher Anteil der freien Stunden durch welche Prozess\u00c3\u00a4nderung f\u00c3\u00bcr R\u00c3\u00bcckst\u00c3\u00a4nde verf\u00c3\u00bcgbar wird. Dieselben Stunden d\u00c3\u00bcrfen nicht nochmals als Personalersparnis beansprucht werden.\n- Ausgangsr\u00c3\u00bcckstand, laufenden Zugang, Bearbeitungsaufwand, Abbauziel und Messzeitpunkt bestimmen. Aus 800 Stunden allein folgt keine belastbare Fallzahl f\u00c3\u00bcr den R\u00c3\u00bcckstandsabbau.\n- Eine Nutzenverantwortung verbindlich \u00c3\u00bcbernehmen lassen. Frau Wolf ist bislang nur m\u00c3\u00b6gliche Ansprechpartnerin.\n\n**Empfehlung:** Einen begrenzten betrieblichen Nachweis mit best\u00c3\u00a4tigtem Nutzenplan vorschlagen und daran R\u00c3\u00bcckstandsabbau, Qualit\u00c3\u00a4t und eingesetzte Stunden messen. Die Zusagen bleiben bis zur Best\u00c3\u00a4tigung offen.\n"}], "grading": {"expectations": [{"text": "Rechnet 800 Stunden und 48.000 Euro Kapazit\u00c3\u00a4ts\u00c3\u00a4quivalent; addiert dieselben Stunden nicht zu 96.000 Euro Nutzen.", "passed": true, "evidence": "Die Tabelle rechnet 12.000 \u00c3\u2014 4 / 60 = 800 Stunden/Jahr und 800 \u00c3\u2014 60 = 48.000 Euro/Jahr. Die Ausgabe erkl\u00c3\u00a4rt ausdr\u00c3\u00bccklich, beide Anbieterpositionen beruhen auf denselben 800 Stunden und h\u00c3\u00a4tten gemeinsam h\u00c3\u00b6chstens '48.000 \u00e2\u201a\u00ac, nicht 96.000 \u00e2\u201a\u00ac'. Rechnungen und Doppelz\u00c3\u00a4hlungskorrektur entsprechen der Quelle."}, {"text": "Unterscheidet Kapazit\u00c3\u00a4tsnutzen vom unbelegten Cash-/Personalabbau; R\u00c3\u00bcckstandsabbau bleibt ein legitimes Ziel.", "passed": true, "evidence": "'Der R\u00c3\u00bcckstandsabbau kann den Einsatz wirtschaftlich rechtfertigen' h\u00c3\u00a4lt das operative Ziel aufrecht. 48.000 Euro wird als 'potenzielles Kapazit\u00c3\u00a4ts\u00c3\u00a4quivalent' bezeichnet; Personaleinsparung ist unbelegt, da Stellenabbau oder geringere Auszahlungen nicht beschlossen wurden. Zudem fehlen zahlungsseitig belegte Einsparungen und eine Cash-Amortisation ist nicht nachgewiesen."}, {"text": "Ber\u00c3\u00bccksichtigt 30.000 Euro einmalig und 12.000 Euro j\u00c3\u00a4hrlich; ein gegebenenfalls genannter Netto-/Paybackwert bleibt ein vereinfachtes Kapazit\u00c3\u00a4tsmodell mit unbest\u00c3\u00a4tigter voller Wirkung.", "passed": true, "evidence": "30.000 + 12.000 = 42.000 Euro im ersten Jahr, 48.000 - 12.000 = 36.000 Euro j\u00c3\u00a4hrlicher Kapazit\u00c3\u00a4tssaldo und 48.000 - 42.000 = 6.000 Euro im ersten Jahr sind korrekt. 30.000 / 36.000 = 0,8333 Jahre = zehn Monate wird ausdr\u00c3\u00bccklich als einfache Kapazit\u00c3\u00a4tsamortisation bei sofortiger voller, gleichm\u00c3\u00a4\u00c3\u0178iger und stabiler Wirkung bezeichnet; 'Diese Annahmen sind unbest\u00c3\u00a4tigt'. Die Ein-Minuten-Schwelle stimmt: 12.000 \u00c3\u2014 1 / 60 \u00c3\u2014 60 = 12.000 Euro, nur laufende Kosten."}, {"text": "Kl\u00c3\u00a4rungen enthalten erforderliche betriebliche Nutzung/\u00c3\u201enderung, Nutzen\u00c3\u00bcbernahme, Ausgangsr\u00c3\u00bcckstand/Ziel sowie Messzeitpunkt; Frau Wolf wird keine bestehende Zust\u00c3\u00a4ndigkeit zugeschrieben.", "passed": true, "evidence": "Die Kl\u00c3\u00a4rungen umfassen tats\u00c3\u00a4chliche Nutzung, Nettozeitgewinn/Anlauf, Nutzung freier Stunden durch eine Prozess\u00c3\u00a4nderung, Ausgangsr\u00c3\u00bcckstand, Zugang, Bearbeitungsaufwand, Abbauziel und Messzeitpunkt. Nutzenverantwortung soll verbindlich \u00c3\u00bcbernommen werden; 'Frau Wolf ist bislang nur m\u00c3\u00b6gliche Ansprechpartnerin' entspricht der Quelle, ohne ihr eine bestehende Zust\u00c3\u00a4ndigkeit zuzuschreiben."}, {"text": "Verwendbares Urteil und Rechnung innerhalb 330 W\u00c3\u00b6rter; keine erfundenen Geh\u00c3\u00a4lter, Adoptionsraten, Diskonts\u00c3\u00a4tze oder Freigaben.", "passed": true, "evidence": "Verwendbares Urteil mit korrigierter Tabelle und Kl\u00c3\u00a4rungen; 275 W\u00c3\u00b6rter nach whitespace-getrennter Z\u00c3\u00a4hlung der Tokens mit Buchstabe oder Zahl, unter 330. Keine erfundenen Geh\u00c3\u00a4lter, Adoptionsraten, Diskonts\u00c3\u00a4tze oder Freigaben. Volle, gleichm\u00c3\u00a4\u00c3\u0178ige Wirkung ist als hypothetische Voraussetzung der Rechnung gekennzeichnet, nicht als best\u00c3\u00a4tigte Adoption."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}, "word_count": {"count": 275, "method": "Whitespace-separated tokens containing at least one Unicode letter or number; complete output.md including headings and table text."}}}, {"id": "eval-2-nutzenpfad-und-doppelte-stunden-old_skill", "prompt": "Pr\u00c3\u00bcfe den Case f\u00c3\u00bcr die Projektleitung. Gib ein kurzes wirtschaftliches Urteil, die korrigierte Rechnung und die wichtigsten Kl\u00c3\u00a4rungen vor der Entscheidung. Das Ziel ist der Abbau von R\u00c3\u00bcckst\u00c3\u00a4nden. H\u00c3\u00b6chstens 330 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "# Pr\u00c3\u00bcfung f\u00c3\u00bcr die Projektleitung\n\n**Kurzurteil:** Der Case kann den R\u00c3\u00bcckstandsabbau wirtschaftlich unterst\u00c3\u00bctzen, rechtfertigt aber noch keine Freigabe. Die Anbieterrechnung z\u00c3\u00a4hlt dieselben Stunden doppelt. Der korrigierte Nutzen ist ein potenzielles Kapazit\u00c3\u00a4ts\u00c3\u00a4quivalent; seine Verwendung f\u00c3\u00bcr den R\u00c3\u00bcckstand ist noch ungesichert. Fehlende Personaleinsparungen schlie\u00c3\u0178en einen sinnvollen operativen Nutzen nicht aus.\n\n**Korrigierte Rechnung:** Grundlage sind die Planwerte des synthetischen Cases, keine gemessenen Betriebsergebnisse.\n\n| Gr\u00c3\u00b6\u00c3\u0178e | Rechnung | Ergebnis |\n| --- | --- | --- |\n| Freie Zeit pro Jahr | 12.000 F\u00c3\u00a4lle \u00c3\u2014 4 Minuten / 60 | 800 Stunden |\n| Kapazit\u00c3\u00a4ts\u00c3\u00a4quivalent | 800 Stunden \u00c3\u2014 60 Euro | 48.000 Euro/Jahr |\n| Saldo bei voller Jahreswirkung | 48.000 \u00e2\u02c6\u2019 12.000 Euro | 36.000 Euro/Jahr |\n| Saldo im ersten Jahr | 48.000 \u00e2\u02c6\u2019 12.000 \u00e2\u02c6\u2019 30.000 Euro | 6.000 Euro |\n| Einfache Amortisation im Kapazit\u00c3\u00a4tsmodell | 30.000 / 36.000 | 0,83 Jahre, rund zehn Monate |\n\nDie vier Minuten enthalten bereits Pr\u00c3\u00bcfarbeit. Die 12.000 F\u00c3\u00a4lle sind als tats\u00c3\u00a4chlich mit Assistenz bearbeitete Jahresmenge geplant; ein zus\u00c3\u00a4tzlicher Nutzungsabschlag w\u00c3\u00a4re eine neue Annahme.\n\nDie behaupteten 96.000 Euro sind auf 48.000 Euro zu korrigieren. Ohne beschlossene Reduktion von Stellen oder Auszahlungen sind keine zahlungswirksamen Einsparungen belegt. Die angegebenen Auszahlungen betragen 42.000 Euro im ersten Jahr und danach 12.000 Euro j\u00c3\u00a4hrlich; eine Zahlungsamortisation ist damit nicht belegt. Alle Kapazit\u00c3\u00a4tssalden und die Amortisation setzen die unbest\u00c3\u00a4tigte volle Wirkung ab Jahr 1 voraus.\n\nDie laufenden Kosten entsprechen 200 freien Stunden beziehungsweise 3.000 F\u00c3\u00a4llen j\u00c3\u00a4hrlich bei vier Minuten. Das ist eine rechnerische Kapazit\u00c3\u00a4tsschwelle, kein Nachweis f\u00c3\u00bcr Geldersparnis oder R\u00c3\u00bcckstandsabbau.\n\n**Vor der Entscheidung kl\u00c3\u00a4ren:**\n\n- Ausgangsr\u00c3\u00bcckstand, messbares Abbauziel und Messzeitpunkt festlegen.\n- Verbindlich bestimmen, wer den Nutzen verantwortet; Frau Wolf ist bislang nur m\u00c3\u00b6gliche Ansprechpartnerin.\n- Konkret planen, wie freie Stunden f\u00c3\u00bcr R\u00c3\u00bcckstandsf\u00c3\u00a4lle eingesetzt werden und welche Prozess\u00c3\u00a4nderung das erm\u00c3\u00b6glicht.\n- Tats\u00c3\u00a4chliche Nutzung, Nettozeitgewinn, Anlauf und m\u00c3\u00b6gliche zus\u00c3\u00a4tzliche Kosten belegen.\n\n**Empfehlung:** Zuerst einen begrenzten Pilot mit diesen Nachweisen durchf\u00c3\u00bchren; anschlie\u00c3\u0178end anhand des erreichten R\u00c3\u00bcckstandsabbaus und vollst\u00c3\u00a4ndiger Kosten entscheiden.\n\n"}], "grading": {"expectations": [{"text": "Rechnet 800 Stunden und 48.000 Euro Kapazit\u00c3\u00a4ts\u00c3\u00a4quivalent; addiert dieselben Stunden nicht zu 96.000 Euro Nutzen.", "passed": true, "evidence": "Die Tabelle enth\u00c3\u00a4lt 12.000 F\u00c3\u00a4lle \u00c3\u2014 4 Minuten / 60 = 800 Stunden und 800 \u00c3\u2014 60 Euro = 48.000 Euro/Jahr, beides korrekt. Die Ausgabe korrigiert die 'behaupteten 96.000 Euro' ausdr\u00c3\u00bccklich auf 48.000 Euro und nennt die Doppelz\u00c3\u00a4hlung derselben Stunden."}, {"text": "Unterscheidet Kapazit\u00c3\u00a4tsnutzen vom unbelegten Cash-/Personalabbau; R\u00c3\u00bcckstandsabbau bleibt ein legitimes Ziel.", "passed": true, "evidence": "'Fehlende Personaleinsparungen schlie\u00c3\u0178en einen sinnvollen operativen Nutzen nicht aus' und potenzielles Kapazit\u00c3\u00a4ts\u00c3\u00a4quivalent f\u00c3\u00bcr R\u00c3\u00bcckstandsabbau erhalten das legitime Ziel. Die Ausgabe sagt ausdr\u00c3\u00bccklich, ohne beschlossene Stellen-/Auszahlungsreduktion seien keine zahlungswirksamen Einsparungen belegt und eine Zahlungsamortisation sei nicht belegt."}, {"text": "Ber\u00c3\u00bccksichtigt 30.000 Euro einmalig und 12.000 Euro j\u00c3\u00a4hrlich; ein gegebenenfalls genannter Netto-/Paybackwert bleibt ein vereinfachtes Kapazit\u00c3\u00a4tsmodell mit unbest\u00c3\u00a4tigter voller Wirkung.", "passed": true, "evidence": "Die Tabelle ber\u00c3\u00bccksichtigt 30.000 Euro Einf\u00c3\u00bchrung und 12.000 Euro laufend: 48.000 - 12.000 = 36.000 Euro/Jahr; minus 30.000 = 6.000 Euro erstes Jahr. Einfache Amortisation im Kapazit\u00c3\u00a4tsmodell: 30.000 / 36.000 = 0,8333 Jahre, zehn Monate. Alle Salden/Amortisation setzen laut Ausgabe 'die unbest\u00c3\u00a4tigte volle Wirkung ab Jahr 1 voraus'. 42.000/12.000 Auszahlungen werden getrennt genannt. Die zus\u00c3\u00a4tzliche Kapazit\u00c3\u00a4tsschwelle ist korrekt: 12.000 / 60 = 200 Stunden; 200 \u00c3\u2014 60 / 4 = 3.000 F\u00c3\u00a4lle."}, {"text": "Kl\u00c3\u00a4rungen enthalten erforderliche betriebliche Nutzung/\u00c3\u201enderung, Nutzen\u00c3\u00bcbernahme, Ausgangsr\u00c3\u00bcckstand/Ziel sowie Messzeitpunkt; Frau Wolf wird keine bestehende Zust\u00c3\u00a4ndigkeit zugeschrieben.", "passed": true, "evidence": "Ausgabe verlangt Ausgangsr\u00c3\u00bcckstand, messbares Abbauziel und Messzeitpunkt, verbindliche Nutzenverantwortung, Verwendung freier Stunden f\u00c3\u00bcr R\u00c3\u00bcckstandsf\u00c3\u00a4lle und erforderliche Prozess\u00c3\u00a4nderung sowie tats\u00c3\u00a4chliche Nutzung/Nettozeitgewinn/Anlauf. 'Frau Wolf ist bislang nur m\u00c3\u00b6gliche Ansprechpartnerin' vermeidet die in der Quelle unbelegte Zust\u00c3\u00a4ndigkeitszuweisung."}, {"text": "Verwendbares Urteil und Rechnung innerhalb 330 W\u00c3\u00b6rter; keine erfundenen Geh\u00c3\u00a4lter, Adoptionsraten, Diskonts\u00c3\u00a4tze oder Freigaben.", "passed": true, "evidence": "Verwendbares Urteil, korrekte Rechnung und wichtigste Kl\u00c3\u00a4rungen. 279 W\u00c3\u00b6rter nach whitespace-getrennter Z\u00c3\u00a4hlung der Tokens mit Buchstabe oder Zahl, unter 330. Keine erfundenen Geh\u00c3\u00a4lter, Adoptionsraten, Diskonts\u00c3\u00a4tze oder Freigaben. Der begrenzte Pilot ist eine Empfehlung, keine behauptete erfolgte Beauftragung."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}, "word_count": {"count": 279, "method": "Whitespace-separated tokens containing at least one Unicode letter or number; complete output.md including headings and table text."}}}, {"id": "eval-2-nutzenpfad-und-doppelte-stunden-without_corporate", "prompt": "Pr\u00c3\u00bcfe den Case f\u00c3\u00bcr die Projektleitung. Gib ein kurzes wirtschaftliches Urteil, die korrigierte Rechnung und die wichtigsten Kl\u00c3\u00a4rungen vor der Entscheidung. Das Ziel ist der Abbau von R\u00c3\u00bcckst\u00c3\u00a4nden. H\u00c3\u00b6chstens 330 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "## Wirtschaftliches Urteil\n\nDer Case weist m\u00c3\u00b6glichen Kapazit\u00c3\u00a4tsgewinn aus, belegt aber bislang weder Personaleinsparungen noch den angestrebten R\u00c3\u00bcckstandsabbau. Die Anbieterrechnung z\u00c3\u00a4hlt dieselben Stunden zweimal. Eine wirtschaftliche Freigabe allein auf dieser Grundlage ist nicht gerechtfertigt. Entscheidend ist, ob die frei werdende Zeit tats\u00c3\u00a4chlich zur Bearbeitung des R\u00c3\u00bcckstands eingesetzt wird und die Kosten durch diesen Nutzen vertretbar sind.\n\n## Korrigierte Rechnung\n\n| Position | Rechnung / Betrag |\n|---|---:|\n| Freie Kapazit\u00c3\u00a4t j\u00c3\u00a4hrlich | 12.000 F\u00c3\u00a4lle \u00c3\u2014 4 Minuten \u00c3\u00b7 60 = **800 Stunden** |\n| Rechnerischer Kapazit\u00c3\u00a4tswert | 800 Stunden \u00c3\u2014 60 Euro = **48.000 Euro j\u00c3\u00a4hrlich** |\n| Belegte Personalauszahlungsersparnis | **0 Euro** |\n| Auszahlungen im ersten Jahr | 30.000 + 12.000 = **42.000 Euro** |\n| Auszahlungen in Folgejahren | **12.000 Euro j\u00c3\u00a4hrlich** |\n\nBei vollst\u00c3\u00a4ndiger Wirkung ab Jahr eins betr\u00c3\u00a4gt der rechnerische Kapazit\u00c3\u00a4tswert nach Kosten **6.000 Euro im ersten Jahr**, danach **36.000 Euro j\u00c3\u00a4hrlich**. Das ist ein Bewertungsvergleich, kein Geldzufluss. Ohne beschlossene Auszahlungssenkungen oder andere zahlungswirksame Vorteile bleibt der Zahlungssaldo **\u00e2\u02c6\u201942.000 Euro im ersten Jahr** und **\u00e2\u02c6\u201912.000 Euro j\u00c3\u00a4hrlich danach**. Die volle Wirkung im ersten Jahr ist unbest\u00c3\u00a4tigt; bei geringerem Nutzen f\u00c3\u00a4llt der Bewertungsvergleich entsprechend schlechter aus.\n\n## Vor der Entscheidung kl\u00c3\u00a4ren\n\n- **R\u00c3\u00bcckstand und Erfolg:** Ausgangsbestand, gew\u00c3\u00bcnschter Abbau und Messzeitpunkt festlegen. Wie viele zus\u00c3\u00a4tzliche R\u00c3\u00bcckstandsf\u00c3\u00a4lle lassen sich mit den 800 Stunden bearbeiten? Ohne Bearbeitungsaufwand des R\u00c3\u00bcckstands ist das nicht berechenbar.\n- **Umsetzung:** Tats\u00c3\u00a4chliche Assistenznutzung, die vier Minuten Nettozeitgewinn und den Anlauf bis zur vollen Wirkung best\u00c3\u00a4tigen. Die erforderliche Prozess\u00c3\u00a4nderung und verbindliche Verwendung der freien Stunden f\u00c3\u00bcr den R\u00c3\u00bcckstand festlegen.\n- **Verantwortung:** Eine Person muss den R\u00c3\u00bcckstandsabbau und seine Messung \u00c3\u00bcbernehmen. Frau Wolf ist bisher lediglich m\u00c3\u00b6gliche Ansprechpartnerin.\n- **Entscheidungsma\u00c3\u0178stab:** Den Wert des erreichten R\u00c3\u00bcckstandsabbaus und die Bereitschaft, daf\u00c3\u00bcr die zus\u00c3\u00a4tzlichen Auszahlungen zu tragen, ausdr\u00c3\u00bccklich bewerten. Kapazit\u00c3\u00a4tswert und Personaleinsparung d\u00c3\u00bcrfen nicht nochmals gemeinsam angesetzt werden.\n"}], "grading": {"expectations": [{"text": "Rechnet 800 Stunden und 48.000 Euro Kapazit\u00c3\u00a4ts\u00c3\u00a4quivalent; addiert dieselben Stunden nicht zu 96.000 Euro Nutzen.", "passed": true, "evidence": "Die Tabelle rechnet '12.000 F\u00c3\u00a4lle \u00c3\u2014 4 Minuten \u00c3\u00b7 60 = 800 Stunden' und '800 Stunden \u00c3\u2014 60 Euro = 48.000 Euro j\u00c3\u00a4hrlich'. Beide Rechnungen sind korrekt. Das Urteil nennt die Doppelz\u00c3\u00a4hlung derselben Stunden; abschlie\u00c3\u0178end d\u00c3\u00bcrfen Kapazit\u00c3\u00a4tswert und Personaleinsparung 'nicht nochmals gemeinsam angesetzt werden'. Es werden keine 96.000 Euro Nutzen addiert."}, {"text": "Unterscheidet Kapazit\u00c3\u00a4tsnutzen vom unbelegten Cash-/Personalabbau; R\u00c3\u00bcckstandsabbau bleibt ein legitimes Ziel.", "passed": true, "evidence": "Ausgabe: 'm\u00c3\u00b6glichen Kapazit\u00c3\u00a4tsgewinn', 'weder Personaleinsparungen noch den angestrebten R\u00c3\u00bcckstandsabbau' bisher belegt. Die belegte Personalauszahlungsersparnis wird mit 0 Euro angegeben, was keine behauptete tats\u00c3\u00a4chliche Gesamtersparnis ist. Freie Zeit tats\u00c3\u00a4chlich f\u00c3\u00bcr R\u00c3\u00bcckstand einsetzen und deren Nutzen gegen\u00c3\u00bcber Kosten bewerten wird als zul\u00c3\u00a4ssiges Ziel erhalten; der Bewertungsvergleich wird als 'kein Geldzufluss' abgegrenzt."}, {"text": "Ber\u00c3\u00bccksichtigt 30.000 Euro einmalig und 12.000 Euro j\u00c3\u00a4hrlich; ein gegebenenfalls genannter Netto-/Paybackwert bleibt ein vereinfachtes Kapazit\u00c3\u00a4tsmodell mit unbest\u00c3\u00a4tigter voller Wirkung.", "passed": true, "evidence": "Einf\u00c3\u00bchrung 30.000 plus laufend 12.000 ergibt korrekt 42.000 Euro Auszahlungen im ersten Jahr, danach 12.000 j\u00c3\u00a4hrlich. Vereinfachte Kapazit\u00c3\u00a4tssalden sind 48.000 - 42.000 = 6.000 und 48.000 - 12.000 = 36.000 Euro. Die Ausgabe erkl\u00c3\u00a4rt 'Bei vollst\u00c3\u00a4ndiger Wirkung ab Jahr eins', 'Bewertungsvergleich, kein Geldzufluss' und 'volle Wirkung im ersten Jahr ist unbest\u00c3\u00a4tigt'. Der negative Zahlungssaldo wird mangels belegter Auszahlungssenkung separat ausgewiesen."}, {"text": "Kl\u00c3\u00a4rungen enthalten erforderliche betriebliche Nutzung/\u00c3\u201enderung, Nutzen\u00c3\u00bcbernahme, Ausgangsr\u00c3\u00bcckstand/Ziel sowie Messzeitpunkt; Frau Wolf wird keine bestehende Zust\u00c3\u00a4ndigkeit zugeschrieben.", "passed": true, "evidence": "Kl\u00c3\u00a4rungen fordern Ausgangsbestand, gew\u00c3\u00bcnschten Abbau und Messzeitpunkt, tats\u00c3\u00a4chliche Assistenznutzung/Nettozeitgewinn/Anlauf, erforderliche Prozess\u00c3\u00a4nderung und verbindliche Verwendung freier Stunden sowie eine Person f\u00c3\u00bcr R\u00c3\u00bcckstandsabbau und Messung. 'Frau Wolf ist bisher lediglich m\u00c3\u00b6gliche Ansprechpartnerin' entspricht der Quelle und schreibt ihr keine bestehende Nutzenverantwortung zu."}, {"text": "Verwendbares Urteil und Rechnung innerhalb 330 W\u00c3\u00b6rter; keine erfundenen Geh\u00c3\u00a4lter, Adoptionsraten, Diskonts\u00c3\u00a4tze oder Freigaben.", "passed": true, "evidence": "Urteil, korrigierte Rechentabelle und entscheidungsrelevante Kl\u00c3\u00a4rungen sind verwendbar. 264 W\u00c3\u00b6rter nach whitespace-getrennter Z\u00c3\u00a4hlung der Tokens mit Buchstabe oder Zahl, unter 330. 60 Euro/Stunde wird als vorgegebener Rechenwert verwendet; Geh\u00c3\u00a4lter, Adoptionsraten, Diskonts\u00c3\u00a4tze oder erfolgte Freigaben werden nicht erfunden."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}, "word_count": {"count": 264, "method": "Whitespace-separated tokens containing at least one Unicode letter or number; complete output.md including headings and table text."}}}, {"id": "eval-3-entscheidung-umfang-vor-anbieter-new_skill", "prompt": "Erstelle eine kompakte Entscheidungsvorlage aus den Unterlagen. Sie soll in der Sitzung verwendbar sein und die heutige Entscheidungsfrage klar machen. H\u00c3\u00b6chstens 330 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "# Entscheidungsvorlage: Bedarf und Fristwirkung pr\u00c3\u00bcfen\n\n**Heutige Entscheidungsfrage:** Welche Pr\u00c3\u00bcfung beauftragt das Gremium, um 80 Servicef\u00c3\u00a4lle monatlich innerhalb von zwei Tagen bearbeiten zu k\u00c3\u00b6nnen? Eine Anbieterbeauftragung liegt au\u00c3\u0178erhalb seines heutigen Mandats.\n\n**Beschlussvorschlag:** Das Gremium beauftragt den belegten internen Prozessversuch f\u00c3\u00bcr 12.000 Euro und sechs Wochen ohne Mehrjahresbindung. Vor Beginn ist ein Prozessverantwortlicher zu benennen, der den Messplan best\u00c3\u00a4tigt und die Ergebnisse berichtet. Vorgeschlagener Pr\u00c3\u00bcfma\u00c3\u0178stab: Werden 80 F\u00c3\u00a4lle monatlich innerhalb von zwei Tagen bearbeitet? Interner Aufwand und Berichtstermin sind vor Beginn festzulegen.\n\n**Anlass:** Die Bearbeitung dauert aktuell acht Tage. Eine terminliche Dringlichkeit oder verbindliche Entscheidungsfrist ist nicht dokumentiert. Ein Aufschub l\u00c3\u00a4sst die Zielerreichung ungekl\u00c3\u00a4rt.\n\n| Option | Kosten und Bindung | Umfang und Fristwirkung | Heute entscheidbar? |\n| --- | --- | --- | --- |\n| Heutigen Ablauf beibehalten | Zus\u00c3\u00a4tzliche Pr\u00c3\u00bcfkosten entfallen; bestehende Kosten offen | Aktuell acht Tage | Ja |\n| Prozessversuch | 12.000 Euro; sechs Wochen; keine Mehrjahresbindung | Fristwirkung ungemessen | Ja, im Pr\u00c3\u00bcfmandat bis 20.000 Euro |\n| Anbieter A | 90.000 Euro einmalig; laufende Kosten offen | 800 F\u00c3\u00a4lle/Monat; Fristwirkung ungemessen | Vertragsbeschluss sp\u00c3\u00a4ter durch Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung |\n| Anbieter B | 75.000 Euro einmalig; laufende Kosten offen | 800 F\u00c3\u00a4lle/Monat; Fristwirkung ungemessen | Vertragsbeschluss sp\u00c3\u00a4ter durch Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung |\n\n**Empfehlung des Verfassers:** Den begrenzten Prozessversuch beauftragen. Er pr\u00c3\u00bcft eine belegte, reversible Alternative innerhalb des Mandats. Daf\u00c3\u00bcr nimmt das Unternehmen sechs Wochen Aufwand und eine weiterhin ungewisse Zielerreichung in Kauf. Die zehnfache Anbieterkapazit\u00c3\u00a4t gegen\u00c3\u00bcber dem Gesch\u00c3\u00a4ftsziel wirft eine Bedarfsfrage auf; sie belegt allein keine Ungeeignetheit. Der Preisunterschied zwischen A und B erlaubt ohne laufende Kosten und Wirkungsnachweis keine belastbare Auswahl.\n\n**N\u00c3\u00a4chster Entscheidungspunkt:** Nach dem Versuch anhand der gemessenen Fristwirkung \u00c3\u00bcber weiteren Bedarf entscheiden. Falls Software erforderlich bleibt, ben\u00c3\u00b6tigten Umfang, Fristwirkung und Gesamtkosten kl\u00c3\u00a4ren und der Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung eine Vertragsvorlage vorlegen. Gewichte oder Punktbewertungen sind nicht beschlossen.\n\n**Vor Verwendung zu erg\u00c3\u00a4nzen:** Prozessverantwortlicher, interner Aufwand und Berichtstermin sind offen.\n"}], "grading": {"expectations": [{"text": "Stellt das Fristziel f\u00c3\u00bcr 80 F\u00c3\u00a4lle und die heute m\u00c3\u00b6gliche Pr\u00c3\u00bcfung in den Mittelpunkt, statt die Frage auf einen sofortigen Anbieterkauf zu verengen.", "passed": true, "evidence": "Die heutige Entscheidungsfrage lautet, welche Pr\u00c3\u00bcfung f\u00c3\u00bcr '80 Servicef\u00c3\u00a4lle monatlich innerhalb von zwei Tagen' beauftragt wird. Der Beschlussvorschlag betrifft den internen Prozessversuch; die Ausgabe erkl\u00c3\u00a4rt, eine Anbieterbeauftragung liege au\u00c3\u0178erhalb des heutigen Mandats. Anlass und Pr\u00c3\u00bcfma\u00c3\u0178stab stellen die Fristwirkung in den Mittelpunkt."}, {"text": "Ber\u00c3\u00bccksichtigt die belegte Prozessoption mit 12.000 Euro/sechs Wochen; Anbieterwerte 90.000/75.000 und Kapazit\u00c3\u00a4t 800 bleiben korrekt.", "passed": true, "evidence": "Beschlussvorschlag und Tabelle nennen den belegten Prozessversuch mit 12.000 Euro, sechs Wochen, ohne Mehrjahresbindung. Anbieter A steht mit 90.000 Euro einmalig und 800 F\u00c3\u00a4llen/Monat, B mit 75.000 Euro einmalig und ebenfalls 800 F\u00c3\u00a4llen/Monat. Offene laufende Kosten und ungemessene Fristwirkung werden erhalten."}, {"text": "Beschlussvorschlag wahrt die 20.000-Euro-Pr\u00c3\u00bcfbefugnis und trennt sp\u00c3\u00a4tere Software-/Vertragsentscheidung; keine tats\u00c3\u00a4chliche Freigabe behauptet.", "passed": true, "evidence": "Die Tabelle nennt 'im Pr\u00c3\u00bcfmandat bis 20.000 Euro' beim Prozessversuch und einen sp\u00c3\u00a4teren Vertragsbeschluss durch die Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung bei beiden Anbietern. Der Text steht unter 'Beschlussvorschlag' und 'Empfehlung des Verfassers'; der sp\u00c3\u00a4tere Softwarebedarf erfordert erst eine Vertragsvorlage. Keine bereits erfolgte Freigabe wird behauptet."}, {"text": "Nennt fehlende Fristwirkung als entscheidungsrelevante Information und offene Umsetzung/Verantwortung, ohne eine garantierte Wirkung oder einen Besitzer zu erfinden.", "passed": true, "evidence": "Alle Optionen weisen die fehlende Fristwirkung aus; Auswahl wird ohne Wirkungsnachweis als nicht belastbar erkl\u00c3\u00a4rt. Ein Prozessverantwortlicher, interner Aufwand und Berichtstermin sind 'vor Beginn festzulegen' und 'offen'. Der Versuch hat 'weiterhin ungewisse Zielerreichung'; weder Wirkung noch ein vorhandener Besitzer wird erfunden."}, {"text": "Zuerst eine verwendbare kompakte Vorlage innerhalb 330 W\u00c3\u00b6rter; keine erfundene Frist, Gewichtung oder Scheinobjektivit\u00c3\u00a4t.", "passed": true, "evidence": "Die Antwort beginnt unmittelbar mit einer verwendbaren Entscheidungsvorlage, heutiger Frage und Beschlussvorschlag. 277 W\u00c3\u00b6rter nach whitespace-getrennter Z\u00c3\u00a4hlung der Tokens mit Buchstabe oder Zahl, unter 330. Fehlende Entscheidungsfrist/Dringlichkeit wird ausdr\u00c3\u00bccklich dokumentiert; Berichtstermin bleibt offen. Es werden keine Gewichte oder Punktbewertungen erfunden; vorgeschlagener Pr\u00c3\u00bcfma\u00c3\u0178stab ist das Quellziel 80 F\u00c3\u00a4lle/zwei Tage."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}, "word_count": {"count": 277, "method": "Whitespace-separated tokens containing at least one Unicode letter or number; complete output.md including headings and table text."}}}, {"id": "eval-3-entscheidung-umfang-vor-anbieter-old_skill", "prompt": "Erstelle eine kompakte Entscheidungsvorlage aus den Unterlagen. Sie soll in der Sitzung verwendbar sein und die heutige Entscheidungsfrage klar machen. H\u00c3\u00b6chstens 330 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "# Entscheidungsvorlage: Pr\u00c3\u00bcfauftrag zum Serviceprozess\n\n**Beschlussvorschlag f\u00c3\u00bcr das heutige Gremium:** Das Gremium beauftragt einen sechsw\u00c3\u00b6chigen internen Prozessversuch mit einem Budget von 12.000 Euro. Vor Beginn benennt es einen Prozessverantwortlichen, der den Kostenumfang und den Messplan best\u00c3\u00a4tigt. Eine Anbieter- oder Softwareentscheidung bleibt einem sp\u00c3\u00a4teren Beschluss der Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung vorbehalten.\n\n**Heutige Entscheidungsfrage:** Soll der begrenzte Prozessversuch beauftragt oder die Pr\u00c3\u00bcfung aufgeschoben werden? Das Mandat umfasst Pr\u00c3\u00bcfauftr\u00c3\u00a4ge bis 20.000 Euro; neue Software- und Mehrjahresvertr\u00c3\u00a4ge liegen au\u00c3\u0178erhalb dieses Mandats.\n\n**Anlass:** 80 Servicef\u00c3\u00a4lle pro Monat sollen innerhalb von zwei Tagen bearbeitet werden; derzeit dauert die Bearbeitung acht Tage. Eine terminliche Dringlichkeit ist nicht dokumentiert. Bei Aufschub bleibt die Zielabweichung zun\u00c3\u00a4chst bestehen.\n\n| Option | Einmaliger Aufwand | Bindung und Umfang | Beleg zur Fristwirkung |\n| --- | --- | --- | --- |\n| Heutigen Zustand beibehalten | Keine neue Beauftragung | Bestehender Prozess | Aktuell acht Tage |\n| Interner Prozessversuch | 12.000 Euro | Sechs Wochen, keine Mehrjahresbindung | Noch ungemessen |\n| Anbieter A | 90.000 Euro | 800 F\u00c3\u00a4lle/Monat; Vertragsbedingungen offen | Keine Messung |\n| Anbieter B | 75.000 Euro | 800 F\u00c3\u00a4lle/Monat; Vertragsbedingungen offen | Keine Messung |\n\nBei beiden Anbietern sind laufende Kosten offen. Ein Kostenvergleich \u00c3\u00bcber denselben Nutzungszeitraum ist daher noch nicht m\u00c3\u00b6glich.\n\n**Empfehlung des Verfassers:** Den Prozessversuch beauftragen. Er ist innerhalb des heutigen Mandats umsetzbar und begrenzt die Verpflichtung. Daf\u00c3\u00bcr werden 12.000 Euro eingesetzt, ohne dass die Zielerreichung bereits belegt ist. Die zehnfache Kapazit\u00c3\u00a4t der Anbieter weist keinen Beitrag zur Zweitagesfrist nach; der niedrigere Anschaffungspreis von B tr\u00c3\u00a4gt deshalb keine Anbieterempfehlung.\n\n**Umsetzung und n\u00c3\u00a4chster Beschluss:** Vorgeschlagen wird, Bearbeitungsdauer und Anteil fristgerecht erledigter F\u00c3\u00a4lle bei 80 F\u00c3\u00a4llen monatlich zu messen. Der Prozessverantwortliche legt nach sechs Wochen Ergebnisse und weiteren Entscheidungsbedarf vor. Vor einer Softwareentscheidung sind Fristwirkung, laufende Kosten und Bindung nachzuweisen.\n\n**Vor Verwendung offen:** Verantwortlicher, Abgrenzung des 12.000-Euro-Budgets, interner Aufwand und konkreter Messplan. Diese Angaben und Startbedingungen sind im Beschluss zu erg\u00c3\u00a4nzen.\n\n"}], "grading": {"expectations": [{"text": "Stellt das Fristziel f\u00c3\u00bcr 80 F\u00c3\u00a4lle und die heute m\u00c3\u00b6gliche Pr\u00c3\u00bcfung in den Mittelpunkt, statt die Frage auf einen sofortigen Anbieterkauf zu verengen.", "passed": true, "evidence": "Die heutige Frage lautet, ob der begrenzte Prozessversuch beauftragt oder die Pr\u00c3\u00bcfung aufgeschoben wird. Anlass nennt 80 F\u00c3\u00a4lle pro Monat in zwei Tagen gegen\u00c3\u00bcber aktuell acht Tagen; Empfehlung und Umsetzung pr\u00c3\u00bcfen ausdr\u00c3\u00bccklich den Beitrag zur Zweitagesfrist. Eine Anbieterentscheidung bleibt sp\u00c3\u00a4ter und wird nicht zum heutigen Kaufentscheid verengt."}, {"text": "Ber\u00c3\u00bccksichtigt die belegte Prozessoption mit 12.000 Euro/sechs Wochen; Anbieterwerte 90.000/75.000 und Kapazit\u00c3\u00a4t 800 bleiben korrekt.", "passed": true, "evidence": "Der Beschlussvorschlag nennt einen sechsw\u00c3\u00b6chigen internen Prozessversuch mit 12.000 Euro. Die Tabelle erh\u00c3\u00a4lt dessen fehlende Mehrjahresbindung und die Anbieterwerte A 90.000, B 75.000 Euro sowie jeweils 800 F\u00c3\u00a4lle/Monat. Offene laufende Kosten und fehlende Fristmessung werden genannt, wie in der Quelle."}, {"text": "Beschlussvorschlag wahrt die 20.000-Euro-Pr\u00c3\u00bcfbefugnis und trennt sp\u00c3\u00a4tere Software-/Vertragsentscheidung; keine tats\u00c3\u00a4chliche Freigabe behauptet.", "passed": true, "evidence": "Ausgabe: 'Mandat umfasst Pr\u00c3\u00bcfauftr\u00c3\u00a4ge bis 20.000 Euro'; neue Software-/Mehrjahresvertr\u00c3\u00a4ge liegen au\u00c3\u0178erhalb. Der interne Auftrag ist ausdr\u00c3\u00bccklich als Beschlussvorschlag gekennzeichnet; eine Anbieter-/Softwareentscheidung bleibt einem sp\u00c3\u00a4teren Gesch\u00c3\u00a4ftsf\u00c3\u00bchrungsbeschluss vorbehalten. Keine tats\u00c3\u00a4chliche Freigabe wird behauptet."}, {"text": "Nennt fehlende Fristwirkung als entscheidungsrelevante Information und offene Umsetzung/Verantwortung, ohne eine garantierte Wirkung oder einen Besitzer zu erfinden.", "passed": true, "evidence": "Die Tabelle nennt fehlende Fristmessung f\u00c3\u00bcr Prozessversuch und beide Anbieter. Empfehlung erkl\u00c3\u00a4rt, Zielerreichung sei noch nicht belegt; Kapazit\u00c3\u00a4t/Preis tragen keine Anbieterempfehlung. Verantwortlicher, Budgetabgrenzung, interner Aufwand und Messplan sind vor Verwendung offen. Der Prozessverantwortliche wird vor Beginn erst benannt; die sp\u00c3\u00a4tere Ergebnispflicht ist eine vorgeschlagene Umsetzung, keine erfundene bestehende Zust\u00c3\u00a4ndigkeit."}, {"text": "Zuerst eine verwendbare kompakte Vorlage innerhalb 330 W\u00c3\u00b6rter; keine erfundene Frist, Gewichtung oder Scheinobjektivit\u00c3\u00a4t.", "passed": true, "evidence": "Die Antwort liefert zuerst die kompakte Entscheidungsvorlage mit Beschlussvorschlag und heutiger Frage. 280 W\u00c3\u00b6rter nach whitespace-getrennter Z\u00c3\u00a4hlung der Tokens mit Buchstabe oder Zahl, unter 330. Keine terminliche Dringlichkeit wird behauptet; Ergebnisvorlage nach sechs Wochen ist an die belegte Versuchsdauer gebunden. Keine erfundenen Gewichtungen oder Punktbewertungen."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}, "word_count": {"count": 280, "method": "Whitespace-separated tokens containing at least one Unicode letter or number; complete output.md including headings and table text."}}}, {"id": "eval-3-entscheidung-umfang-vor-anbieter-without_corporate", "prompt": "Erstelle eine kompakte Entscheidungsvorlage aus den Unterlagen. Sie soll in der Sitzung verwendbar sein und die heutige Entscheidungsfrage klar machen. H\u00c3\u00b6chstens 330 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "# Entscheidungsvorlage: Prozessversuch zur Verk\u00c3\u00bcrzung der Bearbeitungszeit\n\n**Heutige Entscheidungsfrage:** Gibt das Gremium 12.000 Euro f\u00c3\u00bcr einen sechsw\u00c3\u00b6chigen internen Prozessversuch frei und benennt daf\u00c3\u00bcr einen Prozessverantwortlichen?\n\n## Ziel und Entscheidungsgrundlage\n\n80 Servicef\u00c3\u00a4lle pro Monat sollen innerhalb von zwei Tagen bearbeitet werden. Aktuell dauert die Bearbeitung acht Tage. Entscheidend ist daher die Wirkung auf die Bearbeitungsfrist.\n\nAnbieter A kostet einmalig 90.000 Euro, Anbieter B 75.000 Euro. Beide bieten Kapazit\u00c3\u00a4t f\u00c3\u00bcr 800 F\u00c3\u00a4lle monatlich. Diese Kapazit\u00c3\u00a4t liegt deutlich \u00c3\u00bcber dem Gesch\u00c3\u00a4ftsziel; eine Verk\u00c3\u00bcrzung der Bearbeitungszeit ist f\u00c3\u00bcr keine der beiden L\u00c3\u00b6sungen gemessen. Laufende Kosten sind offen. Damit fehlt eine belastbare Grundlage f\u00c3\u00bcr eine Anbieterentscheidung.\n\nDer interne Prozessversuch ist eine belegte Option f\u00c3\u00bcr 12.000 Euro \u00c3\u00bcber sechs Wochen ohne Mehrjahresbindung. Auch seine Fristwirkung ist noch ungemessen. Ein Prozessverantwortlicher fehlt bislang.\n\n## Empfehlung\n\nDen internen Prozessversuch als Pr\u00c3\u00bcfung beauftragen. Er liegt innerhalb des heutigen Mandats von 20.000 Euro und erm\u00c3\u00b6glicht, die offene Fristwirkung zu untersuchen. Sein Erfolg ist noch nicht belegt.\n\nVor Beginn ist ein Prozessverantwortlicher namentlich festzulegen. Er soll den Versuch steuern und anschlie\u00c3\u0178end die gemessene Bearbeitungszeit sowie die Ergebnisse f\u00c3\u00bcr das Ziel von 80 F\u00c3\u00a4llen monatlich innerhalb von zwei Tagen vorlegen. Daraus ist der weitere Handlungsbedarf abzuleiten.\n\n## Beschlussvorschlag\n\n\u00e2\u20ac\u017eDas Gremium beauftragt einen sechsw\u00c3\u00b6chigen internen Prozessversuch f\u00c3\u00bcr 12.000 Euro. Der Prozessverantwortliche wird in dieser Sitzung namentlich benannt. Nach Abschluss werden die gemessene Fristwirkung und eine Empfehlung zum weiteren Vorgehen vorgelegt.\u00e2\u20ac\u0153\n\nNeue Software- oder Mehrjahresvertr\u00c3\u00a4ge bleiben Gegenstand eines sp\u00c3\u00a4teren Beschlusses der Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung. Daf\u00c3\u00bcr sind insbesondere Fristwirkung und laufende Kosten zu kl\u00c3\u00a4ren. Eine terminliche Dringlichkeit ist nicht dokumentiert; Gewichte oder Punktbewertungen sind nicht beschlossen.\n"}], "grading": {"expectations": [{"text": "Stellt das Fristziel f\u00c3\u00bcr 80 F\u00c3\u00a4lle und die heute m\u00c3\u00b6gliche Pr\u00c3\u00bcfung in den Mittelpunkt, statt die Frage auf einen sofortigen Anbieterkauf zu verengen.", "passed": true, "evidence": "Die heutige Entscheidungsfrage betrifft 12.000 Euro f\u00c3\u00bcr den sechsw\u00c3\u00b6chigen Prozessversuch und Benennung einer Verantwortung. Das Ziel von 80 F\u00c3\u00a4llen monatlich innerhalb von zwei Tagen gegen\u00c3\u00bcber acht Tagen steht direkt in der Grundlage; 'Entscheidend ist daher die Wirkung auf die Bearbeitungsfrist'. Eine Anbieterentscheidung wird wegen fehlender Wirkungsmessung zur\u00c3\u00bcckgestellt."}, {"text": "Ber\u00c3\u00bccksichtigt die belegte Prozessoption mit 12.000 Euro/sechs Wochen; Anbieterwerte 90.000/75.000 und Kapazit\u00c3\u00a4t 800 bleiben korrekt.", "passed": true, "evidence": "Die Ausgabe erh\u00c3\u00a4lt A 90.000 Euro einmalig, B 75.000 Euro und beide mit 800 F\u00c3\u00a4llen monatlich. Der interne Prozessversuch ist ausdr\u00c3\u00bccklich 'belegte Option f\u00c3\u00bcr 12.000 Euro \u00c3\u00bcber sechs Wochen ohne Mehrjahresbindung'. Alle Quellwerte bleiben korrekt; laufende Kosten und Fristwirkung bleiben offen."}, {"text": "Beschlussvorschlag wahrt die 20.000-Euro-Pr\u00c3\u00bcfbefugnis und trennt sp\u00c3\u00a4tere Software-/Vertragsentscheidung; keine tats\u00c3\u00a4chliche Freigabe behauptet.", "passed": true, "evidence": "Die Empfehlung ordnet den Prozessversuch dem 'heutigen Mandat von 20.000 Euro' zu. Der konkrete Auftrag ist als 'Beschlussvorschlag' markiert und zitiert; neue Software-/Mehrjahresvertr\u00c3\u00a4ge bleiben ausdr\u00c3\u00bccklich einem sp\u00c3\u00a4teren Beschluss der Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung vorbehalten. Die Freigabefrage und vorgeschlagene Beauftragung behaupten keine bereits erfolgte Freigabe."}, {"text": "Nennt fehlende Fristwirkung als entscheidungsrelevante Information und offene Umsetzung/Verantwortung, ohne eine garantierte Wirkung oder einen Besitzer zu erfinden.", "passed": true, "evidence": "Fristwirkung ist f\u00c3\u00bcr beide Anbieter und den Prozessversuch ungemessen; dies verhindert eine belastbare Anbieterentscheidung. 'Ein Prozessverantwortlicher fehlt bislang', vor Beginn ist er namentlich festzulegen. Seine k\u00c3\u00bcnftige Steuerung/Berichterstattung wird vorgeschlagen, ohne einen Besitzer zu erfinden. 'Sein Erfolg ist noch nicht belegt' verhindert eine garantierte Wirkung."}, {"text": "Zuerst eine verwendbare kompakte Vorlage innerhalb 330 W\u00c3\u00b6rter; keine erfundene Frist, Gewichtung oder Scheinobjektivit\u00c3\u00a4t.", "passed": true, "evidence": "Die Antwort beginnt mit einer unmittelbar nutzbaren Entscheidungsvorlage und der heutigen Frage. 255 W\u00c3\u00b6rter nach whitespace-getrennter Z\u00c3\u00a4hlung der Tokens mit Buchstabe oder Zahl, unter 330. Keine erfundene Frist: Versuchsdauer sechs Wochen aus Quelle, Ergebnisvorlage nach Abschluss als Vorschlag. Fehlende Dringlichkeit und nicht beschlossene Gewichte/Punktbewertungen werden ausdr\u00c3\u00bccklich benannt."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}, "word_count": {"count": 255, "method": "Whitespace-separated tokens containing at least one Unicode letter or number; complete output.md including headings and table text."}}}, {"id": "eval-4-gremium-umsetzung-ohne-zustimmung-new_skill", "prompt": "Bereite mein viermin\u00c3\u00bctiges Briefing f\u00c3\u00bcr den Lenkungsausschuss vor: Einstieg, wichtigste Einw\u00c3\u00a4nde mit kurzen m\u00c3\u00bcndlichen Antworten und Abschlussfrage. Ich bin die fachlich beratende Projektleitung. H\u00c3\u00b6chstens 300 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "# Viermin\u00c3\u00bctiges Briefing\n\n**Ziel:** Einen tragf\u00c3\u00a4higen n\u00c3\u00a4chsten Schritt innerhalb des Ausschussmandats kl\u00c3\u00a4ren. Fachliche Empfehlung: zun\u00c3\u00a4chst eine Pilotphase konkretisieren.\n\n**Zeitvorschlag:** 30 Sekunden Einstieg, 90 Sekunden Einw\u00c3\u00a4nde, zwei Minuten R\u00c3\u00bcckfragen und Abschluss.\n\n## Einstieg\n\n\u00e2\u20ac\u017eAls fachlich beratende Projektleitung empfehle ich, zun\u00c3\u00a4chst die n\u00c3\u00a4chste Pilotphase an einer Zweigstelle zu konkretisieren. Der gew\u00c3\u00bcnschte November-Rollout auf f\u00c3\u00bcnf Zweigstellen ist heute nicht entscheidungsreif: Kosten und verbindliche Umsetzungskapazit\u00c3\u00a4t fehlen. Der Ausschuss darf Pilotphasen im vorhandenen 30.000-Euro-Rahmen entscheiden; der vollst\u00c3\u00a4ndige Rollout geh\u00c3\u00b6rt zur Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung.\u00e2\u20ac\u0153\n\n## Wichtigste Einw\u00c3\u00a4nde und m\u00c3\u00bcndliche Antworten\n\n**\u00e2\u20ac\u017eWie soll Operations das \u00c3\u00bcberhaupt leisten?\u00e2\u20ac\u0153**\n\n\u00e2\u20ac\u017eF\u00c3\u00bcr Schulung und Umstellung werden 80 Stunden ben\u00c3\u00b6tigt; verf\u00c3\u00bcgbar sind derzeit 20 Stunden monatlich. Operations wurde konsultiert, hat aber keine Umsetzung zugesagt. Auch ein zus\u00c3\u00a4tzlicher Trainer ist nicht zugesagt. Welche Kapazit\u00c3\u00a4t kann Operations verbindlich \u00c3\u00bcbernehmen \u00e2\u20ac\u201c und tr\u00c3\u00a4gt sie einen engeren Pilot oder derzeit keinen Start? Davon muss unser n\u00c3\u00a4chster Schritt abh\u00c3\u00a4ngen.\u00e2\u20ac\u0153\n\n**\u00e2\u20ac\u017eDer Sponsor will f\u00c3\u00bcnf Zweigstellen im November. Warum begrenzen Sie die Bitte?\u00e2\u20ac\u0153**\n\n\u00e2\u20ac\u017eDas ist der Sponsorwunsch. Der Ausschuss kann einen vollst\u00c3\u00a4ndigen Rollout nicht freigeben. Ich empfehle, die Pilotoption zu konkretisieren und einen Rollout erst mit gekl\u00c3\u00a4rten Kosten und Kapazit\u00c3\u00a4ten der Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung vorzulegen.\u00e2\u20ac\u0153\n\n**\u00e2\u20ac\u017eFinanzen hat gepr\u00c3\u00bcft. Ist damit alles freigegeben?\u00e2\u20ac\u0153**\n\n\u00e2\u20ac\u017eFinanzen hat die Kalkulation gepr\u00c3\u00bcft, keine Rolloutfreigabe erteilt. Die Rolloutkosten sind offen. F\u00c3\u00bcr einen Pilot m\u00c3\u00bcssen wir Umfang, Verantwortung und Einhaltung des vorhandenen Rahmens kl\u00c3\u00a4ren.\u00e2\u20ac\u0153\n\n*Beleghilfe, nicht gesprochen: Fallunterlage \u00e2\u20ac\u201c Sponsorwunsch/Mandat; Operations-Kapazit\u00c3\u00a4t/Zusagen; Pilotoption/Finanzen.*\n\n## Vorabkl\u00c3\u00a4rung und Abschluss\n\n**Vorab:** Mit Operations konkrete verf\u00c3\u00bcgbare Mitwirkung kl\u00c3\u00a4ren; f\u00c3\u00bcr die Pilotoption Umfang und Verantwortung bestimmen; offene Rolloutkosten erg\u00c3\u00a4nzen. Zust\u00c3\u00a4ndigkeiten und Termin hierf\u00c3\u00bcr sind noch zu vereinbaren.\n\n**Abschlussfrage:** \u00e2\u20ac\u017eK\u00c3\u00b6nnen wir heute die Konkretisierung der Pilotoption vereinbaren und Umfang, Verantwortung, Kosten und verbindliche Operations-Mitwirkung vor einer Startentscheidung kl\u00c3\u00a4ren? Falls die Kapazit\u00c3\u00a4t auch daf\u00c3\u00bcr nicht reicht: Welchen engeren Vorbereitungsschritt halten Sie f\u00c3\u00bcr tragf\u00c3\u00a4hig?\u00e2\u20ac\u0153\n\n"}], "grading": {"expectations": [{"text": "Einstieg und Abschlussbitte respektieren Pilotmandat und getrennte Gesch\u00c3\u00a4ftsf\u00c3\u00bchrungsentscheidung, ohne den kompletten Novemberrollout als freigegeben darzustellen.", "passed": true, "evidence": "Quelle begrenzt den Ausschuss auf Pilotphasen im bestehenden 30.000-Euro-Rahmen und reserviert den vollst\u00c3\u00a4ndigen Rollout f\u00c3\u00bcr die Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung. Einstieg nennt beide Grenzen ausdr\u00c3\u00bccklich und bezeichnet den Novemberrollout wegen fehlender Kosten/Kapazit\u00c3\u00a4t als nicht entscheidungsreif. Abschluss verlangt Konkretisierung und Kl\u00c3\u00a4rungen vor einer Startentscheidung."}, {"text": "Macht 80 ben\u00c3\u00b6tigte gegen\u00c3\u00bcber 20 verf\u00c3\u00bcgbaren Stunden monatlich und fehlende Operations-Zusage als zentralen Einwand sichtbar.", "passed": true, "evidence": "Quelle: 80 Stunden n\u00c3\u00b6tig, 20 Stunden monatlich verf\u00c3\u00bcgbar, keine Operations-Zusage. Der erste Einwand nennt genau diese Zahlen und 'hat aber keine Umsetzung zugesagt'; die Frage nach verbindlicher Operations-Kapazit\u00c3\u00a4t macht dies zum entscheidenden Engpass."}, {"text": "Konsultation und Finanzpr\u00c3\u00bcfung werden nicht zu Zustimmung oder Freigabe; die beratende Projektleitung wird nicht zum Entscheider oder neutralen Moderator erkl\u00c3\u00a4rt.", "passed": true, "evidence": "Ausgabe erh\u00c3\u00a4lt 'Operations wurde konsultiert, hat aber keine Umsetzung zugesagt' und 'Finanzen hat die Kalkulation gepr\u00c3\u00bcft, keine Rolloutfreigabe erteilt'. Der Einstieg nennt ausdr\u00c3\u00bccklich 'fachlich beratende Projektleitung' und eine Empfehlung. Die Rolle wird nicht zur Entscheidungsinstanz oder neutralen Moderation erhoben."}, {"text": "Mindestens eine echte Kl\u00c3\u00a4rungsfrage erlaubt eine engere oder andere Bitte, statt bereits Umsetzung/Zustimmung vorauszusetzen; fehlende Antworten bleiben offen.", "passed": true, "evidence": "Ausgabe fragt: 'Welche Kapazit\u00c3\u00a4t kann Operations verbindlich \u00c3\u00bcbernehmen \u00e2\u20ac\u201c und tr\u00c3\u00a4gt sie einen engeren Pilot oder derzeit keinen Start?' sowie im Abschluss 'Welchen engeren Vorbereitungsschritt halten Sie f\u00c3\u00bcr tragf\u00c3\u00a4hig?' Damit kann die Bitte tats\u00c3\u00a4chlich ge\u00c3\u00a4ndert/verengt werden. 'Zust\u00c3\u00a4ndigkeiten und Termin hierf\u00c3\u00bcr sind noch zu vereinbaren' h\u00c3\u00a4lt fehlende Antworten offen."}, {"text": "Verwendbarer Einstieg, fallbezogene Einw\u00c3\u00a4nde/Antworten und Abschluss innerhalb 300 W\u00c3\u00b6rter; Raum f\u00c3\u00bcr R\u00c3\u00bcckfragen statt viermin\u00c3\u00bctigem Vollmonolog.", "passed": true, "evidence": "Whitespace-W\u00c3\u00b6rter mit mindestens einem Buchstaben oder einer Ziffer: 279, innerhalb 300. Einstieg, drei spezifische Einw\u00c3\u00a4nde mit m\u00c3\u00bcndlichen Antworten und Abschluss sind vorhanden. Zeitvorschlag: 30 Sekunden Einstieg + 90 Sekunden Einw\u00c3\u00a4nde + 120 Sekunden R\u00c3\u00bcckfragen und Abschluss = vier Minuten, mit ausdr\u00c3\u00bccklichem R\u00c3\u00bcckfragenraum."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}}}, {"id": "eval-4-gremium-umsetzung-ohne-zustimmung-old_skill", "prompt": "Bereite mein viermin\u00c3\u00bctiges Briefing f\u00c3\u00bcr den Lenkungsausschuss vor: Einstieg, wichtigste Einw\u00c3\u00a4nde mit kurzen m\u00c3\u00bcndlichen Antworten und Abschlussfrage. Ich bin die fachlich beratende Projektleitung. H\u00c3\u00b6chstens 300 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "# Viermin\u00c3\u00bctiges Briefing\n\n**Ziel:** Eine belastbare Vorbereitung der n\u00c3\u00a4chsten Pilotentscheidung vereinbaren. Als fachlich beratende Projektleitung empfehle ich den n\u00c3\u00a4chsten Schritt; Umsetzungsverantwortung muss ausdr\u00c3\u00bccklich \u00c3\u00bcbernommen werden.\n\n**Zeitvorschlag:** 30 Sekunden Einstieg, zwei Minuten Einw\u00c3\u00a4nde, 30 Sekunden Abschluss, eine Minute R\u00c3\u00bcckfragen.\n\n## Einstieg\n\n\u00e2\u20ac\u017eIch bitte darum, eine weitere Pilotphase an einer Zweigstelle im bestehenden 30.000-Euro-Rahmen entscheidungsf\u00c3\u00a4hig auszuarbeiten. F\u00c3\u00bcr den gew\u00c3\u00bcnschten Novemberrollout auf f\u00c3\u00bcnf Zweigstellen fehlen best\u00c3\u00a4tigte Umsetzungskapazit\u00c3\u00a4t und Rolloutkosten. Heute sollten wir Umfang, Verantwortung und Voraussetzungen f\u00c3\u00bcr die n\u00c3\u00a4chste Pilotentscheidung kl\u00c3\u00a4ren.\u00e2\u20ac\u0153\n\n## Wichtigste Einw\u00c3\u00a4nde und m\u00c3\u00bcndliche Antworten\n\n**\u00e2\u20ac\u017eWer soll die Umsetzung leisten?\u00e2\u20ac\u0153**\n\u00e2\u20ac\u017eF\u00c3\u00bcr Schulung und Prozessumstellung sind 80 Stunden n\u00c3\u00b6tig; verf\u00c3\u00bcgbar sind derzeit 20 Stunden monatlich. Operations wurde konsultiert, hat aber keine Schulungs- oder Umstellungszusage \u00c3\u00bcbernommen. Auch ein zus\u00c3\u00a4tzlicher Trainer ist nicht zugesagt. Vor einem Start brauchen wir einen abgestimmten Kapazit\u00c3\u00a4tsplan und eine ausdr\u00c3\u00bcckliche Verantwortungs\u00c3\u00bcbernahme.\u00e2\u20ac\u0153\n\n**\u00e2\u20ac\u017eWarum erf\u00c3\u00bcllen wir den Novemberwunsch nicht direkt?\u00e2\u20ac\u0153**\n\u00e2\u20ac\u017eDer Wunsch des Sponsors ist bekannt. Umsetzung und Kosten sind noch offen. Den vollst\u00c3\u00a4ndigen Rollout m\u00c3\u00bcsste die Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung gesondert entscheiden. Ich empfehle, zun\u00c3\u00a4chst die kleinere Pilotoption konkret zu pr\u00c3\u00bcfen.\u00e2\u20ac\u0153\n\n**\u00e2\u20ac\u017eSind Budget und Zustimmung von Finanzen nicht bereits gekl\u00c3\u00a4rt?\u00e2\u20ac\u0153**\n\u00e2\u20ac\u017eDer Ausschuss kann weitere Pilotphasen im vorhandenen 30.000-Euro-Rahmen entscheiden, aber keine zus\u00c3\u00a4tzlichen Mittel bewilligen. Finanzen hat die Kalkulation gepr\u00c3\u00bcft, keine Rolloutfreigabe erteilt. Die offenen Rolloutkosten m\u00c3\u00bcssen gesondert ermittelt werden.\u00e2\u20ac\u0153\n\n*Beleghilfe f\u00c3\u00bcr alle Antworten: bereitgestellte Fallnotiz; keine weitergehenden Zusagen dokumentiert.*\n\n## Abschlussfrage\n\n\u00e2\u20ac\u017eK\u00c3\u00b6nnen wir heute vereinbaren, die Pilotoption mit verbindlichem Umfang, best\u00c3\u00a4tigter Kapazit\u00c3\u00a4t und \u00c3\u00bcbernommener Verantwortung zur Entscheidung vorzulegen, und hierf\u00c3\u00bcr Verantwortliche und Wiedervorlagetermin festlegen?\u00e2\u20ac\u0153\n\n**Vorabkl\u00c3\u00a4rung:** Pilotumfang und Verantwortung mit den betroffenen Funktionen abstimmen; Kapazit\u00c3\u00a4tszusage und Rolloutkostensch\u00c3\u00a4tzung einholen. Diese Schritte sind Vorschl\u00c3\u00a4ge.\n\n**R\u00c3\u00bcckfalloption:** Falls heute niemand die Vorbereitung \u00c3\u00bcbernimmt, diese offene Zust\u00c3\u00a4ndigkeit festhalten und zur Kl\u00c3\u00a4rung wiedervorlegen.\n"}], "grading": {"expectations": [{"text": "Einstieg und Abschlussbitte respektieren Pilotmandat und getrennte Gesch\u00c3\u00a4ftsf\u00c3\u00bchrungsentscheidung, ohne den kompletten Novemberrollout als freigegeben darzustellen.", "passed": true, "evidence": "Quelle: Der Ausschuss entscheidet weitere Pilotphasen im vorhandenen 30.000-Euro-Rahmen; den vollst\u00c3\u00a4ndigen Rollout m\u00c3\u00bcsste die Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung gesondert entscheiden. Ausgabe: Einstieg bittet um entscheidungsf\u00c3\u00a4hige Ausarbeitung einer weiteren Pilotphase; Antwort nennt beide Mandatsgrenzen ausdr\u00c3\u00bccklich. Abschluss verlangt eine Vorlage mit gekl\u00c3\u00a4rtem Umfang, Kapazit\u00c3\u00a4t und Verantwortung, keine Novemberfreigabe."}, {"text": "Macht 80 ben\u00c3\u00b6tigte gegen\u00c3\u00bcber 20 verf\u00c3\u00bcgbaren Stunden monatlich und fehlende Operations-Zusage als zentralen Einwand sichtbar.", "passed": true, "evidence": "Quelle: F\u00c3\u00bcr Schulung und Prozessumstellung werden 80 Stunden ben\u00c3\u00b6tigt, derzeit sind 20 Stunden monatlich verf\u00c3\u00bcgbar; Operations hat keine Zusage \u00c3\u00bcbernommen. Ausgabe stellt diese Zahlen im ersten Einwand 'Wer soll die Umsetzung leisten?' gegen\u00c3\u00bcber und sagt ausdr\u00c3\u00bccklich, dass Operations keine Schulungs- oder Umstellungszusage \u00c3\u00bcbernommen hat."}, {"text": "Konsultation und Finanzpr\u00c3\u00bcfung werden nicht zu Zustimmung oder Freigabe; die beratende Projektleitung wird nicht zum Entscheider oder neutralen Moderator erkl\u00c3\u00a4rt.", "passed": true, "evidence": "Quelle: Operations wurde konsultiert; Finanzen pr\u00c3\u00bcfte die Kalkulation ohne Rolloutfreigabe. Ausgabe erh\u00c3\u00a4lt beide Abgrenzungen und bezeichnet die Rolle als 'fachlich beratende Projektleitung' mit einer Empfehlung. Kein Entscheidungs- oder Moderatorenmandat wird behauptet."}, {"text": "Mindestens eine echte Kl\u00c3\u00a4rungsfrage erlaubt eine engere oder andere Bitte, statt bereits Umsetzung/Zustimmung vorauszusetzen; fehlende Antworten bleiben offen.", "passed": false, "evidence": "Ausgabe fragt im Abschluss nur, ob die Ausarbeitung und Vorlage der bereits gew\u00c3\u00a4hlten Pilotoption vereinbart und daf\u00c3\u00bcr Verantwortliche sowie Termin festgelegt werden k\u00c3\u00b6nnen. Keine Frage pr\u00c3\u00bcft, ob eine engere oder andere Bitte sinnvoll ist. Die 'R\u00c3\u00bcckfalloption' benennt eine offene Zust\u00c3\u00a4ndigkeit, stellt aber keine solche Kl\u00c3\u00a4rungsfrage. Dies ist eine Auslassung; eine bereits zugesagte Umsetzung wird nicht falsch behauptet."}, {"text": "Verwendbarer Einstieg, fallbezogene Einw\u00c3\u00a4nde/Antworten und Abschluss innerhalb 300 W\u00c3\u00b6rter; Raum f\u00c3\u00bcr R\u00c3\u00bcckfragen statt viermin\u00c3\u00bctigem Vollmonolog.", "passed": true, "evidence": "Whitespace-W\u00c3\u00b6rter mit mindestens einem Buchstaben oder einer Ziffer: 269, somit innerhalb 300. Einstieg, drei fallbezogene Einw\u00c3\u00a4nde mit kurzen Antworten und Abschlussfrage sind vorhanden. Der Zeitvorschlag reserviert eine Minute f\u00c3\u00bcr R\u00c3\u00bcckfragen; 30 + 120 + 30 + 60 Sekunden ergeben vier Minuten."}], "summary": {"passed": 4, "failed": 1, "total": 5, "pass_rate": 0.8}}}, {"id": "eval-4-gremium-umsetzung-ohne-zustimmung-without_corporate", "prompt": "Bereite mein viermin\u00c3\u00bctiges Briefing f\u00c3\u00bcr den Lenkungsausschuss vor: Einstieg, wichtigste Einw\u00c3\u00a4nde mit kurzen m\u00c3\u00bcndlichen Antworten und Abschlussfrage. Ich bin die fachlich beratende Projektleitung. H\u00c3\u00b6chstens 300 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "# Briefing f\u00c3\u00bcr den Lenkungsausschuss\n\n## Einstieg\n\n\u00e2\u20ac\u017eDer Sponsor m\u00c3\u00b6chte im November auf f\u00c3\u00bcnf Zweigstellen ausrollen. Daf\u00c3\u00bcr fehlt heute die Entscheidungsgrundlage: Die Rolloutkosten sind offen, und Operations hat keine Schulungs- oder Umstellungszusage \u00c3\u00bcbernommen. Ben\u00c3\u00b6tigt werden 80 Stunden; verf\u00c3\u00bcgbar sind derzeit 20 Stunden monatlich. Ein zus\u00c3\u00a4tzlicher Trainer ist nicht zugesagt.\n\nMeine fachliche Empfehlung ist, zun\u00c3\u00a4chst die Option einer weiteren Pilotphase an einer Zweigstelle zu konkretisieren. Sie liegt im genannten 30.000-Euro-Rahmen. Umfang, Verantwortung und tats\u00c3\u00a4chliche Kapazit\u00c3\u00a4tsbindung m\u00c3\u00bcssen aber vor einer Startentscheidung feststehen. Den vollst\u00c3\u00a4ndigen Rollout entscheidet die Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung gesondert.\u00e2\u20ac\u0153\n\n## Wichtigste Einw\u00c3\u00a4nde und m\u00c3\u00bcndliche Antworten\n\n**\u00e2\u20ac\u017eDer Sponsor erwartet den Novembertermin.\u00e2\u20ac\u0153**\n\n\u00e2\u20ac\u017eDas ist die Zielvorstellung. Wir k\u00c3\u00b6nnen sie derzeit nicht belastbar zusagen. Daf\u00c3\u00bcr brauchen wir Rolloutkosten, gesicherte Umsetzungskapazit\u00c3\u00a4t und die Entscheidung der Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung.\u00e2\u20ac\u0153\n\n**\u00e2\u20ac\u017eOperations war doch eingebunden.\u00e2\u20ac\u0153**\n\n\u00e2\u20ac\u017eOperations wurde konsultiert. Daraus folgt keine \u00c3\u00bcbernommene Schulungs- oder Umstellungszusage. Die verf\u00c3\u00bcgbare Kapazit\u00c3\u00a4t muss konkret zugeordnet werden.\u00e2\u20ac\u0153\n\n**\u00e2\u20ac\u017eFinanzen hat die Kalkulation gepr\u00c3\u00bcft.\u00e2\u20ac\u0153**\n\n\u00e2\u20ac\u017eJa. Eine Kalkulationspr\u00c3\u00bcfung ist jedoch keine Rolloutfreigabe. Die Kosten des vollst\u00c3\u00a4ndigen Rollouts sind weiterhin offen.\u00e2\u20ac\u0153\n\n**\u00e2\u20ac\u017eDann starten wir sofort den n\u00c3\u00a4chsten Piloten.\u00e2\u20ac\u0153**\n\n\u00e2\u20ac\u017eDie Option besteht innerhalb unseres Entscheidungsrahmens. F\u00c3\u00bcr einen verantwortbaren Start fehlen noch Umfang und benannte Verantwortung sowie eine best\u00c3\u00a4tigte Kapazit\u00c3\u00a4tsplanung.\u00e2\u20ac\u0153\n\n**\u00e2\u20ac\u017eBewilligen wir zus\u00c3\u00a4tzliche Mittel, um den Termin zu halten.\u00e2\u20ac\u0153**\n\n\u00e2\u20ac\u017eZus\u00c3\u00a4tzliche Mittel darf dieser Ausschuss nicht bewilligen. Eine entsprechende Vorlage m\u00c3\u00bcsste an die zust\u00c3\u00a4ndige Entscheidungsinstanz gehen.\u00e2\u20ac\u0153\n\n## Abschlussfrage\n\n\u00e2\u20ac\u017eUnterst\u00c3\u00bctzen Sie die Vorbereitung einer entscheidungsreifen Pilotvorlage f\u00c3\u00bcr eine Zweigstelle innerhalb der 30.000 Euro, und wer \u00c3\u00bcbernimmt verbindlich die Kl\u00c3\u00a4rung von Umfang, Verantwortung und Operations-Kapazit\u00c3\u00a4t?\u00e2\u20ac\u0153\n"}], "grading": {"expectations": [{"text": "Einstieg und Abschlussbitte respektieren Pilotmandat und getrennte Gesch\u00c3\u00a4ftsf\u00c3\u00bchrungsentscheidung, ohne den kompletten Novemberrollout als freigegeben darzustellen.", "passed": true, "evidence": "Quelle: Pilotentscheidungen sind innerhalb 30.000 Euro m\u00c3\u00b6glich; Zusatzmittel sind au\u00c3\u0178erhalb des Ausschussmandats und der vollst\u00c3\u00a4ndige Rollout liegt bei der Gesch\u00c3\u00a4ftsf\u00c3\u00bchrung. Ausgabe empfiehlt die Konkretisierung der Pilotoption, verlangt Umfang, Verantwortung und Kapazit\u00c3\u00a4tsbindung vor einem Start und nennt die getrennte Gesch\u00c3\u00a4ftsf\u00c3\u00bchrungsentscheidung. Die Antwort auf zus\u00c3\u00a4tzliche Mittel verneint deren Bewilligung durch den Ausschuss."}, {"text": "Macht 80 ben\u00c3\u00b6tigte gegen\u00c3\u00bcber 20 verf\u00c3\u00bcgbaren Stunden monatlich und fehlende Operations-Zusage als zentralen Einwand sichtbar.", "passed": true, "evidence": "Quelle: 80 ben\u00c3\u00b6tigte Stunden gegen\u00c3\u00bcber 20 verf\u00c3\u00bcgbaren Stunden monatlich, Operations ohne Schulungs-/Umstellungszusage. Der Einstieg nennt beide Zahlen, fehlende Zusage und fehlenden zus\u00c3\u00a4tzlichen Trainer. Die Antwort 'Operations war doch eingebunden' grenzt Konsultation ausdr\u00c3\u00bccklich von \u00c3\u0153bernahme ab."}, {"text": "Konsultation und Finanzpr\u00c3\u00bcfung werden nicht zu Zustimmung oder Freigabe; die beratende Projektleitung wird nicht zum Entscheider oder neutralen Moderator erkl\u00c3\u00a4rt.", "passed": true, "evidence": "Quelle unterscheidet Konsultation und Finanzpr\u00c3\u00bcfung von Zusagen/Freigabe. Ausgabe sagt 'Daraus folgt keine \u00c3\u00bcbernommene Schulungs- oder Umstellungszusage' sowie 'Eine Kalkulationspr\u00c3\u00bcfung ist jedoch keine Rolloutfreigabe'. Die Projektleitung gibt eine 'fachliche Empfehlung'; eine Entscheider- oder neutrale Moderatorenrolle wird nicht behauptet."}, {"text": "Mindestens eine echte Kl\u00c3\u00a4rungsfrage erlaubt eine engere oder andere Bitte, statt bereits Umsetzung/Zustimmung vorauszusetzen; fehlende Antworten bleiben offen.", "passed": false, "evidence": "Die Abschlussfrage bittet um Unterst\u00c3\u00bctzung der festgelegten Pilotvorbereitung und fragt nach der Person f\u00c3\u00bcr Umfang, Verantwortung und Kapazit\u00c3\u00a4tskl\u00c3\u00a4rung. Sie er\u00c3\u00b6ffnet keine engere oder andere Bitte und pr\u00c3\u00bcft nicht, ob die Kapazit\u00c3\u00a4t auch einen kleineren Pilot tr\u00c3\u00a4gt. Die \u00c3\u00bcbrigen Fragen sind vorformulierte Einw\u00c3\u00a4nde mit Antworten. Dies ist eine fehlende adaptive Kl\u00c3\u00a4rungsfrage, keine falsche Umsetzungszusage."}, {"text": "Verwendbarer Einstieg, fallbezogene Einw\u00c3\u00a4nde/Antworten und Abschluss innerhalb 300 W\u00c3\u00b6rter; Raum f\u00c3\u00bcr R\u00c3\u00bcckfragen statt viermin\u00c3\u00bctigem Vollmonolog.", "passed": true, "evidence": "Whitespace-W\u00c3\u00b6rter mit mindestens einem Buchstaben oder einer Ziffer: 236, innerhalb 300. Direkter Einstieg, f\u00c3\u00bcnf kurze fallbezogene Einw\u00c3\u00a4nde/Antworten und eine Abschlussfrage sind vorhanden. Das kurze Skript und die Abschlussfrage lassen innerhalb des viermin\u00c3\u00bctigen Briefings Raum f\u00c3\u00bcr Antworten/R\u00c3\u00bcckfragen; eine genaue Sprechdauer ist am schriftlichen Artefakt nicht messbar."}], "summary": {"passed": 4, "failed": 1, "total": 5, "pass_rate": 0.8}}}, {"id": "eval-5-status-geteilte-spezialistin-new_skill", "prompt": "Schreibe den Status f\u00c3\u00bcr den Bereichsleiter und die konkrete Unterst\u00c3\u00bctzung, die wir ben\u00c3\u00b6tigen. Keine allgemeine Projektmanagementerkl\u00c3\u00a4rung. H\u00c3\u00b6chstens 280 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "**Status f\u00c3\u00bcr den Bereichsleiter \u00e2\u20ac\u201c Stand 12.10.2026**\n\nAbnahme A und Migrationstest B sind laut genehmigter Planung jeweils bis 23.10.2026 abzuschlie\u00c3\u0178en. Beide Zusagen sind mit der belegten Kapazit\u00c3\u00a4t nicht gemeinsam erf\u00c3\u00bcllbar: F\u00c3\u00bcr die Woche 19.\u00e2\u20ac\u201c23.10. stehen f\u00c3\u00bcnf Arbeitstage derselben Spezialistin bereit; A ben\u00c3\u00b6tigt vier, B drei ganze Tage. Es fehlen mindestens zwei Arbeitstage. Die Arbeiten k\u00c3\u00b6nnen durch sie nicht parallel erfolgen.\n\nDie Vorarbeiten beider Teams sind abgeschlossen. Der Kapazit\u00c3\u00a4tskonflikt besteht bereits; Ersatz ist nicht verf\u00c3\u00bcgbar. Fr\u00c3\u00bchere Berichte haben dieselbe Person f\u00c3\u00bcr beide Zusagen ber\u00c3\u00bccksichtigt. Ein zus\u00c3\u00a4tzliches Wochenende ist nicht zugesagt. Eine wirksame Gegenma\u00c3\u0178nahme ist bislang nicht belegt.\n\nEine neue Gesamtprognose ist noch nicht best\u00c3\u00a4tigt. Die genehmigten Termine bleiben die Vergleichsbasis. Welche Termine nach einer Priorisierung erreichbar sind, h\u00c3\u00a4ngt au\u00c3\u0178erdem von anschlie\u00c3\u0178ender Abnahme und weiterer Testkapazit\u00c3\u00a4t ab; diese Angaben fehlen. Eine Fortschrittsquote oder offizielle Ampelbewertung l\u00c3\u00a4sst sich daraus nicht ableiten.\n\n**Ben\u00c3\u00b6tigte Unterst\u00c3\u00bctzung**\n\nBitte entscheiden Sie als Bereichsleiter \u00c3\u00bcber die Reihenfolge. Die Projektleitungen d\u00c3\u00bcrfen die Zusage des jeweils anderen Projekts nicht aufheben. Als Entscheidungsfrist schlagen wir den 16.10.2026 vor, damit die verf\u00c3\u00bcgbare Woche verbindlich eingeplant werden kann.\n\n- **A zuerst:** Vier Tage f\u00c3\u00bcr A; f\u00c3\u00bcr B bleibt ein Tag. Zwei ben\u00c3\u00b6tigte Tage f\u00c3\u00bcr B liegen au\u00c3\u0178erhalb der verf\u00c3\u00bcgbaren Woche.\n- **B zuerst:** Drei Tage f\u00c3\u00bcr B; f\u00c3\u00bcr A bleiben zwei Tage. Zwei ben\u00c3\u00b6tigte Tage f\u00c3\u00bcr A liegen au\u00c3\u0178erhalb der verf\u00c3\u00bcgbaren Woche.\n\nMangels Angaben zu den gesch\u00c3\u00a4ftlichen Folgen ist keine sachlich begr\u00c3\u00bcndete Vorrangempfehlung m\u00c3\u00b6glich. Anschlie\u00c3\u0178end sollen beide Projektleitungen die offenen Abnahme- und Testkapazit\u00c3\u00a4ten kl\u00c3\u00a4ren und aktualisierte Terminprognosen zur Best\u00c3\u00a4tigung vorlegen. Dies ist eine vorgeschlagene Ma\u00c3\u0178nahme, noch keine Zusage.\n"}], "grading": {"expectations": [{"text": "Zeigt sieben ben\u00c3\u00b6tigte gegen\u00c3\u00bcber f\u00c3\u00bcnf verf\u00c3\u00bcgbaren Tagen, mindestens zwei Tage Kapazit\u00c3\u00a4tskonflikt; die beiden Termine sind so nicht zugleich erf\u00c3\u00bcllbar.", "passed": true, "evidence": "Quelle: A vier Tage, B drei, dieselbe Spezialistin f\u00c3\u00bcnf Tage und keine Parallelarbeit. Ausgabe nennt alle drei Werte sowie 'Beide Zusagen ... nicht gemeinsam erf\u00c3\u00bcllbar' und mindestens zwei fehlende Tage. Nachrechnung: 4 + 3 = 7; 7 - 5 = 2. Beide dargestellten Verteilungen und Restbedarfe sind richtig."}, {"text": "Die genehmigten Termine 23.10. bleiben Soll; kein erfundenes verbindliches neues Datum oder stilles Rebaselining.", "passed": true, "evidence": "Quelle: Genehmigte Termine 23.10.2026, neue Gesamtprognose nicht best\u00c3\u00a4tigt. Ausgabe erh\u00c3\u00a4lt beide Daten und ausdr\u00c3\u00bccklich 'Die genehmigten Termine bleiben die Vergleichsbasis'. Der 16.10. wird klar als vorgeschlagene Entscheidungsfrist bezeichnet, nicht als neuer verbindlicher Projektabschluss oder best\u00c3\u00a4tigtes Rebaselining."}, {"text": "Ben\u00c3\u00b6tigte Unterst\u00c3\u00bctzung richtet sich auf eine Priorit\u00c3\u00a4ts-/Reihenfolgeentscheidung des Bereichsleiters mit Folgen, nicht allein auf generisch mehr Ressourcen.", "passed": true, "evidence": "Ausgabe richtet die Unterst\u00c3\u00bctzung an die Reihenfolgeentscheidung des Bereichsleiters. Sie nennt dessen Entscheidungsrecht sowie das fehlende Recht der Projektleitungen, die jeweils andere Zusage aufzuheben. Beide Optionen zeigen die Folgen von jeweils zwei unerf\u00c3\u00bcllten Spezialistinnentagen; eine Ressourcenbitte ersetzt diese Entscheidung nicht."}, {"text": "Fehlende Folgekapazit\u00c3\u00a4t und Abh\u00c3\u00a4ngigkeiten bleiben offen; Ersatz, Wochenende, Fortschrittsquote oder bereits beschlossene Priorisierung werden nicht erfunden.", "passed": true, "evidence": "Ausgabe erh\u00c3\u00a4lt fehlenden Ersatz, nicht zugesagtes Wochenende und fehlende Angaben zur anschlie\u00c3\u0178enden Abnahme und weiteren Testkapazit\u00c3\u00a4t. Sie sagt, Fortschrittsquote/Ampel seien nicht ableitbar, keine wirksame Gegenma\u00c3\u0178nahme sei belegt und die Folgema\u00c3\u0178nahme sei vorgeschlagen, noch keine Zusage. Keine neue Folgekapazit\u00c3\u00a4t oder beschlossene Priorisierung wird erfunden."}, {"text": "Verwendbarer kompakter Status innerhalb 280 W\u00c3\u00b6rter, der Vorarbeiten von Abnahme/Testabschluss unterscheidet.", "passed": true, "evidence": "Whitespace-W\u00c3\u00b6rter mit mindestens einem Buchstaben oder einer Ziffer: 251, innerhalb 280. Der kompakte Bericht nennt abgeschlossene Vorarbeiten, unerf\u00c3\u00bcllbare Abschlusszusagen und offene Gesamtprognose getrennt und enth\u00c3\u00a4lt eine konkrete Entscheidungsbitte samt Folgen."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}}}, {"id": "eval-5-status-geteilte-spezialistin-old_skill", "prompt": "Schreibe den Status f\u00c3\u00bcr den Bereichsleiter und die konkrete Unterst\u00c3\u00bctzung, die wir ben\u00c3\u00b6tigen. Keine allgemeine Projektmanagementerkl\u00c3\u00a4rung. H\u00c3\u00b6chstens 280 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "# Status f\u00c3\u00bcr den Bereichsleiter \u00e2\u20ac\u201c Stand 12.10.2026\n\nDie genehmigten Zusagen, Abnahme A und Migrationstest B jeweils bis 23.10.2026 abzuschlie\u00c3\u0178en, sind mit der verf\u00c3\u00bcgbaren Spezialistin gemeinsam nicht erf\u00c3\u00bcllbar. F\u00c3\u00bcr den 19.\u00e2\u20ac\u201c23.10. stehen f\u00c3\u00bcnf Arbeitstage zur Verf\u00c3\u00bcgung; A ben\u00c3\u00b6tigt vier, B drei ganze Tage. Es fehlen zwei Spezialistentage. Die Arbeiten k\u00c3\u00b6nnen nicht parallel erfolgen, Ersatz ist nicht verf\u00c3\u00bcgbar. Fr\u00c3\u00bchere Berichte haben dieselbe Person f\u00c3\u00bcr beide Zusagen eingeplant.\n\nBeide Teams haben ihre Vorarbeiten abgeschlossen. Eine best\u00c3\u00a4tigte neue Gesamtprognose liegt nicht vor. Die endg\u00c3\u00bcltigen Terminfolgen h\u00c3\u00a4ngen zus\u00c3\u00a4tzlich von anschlie\u00c3\u0178ender Abnahme und weiterer Testkapazit\u00c3\u00a4t ab; diese Angaben fehlen. Eine Fortschrittsquote oder Ampelfarbe l\u00c3\u00a4sst sich aus den Unterlagen nicht belastbar ableiten.\n\n**Ben\u00c3\u00b6tigte Unterst\u00c3\u00bctzung:** Bitte entscheiden Sie als Bereichsleiter verbindlich \u00c3\u00bcber die Reihenfolge und die \u00c3\u201enderung der nachrangigen Zusage. Die Projektleitungen d\u00c3\u00bcrfen die Zusage des jeweils anderen Projekts nicht aufheben. **Vorschlag: Entscheidung bis 16.10., damit die Zuteilung vor Arbeitsbeginn am 19.10. gekl\u00c3\u00a4rt ist.**\n\n- **A zuerst:** Vier Tage f\u00c3\u00bcr A, ein verbleibender Tag f\u00c3\u00bcr B; B fehlen danach zwei Spezialistentage.\n- **B zuerst:** Drei Tage f\u00c3\u00bcr B, zwei verbleibende Tage f\u00c3\u00bcr A; A fehlen danach zwei Spezialistentage.\n\nDie Reihenfolge allein best\u00c3\u00a4tigt noch keinen Abschluss bis 23.10. Eine fachliche Empfehlung zwischen A und B ist ohne Angaben zu den Folgen der jeweiligen Verschiebung nicht belastbar. Zus\u00c3\u00a4tzliche Wochenendarbeit ist nicht zugesagt.\n\n**Vorgeschlagene Folgema\u00c3\u0178nahme:** Beide Projektleitungen kl\u00c3\u00a4ren die anschlie\u00c3\u0178ende Abnahme beziehungsweise weitere Testkapazit\u00c3\u00a4t und legen Ihnen auf Basis Ihrer Priorisierung aktualisierte Terminprognosen vor. Der Vergleich zur genehmigten Planung bleibt dabei sichtbar.\n"}], "grading": {"expectations": [{"text": "Zeigt sieben ben\u00c3\u00b6tigte gegen\u00c3\u00bcber f\u00c3\u00bcnf verf\u00c3\u00bcgbaren Tagen, mindestens zwei Tage Kapazit\u00c3\u00a4tskonflikt; die beiden Termine sind so nicht zugleich erf\u00c3\u00bcllbar.", "passed": true, "evidence": "Quelle: A vier ganze Tage plus B drei ergeben sieben ben\u00c3\u00b6tigte; f\u00c3\u00bcnf Tage einer Person sind verf\u00c3\u00bcgbar, Parallelit\u00c3\u00a4t ist ausgeschlossen. Ausgabe nennt 4, 3, 5 und zwei fehlende Spezialistentage sowie die gemeinsam nicht erf\u00c3\u00bcllbaren Zusagen. Beide Optionen rechnen richtig: A zuerst l\u00c3\u00a4sst B 2 Tage fehlen, B zuerst l\u00c3\u00a4sst A 2 Tage fehlen."}, {"text": "Die genehmigten Termine 23.10. bleiben Soll; kein erfundenes verbindliches neues Datum oder stilles Rebaselining.", "passed": true, "evidence": "Quelle: Die genehmigten Zusagen lauten jeweils 23.10.2026, keine best\u00c3\u00a4tigte neue Gesamtprognose. Ausgabe h\u00c3\u00a4lt beide Solltermine fest, nennt fehlende neue Prognose und verlangt sichtbaren Vergleich zur genehmigten Planung. Der 16.10. ist ausdr\u00c3\u00bccklich ein Entscheidungsvorschlag, kein verbindliches neues Abschlussdatum."}, {"text": "Ben\u00c3\u00b6tigte Unterst\u00c3\u00bctzung richtet sich auf eine Priorit\u00c3\u00a4ts-/Reihenfolgeentscheidung des Bereichsleiters mit Folgen, nicht allein auf generisch mehr Ressourcen.", "passed": true, "evidence": "Ausgabe bittet den Bereichsleiter verbindlich um Reihenfolge und \u00c3\u201enderung der nachrangigen Zusage; die Projektleitungen d\u00c3\u00bcrfen die jeweils andere Zusage nicht aufheben. Sie zeigt bei beiden Optionen genau zwei offene Spezialistentage und verweigert eine unbelegte Vorrangempfehlung. Dies ist eine konkrete Priorit\u00c3\u00a4tsentscheidung mit Folgen."}, {"text": "Fehlende Folgekapazit\u00c3\u00a4t und Abh\u00c3\u00a4ngigkeiten bleiben offen; Ersatz, Wochenende, Fortschrittsquote oder bereits beschlossene Priorisierung werden nicht erfunden.", "passed": true, "evidence": "Quelle: Folgeabh\u00c3\u00a4ngigkeiten unbekannt, Ersatz nicht verf\u00c3\u00bcgbar, Wochenende nicht zugesagt, keine Fortschrittsbasis oder bereits beschlossene Reihenfolge. Ausgabe h\u00c3\u00a4lt s\u00c3\u00a4mtliche Punkte offen bzw. nennt sie korrekt, insbesondere fehlende Abnahme-/Testkapazit\u00c3\u00a4ten und ungesicherte Termine nach Priorisierung. Folgearbeiten sind als Vorschlag gekennzeichnet."}, {"text": "Verwendbarer kompakter Status innerhalb 280 W\u00c3\u00b6rter, der Vorarbeiten von Abnahme/Testabschluss unterscheidet.", "passed": true, "evidence": "Whitespace-W\u00c3\u00b6rter mit mindestens einem Buchstaben oder einer Ziffer: 238, innerhalb 280. Vorarbeiten sind als abgeschlossen beschrieben; Abnahme/Testabschluss bleiben trotz m\u00c3\u00b6glicher Reihenfolge unbest\u00c3\u00a4tigt. Der Status ist kompakt und direkt f\u00c3\u00bcr den Bereichsleiter verwendbar."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}}}, {"id": "eval-5-status-geteilte-spezialistin-without_corporate", "prompt": "Schreibe den Status f\u00c3\u00bcr den Bereichsleiter und die konkrete Unterst\u00c3\u00bctzung, die wir ben\u00c3\u00b6tigen. Keine allgemeine Projektmanagementerkl\u00c3\u00a4rung. H\u00c3\u00b6chstens 280 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "# Status f\u00c3\u00bcr den Bereichsleiter \u00e2\u20ac\u201c 12.10.2026\n\nDie genehmigte Planung sieht den Abschluss der Abnahme A und des Migrationstests B bis zum 23.10.2026 vor. Mit der verf\u00c3\u00bcgbaren Spezialistin sind beide Zusagen in der Woche vom 19. bis 23.10. nicht erf\u00c3\u00bcllbar: A ben\u00c3\u00b6tigt vier, B drei ganze Arbeitstage. Dem Bedarf von sieben Tagen stehen f\u00c3\u00bcnf verf\u00c3\u00bcgbare Tage gegen\u00c3\u00bcber; es fehlen zwei. Die Arbeiten k\u00c3\u00b6nnen nicht parallel erfolgen. Ersatz und zus\u00c3\u00a4tzliche Wochenendarbeit sind nicht verf\u00c3\u00bcgbar beziehungsweise nicht zugesagt.\n\nBeide Teams haben ihre Vorarbeiten abgeschlossen. Der Engpass liegt in der gemeinsamen Spezialistin, die bisher f\u00c3\u00bcr beide Zusagen eingeplant wurde. Eine neue Gesamtprognose ist noch nicht best\u00c3\u00a4tigt. Aus dem Kapazit\u00c3\u00a4tsdefizit l\u00c3\u00a4sst sich kein belastbarer neuer Abschlusstermin ableiten, da Informationen zur anschlie\u00c3\u0178enden Abnahme und weiteren Testkapazit\u00c3\u00a4t fehlen.\n\n**Ben\u00c3\u00b6tigte Unterst\u00c3\u00bctzung:** Bitte entscheiden Sie vor Beginn der Woche verbindlich, welches Vorhaben Vorrang erh\u00c3\u00a4lt, und best\u00c3\u00a4tigen Sie die entsprechende \u00c3\u201enderung der bisherigen Priorit\u00c3\u00a4ten und Zusagen.\n\n- **A zuerst:** Vier Tage gehen an A; f\u00c3\u00bcr B bleibt ein Tag. Zwei Tage des Spezialistinnenbedarfs f\u00c3\u00bcr B bleiben offen.\n- **B zuerst:** Drei Tage gehen an B; f\u00c3\u00bcr A bleiben zwei Tage. Zwei Tage des Spezialistinnenbedarfs f\u00c3\u00bcr A bleiben offen.\n\nDie Projektleitungen d\u00c3\u00bcrfen die Zusage des jeweils anderen Projekts nicht aufheben. Nach Ihrer Entscheidung m\u00c3\u00bcssen sie die anschlie\u00c3\u0178enden Kapazit\u00c3\u00a4ten und Abh\u00c3\u00a4ngigkeiten kl\u00c3\u00a4ren und eine abgestimmte neue Terminprognose vorlegen. Bis dahin ist der gemeinsame Abschluss am 23.10. nicht belastbar.\n\n"}], "grading": {"expectations": [{"text": "Zeigt sieben ben\u00c3\u00b6tigte gegen\u00c3\u00bcber f\u00c3\u00bcnf verf\u00c3\u00bcgbaren Tagen, mindestens zwei Tage Kapazit\u00c3\u00a4tskonflikt; die beiden Termine sind so nicht zugleich erf\u00c3\u00bcllbar.", "passed": true, "evidence": "Quelle: A braucht vier ganze Tage, B drei; dieselbe Spezialistin ist f\u00c3\u00bcnf Tage verf\u00c3\u00bcgbar und kann nicht parallel arbeiten. Ausgabe nennt sieben ben\u00c3\u00b6tigte gegen\u00c3\u00bcber f\u00c3\u00bcnf verf\u00c3\u00bcgbaren Tagen, zwei fehlende Tage und beide Zusagen als gemeinsam nicht erf\u00c3\u00bcllbar. Rechnung: 4 + 3 = 7; 7 - 5 = 2. A zuerst: B verbleibt 1 von 3 Tagen; B zuerst: A verbleiben 2 von 4 Tagen."}, {"text": "Die genehmigten Termine 23.10. bleiben Soll; kein erfundenes verbindliches neues Datum oder stilles Rebaselining.", "passed": true, "evidence": "Quelle: Beide genehmigten Abschl\u00c3\u00bcsse sind der 23.10.2026; keine neue best\u00c3\u00a4tigte Gesamtprognose. Ausgabe erh\u00c3\u00a4lt dies im Einstieg und sagt, eine neue Gesamtprognose sei nicht best\u00c3\u00a4tigt und ein neuer Abschluss nicht belastbar ableitbar. Es wird kein neues verbindliches Abschlussdatum gesetzt."}, {"text": "Ben\u00c3\u00b6tigte Unterst\u00c3\u00bctzung richtet sich auf eine Priorit\u00c3\u00a4ts-/Reihenfolgeentscheidung des Bereichsleiters mit Folgen, nicht allein auf generisch mehr Ressourcen.", "passed": true, "evidence": "Ausgabe bittet den Bereichsleiter verbindlich um die Vorrang-/Reihenfolgeentscheidung und Best\u00c3\u00a4tigung der Priorit\u00c3\u00a4ts-/Zusage\u00c3\u00a4nderung. Sie zeigt die Konsequenzen beider Optionen: A zuerst l\u00c3\u00a4sst B zwei Tage fehlen, B zuerst l\u00c3\u00a4sst A zwei Tage fehlen. Die Projektleitungen d\u00c3\u00bcrfen die fremde Zusage nicht aufheben. Die Unterst\u00c3\u00bctzung ist eine autorisierte Entscheidung statt einer allgemeinen Ressourcenbitte."}, {"text": "Fehlende Folgekapazit\u00c3\u00a4t und Abh\u00c3\u00a4ngigkeiten bleiben offen; Ersatz, Wochenende, Fortschrittsquote oder bereits beschlossene Priorisierung werden nicht erfunden.", "passed": true, "evidence": "Quelle: Ersatz nicht verf\u00c3\u00bcgbar, Wochenende nicht zugesagt, anschlie\u00c3\u0178ende Abnahme und weitere Testkapazit\u00c3\u00a4t fehlen. Ausgabe erh\u00c3\u00a4lt diese Einschr\u00c3\u00a4nkungen ausdr\u00c3\u00bccklich, l\u00c3\u00a4sst neue Prognosen offen und erfindet keine Fortschrittsquote oder beschlossene Priorisierung. Die zwei Priorisierungsoptionen bleiben Vorschl\u00c3\u00a4ge zur Entscheidung."}, {"text": "Verwendbarer kompakter Status innerhalb 280 W\u00c3\u00b6rter, der Vorarbeiten von Abnahme/Testabschluss unterscheidet.", "passed": true, "evidence": "Whitespace-W\u00c3\u00b6rter mit mindestens einem Buchstaben oder einer Ziffer: 223, innerhalb 280. Der kompakte Status trennt 'Vorarbeiten abgeschlossen' vom noch nicht abgesicherten gemeinsamen Abschluss der Abnahme A und des Migrationstests B. Er enth\u00c3\u00a4lt eine konkrete Unterst\u00c3\u00bctzungsbitte und die Folgen beider Reihenfolgen."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}}}, {"id": "eval-6-protokoll-entscheidungsweg-und-nachtest-new_skill", "prompt": "Erstelle das Ergebnisprotokoll und die Ma\u00c3\u0178nahmenliste aus diesem Ausschnitt. Bitte nur das, was die Sitzung tr\u00c3\u00a4gt. H\u00c3\u00b6chstens 300 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "# Ergebnisprotokoll \u00e2\u20ac\u201c Entwurf zur Pr\u00c3\u00bcfung\n\n**Sitzung:** 12.10.2026. **Grundlage:** synthetischer Transkriptausschnitt 00:02\u00e2\u20ac\u201c00:08; weitere Sitzungsteile wurden nicht gepr\u00c3\u00bcft. Belegte Sprecher: Eva, Alex, Tom und Mia. Eva ist laut Sitzungsmandat Bereichsleiterin und entscheidet nach Beratung.\n\n## Dokumentierte Entscheidungen\n\nEva entscheidet nach Beratung, ausschlie\u00c3\u0178lich Standort Nord zu testen. Ein Rollout auf alle Standorte ist nicht beschlossen. Alex widerspricht dem Umfang, akzeptiert jedoch den Entscheidungsweg; ein Konsens ist damit nicht belegt. (00:02\u00e2\u20ac\u201c00:03)\n\nEva best\u00c3\u00a4tigt, dass es heute bei Nord bleibt. Die Entscheidung \u00c3\u00bcber S\u00c3\u00bcd wird vertagt; daf\u00c3\u00bcr gibt es keine Aufgabe. (00:08)\n\n## Ma\u00c3\u0178nahmenliste\n\n| ID | Handlung | Verantwortlich | Frist und Bedingung | Status | Fundstelle |\n| --- | --- | --- | --- | --- | --- |\n| M1 | Testbericht liefern | Tom | Freitag, 16.10.2026. Liegen die Zugangsdaten bis 14.10.2026 nicht vor, muss Tom den Liefertermin neu abstimmen. | Zugesagt; Abschluss noch offen | 00:04\u00e2\u20ac\u201c00:06 |\n\n**Vereinbarter Abschlussnachweis f\u00c3\u00bcr M1:** Fehler liegen mit Kategorie und dokumentiertem Nachtest vor. Tom \u00c3\u00bcbernimmt diese Kriterien. **Nachverfolgung:** Eva und Tom pr\u00c3\u00bcfen gemeinsam am Montag, 19.10.2026. Der Liefertermin allein belegt keinen Abschluss. (00:05\u00e2\u20ac\u201c00:06)\n\n## Offene Punkte und Vorschl\u00c3\u00a4ge\n\n- Ob die Zugangsdaten rechtzeitig vorliegen und wer sie bereitstellt, ist nicht belegt. Ein neuer Liefertermin ist gegebenenfalls abzustimmen.\n- Mias Vorschlag, zus\u00c3\u00a4tzlich S\u00c3\u00bcd aufzunehmen, ist nicht beschlossen. \u00c3\u0153ber S\u00c3\u00bcd wird sp\u00c3\u00a4ter entschieden; ein Termin ist nicht genannt. (00:07\u00e2\u20ac\u201c00:08)\n"}], "grading": {"expectations": [{"text": "Erh\u00c3\u00a4lt Evas Entscheidung nach Beratung f\u00c3\u00bcr Nord; Alex' Gegenposition wird nicht zu Konsens oder Zustimmung zum Umfang.", "passed": true, "evidence": "Quelle 00:02: Eva entscheidet nach Beratung nur Nord; 00:03: Alex ist gegen den Umfang, akzeptiert den Entscheidungsweg. Ausgabe erh\u00c3\u00a4lt beides und sagt ausdr\u00c3\u00bccklich 'ein Konsens ist damit nicht belegt'. Eva bleibt die laut Mandat entscheidende Bereichsleiterin."}, {"text": "Tom liefert am 16.10.2026 mit der Bedingung Zugang bis 14.10.; bei fehlendem Zugang Terminabstimmung, keine unbedingte Zusage.", "passed": true, "evidence": "Quelle 00:04 und 00:06: Tom liefert Freitag 16.10.; ohne Zugangsdaten bis 14.10. muss er den Liefertermin neu abstimmen. M1 f\u00c3\u00bchrt 16.10.2026 und diesen Vorbehalt gemeinsam im Feld 'Frist und Bedingung'. Die offenen Punkte nennen die gegebenenfalls notwendige neue Abstimmung, ohne Ersatztermin zu erfinden."}, {"text": "Ma\u00c3\u0178nahmenliste erh\u00c3\u00a4lt den vereinbarten Abschlussnachweis kategorisierte Fehler mit dokumentiertem Nachtest und gemeinsame Pr\u00c3\u00bcfung am 19.10.2026.", "passed": true, "evidence": "Quelle 00:05\u00e2\u20ac\u201c00:06: kategorisierte Fehler mit dokumentiertem Nachtest und gemeinsame Pr\u00c3\u00bcfung Montag 19.10. als Abschlussnachweis; Tom \u00c3\u00bcbernimmt beides. Unmittelbar unter M1 nennt die Ausgabe diesen vereinbarten Abschlussnachweis, Toms \u00c3\u0153bernahme und gemeinsame Pr\u00c3\u00bcfung durch Eva und Tom am 19.10.2026. Lieferung allein wird ausdr\u00c3\u00bccklich nicht als Abschluss gewertet."}, {"text": "S\u00c3\u00bcd bleibt sp\u00c3\u00a4terer Vorschlag/Entscheidungspunkt ohne best\u00c3\u00a4tigte Aufgabe oder Besitzer; Nord wird nicht erweitert.", "passed": true, "evidence": "Quelle 00:07\u00e2\u20ac\u201c00:08: Mia schl\u00c3\u00a4gt S\u00c3\u00bcd vor, Eva bleibt bei Nord; sp\u00c3\u00a4tere S\u00c3\u00bcdentscheidung ohne Aufgabe. Ausgabe erh\u00c3\u00a4lt dies unter Entscheidungen und offenen Vorschl\u00c3\u00a4gen. Die Ma\u00c3\u0178nahmenliste enth\u00c3\u00a4lt nur den Nord-Testbericht; S\u00c3\u00bcd erh\u00c3\u00a4lt weder Ma\u00c3\u0178nahme noch Besitzer."}, {"text": "Entwurf mit nachvollziehbaren Fundstellen zu wesentlichen Punkten, h\u00c3\u00b6chstens 300 W\u00c3\u00b6rter; keine Versand- oder Best\u00c3\u00a4tigungsbehauptung.", "passed": true, "evidence": "Whitespace-W\u00c3\u00b6rter mit mindestens einem Buchstaben oder einer Ziffer: 191, innerhalb 300. Titel 'Entwurf zur Pr\u00c3\u00bcfung', Pr\u00c3\u00bcfgrundlage 00:02\u00e2\u20ac\u201c00:08 und konkrete Zeitmarken f\u00c3\u00bcr Nord/Alex, M1/Abschluss und S\u00c3\u00bcd sind vorhanden. Kein Versand oder bereits erfolgte Best\u00c3\u00a4tigung wird behauptet."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}}}, {"id": "eval-6-protokoll-entscheidungsweg-und-nachtest-old_skill", "prompt": "Erstelle das Ergebnisprotokoll und die Ma\u00c3\u0178nahmenliste aus diesem Ausschnitt. Bitte nur das, was die Sitzung tr\u00c3\u00a4gt. H\u00c3\u00b6chstens 300 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "# Ergebnisprotokoll und Ma\u00c3\u0178nahmenliste\n\n**Entwurf aus dem vorliegenden Material \u00e2\u20ac\u201c zur Pr\u00c3\u00bcfung.**\n\n**Sitzung:** 12.10.2026; Thema: Standorttest. Pr\u00c3\u00bcfgrundlage: synthetischer Transkriptausschnitt 00:02\u00e2\u20ac\u201c00:08. Genannte Beteiligte: Eva, Alex, Tom und Mia. Eva ist laut Sitzungsmandat Bereichsleiterin und entscheidet nach Beratung.\n\n## Dokumentierte Entscheidung\n\nEva entscheidet nach Beratung, ausschlie\u00c3\u0178lich Standort Nord zu testen. Ein Rollout auf alle Standorte ist nicht beschlossen (00:02, 00:08). Alex widerspricht dem Umfang, akzeptiert aber den Entscheidungsweg; seine Zustimmung zum Umfang ist damit nicht belegt (00:03).\n\n## Ma\u00c3\u0178nahmenliste\n\n| ID | Handlung | Verantwortlich | Frist | Status | Fundstelle |\n| --- | --- | --- | --- | --- | --- |\n| M1 | Testbericht f\u00c3\u00bcr Nord liefern; Fehler mit Kategorie und dokumentiertem Nachtest vorlegen. | Tom | 16.10.2026; bei fehlenden Zugangsdaten bis 14.10.2026 muss Tom den Liefertermin neu abstimmen. | Zugesagt; Abschluss nicht belegt | 00:04\u00e2\u20ac\u201c00:06 |\n| M2 | Gemeinsam pr\u00c3\u00bcfen, ob die Abschlusskriterien erf\u00c3\u00bcllt sind. | Eva und Tom | 19.10.2026 | Vereinbart; Durchf\u00c3\u00bchrung nicht belegt | 00:05\u00e2\u20ac\u201c00:06 |\n\n**Abschlusskriterium f\u00c3\u00bcr M1:** Fehler liegen mit Kategorie und dokumentiertem Nachtest vor. Tom \u00c3\u00bcbernimmt ausdr\u00c3\u00bccklich diese Kriterien und die gemeinsame Pr\u00c3\u00bcfung. Die Lieferung des Berichts allein belegt den Abschluss nicht.\n\n## Offene Punkte und Vorschl\u00c3\u00a4ge\n\nMia schl\u00c3\u00a4gt vor, zus\u00c3\u00a4tzlich S\u00c3\u00bcd aufzunehmen (00:07). Eva h\u00c3\u00a4lt am Umfang Nord fest; \u00c3\u00bcber S\u00c3\u00bcd wird sp\u00c3\u00a4ter entschieden. Daf\u00c3\u00bcr besteht keine Aufgabe und kein Entscheidungstermin (00:08).\n\nBereitstellung der Zugangsdaten und Zust\u00c3\u00a4ndigkeit sind nicht festgelegt. Eine neue Lieferfrist ist nur bei Eintritt der genannten Bedingung abzustimmen; sie wurde noch nicht vereinbart.\n"}], "grading": {"expectations": [{"text": "Erh\u00c3\u00a4lt Evas Entscheidung nach Beratung f\u00c3\u00bcr Nord; Alex' Gegenposition wird nicht zu Konsens oder Zustimmung zum Umfang.", "passed": true, "evidence": "Quelle 00:02\u00e2\u20ac\u201c00:03 und Mandat: Eva entscheidet nach Beratung Nord; Alex lehnt Umfang ab, akzeptiert Entscheidungsweg. Ausgabe erh\u00c3\u00a4lt die Rolle und Entscheidung sowie 'seine Zustimmung zum Umfang ist damit nicht belegt'. Kein Konsens wird erg\u00c3\u00a4nzt."}, {"text": "Tom liefert am 16.10.2026 mit der Bedingung Zugang bis 14.10.; bei fehlendem Zugang Terminabstimmung, keine unbedingte Zusage.", "passed": true, "evidence": "Quelle 00:04/00:06: Liefertermin 16.10., bedingt durch Zugang bis 14.10.; andernfalls Neuabstimmung. M1 nennt beide Daten als 2026 und ausdr\u00c3\u00bccklich die n\u00c3\u00b6tige Neuabstimmung. Der Schluss h\u00c3\u00a4lt fest, dass ein neuer Termin noch nicht vereinbart wurde."}, {"text": "Ma\u00c3\u0178nahmenliste erh\u00c3\u00a4lt den vereinbarten Abschlussnachweis kategorisierte Fehler mit dokumentiertem Nachtest und gemeinsame Pr\u00c3\u00bcfung am 19.10.2026.", "passed": true, "evidence": "Quelle 00:05\u00e2\u20ac\u201c00:06: Fehler mit Kategorie und dokumentiertem Nachtest, gemeinsame Pr\u00c3\u00bcfung 19.10., Tom \u00c3\u00bcbernimmt Kriterien/Pr\u00c3\u00bcfung. M1 enth\u00c3\u00a4lt den Fehler-/Nachtestnachweis, M2 die gemeinsame Pr\u00c3\u00bcfung durch Eva und Tom am 19.10.2026. Der Absatz zum Abschlusskriterium erh\u00c3\u00a4lt Toms ausdr\u00c3\u00bcckliche \u00c3\u0153bernahme und trennt Berichtslieferung von Abschluss."}, {"text": "S\u00c3\u00bcd bleibt sp\u00c3\u00a4terer Vorschlag/Entscheidungspunkt ohne best\u00c3\u00a4tigte Aufgabe oder Besitzer; Nord wird nicht erweitert.", "passed": true, "evidence": "Quelle 00:07\u00e2\u20ac\u201c00:08: S\u00c3\u00bcd ist Mias Vorschlag, heute bleibt Nord, S\u00c3\u00bcd sp\u00c3\u00a4ter ohne Aufgabe. Ausgabe f\u00c3\u00bchrt dies als offenen Vorschlag, nennt ausdr\u00c3\u00bccklich keine Aufgabe/keinen Entscheidungstermin und weist S\u00c3\u00bcd niemandem zu. M1 bleibt der Testbericht f\u00c3\u00bcr Nord."}, {"text": "Entwurf mit nachvollziehbaren Fundstellen zu wesentlichen Punkten, h\u00c3\u00b6chstens 300 W\u00c3\u00b6rter; keine Versand- oder Best\u00c3\u00a4tigungsbehauptung.", "passed": true, "evidence": "Whitespace-W\u00c3\u00b6rter mit mindestens einem Buchstaben oder einer Ziffer: 209, innerhalb 300. 'Entwurf ... zur Pr\u00c3\u00bcfung' ist ausdr\u00c3\u00bccklich vorhanden. Entscheidung, Gegenposition, Ma\u00c3\u0178nahmen und S\u00c3\u00bcd erhalten konkrete Fundstellen 00:02, 00:03, 00:04\u00e2\u20ac\u201c00:06, 00:07\u00e2\u20ac\u201c00:08. Kein Versand oder bereits erfolgte Best\u00c3\u00a4tigung wird behauptet."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}}}, {"id": "eval-6-protokoll-entscheidungsweg-und-nachtest-without_corporate", "prompt": "Erstelle das Ergebnisprotokoll und die Ma\u00c3\u0178nahmenliste aus diesem Ausschnitt. Bitte nur das, was die Sitzung tr\u00c3\u00a4gt. H\u00c3\u00b6chstens 300 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "# Ergebnisprotokoll \u00e2\u20ac\u201c Sitzung vom 12.10.2026\n\nEva entscheidet als Bereichsleiterin nach Beratung, ausschlie\u00c3\u0178lich Standort Nord zu testen. Ein Rollout auf alle Standorte ist nicht beschlossen. Alex widerspricht dem Umfang, akzeptiert aber den Entscheidungsweg. Es liegt damit keine einvernehmliche Entscheidung vor.\n\nMias Vorschlag, zus\u00c3\u00a4tzlich Standort S\u00c3\u00bcd aufzunehmen, wird heute nicht umgesetzt. \u00c3\u0153ber S\u00c3\u00bcd soll sp\u00c3\u00a4ter entschieden werden; daraus entsteht keine Aufgabe.\n\n# Ma\u00c3\u0178nahmenliste\n\n| Ma\u00c3\u0178nahme | Verantwortlich | Termin und Abschlusskriterien |\n|---|---|---|\n| Testbericht f\u00c3\u00bcr Standort Nord liefern | Tom | Freitag, 16.10.2026. Die Ma\u00c3\u0178nahme ist abgeschlossen, wenn Fehler mit Kategorie und dokumentiertem Nachtest vorliegen. Eva und Tom pr\u00c3\u00bcfen dies gemeinsam am Montag, 19.10.2026. Tom \u00c3\u00bcbernimmt diese Kriterien und die gemeinsame Pr\u00c3\u00bcfung. |\n\n**Terminvorbehalt:** Liegen die Zugangsdaten bis zum 14.10.2026 nicht vor, muss Tom den Liefertermin neu abstimmen. Ein Ersatztermin wurde nicht festgelegt. F\u00c3\u00bcr die Bereitstellung der Zugangsdaten wurde im Ausschnitt keine Verantwortung zugewiesen.\n"}], "grading": {"expectations": [{"text": "Erh\u00c3\u00a4lt Evas Entscheidung nach Beratung f\u00c3\u00bcr Nord; Alex' Gegenposition wird nicht zu Konsens oder Zustimmung zum Umfang.", "passed": true, "evidence": "Quelle: Eva ist entscheidende Bereichsleiterin; 00:02\u00e2\u20ac\u201c00:03 enthalten Nordentscheidung nach Beratung und Alex' Umfangswiderspruch bei Akzeptanz des Entscheidungswegs. Ausgabe erh\u00c3\u00a4lt genau diese Differenz und nennt ausdr\u00c3\u00bccklich keine einvernehmliche Entscheidung."}, {"text": "Tom liefert am 16.10.2026 mit der Bedingung Zugang bis 14.10.; bei fehlendem Zugang Terminabstimmung, keine unbedingte Zusage.", "passed": true, "evidence": "Quelle 00:04/00:06: Tom 16.10., Zugang bis 14.10., sonst neue Lieferterminabstimmung. Ma\u00c3\u0178nahmenzeile nennt Freitag 16.10.2026; direkt folgende 'Terminvorbehalt'-Passage macht die Lieferung abh\u00c3\u00a4ngig vom Zugang bis 14.10.2026 und verlangt andernfalls Neuabstimmung. Kein Ersatztermin wird als vereinbart behauptet."}, {"text": "Ma\u00c3\u0178nahmenliste erh\u00c3\u00a4lt den vereinbarten Abschlussnachweis kategorisierte Fehler mit dokumentiertem Nachtest und gemeinsame Pr\u00c3\u00bcfung am 19.10.2026.", "passed": true, "evidence": "Quelle 00:05\u00e2\u20ac\u201c00:06: kategorisierte Fehler plus dokumentierter Nachtest, gemeinsame Pr\u00c3\u00bcfung Montag 19.10.; Tom \u00c3\u00bcbernimmt beides. Die Ma\u00c3\u0178nahmenzeile enth\u00c3\u00a4lt alle diese Bestandteile ausdr\u00c3\u00bccklich, mit Eva und Tom sowie 19.10.2026. Sie definiert den Abschluss anhand des Nachweises statt nur anhand des Lieferdatums."}, {"text": "S\u00c3\u00bcd bleibt sp\u00c3\u00a4terer Vorschlag/Entscheidungspunkt ohne best\u00c3\u00a4tigte Aufgabe oder Besitzer; Nord wird nicht erweitert.", "passed": true, "evidence": "Quelle 00:07\u00e2\u20ac\u201c00:08: S\u00c3\u00bcd nur Vorschlag/sp\u00c3\u00a4tere Entscheidung ohne Aufgabe. Ausgabe nennt Mias Vorschlag, die sp\u00c3\u00a4tere Entscheidung und 'daraus entsteht keine Aufgabe'. Der einzige Ma\u00c3\u0178nahmenlisteneintrag betrifft Nord; kein S\u00c3\u00bcd-Besitzer oder erweiterter Umfang wird erg\u00c3\u00a4nzt."}, {"text": "Entwurf mit nachvollziehbaren Fundstellen zu wesentlichen Punkten, h\u00c3\u00b6chstens 300 W\u00c3\u00b6rter; keine Versand- oder Best\u00c3\u00a4tigungsbehauptung.", "passed": false, "evidence": "Whitespace-W\u00c3\u00b6rter mit mindestens einem Buchstaben oder einer Ziffer: 132, somit innerhalb 300; keine Versand- oder Best\u00c3\u00a4tigungsbehauptung. Es fehlt aber eine Kennzeichnung als Entwurf und es fehlen nachvollziehbare Fundstellen zu den wesentlichen Entscheidungen/\u00c3\u201eu\u00c3\u0178erungen: keine Zeitmarken 00:02\u00e2\u20ac\u201c00:08 oder entsprechende Quellenzuordnung. 'im Ausschnitt' betrifft nur den Zugangsdatenbesitzer und ersetzt dies nicht. Zwei erforderliche Bestandteile sind ausgelassen."}], "summary": {"passed": 4, "failed": 1, "total": 5, "pass_rate": 0.8}}}, {"id": "eval-7-mail-sicht-und-ungeklaerte-eingaben-new_skill", "prompt": "Formuliere eine sachliche Kl\u00c3\u00a4rungsmail in Sie-Form an Herrn Berger. Die Behauptung \u00c3\u00bcber Absicht soll durch die belegte Sachlage ersetzt werden. Keine neue Frist und keine zus\u00c3\u00a4tzlichen Zusagen. H\u00c3\u00b6chstens 150 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "**Betreff:** Kostenpr\u00c3\u00bcfung: fehlende Eingaben und n\u00c3\u00a4chster Schritt\n\nGuten Tag Herr Berger,\n\nbitte helfen Sie uns, den aktuellen Kl\u00c3\u00a4rungsbedarf und den n\u00c3\u00a4chsten m\u00c3\u00b6glichen Schritt f\u00c3\u00bcr die Kostenpr\u00c3\u00bcfung zu bestimmen.\n\nAuf die Kostenanfrage vom 08.10.2026 haben Sie am 09.10.2026 geantwortet, dass f\u00c3\u00bcr die Pr\u00c3\u00bcfung das Mengenger\u00c3\u00bcst und die Integrationskosten fehlen. Diese Angaben wurden noch nicht \u00c3\u00bcbermittelt; wer sie liefert, ist bisher offen. Eine Budgetentscheidung liegt nicht vor. Ohne Kostenkl\u00c3\u00a4rung bleibt die n\u00c3\u00a4chste Entscheidung offen.\n\nWelche Anforderungen stellen Sie an diese Angaben, und wie l\u00c3\u00a4sst sich aus Ihrer Sicht kl\u00c3\u00a4ren, wer sie bereitstellen kann? Die Projektleitung ben\u00c3\u00b6tigt hierzu den aktuellen Stand und den n\u00c3\u00a4chsten m\u00c3\u00b6glichen Schritt.\n\nVielen Dank und freundliche Gr\u00c3\u00bc\u00c3\u0178e\n\n"}], "grading": {"expectations": [{"text": "Ersetzt Absicht/Schuld durch die belegte Anfrage 08.10. und Antwort 09.10.; behauptet nicht f\u00c3\u00a4lschlich eine ausgebliebene Antwort.", "passed": true, "evidence": "Quelle: Anfrage 08.10.2026, Antwort 09.10.2026 mit fehlenden Eingaben. Ausgabe nennt beide Daten und die tats\u00c3\u00a4chliche Antwort; die Absichts-/Schuldbehauptung ist vollst\u00c3\u00a4ndig durch die belegte Sachlage ersetzt. Keine Behauptung ausbleibender Antwort."}, {"text": "Erh\u00c3\u00a4lt fehlendes Mengenger\u00c3\u00bcst und Integrationskosten sowie offene Budgetentscheidung.", "passed": true, "evidence": "Ausgabe nennt 'Mengenger\u00c3\u00bcst und ... Integrationskosten' als fehlend, noch nicht \u00c3\u00bcbermittelt und 'Eine Budgetentscheidung liegt nicht vor'. Dies entspricht allen drei offenen Quellpunkten."}, {"text": "Konkrete Kl\u00c3\u00a4rungsbitte erm\u00c3\u00b6glicht Erg\u00c3\u00a4nzung/Korrektur und setzt keine bereits erteilte Zustimmung voraus.", "passed": true, "evidence": "Ausgabe fragt konkret nach Anforderungen an die fehlenden Angaben und 'wie l\u00c3\u00a4sst sich aus Ihrer Sicht kl\u00c3\u00a4ren, wer sie bereitstellen kann?' Das er\u00c3\u00b6ffnet Bergers Erg\u00c3\u00a4nzung/Korrektur und die Zust\u00c3\u00a4ndigkeitskl\u00c3\u00a4rung; Zustimmung wird nicht als vorhanden vorausgesetzt."}, {"text": "Keine neue Frist, Lieferzusage, erfundener Eingabenbesitzer oder Drohung; die Konsequenz f\u00c3\u00bcr die n\u00c3\u00a4chste Entscheidung bleibt sichtbar.", "passed": true, "evidence": "Quelle: Eingabenbesitzer offen, keine Frist, n\u00c3\u00a4chste Entscheidung ohne Kostenkl\u00c3\u00a4rung offen. Ausgabe erh\u00c3\u00a4lt diese Punkte und fragt nur nach einem m\u00c3\u00b6glichen Schritt. Kein Besitzer wird zugewiesen, keine Lieferung zugesagt, keine neue Frist oder Drohung genannt; die Entscheidungskonsequenz bleibt ausdr\u00c3\u00bccklich sichtbar."}, {"text": "Zuerst direkt verwendbare sachliche Sie-Mail an Herrn Berger innerhalb 150 W\u00c3\u00b6rter, keine Gespr\u00c3\u00a4chsmethodenerkl\u00c3\u00a4rung.", "passed": true, "evidence": "Whitespace-W\u00c3\u00b6rter mit mindestens einem Buchstaben oder einer Ziffer: 108, innerhalb 150. Das Artefakt beginnt unmittelbar mit Betreff und 'Guten Tag Herr Berger', enth\u00c3\u00a4lt eine sachliche Sie-Mail und Gru\u00c3\u0178formel. Keine Gespr\u00c3\u00a4chsmethodenerkl\u00c3\u00a4rung."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}}}, {"id": "eval-7-mail-sicht-und-ungeklaerte-eingaben-old_skill", "prompt": "Formuliere eine sachliche Kl\u00c3\u00a4rungsmail in Sie-Form an Herrn Berger. Die Behauptung \u00c3\u00bcber Absicht soll durch die belegte Sachlage ersetzt werden. Keine neue Frist und keine zus\u00c3\u00a4tzlichen Zusagen. H\u00c3\u00b6chstens 150 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "**Betreff:** Fehlende Eingaben zur Kostenpr\u00c3\u00bcfung kl\u00c3\u00a4ren\n\nSehr geehrter Herr Berger,\n\nzu unserer Kostenanfrage vom 08.10.2026 m\u00c3\u00b6chten wir den aktuellen Kl\u00c3\u00a4rungsbedarf festhalten. Bitte konkretisieren Sie, welche Angaben zum Mengenger\u00c3\u00bcst und zu den Integrationskosten Sie f\u00c3\u00bcr die Pr\u00c3\u00bcfung ben\u00c3\u00b6tigen.\n\nSie haben am 09.10.2026 darauf hingewiesen, dass diese Eingaben fehlen. Sie wurden bislang nicht \u00c3\u00bcbermittelt; wer sie bereitstellt, ist noch offen. Eine Budgetentscheidung liegt nicht vor. Ohne Kostenkl\u00c3\u00a4rung bleibt auch die n\u00c3\u00a4chste Entscheidung offen.\n\nDie Projektleitung ben\u00c3\u00b6tigt den aktuellen Kl\u00c3\u00a4rungsbedarf und den n\u00c3\u00a4chsten m\u00c3\u00b6glichen Schritt. Dazu sollten zun\u00c3\u00a4chst die ben\u00c3\u00b6tigten Angaben konkretisiert und die Zust\u00c3\u00a4ndigkeit f\u00c3\u00bcr deren Bereitstellung gekl\u00c3\u00a4rt werden.\n\nMit freundlichen Gr\u00c3\u00bc\u00c3\u0178en\n"}], "grading": {"expectations": [{"text": "Ersetzt Absicht/Schuld durch die belegte Anfrage 08.10. und Antwort 09.10.; behauptet nicht f\u00c3\u00a4lschlich eine ausgebliebene Antwort.", "passed": true, "evidence": "Quelle: Kostenanfrage 08.10.2026, Berger antwortete 09.10., fehlende Eingaben statt belegter Absicht. Ausgabe nennt die Anfrage und 'Sie haben am 09.10.2026 darauf hingewiesen' und enth\u00c3\u00a4lt keine Absichts-/Schuldbehauptung oder angeblich ausgebliebene Antwort."}, {"text": "Erh\u00c3\u00a4lt fehlendes Mengenger\u00c3\u00bcst und Integrationskosten sowie offene Budgetentscheidung.", "passed": true, "evidence": "Quelle: Mengenger\u00c3\u00bcst und Integrationskosten fehlen, keine Budgetentscheidung. Ausgabe nennt beide Eingaben, ihre noch fehlende \u00c3\u0153bermittlung und ausdr\u00c3\u00bccklich 'Eine Budgetentscheidung liegt nicht vor'."}, {"text": "Konkrete Kl\u00c3\u00a4rungsbitte erm\u00c3\u00b6glicht Erg\u00c3\u00a4nzung/Korrektur und setzt keine bereits erteilte Zustimmung voraus.", "passed": true, "evidence": "Ausgabe bittet konkret: 'Bitte konkretisieren Sie, welche Angaben zum Mengenger\u00c3\u00bcst und zu den Integrationskosten Sie f\u00c3\u00bcr die Pr\u00c3\u00bcfung ben\u00c3\u00b6tigen.' Dies erm\u00c3\u00b6glicht fachliche Erg\u00c3\u00a4nzung/Korrektur der ben\u00c3\u00b6tigten Angaben; eine bereits erteilte Zustimmung wird weder vorausgesetzt noch behauptet."}, {"text": "Keine neue Frist, Lieferzusage, erfundener Eingabenbesitzer oder Drohung; die Konsequenz f\u00c3\u00bcr die n\u00c3\u00a4chste Entscheidung bleibt sichtbar.", "passed": true, "evidence": "Quelle: Eingabenbesitzer offen, keine Frist dokumentiert; ohne Kostenkl\u00c3\u00a4rung bleibt n\u00c3\u00a4chste Entscheidung offen. Ausgabe h\u00c3\u00a4lt den Besitzer offen und nennt genau diese Konsequenz. 'sollten zun\u00c3\u00a4chst ... gekl\u00c3\u00a4rt werden' ist ein m\u00c3\u00b6glicher Schritt, keine Lieferzusage; es gibt keine neue Frist oder Drohung."}, {"text": "Zuerst direkt verwendbare sachliche Sie-Mail an Herrn Berger innerhalb 150 W\u00c3\u00b6rter, keine Gespr\u00c3\u00a4chsmethodenerkl\u00c3\u00a4rung.", "passed": true, "evidence": "Whitespace-W\u00c3\u00b6rter mit mindestens einem Buchstaben oder einer Ziffer: 100, innerhalb 150. Das Artefakt beginnt direkt mit Betreff, 'Sehr geehrter Herr Berger' und der sachlichen Sie-Mail, gefolgt von Gru\u00c3\u0178formel. Keine Gespr\u00c3\u00a4chsmethodenerkl\u00c3\u00a4rung."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}}}, {"id": "eval-7-mail-sicht-und-ungeklaerte-eingaben-without_corporate", "prompt": "Formuliere eine sachliche Kl\u00c3\u00a4rungsmail in Sie-Form an Herrn Berger. Die Behauptung \u00c3\u00bcber Absicht soll durch die belegte Sachlage ersetzt werden. Keine neue Frist und keine zus\u00c3\u00a4tzlichen Zusagen. H\u00c3\u00b6chstens 150 W\u00c3\u00b6rter.", "eval_id": null, "outputs": [{"name": "output.md", "type": "text", "content": "Betreff: Kl\u00c3\u00a4rungsbedarf zur Kostenanfrage vom 08.10.2026\n\nSehr geehrter Herr Berger,\n\nauf unsere Kostenanfrage vom 08.10.2026 haben Sie am 09.10. mitgeteilt, dass f\u00c3\u00bcr die Pr\u00c3\u00bcfung das Mengenger\u00c3\u00bcst und die Integrationskosten fehlen. Diese Angaben wurden bislang nicht \u00c3\u00bcbermittelt. Wer sie bereitstellt, ist noch offen. Eine Budgetentscheidung liegt derzeit nicht vor.\n\nDer aktuelle Kl\u00c3\u00a4rungsbedarf betrifft somit die fehlenden Eingaben und die Zust\u00c3\u00a4ndigkeit f\u00c3\u00bcr deren Bereitstellung. Als n\u00c3\u00a4chster Schritt kommt die Kl\u00c3\u00a4rung dieser Zust\u00c3\u00a4ndigkeit und anschlie\u00c3\u0178end die \u00c3\u0153bermittlung der Angaben f\u00c3\u00bcr Ihre Pr\u00c3\u00bcfung infrage. Ohne Kostenkl\u00c3\u00a4rung bleibt die n\u00c3\u00a4chste Entscheidung offen.\n\nBitte best\u00c3\u00a4tigen Sie, ob damit der aktuelle Kl\u00c3\u00a4rungsbedarf vollst\u00c3\u00a4ndig erfasst ist.\n\nMit freundlichen Gr\u00c3\u00bc\u00c3\u0178en\n"}], "grading": {"expectations": [{"text": "Ersetzt Absicht/Schuld durch die belegte Anfrage 08.10. und Antwort 09.10.; behauptet nicht f\u00c3\u00a4lschlich eine ausgebliebene Antwort.", "passed": true, "evidence": "Quelle: Anfrage 08.10.2026 und tats\u00c3\u00a4chliche Antwort 09.10., fehlende Eingaben. Ausgabe nennt beide Ereignisse im ersten Absatz und ersetzt die Absichts-/Schuldnotiz durch diese Sachlage. Eine ausgebliebene Antwort wird nicht behauptet."}, {"text": "Erh\u00c3\u00a4lt fehlendes Mengenger\u00c3\u00bcst und Integrationskosten sowie offene Budgetentscheidung.", "passed": true, "evidence": "Ausgabe erh\u00c3\u00a4lt Mengenger\u00c3\u00bcst und Integrationskosten als fehlende, bislang nicht \u00c3\u00bcbermittelte Angaben sowie 'Eine Budgetentscheidung liegt derzeit nicht vor', entsprechend der Quelle."}, {"text": "Konkrete Kl\u00c3\u00a4rungsbitte erm\u00c3\u00b6glicht Erg\u00c3\u00a4nzung/Korrektur und setzt keine bereits erteilte Zustimmung voraus.", "passed": true, "evidence": "Konkrete Bitte: 'Bitte best\u00c3\u00a4tigen Sie, ob damit der aktuelle Kl\u00c3\u00a4rungsbedarf vollst\u00c3\u00a4ndig erfasst ist.' Das 'ob' erm\u00c3\u00b6glicht eine Verneinung und damit Erg\u00c3\u00a4nzung/Korrektur der zuvor konkret genannten Eingaben und Zust\u00c3\u00a4ndigkeit; eine Budgetzustimmung wird nicht vorausgesetzt."}, {"text": "Keine neue Frist, Lieferzusage, erfundener Eingabenbesitzer oder Drohung; die Konsequenz f\u00c3\u00bcr die n\u00c3\u00a4chste Entscheidung bleibt sichtbar.", "passed": true, "evidence": "Quelle: Wer Eingaben liefert, ist offen; keine Frist, ohne Kostenkl\u00c3\u00a4rung keine n\u00c3\u00a4chste Entscheidung. Ausgabe erh\u00c3\u00a4lt den offenen Besitzer und die Konsequenz. Zust\u00c3\u00a4ndigkeitskl\u00c3\u00a4rung/anschlie\u00c3\u0178ende \u00c3\u0153bermittlung wird nur als infrage kommender n\u00c3\u00a4chster Schritt beschrieben. Keine neue Frist, feste Lieferzusage oder Drohung."}, {"text": "Zuerst direkt verwendbare sachliche Sie-Mail an Herrn Berger innerhalb 150 W\u00c3\u00b6rter, keine Gespr\u00c3\u00a4chsmethodenerkl\u00c3\u00a4rung.", "passed": true, "evidence": "Whitespace-W\u00c3\u00b6rter mit mindestens einem Buchstaben oder einer Ziffer: 101, innerhalb 150. Ausgabe beginnt direkt mit Betreff und 'Sehr geehrter Herr Berger', verwendet sachliche Sie-Form und schlie\u00c3\u0178t mit Gru\u00c3\u0178. Keine vorgelagerte Methodenerkl\u00c3\u00a4rung."}], "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1}}}], "previous_feedback": {}, "previous_outputs": {}, "benchmark": {"metadata": {"skill_name": "german-corporate-skills", "timestamp": "2026-10-12", "evals_run": [1, 2, 3, 4, 5, 6, 7], "runs_per_configuration": 1}, "run_summary": {"new_skill": {"pass_rate": {"mean": 0.9714285714285714, "stddev": 0.07559289460184543, "min": 0.8, "max": 1.0}}, "old_skill": {"pass_rate": {"mean": 0.9428571428571428, "stddev": 0.0975900072948533, "min": 0.8, "max": 1.0}}, "without_corporate": {"pass_rate": {"mean": 0.9142857142857143, "stddev": 0.10690449676496973, "min": 0.8, "max": 1.0}}, "delta": {"pass_rate": "+0.029"}}, "runs": [{"eval_id": 1, "configuration": "new_skill", "run_number": 1, "result": {"passed": 4, "total": 5, "failed": 1, "pass_rate": 0.8}, "notes": ["F4 verdichtet zu Wochenwerten und Details in einer Anlage; 'Beide best\u00c3\u00a4tigten Ausf\u00c3\u00a4lle separat mit Zeitpunkt, bekannter Dauer und Auswirkungen ausweisen; fehlende Angaben offen markieren.' Es wird ausdr\u00c3\u00bccklich erkl\u00c3\u00a4rt, dass die tats\u00c3\u00a4chliche Darstellung ohne Bild offenbleibt; keine Achse wird behauptet. Der vollst\u00c3\u00a4ndige Ma\u00c3\u0178stab fehlt dennoch: Die Ausgabe begr\u00c3\u00bcndet die Reparatur f\u00c3\u00bcr eine Vorabunterlage, erl\u00c3\u00a4utert aber keinen unterschiedlichen Bedarf von Monitoring und Entscheidungsvorbereitung. Dies ist eine Auslassung dieses Teilkriteriums, keine erfundene Beobachtung oder falsche Aussage."]}, {"eval_id": 1, "configuration": "old_skill", "run_number": 1, "result": {"passed": 4, "total": 5, "failed": 1, "pass_rate": 0.8}, "notes": ["F4 schl\u00c3\u00a4gt eine Wochen\u00c3\u00bcbersicht mit Details als Anlage vor und fordert, 'Die zwei best\u00c3\u00a4tigten Ausf\u00c3\u00a4lle ausdr\u00c3\u00bccklich markieren'; 'Aggregation darf sie nicht verdecken'. Au\u00c3\u0178erdem: 'kein gepr\u00c3\u00bcftes Layouturteil', ohne Achsenbehauptung. Der zusammengesetzte Ma\u00c3\u0178stab wird dennoch nicht vollst\u00c3\u00a4ndig erf\u00c3\u00bcllt: Die Ausgabe erkl\u00c3\u00a4rt nicht den unterschiedlichen Informationsbedarf einer Vorabunterlage gegen\u00c3\u00bcber Betriebsmonitoring. 'Auf die Entscheidung ausrichten' und die Verdichtung behandeln nur die Vorabunterlage. Dies ist eine ausgelassene Unterscheidung, keine falsche Aussage oder erfundene Visualpr\u00c3\u00bcfung."]}, {"eval_id": 1, "configuration": "without_corporate", "run_number": 1, "result": {"passed": 4, "total": 5, "failed": 1, "pass_rate": 0.8}, "notes": ["F4 empfiehlt eine Wochen\u00c3\u00bcbersicht f\u00c3\u00bcr eine Gesch\u00c3\u00a4ftsf\u00c3\u00bchrungsentscheidung, verschiebt Minutendaten in den Anhang und markiert 'beide best\u00c3\u00a4tigten Ausf\u00c3\u00a4lle'; fehlende Auswirkungen werden gekennzeichnet. Die Ausgabe schlie\u00c3\u0178t visuelle Pr\u00c3\u00bcfungen ohne gerenderte Folien aus und behauptet keine Achse. Es fehlt jedoch die in der gesamten Assertion geforderte inhaltliche Unterscheidung zum Betriebsmonitoring: Dessen anderer Informationsbedarf wird nicht erl\u00c3\u00a4utert. Die Reparatur ist f\u00c3\u00bcr die Vorabunterlage geeignet, aber dieser Teil des Ma\u00c3\u0178stabs ist ausgelassen; es liegt keine falsche Monitoring- oder Layoutaussage vor."]}, {"eval_id": 2, "configuration": "new_skill", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}, {"eval_id": 2, "configuration": "old_skill", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}, {"eval_id": 2, "configuration": "without_corporate", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}, {"eval_id": 3, "configuration": "new_skill", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}, {"eval_id": 3, "configuration": "old_skill", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}, {"eval_id": 3, "configuration": "without_corporate", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}, {"eval_id": 4, "configuration": "new_skill", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}, {"eval_id": 4, "configuration": "old_skill", "run_number": 1, "result": {"passed": 4, "total": 5, "failed": 1, "pass_rate": 0.8}, "notes": ["Ausgabe fragt im Abschluss nur, ob die Ausarbeitung und Vorlage der bereits gew\u00c3\u00a4hlten Pilotoption vereinbart und daf\u00c3\u00bcr Verantwortliche sowie Termin festgelegt werden k\u00c3\u00b6nnen. Keine Frage pr\u00c3\u00bcft, ob eine engere oder andere Bitte sinnvoll ist. Die 'R\u00c3\u00bcckfalloption' benennt eine offene Zust\u00c3\u00a4ndigkeit, stellt aber keine solche Kl\u00c3\u00a4rungsfrage. Dies ist eine Auslassung; eine bereits zugesagte Umsetzung wird nicht falsch behauptet."]}, {"eval_id": 4, "configuration": "without_corporate", "run_number": 1, "result": {"passed": 4, "total": 5, "failed": 1, "pass_rate": 0.8}, "notes": ["Die Abschlussfrage bittet um Unterst\u00c3\u00bctzung der festgelegten Pilotvorbereitung und fragt nach der Person f\u00c3\u00bcr Umfang, Verantwortung und Kapazit\u00c3\u00a4tskl\u00c3\u00a4rung. Sie er\u00c3\u00b6ffnet keine engere oder andere Bitte und pr\u00c3\u00bcft nicht, ob die Kapazit\u00c3\u00a4t auch einen kleineren Pilot tr\u00c3\u00a4gt. Die \u00c3\u00bcbrigen Fragen sind vorformulierte Einw\u00c3\u00a4nde mit Antworten. Dies ist eine fehlende adaptive Kl\u00c3\u00a4rungsfrage, keine falsche Umsetzungszusage."]}, {"eval_id": 5, "configuration": "new_skill", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}, {"eval_id": 5, "configuration": "old_skill", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}, {"eval_id": 5, "configuration": "without_corporate", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}, {"eval_id": 6, "configuration": "new_skill", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}, {"eval_id": 6, "configuration": "old_skill", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}, {"eval_id": 6, "configuration": "without_corporate", "run_number": 1, "result": {"passed": 4, "total": 5, "failed": 1, "pass_rate": 0.8}, "notes": ["Whitespace-W\u00c3\u00b6rter mit mindestens einem Buchstaben oder einer Ziffer: 132, somit innerhalb 300; keine Versand- oder Best\u00c3\u00a4tigungsbehauptung. Es fehlt aber eine Kennzeichnung als Entwurf und es fehlen nachvollziehbare Fundstellen zu den wesentlichen Entscheidungen/\u00c3\u201eu\u00c3\u0178erungen: keine Zeitmarken 00:02\u00e2\u20ac\u201c00:08 oder entsprechende Quellenzuordnung. 'im Ausschnitt' betrifft nur den Zugangsdatenbesitzer und ersetzt dies nicht. Zwei erforderliche Bestandteile sind ausgelassen."]}, {"eval_id": 7, "configuration": "new_skill", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}, {"eval_id": 7, "configuration": "old_skill", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}, {"eval_id": 7, "configuration": "without_corporate", "run_number": 1, "result": {"passed": 5, "total": 5, "failed": 0, "pass_rate": 1.0}, "notes": []}], "notes": ["Descriptive criterion completion on seven synthetic tasks, equally weighted; not population accuracy.", "Candidate meets one additional noncritical criterion versus v0.2.0: an adaptive clarification question.", "All three configurations fail the same ambiguous compound deck criterion; original grades remain unchanged.", "Fourteen candidate-only transfer cases are reported separately and excluded from this comparison.", "One run per task/configuration; model graders; shared filesystem with procedural read restrictions.", "Exact model id, sampling, time, tokens and full tool traces unavailable; metrics omitted, never set to zero.", "Human practitioner validation and repeatability remain untested."]}};
+
+    // ---- State ----
+    let feedbackMap = {};  // run_id -> feedback text
+    let currentIndex = 0;
+    let visitedRuns = new Set();
+
+    // ---- Init ----
+    async function init() {
+      // Load saved feedback from server — but only if this isn't a fresh
+      // iteration (indicated by previous_feedback being present). When
+      // previous feedback exists, the feedback.json on disk is stale from
+      // the prior iteration and should not pre-fill the textareas.
+      const hasPrevious = Object.keys(EMBEDDED_DATA.previous_feedback || {}).length > 0
+        || Object.keys(EMBEDDED_DATA.previous_outputs || {}).length > 0;
+      if (!hasPrevious) {
+        try {
+          const resp = await fetch("/api/feedback");
+          const data = await resp.json();
+          if (data.reviews) {
+            for (const r of data.reviews) feedbackMap[r.run_id] = r.feedback;
+          }
+        } catch { /* first run, no feedback yet */ }
+      }
+
+      document.getElementById("skill-name").textContent = EMBEDDED_DATA.skill_name;
+      showRun(0);
+
+      // Wire up feedback auto-save
+      const textarea = document.getElementById("feedback");
+      let saveTimeout = null;
+      textarea.addEventListener("input", () => {
+        clearTimeout(saveTimeout);
+        document.getElementById("feedback-status").textContent = "";
+        saveTimeout = setTimeout(() => saveCurrentFeedback(), 800);
+      });
+    }
+
+    // ---- Navigation ----
+    function navigate(delta) {
+      const newIndex = currentIndex + delta;
+      if (newIndex >= 0 && newIndex < EMBEDDED_DATA.runs.length) {
+        saveCurrentFeedback();
+        showRun(newIndex);
+      }
+    }
+
+    function updateNavButtons() {
+      document.getElementById("prev-btn").disabled = currentIndex === 0;
+      document.getElementById("next-btn").disabled =
+        currentIndex === EMBEDDED_DATA.runs.length - 1;
+    }
+
+    // ---- Show a run ----
+    function showRun(index) {
+      currentIndex = index;
+      const run = EMBEDDED_DATA.runs[index];
+
+      // Progress
+      document.getElementById("progress").textContent =
+        `${index + 1} of ${EMBEDDED_DATA.runs.length}`;
+
+      // Prompt
+      document.getElementById("prompt-text").textContent = run.prompt;
+
+      // Config badge
+      const badge = document.getElementById("config-badge");
+      const configMatch = run.id.match(/(with_skill|without_skill|new_skill|old_skill)/);
+      if (configMatch) {
+        const config = configMatch[1];
+        const isBaseline = config === "without_skill" || config === "old_skill";
+        badge.textContent = config.replace(/_/g, " ");
+        badge.className = "config-badge " + (isBaseline ? "config-baseline" : "config-primary");
+        badge.style.display = "inline-block";
+      } else {
+        badge.style.display = "none";
+      }
+
+      // Outputs
+      renderOutputs(run);
+
+      // Previous outputs
+      renderPrevOutputs(run);
+
+      // Grades
+      renderGrades(run);
+
+      // Previous feedback
+      const prevFb = (EMBEDDED_DATA.previous_feedback || {})[run.id];
+      const prevEl = document.getElementById("prev-feedback");
+      if (prevFb) {
+        document.getElementById("prev-feedback-text").textContent = prevFb;
+        prevEl.style.display = "block";
+      } else {
+        prevEl.style.display = "none";
+      }
+
+      // Feedback
+      document.getElementById("feedback").value = feedbackMap[run.id] || "";
+      document.getElementById("feedback-status").textContent = "";
+
+      updateNavButtons();
+
+      // Track visited runs and promote done button when all visited
+      visitedRuns.add(index);
+      const doneBtn = document.getElementById("done-btn");
+      if (visitedRuns.size >= EMBEDDED_DATA.runs.length) {
+        doneBtn.classList.add("ready");
+      }
+
+      // Scroll main content to top
+      document.querySelector(".main").scrollTop = 0;
+    }
+
+    // ---- Render outputs ----
+    function renderOutputs(run) {
+      const container = document.getElementById("outputs-body");
+      container.innerHTML = "";
+
+      const outputs = run.outputs || [];
+      if (outputs.length === 0) {
+        container.innerHTML = '<div class="empty-state">No output files</div>';
+        return;
+      }
+
+      for (const file of outputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        // Always show file header with download link
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const content = document.createElement("div");
+        content.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          content.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          content.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          content.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(content, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          content.appendChild(a);
+        } else if (file.type === "error") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          pre.style.color = "var(--red)";
+          content.appendChild(pre);
+        }
+
+        fileDiv.appendChild(content);
+        container.appendChild(fileDiv);
+      }
+    }
+
+    // ---- XLSX rendering via SheetJS ----
+    function renderXlsx(container, b64Data) {
+      try {
+        const raw = Uint8Array.from(atob(b64Data), c => c.charCodeAt(0));
+        const wb = XLSX.read(raw, { type: "array" });
+
+        for (let i = 0; i < wb.SheetNames.length; i++) {
+          const sheetName = wb.SheetNames[i];
+          const ws = wb.Sheets[sheetName];
+
+          if (wb.SheetNames.length > 1) {
+            const sheetLabel = document.createElement("div");
+            sheetLabel.style.cssText =
+              "font-weight:600; font-size:0.8rem; color:#b0aea5; margin-top:0.5rem; margin-bottom:0.25rem;";
+            sheetLabel.textContent = "Sheet: " + sheetName;
+            container.appendChild(sheetLabel);
+          }
+
+          const htmlStr = XLSX.utils.sheet_to_html(ws, { editable: false });
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = htmlStr;
+          container.appendChild(wrapper);
+        }
+      } catch (err) {
+        container.textContent = "Error rendering spreadsheet: " + err.message;
+      }
+    }
+
+    // ---- Grades ----
+    function renderGrades(run) {
+      const section = document.getElementById("grades-section");
+      const content = document.getElementById("grades-content");
+
+      if (!run.grading) {
+        section.style.display = "none";
+        return;
+      }
+
+      const grading = run.grading;
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("grades-arrow").classList.remove("open");
+
+      const summary = grading.summary || {};
+      const expectations = grading.expectations || [];
+
+      let html = '<div style="padding: 1rem;">';
+
+      // Summary line
+      const passRate = summary.pass_rate != null
+        ? Math.round(summary.pass_rate * 100) + "%"
+        : "?";
+      const badgeClass = summary.pass_rate >= 0.8 ? "grade-pass" : summary.pass_rate >= 0.5 ? "" : "grade-fail";
+      html += '<div class="grades-summary">';
+      html += '<span class="grade-badge ' + badgeClass + '">' + passRate + '</span>';
+      html += '<span>' + (summary.passed || 0) + ' passed, ' + (summary.failed || 0) + ' failed of ' + (summary.total || 0) + '</span>';
+      html += '</div>';
+
+      // Assertions list
+      html += '<ul class="assertion-list">';
+      for (const exp of expectations) {
+        const statusClass = exp.passed ? "pass" : "fail";
+        const statusIcon = exp.passed ? "\u2713" : "\u2717";
+        html += '<li class="assertion-item">';
+        html += '<span class="assertion-status ' + statusClass + '">' + statusIcon + '</span>';
+        html += '<span>' + escapeHtml(exp.text) + '</span>';
+        if (exp.evidence) {
+          html += '<div class="assertion-evidence">' + escapeHtml(exp.evidence) + '</div>';
+        }
+        html += '</li>';
+      }
+      html += '</ul>';
+
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    function toggleGrades() {
+      const content = document.getElementById("grades-content");
+      const arrow = document.getElementById("grades-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Previous outputs (collapsible) ----
+    function renderPrevOutputs(run) {
+      const section = document.getElementById("prev-outputs-section");
+      const content = document.getElementById("prev-outputs-content");
+      const prevOutputs = (EMBEDDED_DATA.previous_outputs || {})[run.id];
+
+      if (!prevOutputs || prevOutputs.length === 0) {
+        section.style.display = "none";
+        return;
+      }
+
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("prev-outputs-arrow").classList.remove("open");
+
+      // Render the files into the content area
+      content.innerHTML = "";
+      const wrapper = document.createElement("div");
+      wrapper.style.padding = "1rem";
+
+      for (const file of prevOutputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const fc = document.createElement("div");
+        fc.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          fc.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          fc.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          fc.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(fc, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          fc.appendChild(a);
+        }
+
+        fileDiv.appendChild(fc);
+        wrapper.appendChild(fileDiv);
+      }
+
+      content.appendChild(wrapper);
+    }
+
+    function togglePrevOutputs() {
+      const content = document.getElementById("prev-outputs-content");
+      const arrow = document.getElementById("prev-outputs-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Feedback (saved to server -> feedback.json) ----
+    function saveCurrentFeedback() {
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // Build reviews array from map
+      const reviews = [];
+      for (const [run_id, feedback] of Object.entries(feedbackMap)) {
+        if (feedback.trim()) {
+          reviews.push({ run_id, feedback, timestamp: new Date().toISOString() });
+        }
+      }
+
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reviews, status: "in_progress" }),
+      }).then(() => {
+        document.getElementById("feedback-status").textContent = "Saved";
+      }).catch(() => {
+        // Static mode or server unavailable — no-op on auto-save,
+        // feedback will be downloaded on final submit
+        document.getElementById("feedback-status").textContent = "Will download on submit";
+      });
+    }
+
+    // ---- Done ----
+    function showDoneDialog() {
+      // Save current textarea to feedbackMap (but don't POST yet)
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // POST once with status: complete — include ALL runs so the model
+      // can distinguish "no feedback" (looks good) from "not reviewed"
+      const reviews = [];
+      const ts = new Date().toISOString();
+      for (const r of EMBEDDED_DATA.runs) {
+        reviews.push({ run_id: r.id, feedback: feedbackMap[r.id] || "", timestamp: ts });
+      }
+      const payload = JSON.stringify({ reviews, status: "complete" }, null, 2);
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }).then(() => {
+        document.getElementById("done-overlay").classList.add("visible");
+      }).catch(() => {
+        // Server not available (static mode) — download as file
+        const blob = new Blob([payload], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "feedback.json";
+        a.click();
+        URL.revokeObjectURL(url);
+        document.getElementById("done-overlay").classList.add("visible");
+      });
+    }
+
+    function closeDoneDialog() {
+      // Reset status back to in_progress
+      saveCurrentFeedback();
+      document.getElementById("done-overlay").classList.remove("visible");
+    }
+
+    // ---- Toast ----
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("visible");
+      setTimeout(() => toast.classList.remove("visible"), 2000);
+    }
+
+    // ---- Keyboard nav ----
+    document.addEventListener("keydown", (e) => {
+      // Don't capture when typing in textarea
+      if (e.target.tagName === "TEXTAREA") return;
+
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        navigate(-1);
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        navigate(1);
+      }
+    });
+
+    // ---- Util ----
+    function getDownloadUri(file) {
+      if (file.data_uri) return file.data_uri;
+      if (file.data_b64) return "data:application/octet-stream;base64," + file.data_b64;
+      if (file.type === "text") return "data:text/plain;charset=utf-8," + encodeURIComponent(file.content);
+      return "#";
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ---- View switching ----
+    function switchView(view) {
+      document.querySelectorAll(".view-tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".view-panel").forEach(p => p.classList.remove("active"));
+      document.querySelector(`[onclick="switchView('${view}')"]`).classList.add("active");
+      document.getElementById("panel-" + view).classList.add("active");
+    }
+
+    // ---- Benchmark rendering ----
+    function renderBenchmark() {
+      const data = EMBEDDED_DATA.benchmark;
+      if (!data) return;
+
+      // Show the tabs
+      document.getElementById("view-tabs").style.display = "flex";
+
+      const container = document.getElementById("benchmark-content");
+      const summary = data.run_summary || {};
+      const metadata = data.metadata || {};
+      const notes = data.notes || [];
+
+      let html = "";
+
+      // Header
+      html += "<h2 style='font-family: Poppins, sans-serif; margin-bottom: 0.5rem;'>Benchmark Results</h2>";
+      html += "<p style='color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem;'>";
+      if (metadata.skill_name) html += "<strong>" + escapeHtml(metadata.skill_name) + "</strong> &mdash; ";
+      if (metadata.timestamp) html += metadata.timestamp + " &mdash; ";
+      if (metadata.evals_run) html += "Evals: " + metadata.evals_run.join(", ") + " &mdash; ";
+      html += (metadata.runs_per_configuration || "?") + " runs per configuration";
+      html += "</p>";
+
+      // Summary table
+      html += '<table class="benchmark-table">';
+
+      function fmtStat(stat, pct) {
+        if (!stat) return "—";
+        const suffix = pct ? "%" : "";
+        const m = pct ? (stat.mean * 100).toFixed(0) : stat.mean.toFixed(1);
+        const s = pct ? (stat.stddev * 100).toFixed(0) : stat.stddev.toFixed(1);
+        return m + suffix + " ± " + s + suffix;
+      }
+
+      function deltaClass(val) {
+        if (!val) return "";
+        const n = parseFloat(val);
+        if (n > 0) return "benchmark-delta-positive";
+        if (n < 0) return "benchmark-delta-negative";
+        return "";
+      }
+
+      // Discover config names dynamically (everything except "delta")
+      const configs = Object.keys(summary).filter(k => k !== "delta");
+      const configA = configs[0] || "config_a";
+      const configB = configs[1] || "config_b";
+      const labelA = configA.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const labelB = configB.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const a = summary[configA] || {};
+      const b = summary[configB] || {};
+      const delta = summary.delta || {};
+
+      html += "<thead><tr><th>Metric</th><th>" + escapeHtml(labelA) + "</th><th>" + escapeHtml(labelB) + "</th><th>Delta</th></tr></thead>";
+      html += "<tbody>";
+
+      html += "<tr><td><strong>Pass Rate</strong></td>";
+      html += "<td>" + fmtStat(a.pass_rate, true) + "</td>";
+      html += "<td>" + fmtStat(b.pass_rate, true) + "</td>";
+      html += '<td class="' + deltaClass(delta.pass_rate) + '">' + (delta.pass_rate || "—") + "</td></tr>";
+
+      // Time (only show row if data exists)
+      if (a.time_seconds || b.time_seconds) {
+        html += "<tr><td><strong>Time (s)</strong></td>";
+        html += "<td>" + fmtStat(a.time_seconds, false) + "</td>";
+        html += "<td>" + fmtStat(b.time_seconds, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.time_seconds) + '">' + (delta.time_seconds ? delta.time_seconds + "s" : "—") + "</td></tr>";
+      }
+
+      // Tokens (only show row if data exists)
+      if (a.tokens || b.tokens) {
+        html += "<tr><td><strong>Tokens</strong></td>";
+        html += "<td>" + fmtStat(a.tokens, false) + "</td>";
+        html += "<td>" + fmtStat(b.tokens, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.tokens) + '">' + (delta.tokens || "—") + "</td></tr>";
+      }
+
+      html += "</tbody></table>";
+
+      // Per-eval breakdown (if runs data available)
+      const runs = data.runs || [];
+      if (runs.length > 0) {
+        const evalIds = [...new Set(runs.map(r => r.eval_id))].sort((a, b) => a - b);
+
+        html += "<h3 style='font-family: Poppins, sans-serif; margin-bottom: 0.75rem;'>Per-Eval Breakdown</h3>";
+
+        const hasTime = runs.some(r => r.result && r.result.time_seconds != null);
+        const hasErrors = runs.some(r => r.result && r.result.errors > 0);
+
+        for (const evalId of evalIds) {
+          const evalRuns = runs.filter(r => r.eval_id === evalId);
+          const evalName = evalRuns[0] && evalRuns[0].eval_name ? evalRuns[0].eval_name : "Eval " + evalId;
+
+          html += "<h4 style='font-family: Poppins, sans-serif; margin: 1rem 0 0.5rem; color: var(--text);'>" + escapeHtml(evalName) + "</h4>";
+          html += '<table class="benchmark-table">';
+          html += "<thead><tr><th>Config</th><th>Run</th><th>Pass Rate</th>";
+          if (hasTime) html += "<th>Time (s)</th>";
+          if (hasErrors) html += "<th>Crashes During Execution</th>";
+          html += "</tr></thead>";
+          html += "<tbody>";
+
+          // Group by config and render with average rows
+          const configGroups = [...new Set(evalRuns.map(r => r.configuration))];
+          for (let ci = 0; ci < configGroups.length; ci++) {
+            const config = configGroups[ci];
+            const configRuns = evalRuns.filter(r => r.configuration === config);
+            if (configRuns.length === 0) continue;
+
+            const rowClass = ci === 0 ? "benchmark-row-with" : "benchmark-row-without";
+            const configLabel = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+            for (const run of configRuns) {
+              const r = run.result || {};
+              const prClass = r.pass_rate >= 0.8 ? "benchmark-delta-positive" : r.pass_rate < 0.5 ? "benchmark-delta-negative" : "";
+              html += '<tr class="' + rowClass + '">';
+              html += "<td>" + configLabel + "</td>";
+              html += "<td>" + run.run_number + "</td>";
+              html += '<td class="' + prClass + '">' + ((r.pass_rate || 0) * 100).toFixed(0) + "% (" + (r.passed || 0) + "/" + (r.total || 0) + ")</td>";
+              if (hasTime) html += "<td>" + (r.time_seconds != null ? r.time_seconds.toFixed(1) : "—") + "</td>";
+              if (hasErrors) html += "<td>" + (r.errors || 0) + "</td>";
+              html += "</tr>";
+            }
+
+            // Average row
+            const rates = configRuns.map(r => (r.result || {}).pass_rate || 0);
+            const avgRate = rates.reduce((a, b) => a + b, 0) / rates.length;
+            const avgPrClass = avgRate >= 0.8 ? "benchmark-delta-positive" : avgRate < 0.5 ? "benchmark-delta-negative" : "";
+            html += '<tr class="benchmark-row-avg ' + rowClass + '">';
+            html += "<td>" + configLabel + "</td>";
+            html += "<td>Avg</td>";
+            html += '<td class="' + avgPrClass + '">' + (avgRate * 100).toFixed(0) + "%</td>";
+            if (hasTime) {
+              const times = configRuns.map(r => (r.result || {}).time_seconds).filter(t => t != null);
+              html += "<td>" + (times.length ? (times.reduce((a, b) => a + b, 0) / times.length).toFixed(1) : "—") + "</td>";
+            }
+            if (hasErrors) html += "<td></td>";
+            html += "</tr>";
+          }
+          html += "</tbody></table>";
+
+          // Per-assertion detail for this eval
+          const runsWithExpectations = {};
+          for (const config of configGroups) {
+            runsWithExpectations[config] = evalRuns.filter(r => r.configuration === config && r.expectations && r.expectations.length > 0);
+          }
+          const hasAnyExpectations = Object.values(runsWithExpectations).some(runs => runs.length > 0);
+          if (hasAnyExpectations) {
+            // Collect all unique assertion texts across all configs
+            const allAssertions = [];
+            const seen = new Set();
+            for (const config of configGroups) {
+              for (const run of runsWithExpectations[config]) {
+                for (const exp of (run.expectations || [])) {
+                  if (!seen.has(exp.text)) {
+                    seen.add(exp.text);
+                    allAssertions.push(exp.text);
+                  }
+                }
+              }
+            }
+
+            html += '<table class="benchmark-table" style="margin-top: 0.5rem;">';
+            html += "<thead><tr><th>Assertion</th>";
+            for (const config of configGroups) {
+              const label = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+              html += "<th>" + escapeHtml(label) + "</th>";
+            }
+            html += "</tr></thead><tbody>";
+
+            for (const assertionText of allAssertions) {
+              html += "<tr><td>" + escapeHtml(assertionText) + "</td>";
+
+              for (const config of configGroups) {
+                html += "<td>";
+                for (const run of runsWithExpectations[config]) {
+                  const exp = (run.expectations || []).find(e => e.text === assertionText);
+                  if (exp) {
+                    const cls = exp.passed ? "benchmark-delta-positive" : "benchmark-delta-negative";
+                    const icon = exp.passed ? "\u2713" : "\u2717";
+                    html += '<span class="' + cls + '" title="Run ' + run.run_number + ': ' + escapeHtml(exp.evidence || "") + '">' + icon + "</span> ";
+                  } else {
+                    html += "— ";
+                  }
+                }
+                html += "</td>";
+              }
+              html += "</tr>";
+            }
+            html += "</tbody></table>";
+          }
+        }
+      }
+
+      // Notes
+      if (notes.length > 0) {
+        html += '<div class="benchmark-notes">';
+        html += "<h3>Analysis Notes</h3>";
+        html += "<ul>";
+        for (const note of notes) {
+          html += "<li>" + escapeHtml(note) + "</li>";
+        }
+        html += "</ul></div>";
+      }
+
+      container.innerHTML = html;
+    }
+
+    // ---- Start ----
+    init();
+    renderBenchmark();
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "expectations": [
+    {
+      "text": "Ersetzt den schwer verständlichen Titel durch einen klaren Titel zur Buchung eines Besprechungsraums.",
+      "passed": true,
+      "evidence": "Source title is \"Prozedur zur Initiierung einer Raumreservierung\" and the stated purpose is booking a meeting room. Output replaces it with the clear title \"Raum buchen\", directly matched by the three booking steps."
+    },
+    {
+      "text": "Bewahrt die drei sichtbaren Systembeschriftungen Arbeitsplatz, Raum und Bestätigen sowie die Reihenfolge der Buchungsschritte.",
+      "passed": true,
+      "evidence": "Source explicitly identifies the labels \"Arbeitsplatz\", \"Raum\", and \"Bestätigen\" and their order. Output steps 1-3 retain all three exact labels in that order: open Arbeitsplatz, choose Raum plus time window, then click Bestätigen."
+    },
+    {
+      "text": "Liefert direkt verwendbaren Folientext und einen kurzen Satz zur Vollständigkeit für eine dreiminütige Einweisung.",
+      "passed": true,
+      "evidence": "Output is directly usable slide text: title, three numbered steps, and the automatic-calendar completion note. Its one-sentence completeness assessment says \"Inhaltlich fehlt für die dreiminütige Einweisung nach dieser Ergänzung nichts Wesentliches\" and confines the assessment to the supplied slide text."
+    },
+    {
+      "text": "Erfindet weder eine zusätzliche Freigabe noch einen weiteren Pflichtschritt; behauptet keine manuell nötige Kalenderübertragung.",
+      "passed": true,
+      "evidence": "Source: reservation appears automatically in the personal calendar after Bestätigen, and there is no additional approval. Output repeats \"erscheint automatisch in deinem persönlichen Kalender\" and \"Eine weitere Freigabe ist nicht nötig\". It adds no mandatory step or manual calendar transfer."
+    },
+    {
+      "text": "Behandelt die Folie als kurze Anleitung; fordert keinen Managementbeschluss, Business Case oder umfassenden Foliensatz und bleibt innerhalb von 120 Wörtern.",
+      "passed": true,
+      "evidence": "Independently counted 59 eligible whitespace tokens, below 120. Output consists of a short booking instruction and one completeness sentence; it contains no management decision, business case, or request for a larger deck."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "word_count": 59,
+  "word_count_method": "Whitespace-delimited tokens containing at least one Unicode letter or number; complete output.md including headings and table cells.",
+  "claims": [
+    {
+      "evidence": "Both facts are explicitly supplied in the source; the output retains all three visible system labels.",
+      "claim": "The booking automatically appears in the personal calendar and requires no further approval",
+      "type": "factual",
+      "verified": true
+    }
+  ],
+  "review_type": "Independent model review against original assertions, raw source, and supplied output; not human validation."
+}

@@ -1,0 +1,48 @@
+{
+  "expectations": [
+    {
+      "text": "Begrenzt die Rolloutschlussfolgerung aus F2/F3 durch Pilotumfang, Auswahl und fehlende Betriebsdaten; begründet die fehlende Verbindung der Argumentation.",
+      "passed": true,
+      "evidence": "F2/F3 sind ausdrücklich verbunden: 'Der Pilot umfasst einen Standort, 20 freiwillige Nutzer und sechs Wochen'; Kontrollgruppe, Ausnahmen und Nacharbeit fehlen, 'weder die Ursache noch der Gesamtnutzen gesichert'. F3 wird durch 'Übertragbarkeit und Wirtschaftlichkeit offen' ersetzt; Betriebs- und Integrationskosten sowie weitere Standortbedingungen werden als fehlende Entscheidungsgrundlagen verlangt. Das entspricht Quelle F2/F3 und erklärt, warum die Pilotbeobachtung den Rollout auf 15 Standorte nicht trägt."
+    },
+    {
+      "text": "Erhält oder rechnet die Zeitänderung als 30 Prozent; behauptet keine gesicherte kausale Wirkung oder Cash-Einsparung.",
+      "passed": true,
+      "evidence": "Ausgabe: '12 auf 8,4 Minuten entsprechen 3,6 Minuten beziehungsweise 30 % weniger Zeit pro Fall.' Nachrechnung: (12 - 8,4) / 12 = 0,30. 'Weder die Ursache noch der Gesamtnutzen gesichert' grenzt Kausalität ab; eine gesicherte Cash-Einsparung wird nicht behauptet."
+    },
+    {
+      "text": "Reparatur für F4 unterscheidet Vorabunterlage und Monitoring; Verdichtung erhält die zwei Ausfälle, ohne ein gesehenes Layout oder eine Achse zu behaupten.",
+      "passed": false,
+      "evidence": "F4 schlägt eine Wochenübersicht mit Details als Anlage vor und fordert, 'Die zwei bestätigten Ausfälle ausdrücklich markieren'; 'Aggregation darf sie nicht verdecken'. Außerdem: 'kein geprüftes Layouturteil', ohne Achsenbehauptung. Der zusammengesetzte Maßstab wird dennoch nicht vollständig erfüllt: Die Ausgabe erklärt nicht den unterschiedlichen Informationsbedarf einer Vorabunterlage gegenüber Betriebsmonitoring. 'Auf die Entscheidung ausrichten' und die Verdichtung behandeln nur die Vorabunterlage. Dies ist eine ausgelassene Unterscheidung, keine falsche Aussage oder erfundene Visualprüfung."
+    },
+    {
+      "text": "Ersetzt auf F5 die unbelegte Einigkeit/Startbehauptung durch einen als Vorschlag erkennbaren, von fehlenden Nachweisen begrenzten nächsten Schritt.",
+      "passed": true,
+      "evidence": "F1/F5 nennt die Zustimmung 'nicht dokumentiert' und korrigiert den Reviewstatus gemäß Quelle F5. Der eigenständige F5-Text steht unter 'Vorschlag für den Abschluss' und empfiehlt, den Rollout vorerst zurückzustellen und Zeitmessung, Vergleichsbasis, weitere Standortbedingungen und Kosten nachzuliefern. Abschließend ausdrücklich: 'Zustimmung und Umsetzungsauftrag liegen noch nicht vor.'"
+    },
+    {
+      "text": "Drei priorisierte Änderungen mit eindeutigen Folienbezügen und verwendbarer Abschlussidee; höchstens 350 Wörter, keine erfundenen Verantwortlichen oder Mittel.",
+      "passed": true,
+      "evidence": "Genau drei geordnete Änderungen mit P1/P1/P2 und Folienbezügen F1/F5, F2/F3, F4; verwendbarer Abschlussvorschlag für F5. 318 Wörter nach whitespace-getrennter Zählung nur von Tokens mit Buchstabe oder Zahl, somit unter 350. Verantwortliche, Mittel und Termin werden offen ausgewiesen oder zur Festlegung vorgeschlagen, nicht erfunden."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "pass_rate": 0.8
+  },
+  "word_count": {
+    "count": 318,
+    "method": "Whitespace-separated tokens containing at least one Unicode letter or number; complete output.md including headings and table text."
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Reparatur für F4 unterscheidet Vorabunterlage und Monitoring; Verdichtung erhält die zwei Ausfälle, ohne ein gesehenes Layout oder eine Achse zu behaupten.",
+        "reason": "Die Formulierung lässt offen, ob passende Verdichtung für die Vorabunterlage bereits eine Unterscheidung zu Monitoring darstellt oder ob der unterschiedliche Informationsbedarf beider Zwecke erläutert werden muss. Hier wurde die gesamte Assertion geprüft und eine nur für die Vorabunterlage begründete Reparatur als Auslassung dieses Teilkriteriums gewertet. Ein expliziter semantischer Maßstab würde die Reproduzierbarkeit erhöhen, ohne ein bestimmtes Schlagwort zu verlangen."
+      }
+    ],
+    "overall": "Sonstige Teilkriterien sind aus Text und Quelle direkt prüfbar; fehlende Renderings begrenzen jede visuelle Aussage."
+  }
+}

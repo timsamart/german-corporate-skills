@@ -4,7 +4,7 @@ Seven agent skills for managers, project leads, and consultants working with Ger
 
 [German README with the full catalogue](README.md) · [Worked presentation review](skills/praesentations-review/references/beispiel.md)
 
-The collection follows a practical sequence: examine a proposal, prepare a decision, discuss it, and record what happens next. Each skill is independently installable and includes a synthetic worked example. German is the default output language; explicit user instructions take precedence.
+The collection follows a practical sequence: examine a proposal, prepare a decision, discuss it, and record what happens next. Each skill is independently installable and includes the original worked example plus an additional work scenario and a small counterexample. German is the default output language; explicit user instructions take precedence. The [seven copyable prompts](docs/schnellstart.md) provide a quick entry point.
 
 ## Try presentation review
 
@@ -33,13 +33,15 @@ npx skills add timsamart/german-corporate-skills
 
 Alternatively copy complete skill folders into your agent's supported location. For Codex this can be `.agents/skills/`; for Claude Code, `.claude/skills/`. See [Codex](https://learn.chatgpt.com/docs/build-skills) and [Claude Code](https://code.claude.com/docs/en/skills) documentation for discovery and invocation.
 
+The [release downloads](https://github.com/timsamart/german-corporate-skills/releases) also provide ZIPs for individual skills and the full collection. Extract and copy the complete desired folders; the archives contain instructions, references and the MIT license, with no automatic installer.
+
 The skills require no repository-specific services or API keys. Your agent needs appropriate reading/rendering tools for PPTX, PDF, or spreadsheet work. Text-only inputs support content review; visual judgments require rendered slides.
 
 ## Release status
 
-Version 0.2.0 provides seven skills with worked examples and scoped source notes, three primary-source [research dossiers](docs/research/README.md), and the complete [creation process](docs/skill-lifecycle.md).
+Version 0.3.0 adds practical methods for benefit realization, decision framing, capacity conflicts, argument structure and agreed follow-up. The [method notes](docs/research/methods-v0.3.0.md) identify the actual inspected articles, summaries and samples, while the [book analysis](docs/research/books-for-next-version.md) identifies where deeper reading remains useful.
 
-The repository includes **28 actual task outputs**: seven development tasks under three configurations (released v0.1.0, revised skill and ordinary prompting), plus seven previously reserved transfer tasks. Separate model contexts graded the outputs against sources. The evidence records specific completeness differences and strong baselines; real practitioner validation remains pending. See [results and limitations](docs/qualitaet.md), [saved evidence](evals/results/v0.2.0/README.md) and [contribution guidance](CONTRIBUTING.md).
+The [quality report](docs/qualitaet.md) records the actual evaluation and its limits. Outputs, sources, grades and frozen skill versions are retained. The [v0.2.0 evidence](evals/results/v0.2.0/README.md), including 28 actual task outputs, remains available. Real practitioner validation is still pending. See [contribution guidance](CONTRIBUTING.md).
 
 CI validates packaging and recounts saved grades. It does not run fresh model evaluations. The original 16 short cases remain supplementary regression specifications.
 

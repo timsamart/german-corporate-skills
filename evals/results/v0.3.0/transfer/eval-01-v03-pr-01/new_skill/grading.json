@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Richtet die Präsentation auf die heute tatsächlich zulässige Pilotentscheidung über 50.000 Euro aus und kennzeichnet die Rolloutfreigabe von 240.000 Euro als Entscheidung des Investitionsausschusses am 5. November.",
+      "passed": true,
+      "evidence": "Source: the Portfolioausschuss may approve pilots up to 60.000 Euro netto; the pilot is independent and costs 50.000 Euro; introduction costs 240.000 Euro and belongs to the Investitionsausschuss on 5. November. Output P1 identifies the wrongly requested 240.000 Euro, states that the later introduction belongs to the Investitionsausschuss, replaces F1 with \"Heute: Pilotfreigabe von 50.000 Euro netto\", and says \"Der Termin 5. November ist mit dem Pilotabschluss abzugleichen\". The replacement resolution authorizes only the independent pilot, with no introduction commitment."
+    },
+    {
+      "text": "Erkennt den gemeinsamen Ressourcenengpass: 14 plus 12 ergeben 26 Personentage bei 20 zugesagten Personentagen, also sechs fehlende Personentage; stellt parallelen Start ohne Lösung nicht als abgesichert dar.",
+      "passed": true,
+      "evidence": "Source F3: A needs 14 and B 12 days of the same specialist, with 20 total days committed and no extra capacity. Independently computed: 14 + 12 = 26; 26 - 20 = 6. Output P2 states \"zusammen 26 Personentage; zugesagt sind 20. Es fehlen sechs Personentage desselben Spezialisten\" and requires a binding capacity commitment before parallel start, otherwise a scope or timetable adjustment."
+    },
+    {
+      "text": "Bezeichnet sechs Befragungen und vier Pilotwünsche nicht als nachgewiesene Nutzerakzeptanz.",
+      "passed": true,
+      "evidence": "Source F4: six users were surveyed, four want a pilot and two a demonstration; neither practical use nor acceptance measurement has occurred. Output P3 calls these responses \"Interesse, aber keine praktische Akzeptanz\" and changes the title to \"Erste Nutzerreaktionen sprechen für einen Pilot\", with actual usage and acceptance explicitly still untested."
+    },
+    {
+      "text": "Liefert drei priorisierte Befunde mit konkreten Änderungen an identifizierbaren vorhandenen Folien, einschließlich einer verwendbaren Pilot-Beschlussformulierung.",
+      "passed": true,
+      "evidence": "Output has three numbered findings tied to F1/F5, F3, and F4, each with an immediate replacement or addition to an existing slide. The first supplies a quoted resolution beginning \"Freigabe eines eigenständigen vierwöchigen Piloten mit Stream A und B für 50.000 Euro netto\", conditional on capacity and expressly without an introduction commitment. The order addresses decision authority, the blocking shared resource, and the overstated evidence."
+    },
+    {
+      "text": "Bleibt innerhalb von 300 Wörtern und des Präsentationsreviews; verlangt keine neue umfassende Governance-, Forschungs- oder Präsentationsinitiative.",
+      "passed": true,
+      "evidence": "Independently counted 264 whitespace-delimited tokens containing a Unicode letter or number, below 300. The output stays with three findings and edits to the five supplied text slides. Its capacity condition, acceptance criteria, and timeline reconciliation are specific changes required by source risks; it does not request a new comprehensive governance, research, or presentation initiative."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "word_count": 264,
+  "word_count_method": "Whitespace-delimited tokens containing at least one Unicode letter or number; complete output.md including headings and table cells.",
+  "claims": [
+    {
+      "evidence": "14 + 12 = 26, versus 20 committed in source; output correctly conditions parallel start.",
+      "claim": "A/B need 26 days and lack six committed specialist days",
+      "type": "factual",
+      "verified": true
+    },
+    {
+      "evidence": "Source states there has been neither practical use nor acceptance measurement.",
+      "claim": "Four pilot wishes and two demonstration wishes establish interest rather than measured acceptance",
+      "type": "factual",
+      "verified": true
+    }
+  ],
+  "review_type": "Independent model review against original assertions, raw source, and supplied output; not human validation."
+}

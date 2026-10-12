@@ -1,0 +1,31 @@
+{
+  "id": 2,
+  "name": "nutzenpfad-und-doppelte-stunden",
+  "skill": "business-case-pruefung",
+  "input": "fixtures/nutzenpfad-und-doppelte-stunden.md",
+  "prompt": "Prüfe den Case für die Projektleitung. Gib ein kurzes wirtschaftliches Urteil, die korrigierte Rechnung und die wichtigsten Klärungen vor der Entscheidung. Das Ziel ist der Abbau von Rückständen. Höchstens 330 Wörter.",
+  "word_limit": 330,
+  "assertions": [
+    {
+      "text": "Rechnet 800 Stunden und 48.000 Euro Kapazitätsäquivalent; addiert dieselben Stunden nicht zu 96.000 Euro Nutzen.",
+      "critical": true
+    },
+    {
+      "text": "Unterscheidet Kapazitätsnutzen vom unbelegten Cash-/Personalabbau; Rückstandsabbau bleibt ein legitimes Ziel.",
+      "critical": true
+    },
+    {
+      "text": "Berücksichtigt 30.000 Euro einmalig und 12.000 Euro jährlich; ein gegebenenfalls genannter Netto-/Paybackwert bleibt ein vereinfachtes Kapazitätsmodell mit unbestätigter voller Wirkung.",
+      "critical": true
+    },
+    {
+      "text": "Klärungen enthalten erforderliche betriebliche Nutzung/Änderung, Nutzenübernahme, Ausgangsrückstand/Ziel sowie Messzeitpunkt; Frau Wolf wird keine bestehende Zuständigkeit zugeschrieben.",
+      "critical": false
+    },
+    {
+      "text": "Verwendbares Urteil und Rechnung innerhalb 330 Wörter; keine erfundenen Gehälter, Adoptionsraten, Diskontsätze oder Freigaben.",
+      "critical": false
+    }
+  ],
+  "published_input": "../../../../v0.3.0/fixtures/nutzenpfad-und-doppelte-stunden.md"
+}

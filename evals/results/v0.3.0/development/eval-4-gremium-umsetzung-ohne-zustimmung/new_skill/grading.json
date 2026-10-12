@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Einstieg und Abschlussbitte respektieren Pilotmandat und getrennte Geschäftsführungsentscheidung, ohne den kompletten Novemberrollout als freigegeben darzustellen.",
+      "passed": true,
+      "evidence": "Quelle begrenzt den Ausschuss auf Pilotphasen im bestehenden 30.000-Euro-Rahmen und reserviert den vollständigen Rollout für die Geschäftsführung. Einstieg nennt beide Grenzen ausdrücklich und bezeichnet den Novemberrollout wegen fehlender Kosten/Kapazität als nicht entscheidungsreif. Abschluss verlangt Konkretisierung und Klärungen vor einer Startentscheidung."
+    },
+    {
+      "text": "Macht 80 benötigte gegenüber 20 verfügbaren Stunden monatlich und fehlende Operations-Zusage als zentralen Einwand sichtbar.",
+      "passed": true,
+      "evidence": "Quelle: 80 Stunden nötig, 20 Stunden monatlich verfügbar, keine Operations-Zusage. Der erste Einwand nennt genau diese Zahlen und 'hat aber keine Umsetzung zugesagt'; die Frage nach verbindlicher Operations-Kapazität macht dies zum entscheidenden Engpass."
+    },
+    {
+      "text": "Konsultation und Finanzprüfung werden nicht zu Zustimmung oder Freigabe; die beratende Projektleitung wird nicht zum Entscheider oder neutralen Moderator erklärt.",
+      "passed": true,
+      "evidence": "Ausgabe erhält 'Operations wurde konsultiert, hat aber keine Umsetzung zugesagt' und 'Finanzen hat die Kalkulation geprüft, keine Rolloutfreigabe erteilt'. Der Einstieg nennt ausdrücklich 'fachlich beratende Projektleitung' und eine Empfehlung. Die Rolle wird nicht zur Entscheidungsinstanz oder neutralen Moderation erhoben."
+    },
+    {
+      "text": "Mindestens eine echte Klärungsfrage erlaubt eine engere oder andere Bitte, statt bereits Umsetzung/Zustimmung vorauszusetzen; fehlende Antworten bleiben offen.",
+      "passed": true,
+      "evidence": "Ausgabe fragt: 'Welche Kapazität kann Operations verbindlich übernehmen – und trägt sie einen engeren Pilot oder derzeit keinen Start?' sowie im Abschluss 'Welchen engeren Vorbereitungsschritt halten Sie für tragfähig?' Damit kann die Bitte tatsächlich geändert/verengt werden. 'Zuständigkeiten und Termin hierfür sind noch zu vereinbaren' hält fehlende Antworten offen."
+    },
+    {
+      "text": "Verwendbarer Einstieg, fallbezogene Einwände/Antworten und Abschluss innerhalb 300 Wörter; Raum für Rückfragen statt vierminütigem Vollmonolog.",
+      "passed": true,
+      "evidence": "Whitespace-Wörter mit mindestens einem Buchstaben oder einer Ziffer: 279, innerhalb 300. Einstieg, drei spezifische Einwände mit mündlichen Antworten und Abschluss sind vorhanden. Zeitvorschlag: 30 Sekunden Einstieg + 90 Sekunden Einwände + 120 Sekunden Rückfragen und Abschluss = vier Minuten, mit ausdrücklichem Rückfragenraum."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

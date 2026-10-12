@@ -37,6 +37,8 @@ Gewichtete Bewertungen brauchen Kriterien, Gewichte, Skalen und deren Herkunft. 
 
 ## Robustheit und Ergebnis
 
+Bei wesentlichen erwarteten Nutzen prüfe auch den Realisierungsweg: Welche betriebliche Änderung erzeugt den Nutzen, wer übernimmt sie, und an welcher Ausgangsbasis wird wann gemessen? Technische Bereitstellung, tatsächliche Nutzung und realisierter Nutzen sind getrennte Nachweise. Bewahre fehlende Eigentümer, Messwerte und Zusagen als offen. Werden dieselben freien Stunden mehreren Nutzenpositionen zugerechnet, prüfe die gemeinsame Obergrenze.
+
 Variiere die wenigen Annahmen, die die Entscheidung verändern könnten. Nutze belegte Bandbreiten. Fehlen sie, kennzeichne Sensitivitäten als illustrative Rechenfälle. Gib gegebenenfalls die kritische Schwelle an, ab der laufende Kosten gedeckt wären. Zeige, ob diese Schwelle eine Kapazitätsrechnung oder eine Zahlungsrechnung betrifft.
 
 Antworte auf Deutsch mit einem Kurzurteil, einer überprüfbaren Rechnung, den wichtigsten Unsicherheiten und dem nächsten sinnvollen Nachweis. Benenne, was das Modell belegt und was eine operative oder finanzielle Entscheidung zusätzlich braucht.
@@ -44,3 +46,5 @@ Antworte auf Deutsch mit einem Kurzurteil, einer überprüfbaren Rechnung, den w
 Lies [das durchgerechnete Beispiel](references/beispiel.md), wenn Nutzenmonetarisierung, Anlaufphase oder einfache Amortisation im Mittelpunkt stehen. Übertrage dessen Eingaben nicht auf den aktuellen Fall.
 
 Lies bei Bedarf [Grundlagen](references/grundlagen.md) für die Herkunft der Methoden und ihre Anwendungsgrenzen.
+
+Lies [Nutzen realisieren](references/arbeitsweise.md), wenn ein rechnerisch plausibler Case noch keinen betrieblichen Nutzenpfad hat oder mehrere Nutzenpositionen dieselbe Kapazität beanspruchen. Für eine kleine belegte Rechnung genügt die direkte Antwort.

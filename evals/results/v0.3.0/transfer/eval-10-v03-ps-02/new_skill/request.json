@@ -1,0 +1,8 @@
+{
+  "task": "Bitte mach aus der Notiz zwei kurze Sätze für unseren Teamchat. Die Kollegen brauchen den aktuellen Stand und den nächsten Schritt. Maximal 120 Wörter.",
+  "input": "evals/results/v0.3.0/transfer/source/sources/v03-ps-02.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/projektstatus",
+  "output": "evals/results/v0.3.0/transfer/eval-10-v03-ps-02/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/transfer/eval-10-v03-ps-02/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

@@ -1,0 +1,46 @@
+{
+  "expectations": [
+    {
+      "text": "Dokumentiert die bereits am 10. Oktober getroffene Entscheidung von Teamleiterin Nadine, statt eine neue Wahl oder Freigabe anzustoßen.",
+      "passed": true,
+      "evidence": "Source says Teamleiterin Nadine fixed the workshop on 10. Oktober. Output records exactly \"Teamleiterin Nadine hat am 10. Oktober festgelegt\" and does not reopen a selection or approval."
+    },
+    {
+      "text": "Nennt den 20. Oktober, 09:00 bis 12:00 Uhr und Raum B06 korrekt.",
+      "passed": true,
+      "evidence": "Source: 20. Oktober, 09:00 bis 12:00 Uhr, Raum B06. Output repeats all three details exactly in the decision sentence."
+    },
+    {
+      "text": "Gibt die Verfügbarkeit aller sechs Teammitglieder als Anlass wieder.",
+      "passed": true,
+      "evidence": "Source reason: all six handover-team members are available that morning, whereas two could not do the previously considered Monday. Output Anlass repeats both the availability of all six and the Monday conflict."
+    },
+    {
+      "text": "Stellt die externen Beobachter nicht als notwendige Teilnehmende oder als offene Voraussetzung dar.",
+      "passed": true,
+      "evidence": "Source makes the two outside observers voluntary via the existing video link, not a workshop dependency. Output says they can \"freiwillig\" join and \"Ihre Teilnahme ist keine Voraussetzung für den Workshop\"."
+    },
+    {
+      "text": "Liefert einen kurzen, direkt einfügbaren Wiki-Eintrag innerhalb von 120 Wörtern und verlangt keine Optionenmatrix, Gremienbefassung oder erneute Einladung.",
+      "passed": true,
+      "evidence": "Independently counted 71 eligible whitespace tokens, below 120. Output is a short wiki decision record with date, owner, workshop logistics, reason and optional observer status. It states the invitation is already sent, as supplied by the source, and requests no new invitation, options matrix, or committee consideration."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "word_count": 71,
+  "word_count_method": "Whitespace-delimited tokens containing at least one Unicode letter or number; complete output.md including headings and table cells.",
+  "claims": [
+    {
+      "evidence": "Source explicitly says \"Die Termineinladung ist schon verschickt\"; no external send action is claimed.",
+      "claim": "The invitation has already been sent",
+      "type": "factual",
+      "verified": true
+    }
+  ],
+  "review_type": "Independent model review against original assertions, raw source, and supplied output; not human validation."
+}

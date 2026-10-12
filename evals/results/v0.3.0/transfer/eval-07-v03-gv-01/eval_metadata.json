@@ -1,0 +1,35 @@
+{
+  "id": "v03-gv-01",
+  "skill": "gremienvorbereitung",
+  "prompt": "Bereite den IT-Leitungskreis am 18. November vor. Ich brauche eine realistische Tagesordnung, die entscheidbaren Beschlussformulierungen und die Klärungen, ohne die wir im Termin nur aneinander vorbeireden. Das muss in die Sitzungsunterlage passen. Maximal 300 Wörter.",
+  "input": "sources/v03-gv-01.md",
+  "assertions": [
+    {
+      "text": "Plant insgesamt höchstens 45 Minuten, einschließlich der festen 15 Minuten Datenschutzinformation; erkennt, dass die drei zusätzlichen Entwurfspositionen 34 statt verfügbarer 30 Minuten beanspruchen.",
+      "critical": true
+    },
+    {
+      "text": "Unterscheidet sechs protokollierte erfolgreiche Tests von zwei ungetesteten Anbieterbestätigungen und lässt keinen Beschluss über vollständig geprüfte acht Kontrollen zu.",
+      "critical": true
+    },
+    {
+      "text": "Priorisiert die vorhandenen vier Test-Personentage auf Grundlage der unterschiedlichen Dringlichkeit, statt beide Vorhaben mit insgesamt sechs Personentagen als durchführbar zu bestätigen.",
+      "critical": true
+    },
+    {
+      "text": "Formuliert zu Vertrag und Haftung nur eine Empfehlung beziehungsweise einen Auftrag zur Klärung; behauptet keine Kündigungs- oder Haftungsentscheidung durch den Leitungskreis.",
+      "critical": true
+    },
+    {
+      "text": "Macht die Eskalation an Finanzleitung und Rechtsabteilung vor 20. November, 17:00 Uhr, erkennbar und liefert verwendbare Beschlussformulierungen zu den zulässigen Entscheidungen.",
+      "critical": false
+    },
+    {
+      "text": "Bleibt innerhalb von 300 Wörtern und bei der konkreten Sitzungsvorbereitung; erfindet keine zusätzlichen Gremien, Nachweise oder Entscheidungsrechte.",
+      "critical": false
+    }
+  ],
+  "name": "v03-gv-01",
+  "word_limit": 300,
+  "published_input": "../source/sources/v03-gv-01.md"
+}

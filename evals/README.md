@@ -6,6 +6,7 @@ Alle Fälle sind vollständig synthetisch. Es werden keine echten Unternehmensun
 - [tasks.json](tasks.json): sieben vollständige Entwicklungsaufträge mit Eingabedateien. Die ursprünglichen Kriterien wurden vor der Ausführung festgelegt; eine unabhängige Prüfung präzisierte vor der Bewertung drei Begriffe in vier Kriterien. [Original und Änderung](results/v0.2.0/assertion-amendment.json) sind dokumentiert.
 - [fixtures/](fixtures/): vollständige Quellen der Entwicklungsaufträge. Das Deck liegt als Text, sechsseitige PDF und Bild der Diagrammfolie vor. Der irreführende Balkenvergleich ist ein absichtlicher Testfehler.
 - [results/](results/): zur Veröffentlichung bereinigte Eingaben, Ausgaben und Bewertungen tatsächlich ausgeführter Läufe. Der [Qualitätsbericht](../docs/qualitaet.md) erläutert Ergebnisse und Grenzen.
+- [v0.3.0/tasks.json](v0.3.0/tasks.json): sieben neue Arbeitsaufträge mit vor der Ausführung festgelegten Kriterien; zusätzliche reservierte komplexe und kleine Fälle im [v0.3.0-Evidenzpaket](results/v0.3.0/README.md).
 
 ## Ausführung
 

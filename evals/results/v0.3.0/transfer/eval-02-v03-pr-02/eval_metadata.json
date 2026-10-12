@@ -1,0 +1,31 @@
+{
+  "id": "v03-pr-02",
+  "skill": "praesentations-review",
+  "prompt": "Diese eine Folie zeige ich neuen Kolleginnen und Kollegen in einer dreiminütigen Einweisung. Formuliere sie verständlicher und sag mir in einem Satz, ob für diesen Zweck etwas fehlt. Die Beschriftungen im Buchungssystem müssen wiedererkennbar bleiben. Maximal 120 Wörter.",
+  "input": "sources/v03-pr-02.md",
+  "assertions": [
+    {
+      "text": "Ersetzt den schwer verständlichen Titel durch einen klaren Titel zur Buchung eines Besprechungsraums.",
+      "critical": false
+    },
+    {
+      "text": "Bewahrt die drei sichtbaren Systembeschriftungen Arbeitsplatz, Raum und Bestätigen sowie die Reihenfolge der Buchungsschritte.",
+      "critical": true
+    },
+    {
+      "text": "Liefert direkt verwendbaren Folientext und einen kurzen Satz zur Vollständigkeit für eine dreiminütige Einweisung.",
+      "critical": false
+    },
+    {
+      "text": "Erfindet weder eine zusätzliche Freigabe noch einen weiteren Pflichtschritt; behauptet keine manuell nötige Kalenderübertragung.",
+      "critical": true
+    },
+    {
+      "text": "Behandelt die Folie als kurze Anleitung; fordert keinen Managementbeschluss, Business Case oder umfassenden Foliensatz und bleibt innerhalb von 120 Wörtern.",
+      "critical": false
+    }
+  ],
+  "name": "v03-pr-02",
+  "word_limit": 120,
+  "published_input": "../source/sources/v03-pr-02.md"
+}

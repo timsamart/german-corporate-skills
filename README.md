@@ -4,9 +4,9 @@
 
 Für Führungskräfte, Projektleitungen und Consultants, die mit KI an echten Arbeitsunterlagen arbeiten: Ein Deck braucht belastbare Aussagen. Eine Entscheidung braucht klare Optionen. Nach einer Sitzung muss erkennbar sein, wer was tatsächlich zugesagt hat.
 
-Die Skills geben einem KI-Agenten konkrete Prüfkriterien, Arbeitsabläufe und Ausgabeformen. Jeder Skill enthält ein vollständig synthetisches, nachvollziehbares Beispiel und eine kurze Quellenreferenz mit Anwendungsgrenzen. Alle sieben lassen sich einzeln verwenden.
+Die Skills geben einem KI-Agenten konkrete Prüfkriterien, Arbeitsabläufe und Ausgabeformen. Jeder Skill enthält ein durchgerechnetes Beispiel, eine ergänzende Arbeitsweise mit fiktivem Arbeits- und Gegenfall sowie Quellen mit Anwendungsgrenzen. Alle sieben lassen sich einzeln verwenden.
 
-[English overview](README.en.md) · [Recherche](docs/research/README.md) · [Entstehungsprozess](docs/skill-lifecycle.md) · [Prüfergebnisse](docs/qualitaet.md)
+[English overview](README.en.md) · [Schnellstart mit sieben Aufträgen](docs/schnellstart.md) · [Arbeitsweisen und Quellen](docs/research/methods-v0.3.0.md) · [Prüfergebnisse](docs/qualitaet.md)
 
 ## Der schnellste Einstieg: ein Deck prüfen
 
@@ -48,6 +48,14 @@ Die Skills folgen einer Arbeitskette: prüfen, entscheiden, besprechen und nachh
 „German“ bezeichnet hier Sprache und Arbeitsartefakte: Vorstand, Geschäftsführung, Lenkungsausschuss, Fachbereich und Projektarbeit. Unternehmensvorlagen und tatsächliche Entscheidungswege haben Vorrang. Die Kriterien sind redaktionelle und praktische Arbeitskonventionen dieser Sammlung.
 
 ## Installation
+
+Für den Einstieg gibt es [sieben kopierbare Aufträge](docs/schnellstart.md). Mit Node.js genügt zum Beispiel:
+
+```bash
+npx skills add timsamart/german-corporate-skills --skill praesentations-review --agent codex
+```
+
+Ohne CLI: Lade aus den [Releases](https://github.com/timsamart/german-corporate-skills/releases) das ZIP für einen Skill oder die ganze Sammlung. Entpacke es und kopiere die gewünschten vollständigen Skillordner in das Skillverzeichnis deines Agenten. Die ZIPs enthalten Instruktionen und Referenzen sowie die MIT-Lizenz; sie führen keine Installation aus.
 
 Die Ordner verwenden das offene [Agent Skills Format](https://agentskills.io/specification). Installation und Aufruf richten sich nach dem Agenten.
 
@@ -93,7 +101,9 @@ Verwende Unternehmensunterlagen in einer dafür zugelassenen Umgebung. Nachricht
 
 ## Qualität und Weiterentwicklung
 
-Version **0.2.0** enthält sieben Skills, sieben Beispiele und Quellenreferenzen, drei Forschungsdossiers und den dokumentierten Entwicklungsprozess. **28 tatsächliche Aufgabenausgaben** sind öffentlich nachvollziehbar: sieben Aufgaben jeweils mit alter Version, neuer Version und gewöhnlichem Prompting; dazu sieben reservierte Transferfälle. Die [Ergebnisse und Grenzen](docs/qualitaet.md) zeigen konkrete Vollständigkeitsunterschiede, gute Baselines und den noch offenen Schritt zur Prüfung mit echten Nutzern.
+Version **0.3.0** ergänzt die sieben Skills um konkrete Arbeitsweisen: Nutzen realisieren, Entscheidungsrahmen klären, Kapazitätskonflikte lösen und vereinbarte Ergebnisse nachhalten. Die [Buchanalyse](docs/research/books-for-next-version.md) und [Methodennachweise](docs/research/methods-v0.3.0.md) unterscheiden eingesehene Zusammenfassungen, Artikel und Leseproben von noch ungelesenen vollständigen Büchern. Sieben neue Arbeits- und Gegenfälle zeigen die Anwendung.
+
+Die [Ergebnisse und Grenzen](docs/qualitaet.md) dokumentieren den tatsächlichen Prüfstand. Eingaben, Ausgaben, Einzelurteile und eingefrorene Skillversionen werden mitveröffentlicht. Die historische [v0.2.0-Evaluation](evals/results/v0.2.0/README.md) mit 28 Ausgaben bleibt erhalten.
 
 Der Repositorycheck prüft Paketstruktur, Metadaten, lokale Verweise und Testdaten. CI zählt die gespeicherten Bewertungen nach. Die ursprünglichen 16 Kurzfälle sind ergänzende Regressionstestspezifikationen. Die Sammlung behauptet keinen allgemeinen Erfolgsprozentsatz.
 

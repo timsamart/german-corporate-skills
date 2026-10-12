@@ -1,0 +1,35 @@
+{
+  "id": "v03-ep-01",
+  "skill": "ergebnisprotokoll",
+  "prompt": "Erstelle ein Ergebnisprotokoll aus dem Gespräch. Ich brauche die tatsächlichen Festlegungen, die offenen Punkte und die Aufgaben mit ihren vereinbarten Terminen. Es soll auch nach zwei Wochen noch eindeutig sein. Maximal 300 Wörter.",
+  "input": "sources/v03-ep-01.md",
+  "assertions": [
+    {
+      "text": "Hält den 20. November als internes Planungsziel mit offener Security-Prüfung und Budgetfreigabe fest; behauptet keine endgültige Pilotfreigabe.",
+      "critical": true
+    },
+    {
+      "text": "Dokumentiert den Konflikt um den 19. November als ungeklärte Kundenkommunikation, statt Toms behauptetes Versprechen als bestätigte Tatsache oder bereits widerlegt darzustellen.",
+      "critical": true
+    },
+    {
+      "text": "Bewahrt Maliks Bedingung für die Prüfung am 18. November: vollständige Protokolldaten bis 16. November, 12:00 Uhr; hält Leas entsprechende Aufgabe mit diesem Termin fest.",
+      "critical": true
+    },
+    {
+      "text": "Erfasst Evas schriftliches Angebot über 12.000 Euro netto bis 13. November sowie Leas Nachfrage bei Nora bis 13. November, ohne eine Budgetfreigabe oder einen Antworttermin Noras zu erfinden.",
+      "critical": true
+    },
+    {
+      "text": "Erfasst Toms Klärungsaufgabe als Aufgabe ohne vereinbarten Termin und respektiert Noras ausschließliche Freigabebefugnis über 10.000 Euro sowie ihre Abwesenheit.",
+      "critical": false
+    },
+    {
+      "text": "Liefert ein knappes verwendbares Ergebnisprotokoll innerhalb von 300 Wörtern, ohne fremde Beschlüsse, zusätzliche Rollen, nicht vereinbarte Aufgaben oder ein neues Protokoll-Freigabeverfahren einzuführen.",
+      "critical": false
+    }
+  ],
+  "name": "v03-ep-01",
+  "word_limit": 300,
+  "published_input": "../source/sources/v03-ep-01.md"
+}

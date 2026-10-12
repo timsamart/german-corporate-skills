@@ -1,0 +1,35 @@
+{
+  "id": "v03-ev-01",
+  "skill": "entscheidungsvorlage",
+  "prompt": "Erstelle die Entscheidungsvorlage für das Architekturboard morgen. Ich brauche eine begründete Empfehlung und eine Beschlussformulierung, über die dieses Board tatsächlich abstimmen kann. Zeige knapp, wie wir bis zur Umsetzung arbeitsfähig bleiben und welche verbindlichen Voraussetzungen noch fehlen. Maximal 300 Wörter.",
+  "input": "sources/v03-ev-01.md",
+  "assertions": [
+    {
+      "text": "Grenzt den möglichen Architektur-Beschluss von der ausstehenden Investitionsentscheidung über 60.000 Euro, der Datenschutzfreigabe und der Personalzuweisung ab; erteilt dem Board keine fremden Befugnisse.",
+      "critical": true
+    },
+    {
+      "text": "Gibt eine begründete Empfehlung und eine abstimmbare Formulierung, deren unmittelbare Bindung auf die Auswahl der Zielarchitektur beschränkt bleibt.",
+      "critical": true
+    },
+    {
+      "text": "Stellt die Zustimmung der Beteiligten nicht als uneingeschränkt dar und benennt die offenen Bedingungen für B: Aufbewahrung, Geld und 0,5 Vollzeitäquivalente für den Betrieb.",
+      "critical": true
+    },
+    {
+      "text": "Zeigt einen realistischen Übergang mit der angebotenen Verlängerung A für 15.000 Euro bis 31. Januar und beachtet die Entscheidungsfrist 31. Oktober sowie die Befugnis der Projektleitung.",
+      "critical": false
+    },
+    {
+      "text": "Beachtet die tatsächliche Entscheidungsfolge mit Datenschutz-Rückmeldung am 1. November, Investitionsausschuss am 5. November und sechs Wochen Umsetzung ab einem freigegebenen Start.",
+      "critical": false
+    },
+    {
+      "text": "Liefert innerhalb von 300 Wörtern eine verwendbare Entscheidungsvorlage, ohne Zustimmung, Budget oder Termine als bereits erteilt zu erfinden und ohne einen zusätzlichen umfassenden Architekturprozess aufzusetzen.",
+      "critical": false
+    }
+  ],
+  "name": "v03-ev-01",
+  "word_limit": 300,
+  "published_input": "../source/sources/v03-ev-01.md"
+}

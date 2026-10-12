@@ -1,70 +1,63 @@
 # Qualität und Evaluation
 
-Stand: 5. Oktober 2026. Version 0.2.0 verbindet Quellenrecherche, gezielte Überarbeitung und tatsächliche Modellläufe. Die [Entstehungsschritte](skill-lifecycle.md) und [Research-Dossiers](research/README.md) dokumentieren die Grundlage.
+Stand: 12. Oktober 2026. Version 0.3.0 ergänzt sieben eigenständige Skills um gezielte Arbeitsweisen aus tatsächlich eingesehenen öffentlichen Erklärungen, Zusammenfassungen und Leseproben. Die [Methodennachweise](research/methods-v0.3.0.md), [Buchanalyse](research/books-for-next-version.md) und [Entstehungsschritte](skill-lifecycle.md) dokumentieren Grundlage und Grenzen. Die vollständigen Bücher wurden nicht gelesen.
+
+Die [historische v0.2.0-Prüfung](qualitaet-v0.2.0.md) bleibt erhalten. Ihre visuellen PDF- und Auswahltests wurden in diesem Durchgang nicht wiederholt.
 
 ## Was ausgeführt wurde
 
 | Prüfung | Nachweis |
 | --- | --- |
-| Paket und Metadaten | Sieben eigenständige Skills; System-Skillvalidator und Repositoryvalidator ausgeführt |
-| Öffentliche Installation | Skills CLI kopierte alle sieben Skills aus GitHub in ein isoliertes Windows-Testprojekt; alle 21 Dateien stimmen bytegenau mit dem ausgewerteten Kandidaten überein; [Nachweis](../evals/results/v0.2.0/installation.json) |
-| Quellen und Gegenargumente | Drei Dossiers mit Primärquellen, Datum, Geltungsbereich und Zugriffsgrenzen; kurze Grundlagen in jedem Skill |
-| Getrennte Reviewperspektiven | Fünf Modellkontexte, gezielte Gegenprüfung und dokumentierte Begrenzung der Regeln; [Review](review.md) |
-| Vollständige Entwicklungseingaben | Sieben Aufgaben, darunter ein sechsseitiges gerendertes PDF mit absichtlich irreführendem Diagramm |
-| Vergleichsausgaben | 21 frische Ausführungen: sieben identische Aufgaben jeweils mit v0.1.0, Kandidat und ohne Corporate-Skill |
-| Reservierte Transferfälle | Sieben weitere Kandidatenläufe; Fälle von separatem Autor, beim Einfrieren unbekannt |
-| Auswahlannäherung | 28 Prompts anhand aller Beschreibungen, jeweils für v0.1.0 und Kandidat |
-| Bewertung | Separate Grader mit Quellen und belegten Einzelurteilen; sechs einfache semantische Kontrollurteile korrekt |
-| Nachvollziehbarkeit | Eingaben, 28 Ausgaben, Zugriffslisten, Urteile und Hashes unter [evals/results/v0.2.0](../evals/results/v0.2.0/README.md) |
-
-Die ursprünglichen [16 Kurzfälle](../evals/cases.json) bleiben ergänzende Regressionstestspezifikationen. Sie wurden in diesem Durchgang nicht zusätzlich als Modellläufe ausgeführt. Zwei zuvor fehlende Anhänge wurden durch vollständige Inlinequellen ersetzt.
+| Instruktionen | Separate Gegenprüfung aller sieben Skillordner; konkrete Korrekturen vor dem Freeze; [Review](review.md) |
+| Vergleich | Sieben neue Aufgaben mit identischen Quellen, jeweils v0.3.0, unveränderter v0.2.0 und gewöhnlichem Prompting: 21 tatsächliche Ausgaben |
+| Reservierter Transfer | 14 separat erstellte Aufgaben ohne Einsicht in Kandidat oder Vorarbeiten; pro Skill ein komplexer und ein kleiner Gegenfall |
+| Bewertung | Zwei separate Grader für anonymisierte Vergleichsausgaben, zwei weitere für Transfer; Quellenbelege zu jedem Einzelurteil |
+| Integrität | 28 Kandidaten- und 21 Baseline-Dateien sowie originale Eingaben und Kriterien per SHA-256 eingefroren und nachgeprüft |
+| Umfang | Alle 35 Ausgaben innerhalb ihres jeweiligen Wortlimits; alle sieben kleinen Transferaufträge bleiben kompakt |
+| Downloadpakete | Sieben einzelne Skill-ZIPs und ein Gesamt-ZIP; archivierte Dateien stimmen bytegenau mit den ausgewerteten Skills überein; wiederholte Builds lieferten identische Hashes |
 
 ## Ergebnisse
 
-Die endgültige Nachzählung steht in [summary.json](../evals/results/v0.2.0/summary.json).
+Die [vollständigen Nachweise](../evals/results/v0.3.0/README.md) enthalten Quellen, Aufträge, Ausgaben, Zugriffslisten, Urteile und eingefrorene Skillordner. [summary.json](../evals/results/v0.3.0/summary.json) zählt die gespeicherten Urteile nach.
 
 | Teil / Konfiguration | Alle Kriterien im Fall erfüllt | Erfüllte Einzelkriterien | Erfüllte kritische Kriterien |
 | --- | ---: | ---: | ---: |
-| Entwicklung, v0.2.0 | 7/7 | 35/35 | 25/25 |
-| Entwicklung, v0.1.0 | 7/7 | 35/35 | 25/25 |
-| Entwicklung, ohne Corporate-Skill | 5/7 | 32/35 | 23/25 |
-| Reservierter Transfer, nur v0.2.0 | 7/7 | 56/56 | 35/35 |
+| Entwicklung, v0.3.0 | 6/7 | 34/35 | 21/21 |
+| Entwicklung, v0.2.0 | 5/7 | 33/35 | 21/21 |
+| Entwicklung, ohne Corporate-Skill | 4/7 | 32/35 | 21/21 |
+| Reservierter Transfer, nur v0.3.0 | 12/14 | 74/76 | 41/43 |
 
-„Kritisch“ bezeichnet vorab als besonders relevant markierte Kriterien. Ein verfehltes Kriterium kann eine ausgelassene erforderliche Angabe sein; es bedeutet nicht automatisch eine falsche Tatsachenbehauptung. Es werden Kriterienurteile gezählt, keine allgemeine Erfolgswahrscheinlichkeit.
+„Kritisch“ bezeichnet vorab markierte erforderliche Kriterien. Eine Auslassung kann ein solches Kriterium verfehlen, ohne eine falsche Tatsache zu behaupten. Die Zahlen zählen Kriterienurteile dieser Antworten; sie sind keine allgemeine Erfolgswahrscheinlichkeit.
 
-## Was die Unterschiede bedeuten
+## Beobachtete Unterschiede und Auslassungen
 
-In den Entwicklungsaufgaben liefern auch v0.1.0 und gewöhnliches Prompting überwiegend korrekte Arbeit. Die gefundenen Unterschiede betreffen konkrete Vollständigkeit und Nachvollziehbarkeit. Die gewöhnliche Deckprüfung lässt die zweijährige vereinfachte Modellamortisation aus. Das gewöhnliche Protokoll nennt den richtigen aktuellen Termin, dokumentiert aber dessen Korrektur vom Freitag und die Fundstellen nicht.
+**Auftragsklärung:** Im Gremienvergleich stellt v0.3.0 eine echte Frage, die einen engeren Piloten, keinen Start oder einen kleineren Vorbereitungsschritt zulässt. v0.2.0 und gewöhnliches Prompting fragen nach der Umsetzung des bereits festgelegten Vorhabens. Das ist der einzige zusätzliche erfüllte Vergleichspunkt gegenüber v0.2.0. Gewöhnliches Prompting lässt außerdem Entwurfskennzeichnung und Fundstellen des Protokolls aus. Alle drei Konfigurationen erfüllen sämtliche kritischen Entwicklungskriterien.
 
-Diese Auslassungen bleiben in den Bewertungen sichtbar. Sie erlauben eine Aussage über die geprüften Antworten. Ein allgemeiner Vorteil der neuen Instruktionen gegenüber v0.1.0 oder über alle Unternehmensaufgaben wird daraus nicht abgeleitet.
+**Zusammengesetztes Deckkriterium:** Alle drei Antworten verdichten die Vorabunterlage sinnvoll, erhalten beide Ausfälle und benennen den fehlenden Bildzugriff. Sie erklären jedoch nicht ausdrücklich den anderen Informationsbedarf eines Monitorings. Dafür verfehlt jede Antwort das gesamte zusammengesetzte Kriterium. Der Grader bezeichnet die semantische Schwelle als unklar. Originalkriterium und ursprüngliche Urteile bleiben erhalten; daraus wird kein belegter Mangel der vorgeschlagenen Darstellung abgeleitet.
 
-## Grenzen
+**Transfer, Sitzungszeit:** Die Kandidatenantwort liefert eine gültige 45-Minuten-Agenda mit den festen 15 Minuten Datenschutzinformation. Sie nennt nicht, dass der ursprüngliche Entwurf weitere 34 Minuten bei nur 30 verfügbaren Minuten verlangt. Das kritische Kriterium verbindet Reparatur und ausdrückliche Diagnose; es scheitert an der ausgelassenen Diagnose.
 
-- **Synthetisch:** 14 unterschiedliche Aufgaben, ein Lauf je Konfiguration; keine Häufigkeitsstudie, Wiederholungsstabilität oder statistisch belastbare Allgemeinquote.
-- **Modellbewertung:** Separate Kontexte bleiben Modellurteile aus demselben Ausführungsrahmen. Echte Manager, Projektleitungen und Consultants haben die Ausgaben noch nicht systematisch auf Nutzbarkeit geprüft.
-- **Modellkonfiguration:** Die aktive Codex-Konfiguration wurde vererbt. Exakter Modellbezeichner, Sampling, Tokens, vollständige Tooltraces und Laufzeit wurden vom Harness nicht offengelegt.
-- **Isolation:** Neue Gesprächskontexte und eine Leseanweisung; gemeinsame Dateiumgebung ohne erzwungene Zugriffstrennung. Die Zugriffslisten sind Selbstberichte.
-- **Transfer:** Kandidatenläufe ohne Vergleichsarme. Nach Veröffentlichung sind die Fälle bekannt und eignen sich künftig als Regressionen.
-- **Auswahl:** Beide Beschreibungssätze erfüllen die erwartete Zuordnung bei 28/28 Proxyprompts, einschließlich 7/7 negativer Fälle. Das prüft keine tatsächliche automatische Skillladung in Codex oder anderen Hosts.
-- **Kriterien:** Drei Begriffe in vier Entwicklungskriterien wurden nach unabhängiger Eingabenprüfung vor der Bewertung präzisiert. Original und Änderung sind erhalten; Eingaben, Aufträge und Kandidat blieben gleich.
-- **Graderkritik:** Ein Transferkriterium zum nicht erstattbaren Deposit ist durch „falls thematisiert“ zu schwach formuliert. Die geprüfte Antwort enthält den Betrag und die Konsequenz korrekt. Für zukünftige Regressionen sollte seine Nennung verbindlich geprüft werden; der ursprüngliche Fall und das Graderfeedback bleiben unverändert erhalten.
-- **Werkzeuge:** Der visuelle Fall ist eine PDF. Native PPTX-Notizen, Excel-Neuberechnung und unterschiedliche Office-/Agentenhosts wurden hier nicht getestet.
+**Transfer, Kostenschätzung:** Die Antwort kennzeichnet 80.000 Euro netto für das erste Jahr als unverbindliche Schätzung und nennt Umfang, Ausschlüsse sowie das fehlende verbindliche Angebot. Sie sagt nicht ausdrücklich, dass die Schätzung intern noch nicht freigegeben ist. Das vorab festgelegte kritische Kriterium verlangt diese Angabe und bleibt deshalb verfehlt. Der Grader weist auf die Unterscheidung von kundenseitiger Unverbindlichkeit und internem Freigabestatus hin. Der Auftrag verlangt zugleich eine Nachricht ohne unnötige interne Details; diese Spannung bleibt als Kriterienkritik dokumentiert. Es wurde keine Freigabe oder Preiszusage erfunden.
+
+Die [Graderkritik](../evals/results/v0.3.0/grader-feedback/) bleibt neben den Urteilen zugänglich. Kein Kriterium und keine Skillinstruktion wurde nach den reservierten Ergebnissen angepasst. Diese beiden Transferfälle sind künftig bekannte Regressionen.
 
 ## Abschließende Gegenprüfung
 
-Ein weiterer separater Modellkontext las alle 14 Kandidatenausgaben und alle sieben Antworten ohne Corporate-Skill gegen ihre Quellen. Er zählte alle 28 gespeicherten Bewertungen nach, prüfte die 21 eingefrorenen Skilldateien sowie die dokumentierte Kriterienänderung und kontrollierte entscheidende Rechnungen. Dabei fand er keine materiell erfundene Freigabe, Zuständigkeit oder Zusage. Das ist eine Beobachtung dieser Ausgaben, keine allgemeine Zuverlässigkeitsgarantie.
+Ein weiterer frischer Modellkontext prüfte alle sieben Kandidaten-Vergleichsausgaben und alle 14 Kandidaten-Transferausgaben zuerst gegen ihre Quellen. Anschließend kontrollierte er Bewertungen, wesentliche Rechnungen, Verbindlichkeit, kleine Aufträge und eingefrorene Dateien. In diesem Material fand er keine materiell erfundene Entscheidungsbefugnis, Zusage, Cash-Einsparung oder Rechnung. Die beiden Transferauslassungen und die Kritik am Deckkriterium bleiben bestehen.
 
-| Prüflinse | Abschluss und Grenze |
-| --- | --- |
-| Evidenz | Zählungen, Hashes und dokumentierte Auslassungen stimmen mit den gespeicherten Nachweisen überein. |
-| Logik | Gleichstand mit v0.1.0 und fehlende Vergleichsarme im Transfer bleiben sichtbar. |
-| Fachliche Gültigkeit | Entscheidende Rechnungen und Verbindlichkeitsunterschiede sind in den geprüften Antworten erhalten. |
-| Strategische Passung | Sieben einzeln nutzbare Arbeitsartefakte passen zur erklärten Zielgruppe. |
-| Umsetzbarkeit | Eingaben, Ausgaben, Urteile und Viewer sind vorhanden; automatische Hostauswahl und weitere Officeformate bleiben ungeprüft. |
-| Governance | Keine materielle erfundene Verbindlichkeit in den gelesenen Kandidatenausgaben; die gemeinsame Dateiumgebung wird offengelegt. |
-| Verständlichkeit | Kriterienabdeckung und Tatsachenfehler werden unterschieden; echte Leser haben die Nutzbarkeit noch nicht bewertet. |
+Der [Auditnachweis](../evals/results/v0.3.0/grader-feedback/final-audit.md) nennt den tatsächlichen Lesebereich und die Grenzen. Diese Gegenprüfung ist ein Modellurteil, keine menschliche Expertenempfehlung und keine vollständige Wiederholung der externen Quellenabrufe.
 
-Alle sieben Prüflinsen unterstützen diese begrenzte Veröffentlichung, mit **mittlerer qualitativer Zuversicht**. Die Gegenprüfung war keine vollständige Wiederholung aller Quellenabrufe. Ihre konkrete Kritik am Deposit-Kriterium bleibt oben dokumentiert. Repositoryprüfung und deterministische Nachzählung sind zusätzliche Releasebedingungen.
+## Grenzen
+
+- **Synthetisch und klein:** 21 unterschiedliche Aufgaben, ein Lauf je Konfiguration; keine Wiederholungsstabilität oder statistisch belastbare Allgemeinquote.
+- **Starke Vergleichsarme:** v0.2.0 und gewöhnliches Prompting leisten bereits viel. Ein zusätzlicher erfüllter Vergleichspunkt belegt keinen allgemeinen Qualitätsvorsprung.
+- **Transfer ohne Vergleich:** Nur der Kandidat wurde auf den 14 reservierten Fällen ausgeführt. Daraus folgt keine vergleichende Verbesserung.
+- **Modellurteile:** Separate Gesprächskontexte stammen aus demselben Ausführungsrahmen. Systematische Nutzbarkeitsprüfung durch echte Manager, Projektleitungen und Consultants steht aus.
+- **Isolation:** Frische Kontexte und Leseanweisungen; gemeinsame Dateiumgebung ohne erzwungene OS-Trennung. Zugriffslisten sind Selbstberichte.
+- **Unbekannte Konfiguration:** Exakter Modellbezeichner, Sampling, Tokens, Laufzeiten und vollständige Tooltraces wurden nicht offengelegt und nicht erfunden.
+- **Kriterien:** Mehrere Kriterien bündeln unterschiedliche Verhaltensmerkmale. Die Kritik ist dokumentiert; binäre Urteile liefern keine Teilpunkte. Mündliche Nutzbarkeit wurde am Text, nicht durch gemessene Vorträge beurteilt.
+- **Quellen:** Öffentliche Artikel, Erklärungen, Zusammenfassungen und Leseproben; keine Vollbuchlektüre. Die Übertragung in Arbeitsregeln ist eigene redaktionelle Synthese.
+- **Werkzeuge und Auswahl:** Dieser Durchgang nutzt Textquellen. Native PPTX-Notizen, Excel-Neuberechnung und weitere Officehosts wurden nicht getestet. Beschreibungen sind unverändert; keine neue tatsächliche automatische Hostauswahl wurde geprüft.
 
 ## Nachzählen und weiterentwickeln
 
@@ -72,8 +65,10 @@ Alle sieben Prüflinsen unterstützen diese begrenzte Veröffentlichung, mit **m
 python -m pip install -r requirements-dev.txt
 python scripts/validate.py
 python scripts/summarize_evals.py evals/results/v0.2.0
+python scripts/summarize_work_practice.py evals/results/v0.3.0
+python scripts/package_release.py
 ```
 
-Diese Befehle prüfen Paket, eingefrorene Skill- und Eingabehashes sowie gespeicherte Bewertungsdaten. Git bewahrt die ausgewerteten Dateien ohne Zeilenendennormalisierung. Neue Modellläufe benötigen einen konfigurierten Agenten mit passenden Dokumentwerkzeugen. Das [Evaluationsmaterial](../evals/README.md) erklärt die Ausführung.
+Diese Befehle prüfen Struktur, lokale Verweise, Originalhashes, Kriterienvollständigkeit, gespeicherte Urteile und ZIP-Inhalte. Sie führen keine neuen Modelltests aus. Git bewahrt die eingefrorenen Skill- und Eingabebytes ohne Zeilenendennormalisierung. Die [Ansicht der Vergleichsausgaben](../evals/results/v0.3.0/viewer.html) lässt sich lokal im Browser öffnen.
 
-Der nächste belastbare Schritt sind autorisierte, anonymisierte Unterlagen aus echten Arbeitsabläufen und Feedback der Zielgruppe zu Entscheidung, Handlungsbedarf und unnötiger Leserarbeit. Daraus entstehen neue Regressionen und bei substantiellen Änderungen neue reservierte Transferfälle.
+Der nächste belastbare Schritt sind autorisierte, anonymisierte Unterlagen aus echten Arbeitsabläufen sowie Praktikerfeedback zu Entscheidung, Handlungsbedarf und unnötiger Leserarbeit. Substantielle Änderungen benötigen neue Tests und neue reservierte Fälle.

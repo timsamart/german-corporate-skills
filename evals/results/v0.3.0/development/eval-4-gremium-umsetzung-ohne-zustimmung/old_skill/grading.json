@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Einstieg und Abschlussbitte respektieren Pilotmandat und getrennte Geschäftsführungsentscheidung, ohne den kompletten Novemberrollout als freigegeben darzustellen.",
+      "passed": true,
+      "evidence": "Quelle: Der Ausschuss entscheidet weitere Pilotphasen im vorhandenen 30.000-Euro-Rahmen; den vollständigen Rollout müsste die Geschäftsführung gesondert entscheiden. Ausgabe: Einstieg bittet um entscheidungsfähige Ausarbeitung einer weiteren Pilotphase; Antwort nennt beide Mandatsgrenzen ausdrücklich. Abschluss verlangt eine Vorlage mit geklärtem Umfang, Kapazität und Verantwortung, keine Novemberfreigabe."
+    },
+    {
+      "text": "Macht 80 benötigte gegenüber 20 verfügbaren Stunden monatlich und fehlende Operations-Zusage als zentralen Einwand sichtbar.",
+      "passed": true,
+      "evidence": "Quelle: Für Schulung und Prozessumstellung werden 80 Stunden benötigt, derzeit sind 20 Stunden monatlich verfügbar; Operations hat keine Zusage übernommen. Ausgabe stellt diese Zahlen im ersten Einwand 'Wer soll die Umsetzung leisten?' gegenüber und sagt ausdrücklich, dass Operations keine Schulungs- oder Umstellungszusage übernommen hat."
+    },
+    {
+      "text": "Konsultation und Finanzprüfung werden nicht zu Zustimmung oder Freigabe; die beratende Projektleitung wird nicht zum Entscheider oder neutralen Moderator erklärt.",
+      "passed": true,
+      "evidence": "Quelle: Operations wurde konsultiert; Finanzen prüfte die Kalkulation ohne Rolloutfreigabe. Ausgabe erhält beide Abgrenzungen und bezeichnet die Rolle als 'fachlich beratende Projektleitung' mit einer Empfehlung. Kein Entscheidungs- oder Moderatorenmandat wird behauptet."
+    },
+    {
+      "text": "Mindestens eine echte Klärungsfrage erlaubt eine engere oder andere Bitte, statt bereits Umsetzung/Zustimmung vorauszusetzen; fehlende Antworten bleiben offen.",
+      "passed": false,
+      "evidence": "Ausgabe fragt im Abschluss nur, ob die Ausarbeitung und Vorlage der bereits gewählten Pilotoption vereinbart und dafür Verantwortliche sowie Termin festgelegt werden können. Keine Frage prüft, ob eine engere oder andere Bitte sinnvoll ist. Die 'Rückfalloption' benennt eine offene Zuständigkeit, stellt aber keine solche Klärungsfrage. Dies ist eine Auslassung; eine bereits zugesagte Umsetzung wird nicht falsch behauptet."
+    },
+    {
+      "text": "Verwendbarer Einstieg, fallbezogene Einwände/Antworten und Abschluss innerhalb 300 Wörter; Raum für Rückfragen statt vierminütigem Vollmonolog.",
+      "passed": true,
+      "evidence": "Whitespace-Wörter mit mindestens einem Buchstaben oder einer Ziffer: 269, somit innerhalb 300. Einstieg, drei fallbezogene Einwände mit kurzen Antworten und Abschlussfrage sind vorhanden. Der Zeitvorschlag reserviert eine Minute für Rückfragen; 30 + 120 + 30 + 60 Sekunden ergeben vier Minuten."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "pass_rate": 0.8
+  }
+}

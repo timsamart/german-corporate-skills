@@ -1,0 +1,31 @@
+{
+  "id": "v03-bc-02",
+  "skill": "business-case-pruefung",
+  "prompt": "Wir bestellen eine Teamlizenz für genau ein Jahr. Bitte prüfe die beiden Preise und schreib zwei bis drei Sätze, die ich in die Beschaffungsnotiz übernehmen kann. Entscheidend ist der niedrigere Gesamtpreis bei gleichem Leistungsumfang. Maximal 120 Wörter.",
+  "input": "sources/v03-bc-02.md",
+  "assertions": [
+    {
+      "text": "Berechnet A mit 1.480 Euro und B mit viermal 350 plus 200 gleich 1.600 Euro.",
+      "critical": true
+    },
+    {
+      "text": "Korrigiert die Ersparnis zugunsten A auf 120 Euro und empfiehlt A anhand des niedrigeren gegebenen Gesamtpreises.",
+      "critical": true
+    },
+    {
+      "text": "Vergleicht denselben Leistungsumfang über dasselbe eine Jahr und behandelt die genannten Zahlen als Nettobeträge.",
+      "critical": false
+    },
+    {
+      "text": "Liefert zwei bis drei direkt übernehmbare Sätze innerhalb von 120 Wörtern.",
+      "critical": false
+    },
+    {
+      "text": "Erfindet keine Produktivitätsgewinne, zusätzliche Risiken, abweichenden Vertragsbedingungen oder Notwendigkeit eines umfangreichen Business Case.",
+      "critical": false
+    }
+  ],
+  "name": "v03-bc-02",
+  "word_limit": 120,
+  "published_input": "../source/sources/v03-bc-02.md"
+}

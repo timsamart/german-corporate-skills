@@ -1,0 +1,8 @@
+{
+  "task": "Schreib den Managementstatus für heute mit einer konkreten Eskalationsbitte. Ich muss deutlich sagen, ob die zugesagte Freigabe erreichbar ist und welche Entscheidung bis wann gebraucht wird. Nimm die Statusdefinition des Bereichs. Maximal 300 Wörter.",
+  "input": "evals/results/v0.3.0/transfer/source/sources/v03-ps-01.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/projektstatus",
+  "output": "evals/results/v0.3.0/transfer/eval-09-v03-ps-01/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/transfer/eval-09-v03-ps-01/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

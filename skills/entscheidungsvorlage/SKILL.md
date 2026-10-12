@@ -18,6 +18,8 @@ Unterscheide informiert, konsultiert, geprüft und genehmigt. „Mit Finance abg
 
 ## Entscheidung entwickeln
 
+Bestimme vor dem Beschlusssatz, welche Frage heute entschieden werden kann und welches Ziel dafür maßgeblich ist. Eine Auswahl zwischen Anbietern kann eine andere Frage sein als die Wahl des benötigten Umfangs. Nimm belegte weitere Optionen auf, sofern sie zum Mandat gehören; kennzeichne eine Erweiterung des Entscheidungsrahmens als Vorschlag. Benenne die Information, deren Klärung die Empfehlung tatsächlich ändern könnte, statt jede Lücke gleich zu gewichten.
+
 Formuliere zuerst den Beschlusssatz. Er sollte so konkret sein, dass unterschiedliche Leser dieselbe Handlung daraus ableiten: Was wird entschieden, in welchem Umfang, mit welchen Mitteln und unter welchen Bedingungen? Setze für fehlende verbindliche Angaben „offen“ oder eine klar markierte Ergänzung ein.
 
 Vergleiche die realistischen Optionen nach denselben entscheidungsrelevanten Kriterien. Berücksichtige das Beibehalten des heutigen Zustands, wenn es eine echte Option ist. Erfinde keine Scheinoption, um die Empfehlung gut aussehen zu lassen. Unterscheide reversible Schritte, einmalige Verpflichtungen und später noch offene Entscheidungen.
@@ -46,3 +48,5 @@ Beim Review prüfe zuerst, ob Gegenstand und Evidenz für genau diesen Beschluss
 Lies [das Beispiel](references/beispiel.md), wenn eine bedingte Pilotentscheidung oder die Abgrenzung zwischen Empfehlung und Beschluss hilfreich ist.
 
 Lies bei Bedarf [Grundlagen](references/grundlagen.md) für übertragbare Dokumentationsprinzipien und deren Grenzen.
+
+Lies [Entscheidungsrahmen prüfen](references/arbeitsweise.md), wenn Ziel, Umfang oder relevante Alternativen strittig sind. Bei einem kleinen, klar abgegrenzten Beschluss liefert der Skill die Vorlage direkt, ohne zusätzliches Bewertungsverfahren.

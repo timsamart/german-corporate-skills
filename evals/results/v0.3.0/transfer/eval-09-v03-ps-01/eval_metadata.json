@@ -1,0 +1,35 @@
+{
+  "id": "v03-ps-01",
+  "skill": "projektstatus",
+  "prompt": "Schreib den Managementstatus für heute mit einer konkreten Eskalationsbitte. Ich muss deutlich sagen, ob die zugesagte Freigabe erreichbar ist und welche Entscheidung bis wann gebraucht wird. Nimm die Statusdefinition des Bereichs. Maximal 300 Wörter.",
+  "input": "sources/v03-ps-01.md",
+  "assertions": [
+    {
+      "text": "Meldet Rot entsprechend der gegebenen Statusdefinition, weil die Gegenmaßnahme und die zusätzlichen Mittel noch nicht genehmigt sind; übernimmt den unbelegten Grün-Wunsch des Sponsors nicht.",
+      "critical": true
+    },
+    {
+      "text": "Nennt acht benötigte gegen zwei verbindlich verfügbare Personentage und damit die Lücke von sechs Personentagen.",
+      "critical": true
+    },
+    {
+      "text": "Berechnet den Dienstleistungsauftrag mit sechs mal 1.200 gleich 7.200 Euro netto und den zusätzlichen Mittelbedarf nach den verfügbaren 2.000 Euro mit 5.200 Euro.",
+      "critical": true
+    },
+    {
+      "text": "Richtet die Freigabebitte über zusätzliche 5.200 Euro an die Bereichsleitung und beachtet Bestellung bis 15. Oktober, 12:00 Uhr, sowie die Einrichtung der Zugänge am 16. Oktober.",
+      "critical": true
+    },
+    {
+      "text": "Beschreibt die Erreichbarkeit des 23. Oktober unter den genannten Bedingungen und die unverbindliche Reservierung korrekt; liefert einen verwendbaren Status mit konkreter Entscheidung, statt Termin- oder Ressourcenfreigabe zu erfinden.",
+      "critical": false
+    },
+    {
+      "text": "Bleibt innerhalb von 300 Wörtern; baut keine neue Projektplanung oder allgemeine Eskalationsordnung auf.",
+      "critical": false
+    }
+  ],
+  "name": "v03-ps-01",
+  "word_limit": 300,
+  "published_input": "../source/sources/v03-ps-01.md"
+}

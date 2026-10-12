@@ -6,3 +6,4 @@ skills/** -text
 evals/fixtures/** -text
 evals/results/** -text
 evals/tasks.json -text
+evals/v*/** -text

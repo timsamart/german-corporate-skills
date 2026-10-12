@@ -1,0 +1,425 @@
+{
+  "schema_version": 1,
+  "suite": "v03-reserved-synthetic-transfer",
+  "synthetic": true,
+  "language": "de",
+  "input_format": "relative-markdown-source-file",
+  "cases": [
+    {
+      "id": "v03-pr-01",
+      "skill": "praesentations-review",
+      "prompt": "Ich habe morgen 15 Minuten im Portfolioausschuss. Prüfe die fünf Folien auf ihre Eignung für diesen Termin. Gib mir die drei wichtigsten Befunde und jeweils eine konkrete Änderung an einer vorhandenen Folie, die ich direkt umsetzen kann. Die Präsentation soll danach einen brauchbaren Beschluss ermöglichen. Maximal 300 Wörter.",
+      "input": "sources/v03-pr-01.md",
+      "assertions": [
+        {
+          "text": "Richtet die Präsentation auf die heute tatsächlich zulässige Pilotentscheidung über 50.000 Euro aus und kennzeichnet die Rolloutfreigabe von 240.000 Euro als Entscheidung des Investitionsausschusses am 5. November.",
+          "critical": true
+        },
+        {
+          "text": "Erkennt den gemeinsamen Ressourcenengpass: 14 plus 12 ergeben 26 Personentage bei 20 zugesagten Personentagen, also sechs fehlende Personentage; stellt parallelen Start ohne Lösung nicht als abgesichert dar.",
+          "critical": true
+        },
+        {
+          "text": "Bezeichnet sechs Befragungen und vier Pilotwünsche nicht als nachgewiesene Nutzerakzeptanz.",
+          "critical": true
+        },
+        {
+          "text": "Liefert drei priorisierte Befunde mit konkreten Änderungen an identifizierbaren vorhandenen Folien, einschließlich einer verwendbaren Pilot-Beschlussformulierung.",
+          "critical": false
+        },
+        {
+          "text": "Bleibt innerhalb von 300 Wörtern und des Präsentationsreviews; verlangt keine neue umfassende Governance-, Forschungs- oder Präsentationsinitiative.",
+          "critical": false
+        }
+      ]
+    },
+    {
+      "id": "v03-pr-02",
+      "skill": "praesentations-review",
+      "prompt": "Diese eine Folie zeige ich neuen Kolleginnen und Kollegen in einer dreiminütigen Einweisung. Formuliere sie verständlicher und sag mir in einem Satz, ob für diesen Zweck etwas fehlt. Die Beschriftungen im Buchungssystem müssen wiedererkennbar bleiben. Maximal 120 Wörter.",
+      "input": "sources/v03-pr-02.md",
+      "assertions": [
+        {
+          "text": "Ersetzt den schwer verständlichen Titel durch einen klaren Titel zur Buchung eines Besprechungsraums.",
+          "critical": false
+        },
+        {
+          "text": "Bewahrt die drei sichtbaren Systembeschriftungen Arbeitsplatz, Raum und Bestätigen sowie die Reihenfolge der Buchungsschritte.",
+          "critical": true
+        },
+        {
+          "text": "Liefert direkt verwendbaren Folientext und einen kurzen Satz zur Vollständigkeit für eine dreiminütige Einweisung.",
+          "critical": false
+        },
+        {
+          "text": "Erfindet weder eine zusätzliche Freigabe noch einen weiteren Pflichtschritt; behauptet keine manuell nötige Kalenderübertragung.",
+          "critical": true
+        },
+        {
+          "text": "Behandelt die Folie als kurze Anleitung; fordert keinen Managementbeschluss, Business Case oder umfassenden Foliensatz und bleibt innerhalb von 120 Wörtern.",
+          "critical": false
+        }
+      ]
+    },
+    {
+      "id": "v03-bc-01",
+      "skill": "business-case-pruefung",
+      "prompt": "Bitte prüfe den Freigabeantrag für die automatische Dokumentenprüfung. Ich brauche eine kurze Empfehlung, eine korrigierte Dreijahresrechnung und die entscheidende Voraussetzung, die wir als Erstes klären sollten. Rechne mit den hier gelieferten Angaben; der Bereich will heute über den Vollausbau entscheiden. Maximal 300 Wörter.",
+      "input": "sources/v03-bc-01.md",
+      "assertions": [
+        {
+          "text": "Berechnet die externe Auszahlung über drei Jahre korrekt mit 180.000 plus dreimal 120.000 gleich 540.000 Euro und bestätigt den behaupteten positiven Rückfluss von 90.000 Euro nicht.",
+          "critical": true
+        },
+        {
+          "text": "Unterscheidet die mögliche Entlastung von 130.000 Euro ab 2028 von zahlungswirksamen Personaleinsparungen, da keine entsprechende Personalmaßnahme geplant ist.",
+          "critical": true
+        },
+        {
+          "text": "Kennzeichnet 80.000 Euro jährlich ab 2028 als bedingten, noch nicht gesicherten Nutzen; weist darauf hin, dass 2,4 Prozent die Grenze von höchstens 2,0 Prozent überschreiten.",
+          "critical": true
+        },
+        {
+          "text": "Ordnet 500 mal 80 gleich 40.000 Euro interne Arbeit als Kapazitäts- beziehungsweise Opportunitätskosten ein und respektiert die ausdrücklich vorgegebene vollständige Aufwandserfassung der Einrichtung 2027.",
+          "critical": true
+        },
+        {
+          "text": "Macht die korrigierte Zahlungsrechnung verwendbar: derzeit keine bestätigten Einsparungen gegen 540.000 Euro Auszahlungen; selbst mit erfüllter Prüfer-Bedingung wären nur 160.000 Euro in 2028 und 2029 und damit 380.000 Euro Nettoauszahlung belegt.",
+          "critical": false
+        },
+        {
+          "text": "Gibt eine klare Empfehlung zur heutigen Vollfreigabe und priorisiert eine entscheidende Klärung aus den gelieferten Angaben, ohne neue Nutzenarten, Finanzierungsmodelle oder ein umfangreiches Bewertungsprogramm zu erfinden; maximal 300 Wörter.",
+          "critical": false
+        }
+      ]
+    },
+    {
+      "id": "v03-bc-02",
+      "skill": "business-case-pruefung",
+      "prompt": "Wir bestellen eine Teamlizenz für genau ein Jahr. Bitte prüfe die beiden Preise und schreib zwei bis drei Sätze, die ich in die Beschaffungsnotiz übernehmen kann. Entscheidend ist der niedrigere Gesamtpreis bei gleichem Leistungsumfang. Maximal 120 Wörter.",
+      "input": "sources/v03-bc-02.md",
+      "assertions": [
+        {
+          "text": "Berechnet A mit 1.480 Euro und B mit viermal 350 plus 200 gleich 1.600 Euro.",
+          "critical": true
+        },
+        {
+          "text": "Korrigiert die Ersparnis zugunsten A auf 120 Euro und empfiehlt A anhand des niedrigeren gegebenen Gesamtpreises.",
+          "critical": true
+        },
+        {
+          "text": "Vergleicht denselben Leistungsumfang über dasselbe eine Jahr und behandelt die genannten Zahlen als Nettobeträge.",
+          "critical": false
+        },
+        {
+          "text": "Liefert zwei bis drei direkt übernehmbare Sätze innerhalb von 120 Wörtern.",
+          "critical": false
+        },
+        {
+          "text": "Erfindet keine Produktivitätsgewinne, zusätzliche Risiken, abweichenden Vertragsbedingungen oder Notwendigkeit eines umfangreichen Business Case.",
+          "critical": false
+        }
+      ]
+    },
+    {
+      "id": "v03-ev-01",
+      "skill": "entscheidungsvorlage",
+      "prompt": "Erstelle die Entscheidungsvorlage für das Architekturboard morgen. Ich brauche eine begründete Empfehlung und eine Beschlussformulierung, über die dieses Board tatsächlich abstimmen kann. Zeige knapp, wie wir bis zur Umsetzung arbeitsfähig bleiben und welche verbindlichen Voraussetzungen noch fehlen. Maximal 300 Wörter.",
+      "input": "sources/v03-ev-01.md",
+      "assertions": [
+        {
+          "text": "Grenzt den möglichen Architektur-Beschluss von der ausstehenden Investitionsentscheidung über 60.000 Euro, der Datenschutzfreigabe und der Personalzuweisung ab; erteilt dem Board keine fremden Befugnisse.",
+          "critical": true
+        },
+        {
+          "text": "Gibt eine begründete Empfehlung und eine abstimmbare Formulierung, deren unmittelbare Bindung auf die Auswahl der Zielarchitektur beschränkt bleibt.",
+          "critical": true
+        },
+        {
+          "text": "Stellt die Zustimmung der Beteiligten nicht als uneingeschränkt dar und benennt die offenen Bedingungen für B: Aufbewahrung, Geld und 0,5 Vollzeitäquivalente für den Betrieb.",
+          "critical": true
+        },
+        {
+          "text": "Zeigt einen realistischen Übergang mit der angebotenen Verlängerung A für 15.000 Euro bis 31. Januar und beachtet die Entscheidungsfrist 31. Oktober sowie die Befugnis der Projektleitung.",
+          "critical": false
+        },
+        {
+          "text": "Beachtet die tatsächliche Entscheidungsfolge mit Datenschutz-Rückmeldung am 1. November, Investitionsausschuss am 5. November und sechs Wochen Umsetzung ab einem freigegebenen Start.",
+          "critical": false
+        },
+        {
+          "text": "Liefert innerhalb von 300 Wörtern eine verwendbare Entscheidungsvorlage, ohne Zustimmung, Budget oder Termine als bereits erteilt zu erfinden und ohne einen zusätzlichen umfassenden Architekturprozess aufzusetzen.",
+          "critical": false
+        }
+      ]
+    },
+    {
+      "id": "v03-ev-02",
+      "skill": "entscheidungsvorlage",
+      "prompt": "Die Teamleiterin hat den Workshoptermin bereits entschieden. Formuliere daraus einen kurzen Entscheidungseintrag fürs Team-Wiki mit dem Anlass. Ich möchte ihn direkt einfügen können. Maximal 120 Wörter.",
+      "input": "sources/v03-ev-02.md",
+      "assertions": [
+        {
+          "text": "Dokumentiert die bereits am 10. Oktober getroffene Entscheidung von Teamleiterin Nadine, statt eine neue Wahl oder Freigabe anzustoßen.",
+          "critical": true
+        },
+        {
+          "text": "Nennt den 20. Oktober, 09:00 bis 12:00 Uhr und Raum B06 korrekt.",
+          "critical": true
+        },
+        {
+          "text": "Gibt die Verfügbarkeit aller sechs Teammitglieder als Anlass wieder.",
+          "critical": false
+        },
+        {
+          "text": "Stellt die externen Beobachter nicht als notwendige Teilnehmende oder als offene Voraussetzung dar.",
+          "critical": true
+        },
+        {
+          "text": "Liefert einen kurzen, direkt einfügbaren Wiki-Eintrag innerhalb von 120 Wörtern und verlangt keine Optionenmatrix, Gremienbefassung oder erneute Einladung.",
+          "critical": false
+        }
+      ]
+    },
+    {
+      "id": "v03-gv-01",
+      "skill": "gremienvorbereitung",
+      "prompt": "Bereite den IT-Leitungskreis am 18. November vor. Ich brauche eine realistische Tagesordnung, die entscheidbaren Beschlussformulierungen und die Klärungen, ohne die wir im Termin nur aneinander vorbeireden. Das muss in die Sitzungsunterlage passen. Maximal 300 Wörter.",
+      "input": "sources/v03-gv-01.md",
+      "assertions": [
+        {
+          "text": "Plant insgesamt höchstens 45 Minuten, einschließlich der festen 15 Minuten Datenschutzinformation; erkennt, dass die drei zusätzlichen Entwurfspositionen 34 statt verfügbarer 30 Minuten beanspruchen.",
+          "critical": true
+        },
+        {
+          "text": "Unterscheidet sechs protokollierte erfolgreiche Tests von zwei ungetesteten Anbieterbestätigungen und lässt keinen Beschluss über vollständig geprüfte acht Kontrollen zu.",
+          "critical": true
+        },
+        {
+          "text": "Priorisiert die vorhandenen vier Test-Personentage auf Grundlage der unterschiedlichen Dringlichkeit, statt beide Vorhaben mit insgesamt sechs Personentagen als durchführbar zu bestätigen.",
+          "critical": true
+        },
+        {
+          "text": "Formuliert zu Vertrag und Haftung nur eine Empfehlung beziehungsweise einen Auftrag zur Klärung; behauptet keine Kündigungs- oder Haftungsentscheidung durch den Leitungskreis.",
+          "critical": true
+        },
+        {
+          "text": "Macht die Eskalation an Finanzleitung und Rechtsabteilung vor 20. November, 17:00 Uhr, erkennbar und liefert verwendbare Beschlussformulierungen zu den zulässigen Entscheidungen.",
+          "critical": false
+        },
+        {
+          "text": "Bleibt innerhalb von 300 Wörtern und bei der konkreten Sitzungsvorbereitung; erfindet keine zusätzlichen Gremien, Nachweise oder Entscheidungsrechte.",
+          "critical": false
+        }
+      ]
+    },
+    {
+      "id": "v03-gv-02",
+      "skill": "gremienvorbereitung",
+      "prompt": "Ich brauche nur einen sachlichen Tagesordnungstitel und einen kurzen Zwecktext für unsere Bereichsrunde. Das Format ist unten beschrieben. Bitte so formulieren, dass ich es direkt in die Einladung setzen kann. Maximal 120 Wörter.",
+      "input": "sources/v03-gv-02.md",
+      "assertions": [
+        {
+          "text": "Liefert einen sachlichen Tagesordnungstitel für den Projekt-Phoenix-Beitrag und einen kurzen, direkt einfügbaren Zwecktext.",
+          "critical": false
+        },
+        {
+          "text": "Benennt das Kennenlernen der fertigen Suchfunktion und ihre Verfügbarkeit im Teamportal als Informationszweck.",
+          "critical": true
+        },
+        {
+          "text": "Bewahrt den Charakter der informellen Informationsrunde und stellt keinen Beschluss oder Freigabebedarf her.",
+          "critical": true
+        },
+        {
+          "text": "Widerspricht dem insgesamt 20-minütigen Format aus Status, Demonstration und Fragen nicht.",
+          "critical": false
+        },
+        {
+          "text": "Bleibt innerhalb von 120 Wörtern und erweitert den Auftrag nicht um Sitzungsregie, Rollenmodell, Vorabunterlagen oder einen formalen Gremienprozess.",
+          "critical": false
+        }
+      ]
+    },
+    {
+      "id": "v03-ps-01",
+      "skill": "projektstatus",
+      "prompt": "Schreib den Managementstatus für heute mit einer konkreten Eskalationsbitte. Ich muss deutlich sagen, ob die zugesagte Freigabe erreichbar ist und welche Entscheidung bis wann gebraucht wird. Nimm die Statusdefinition des Bereichs. Maximal 300 Wörter.",
+      "input": "sources/v03-ps-01.md",
+      "assertions": [
+        {
+          "text": "Meldet Rot entsprechend der gegebenen Statusdefinition, weil die Gegenmaßnahme und die zusätzlichen Mittel noch nicht genehmigt sind; übernimmt den unbelegten Grün-Wunsch des Sponsors nicht.",
+          "critical": true
+        },
+        {
+          "text": "Nennt acht benötigte gegen zwei verbindlich verfügbare Personentage und damit die Lücke von sechs Personentagen.",
+          "critical": true
+        },
+        {
+          "text": "Berechnet den Dienstleistungsauftrag mit sechs mal 1.200 gleich 7.200 Euro netto und den zusätzlichen Mittelbedarf nach den verfügbaren 2.000 Euro mit 5.200 Euro.",
+          "critical": true
+        },
+        {
+          "text": "Richtet die Freigabebitte über zusätzliche 5.200 Euro an die Bereichsleitung und beachtet Bestellung bis 15. Oktober, 12:00 Uhr, sowie die Einrichtung der Zugänge am 16. Oktober.",
+          "critical": true
+        },
+        {
+          "text": "Beschreibt die Erreichbarkeit des 23. Oktober unter den genannten Bedingungen und die unverbindliche Reservierung korrekt; liefert einen verwendbaren Status mit konkreter Entscheidung, statt Termin- oder Ressourcenfreigabe zu erfinden.",
+          "critical": false
+        },
+        {
+          "text": "Bleibt innerhalb von 300 Wörtern; baut keine neue Projektplanung oder allgemeine Eskalationsordnung auf.",
+          "critical": false
+        }
+      ]
+    },
+    {
+      "id": "v03-ps-02",
+      "skill": "projektstatus",
+      "prompt": "Bitte mach aus der Notiz zwei kurze Sätze für unseren Teamchat. Die Kollegen brauchen den aktuellen Stand und den nächsten Schritt. Maximal 120 Wörter.",
+      "input": "sources/v03-ps-02.md",
+      "assertions": [
+        {
+          "text": "Berichtet korrekt, dass alle drei vorgesehenen Workshops stattgefunden haben, ohne den gesamten Übergabeprozess für abgeschlossen zu erklären.",
+          "critical": true
+        },
+        {
+          "text": "Nennt die Bereitstellung der Ergebnisprotokolle durch Lea bis Freitag, 16. Oktober, im Teamordner als nächsten Schritt.",
+          "critical": true
+        },
+        {
+          "text": "Liefert zwei direkt verwendbare, kurze Teamchat-Sätze innerhalb von 120 Wörtern.",
+          "critical": false
+        },
+        {
+          "text": "Erfindet keine offenen Entscheidungen, Kapazitätsprobleme oder Termingefährdung.",
+          "critical": true
+        },
+        {
+          "text": "Fügt keine Eskalationsbitte, formale Managementampel, Risikoanalyse oder neue Planungsaufgabe hinzu.",
+          "critical": false
+        }
+      ]
+    },
+    {
+      "id": "v03-ep-01",
+      "skill": "ergebnisprotokoll",
+      "prompt": "Erstelle ein Ergebnisprotokoll aus dem Gespräch. Ich brauche die tatsächlichen Festlegungen, die offenen Punkte und die Aufgaben mit ihren vereinbarten Terminen. Es soll auch nach zwei Wochen noch eindeutig sein. Maximal 300 Wörter.",
+      "input": "sources/v03-ep-01.md",
+      "assertions": [
+        {
+          "text": "Hält den 20. November als internes Planungsziel mit offener Security-Prüfung und Budgetfreigabe fest; behauptet keine endgültige Pilotfreigabe.",
+          "critical": true
+        },
+        {
+          "text": "Dokumentiert den Konflikt um den 19. November als ungeklärte Kundenkommunikation, statt Toms behauptetes Versprechen als bestätigte Tatsache oder bereits widerlegt darzustellen.",
+          "critical": true
+        },
+        {
+          "text": "Bewahrt Maliks Bedingung für die Prüfung am 18. November: vollständige Protokolldaten bis 16. November, 12:00 Uhr; hält Leas entsprechende Aufgabe mit diesem Termin fest.",
+          "critical": true
+        },
+        {
+          "text": "Erfasst Evas schriftliches Angebot über 12.000 Euro netto bis 13. November sowie Leas Nachfrage bei Nora bis 13. November, ohne eine Budgetfreigabe oder einen Antworttermin Noras zu erfinden.",
+          "critical": true
+        },
+        {
+          "text": "Erfasst Toms Klärungsaufgabe als Aufgabe ohne vereinbarten Termin und respektiert Noras ausschließliche Freigabebefugnis über 10.000 Euro sowie ihre Abwesenheit.",
+          "critical": false
+        },
+        {
+          "text": "Liefert ein knappes verwendbares Ergebnisprotokoll innerhalb von 300 Wörtern, ohne fremde Beschlüsse, zusätzliche Rollen, nicht vereinbarte Aufgaben oder ein neues Protokoll-Freigabeverfahren einzuführen.",
+          "critical": false
+        }
+      ]
+    },
+    {
+      "id": "v03-ep-02",
+      "skill": "ergebnisprotokoll",
+      "prompt": "Bitte halte die Ergebnisse dieses kurzen Teamabgleichs in genau drei Stichpunkten fest. Ich füge sie unter die bestehende Wochenüberschrift ein. Maximal 120 Wörter.",
+      "input": "sources/v03-ep-02.md",
+      "assertions": [
+        {
+          "text": "Hält Raum B06 für den internen Austausch am 20. Oktober als bereits gebucht fest.",
+          "critical": true
+        },
+        {
+          "text": "Erfasst Mira als Verantwortliche für die Liste der Teilnehmenden an Jan bis 16. Oktober.",
+          "critical": true
+        },
+        {
+          "text": "Bewahrt die Bedingung für einen weiteren Abgleich: nur bei fehlender Liste am 16. Oktober; erfindet keinen festgelegten Folgetermin.",
+          "critical": true
+        },
+        {
+          "text": "Liefert genau drei Stichpunkte innerhalb von 120 Wörtern, die unter eine vorhandene Wochenüberschrift passen.",
+          "critical": false
+        },
+        {
+          "text": "Erfindet keine zusätzlichen Entscheidungen, Freigaberollen, Aufgaben, Verteiler oder formale Protokollabnahme.",
+          "critical": false
+        }
+      ]
+    },
+    {
+      "id": "v03-sk-01",
+      "skill": "stakeholder-kommunikation",
+      "prompt": "Formuliere eine Antwort an Sophie, die ich als Projektleiterin senden kann. Sie soll eine klare und verlässliche Aussage zu Termin und Preis bekommen und wissen, was als Nächstes passiert. Die Zusammenarbeit ist gut; bitte freundlich und ohne unnötige interne Details. Maximal 250 Wörter.",
+      "input": "sources/v03-sk-01.md",
+      "assertions": [
+        {
+          "text": "Bestätigt weder den Produktivstart am 1. Dezember noch die 80.000 Euro als verbindlich und überschreitet die Befugnis der Projektleiterin nicht.",
+          "critical": true
+        },
+        {
+          "text": "Nennt die beiden Voraussetzungen für das technische Ziel: 20 anonymisierte Beispielakten von Sophie bis 14. November und Security-Freigabe bis 20. November.",
+          "critical": true
+        },
+        {
+          "text": "Kennzeichnet 80.000 Euro netto als noch nicht freigegebene Schätzung für das erste Jahr; beschreibt den Umfang mit Integration und Jahreslizenz, ohne einen dauerhaften Gesamtpreis oder enthaltene Reisen/Zusatzfunktionen zu behaupten.",
+          "critical": true
+        },
+        {
+          "text": "Macht das bereits zugesagte Update am 21. November zu Security-Ergebnis und verbindlichem Angebot erkennbar.",
+          "critical": false
+        },
+        {
+          "text": "Bietet den tatsächlich möglichen geführten Demonstrationstermin am 1. Dezember als Zwischenstand an und unterscheidet ihn klar vom Produktivbetrieb mit Kundenakten.",
+          "critical": false
+        },
+        {
+          "text": "Liefert eine freundliche direkt verwendbare Kundenantwort innerhalb von 250 Wörtern, die Termin und Preis beantwortet, ohne interne Governance auszubreiten oder neue Zusagen und Anforderungen zu erfinden.",
+          "critical": false
+        }
+      ]
+    },
+    {
+      "id": "v03-sk-02",
+      "skill": "stakeholder-kommunikation",
+      "prompt": "Schreib eine kurze Teams-Nachricht an die fünf Kolleginnen und Kollegen, die an der Vorstellung teilnehmen. Ich möchte nur die Raumänderung sauber weitergeben. Maximal 120 Wörter.",
+      "input": "sources/v03-sk-02.md",
+      "assertions": [
+        {
+          "text": "Teilt die Änderung von Raum B06 auf C12 korrekt mit.",
+          "critical": true
+        },
+        {
+          "text": "Nennt den unveränderten Termin 16. Oktober, 11:00 bis 11:30 Uhr, korrekt oder macht ohne Abweichung deutlich, dass Zeit und Datum gleich bleiben.",
+          "critical": true
+        },
+        {
+          "text": "Stellt den vorhandenen Teams-Link als weiterhin gültig dar und fordert keine Teilnahmebestätigung an.",
+          "critical": true
+        },
+        {
+          "text": "Liefert eine kurze direkt verwendbare Teams-Nachricht innerhalb von 120 Wörtern in passender kollegialer Sprache.",
+          "critical": false
+        },
+        {
+          "text": "Erfindet keine weiteren Änderungen, Risiken oder Gründe und erweitert die reine Raummitteilung nicht um Stakeholderanalyse, Eskalation oder Kommunikationsplan.",
+          "critical": false
+        }
+      ]
+    }
+  ]
+}

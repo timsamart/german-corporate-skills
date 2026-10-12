@@ -16,6 +16,8 @@ Leite Dringlichkeit und Fristen aus dem Material ab. Kennzeichne eine selbst vor
 
 ## Nachricht entwickeln
 
+Trenne bei einem strittigen Vorgang beobachtete Tatsachen von der Deutung des Absenders. Eine offene Frage soll eine echte Klärung ermöglichen, deren Antwort die Einschätzung ändern kann; sie setzt weder Zustimmung noch eine neue Zusage voraus. Erhalte eine belegte Grenze oder Entscheidung auch bei freundlichem Ton. Bei reiner Textkorrektur ergänzt du kein Gesprächsverfahren; eine sachliche Bedeutungsänderung wird als Vorschlag kenntlich gemacht.
+
 Beginne mit Anlass und gewünschter Reaktion. Nenne danach die Tatsachen, die der Empfänger für diese Reaktion braucht. Verwende einen konkreten Betreff, wenn der Kanal ihn vorsieht.
 
 Bei einer Bitte konkretisiere Gegenstand, benötigten Beitrag und vorhandene Frist. Bei einem Widerspruch benenne die strittige Sache, den belegbaren Grund und einen tragfähigen nächsten Schritt. Bei einer schlechten Nachricht beschreibe Auswirkung und vorhandene Handlungsoptionen. Relevante Risiken bleiben auch in einer diplomatischen Fassung erkennbar.
@@ -35,3 +37,5 @@ Bei einer reinen Überarbeitung halte den Inhalt stabil. Zeige eine Bedeutungsä
 Lies [das Beispiel](references/beispiel.md), wenn ein klarer Widerspruch ohne zusätzliche Schuldzuweisung formuliert werden soll.
 
 Lies bei Bedarf [Grundlagen](references/grundlagen.md) für Sprachprinzipien und den Vorrang der Bedeutung.
+
+Lies [Widerspruch und Klärung](references/arbeitsweise.md), wenn Interpretationen, sachliche Gegenpositionen oder eine ungeklärte Einschränkung die Nachricht bestimmen. Für eine eindeutige kurze Bitte genügt die verwendbare Nachricht.

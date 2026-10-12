@@ -1,0 +1,8 @@
+{
+  "task": "Prüfe den Case für die Projektleitung. Gib ein kurzes wirtschaftliches Urteil, die korrigierte Rechnung und die wichtigsten Klärungen vor der Entscheidung. Das Ziel ist der Abbau von Rückständen. Höchstens 330 Wörter.",
+  "input": "evals/v0.3.0/fixtures/nutzenpfad-und-doppelte-stunden.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/business-case-pruefung",
+  "output": "evals/results/v0.3.0/development/eval-2-nutzenpfad-und-doppelte-stunden/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/development/eval-2-nutzenpfad-und-doppelte-stunden/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

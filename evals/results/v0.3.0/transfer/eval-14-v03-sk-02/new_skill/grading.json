@@ -1,0 +1,42 @@
+{
+  "expectations": [
+    {
+      "text": "Teilt die Änderung von Raum B06 auf C12 korrekt mit.",
+      "passed": true,
+      "evidence": "Source sources/v03-sk-02.md changes B06 to C12. Output says the presentation takes place in C12 and identifies B06 as the old room, communicating the correct change."
+    },
+    {
+      "text": "Nennt den unveränderten Termin 16. Oktober, 11:00 bis 11:30 Uhr, korrekt oder macht ohne Abweichung deutlich, dass Zeit und Datum gleich bleiben.",
+      "passed": true,
+      "evidence": "Source keeps 16 October, 11:00–11:30. Output repeats date and “Die Uhrzeit bleibt bei 11:00 bis 11:30 Uhr”, with no deviation."
+    },
+    {
+      "text": "Stellt den vorhandenen Teams-Link als weiterhin gültig dar und fordert keine Teilnahmebestätigung an.",
+      "passed": true,
+      "evidence": "Source says existing Teams link remains valid and no confirmation is required. Output gives “der vorhandene Teams-Link bleibt gültig” and “Eine Bestätigung ist nicht erforderlich”, requesting no response."
+    },
+    {
+      "text": "Liefert eine kurze direkt verwendbare Teams-Nachricht innerhalb von 120 Wörtern in passender kollegialer Sprache.",
+      "passed": true,
+      "evidence": "Output is a directly usable collegial group message beginning “Hallo zusammen”. Independent entire-output word count: 47, below 120. Individual naming of the five recipients is unnecessary."
+    },
+    {
+      "text": "Erfindet keine weiteren Änderungen, Risiken oder Gründe und erweitert die reine Raummitteilung nicht um Stakeholderanalyse, Eskalation oder Kommunikationsplan.",
+      "passed": true,
+      "evidence": "Source supplies construction work as the reason for B06's closure and says no other changes. Output repeats that supported reason and “Weitere Änderungen gibt es nicht”, with no new changes, risks, stakeholder analysis, escalation or communication plan."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "word_count": 47,
+  "word_count_method": "Split the entire output.md on Unicode whitespace (\\s+); count each resulting token containing at least one Unicode letter or number (\\p{L} or \\p{N}). Include headings, labels and table text; exclude punctuation-only/Markdown-only tokens.",
+  "review_type": "Independent model review; not human validation",
+  "eval_feedback": [
+    "'Nur die Raumänderung' permits brief reminders that time/link stay valid; the supplied construction reason is source-supported, not invented.",
+    "Synthetic fixture; independent model review, not human validation."
+  ]
+}

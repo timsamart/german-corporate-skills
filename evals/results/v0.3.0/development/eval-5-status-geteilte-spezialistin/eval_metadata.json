@@ -1,0 +1,31 @@
+{
+  "id": 5,
+  "name": "status-geteilte-spezialistin",
+  "skill": "projektstatus",
+  "input": "fixtures/status-geteilte-spezialistin.md",
+  "prompt": "Schreibe den Status für den Bereichsleiter und die konkrete Unterstützung, die wir benötigen. Keine allgemeine Projektmanagementerklärung. Höchstens 280 Wörter.",
+  "word_limit": 280,
+  "assertions": [
+    {
+      "text": "Zeigt sieben benötigte gegenüber fünf verfügbaren Tagen, mindestens zwei Tage Kapazitätskonflikt; die beiden Termine sind so nicht zugleich erfüllbar.",
+      "critical": true
+    },
+    {
+      "text": "Die genehmigten Termine 23.10. bleiben Soll; kein erfundenes verbindliches neues Datum oder stilles Rebaselining.",
+      "critical": true
+    },
+    {
+      "text": "Benötigte Unterstützung richtet sich auf eine Prioritäts-/Reihenfolgeentscheidung des Bereichsleiters mit Folgen, nicht allein auf generisch mehr Ressourcen.",
+      "critical": false
+    },
+    {
+      "text": "Fehlende Folgekapazität und Abhängigkeiten bleiben offen; Ersatz, Wochenende, Fortschrittsquote oder bereits beschlossene Priorisierung werden nicht erfunden.",
+      "critical": true
+    },
+    {
+      "text": "Verwendbarer kompakter Status innerhalb 280 Wörter, der Vorarbeiten von Abnahme/Testabschluss unterscheidet.",
+      "critical": false
+    }
+  ],
+  "published_input": "../../../../v0.3.0/fixtures/status-geteilte-spezialistin.md"
+}

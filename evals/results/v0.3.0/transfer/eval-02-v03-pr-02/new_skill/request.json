@@ -1,0 +1,8 @@
+{
+  "task": "Diese eine Folie zeige ich neuen Kolleginnen und Kollegen in einer dreiminütigen Einweisung. Formuliere sie verständlicher und sag mir in einem Satz, ob für diesen Zweck etwas fehlt. Die Beschriftungen im Buchungssystem müssen wiedererkennbar bleiben. Maximal 120 Wörter.",
+  "input": "evals/results/v0.3.0/transfer/source/sources/v03-pr-02.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/praesentations-review",
+  "output": "evals/results/v0.3.0/transfer/eval-02-v03-pr-02/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/transfer/eval-02-v03-pr-02/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

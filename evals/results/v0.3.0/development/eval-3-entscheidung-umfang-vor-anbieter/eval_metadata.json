@@ -1,0 +1,31 @@
+{
+  "id": 3,
+  "name": "entscheidung-umfang-vor-anbieter",
+  "skill": "entscheidungsvorlage",
+  "input": "fixtures/entscheidung-umfang-vor-anbieter.md",
+  "prompt": "Erstelle eine kompakte Entscheidungsvorlage aus den Unterlagen. Sie soll in der Sitzung verwendbar sein und die heutige Entscheidungsfrage klar machen. Höchstens 330 Wörter.",
+  "word_limit": 330,
+  "assertions": [
+    {
+      "text": "Stellt das Fristziel für 80 Fälle und die heute mögliche Prüfung in den Mittelpunkt, statt die Frage auf einen sofortigen Anbieterkauf zu verengen.",
+      "critical": true
+    },
+    {
+      "text": "Berücksichtigt die belegte Prozessoption mit 12.000 Euro/sechs Wochen; Anbieterwerte 90.000/75.000 und Kapazität 800 bleiben korrekt.",
+      "critical": true
+    },
+    {
+      "text": "Beschlussvorschlag wahrt die 20.000-Euro-Prüfbefugnis und trennt spätere Software-/Vertragsentscheidung; keine tatsächliche Freigabe behauptet.",
+      "critical": true
+    },
+    {
+      "text": "Nennt fehlende Fristwirkung als entscheidungsrelevante Information und offene Umsetzung/Verantwortung, ohne eine garantierte Wirkung oder einen Besitzer zu erfinden.",
+      "critical": false
+    },
+    {
+      "text": "Zuerst eine verwendbare kompakte Vorlage innerhalb 330 Wörter; keine erfundene Frist, Gewichtung oder Scheinobjektivität.",
+      "critical": false
+    }
+  ],
+  "published_input": "../../../../v0.3.0/fixtures/entscheidung-umfang-vor-anbieter.md"
+}

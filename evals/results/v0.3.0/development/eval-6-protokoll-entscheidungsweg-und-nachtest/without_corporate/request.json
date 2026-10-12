@@ -1,0 +1,8 @@
+{
+  "task": "Erstelle das Ergebnisprotokoll und die Maßnahmenliste aus diesem Ausschnitt. Bitte nur das, was die Sitzung trägt. Höchstens 300 Wörter.",
+  "input": "evals/v0.3.0/fixtures/protokoll-entscheidungsweg-und-nachtest.md",
+  "skill": null,
+  "output": "evals/results/v0.3.0/development/eval-6-protokoll-entscheidungsweg-und-nachtest/without_corporate/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/development/eval-6-protokoll-entscheidungsweg-und-nachtest/without_corporate/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

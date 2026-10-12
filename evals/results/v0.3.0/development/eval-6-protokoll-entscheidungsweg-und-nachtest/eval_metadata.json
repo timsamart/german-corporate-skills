@@ -1,0 +1,31 @@
+{
+  "id": 6,
+  "name": "protokoll-entscheidungsweg-und-nachtest",
+  "skill": "ergebnisprotokoll",
+  "input": "fixtures/protokoll-entscheidungsweg-und-nachtest.md",
+  "prompt": "Erstelle das Ergebnisprotokoll und die Maßnahmenliste aus diesem Ausschnitt. Bitte nur das, was die Sitzung trägt. Höchstens 300 Wörter.",
+  "word_limit": 300,
+  "assertions": [
+    {
+      "text": "Erhält Evas Entscheidung nach Beratung für Nord; Alex' Gegenposition wird nicht zu Konsens oder Zustimmung zum Umfang.",
+      "critical": true
+    },
+    {
+      "text": "Tom liefert am 16.10.2026 mit der Bedingung Zugang bis 14.10.; bei fehlendem Zugang Terminabstimmung, keine unbedingte Zusage.",
+      "critical": true
+    },
+    {
+      "text": "Maßnahmenliste erhält den vereinbarten Abschlussnachweis kategorisierte Fehler mit dokumentiertem Nachtest und gemeinsame Prüfung am 19.10.2026.",
+      "critical": false
+    },
+    {
+      "text": "Süd bleibt späterer Vorschlag/Entscheidungspunkt ohne bestätigte Aufgabe oder Besitzer; Nord wird nicht erweitert.",
+      "critical": true
+    },
+    {
+      "text": "Entwurf mit nachvollziehbaren Fundstellen zu wesentlichen Punkten, höchstens 300 Wörter; keine Versand- oder Bestätigungsbehauptung.",
+      "critical": false
+    }
+  ],
+  "published_input": "../../../../v0.3.0/fixtures/protokoll-entscheidungsweg-und-nachtest.md"
+}

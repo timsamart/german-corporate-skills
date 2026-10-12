@@ -1,0 +1,31 @@
+{
+  "id": "v03-pr-01",
+  "skill": "praesentations-review",
+  "prompt": "Ich habe morgen 15 Minuten im Portfolioausschuss. Prüfe die fünf Folien auf ihre Eignung für diesen Termin. Gib mir die drei wichtigsten Befunde und jeweils eine konkrete Änderung an einer vorhandenen Folie, die ich direkt umsetzen kann. Die Präsentation soll danach einen brauchbaren Beschluss ermöglichen. Maximal 300 Wörter.",
+  "input": "sources/v03-pr-01.md",
+  "assertions": [
+    {
+      "text": "Richtet die Präsentation auf die heute tatsächlich zulässige Pilotentscheidung über 50.000 Euro aus und kennzeichnet die Rolloutfreigabe von 240.000 Euro als Entscheidung des Investitionsausschusses am 5. November.",
+      "critical": true
+    },
+    {
+      "text": "Erkennt den gemeinsamen Ressourcenengpass: 14 plus 12 ergeben 26 Personentage bei 20 zugesagten Personentagen, also sechs fehlende Personentage; stellt parallelen Start ohne Lösung nicht als abgesichert dar.",
+      "critical": true
+    },
+    {
+      "text": "Bezeichnet sechs Befragungen und vier Pilotwünsche nicht als nachgewiesene Nutzerakzeptanz.",
+      "critical": true
+    },
+    {
+      "text": "Liefert drei priorisierte Befunde mit konkreten Änderungen an identifizierbaren vorhandenen Folien, einschließlich einer verwendbaren Pilot-Beschlussformulierung.",
+      "critical": false
+    },
+    {
+      "text": "Bleibt innerhalb von 300 Wörtern und des Präsentationsreviews; verlangt keine neue umfassende Governance-, Forschungs- oder Präsentationsinitiative.",
+      "critical": false
+    }
+  ],
+  "name": "v03-pr-01",
+  "word_limit": 300,
+  "published_input": "../source/sources/v03-pr-01.md"
+}

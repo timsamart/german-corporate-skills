@@ -1,0 +1,31 @@
+{
+  "id": "v03-gv-02",
+  "skill": "gremienvorbereitung",
+  "prompt": "Ich brauche nur einen sachlichen Tagesordnungstitel und einen kurzen Zwecktext für unsere Bereichsrunde. Das Format ist unten beschrieben. Bitte so formulieren, dass ich es direkt in die Einladung setzen kann. Maximal 120 Wörter.",
+  "input": "sources/v03-gv-02.md",
+  "assertions": [
+    {
+      "text": "Liefert einen sachlichen Tagesordnungstitel für den Projekt-Phoenix-Beitrag und einen kurzen, direkt einfügbaren Zwecktext.",
+      "critical": false
+    },
+    {
+      "text": "Benennt das Kennenlernen der fertigen Suchfunktion und ihre Verfügbarkeit im Teamportal als Informationszweck.",
+      "critical": true
+    },
+    {
+      "text": "Bewahrt den Charakter der informellen Informationsrunde und stellt keinen Beschluss oder Freigabebedarf her.",
+      "critical": true
+    },
+    {
+      "text": "Widerspricht dem insgesamt 20-minütigen Format aus Status, Demonstration und Fragen nicht.",
+      "critical": false
+    },
+    {
+      "text": "Bleibt innerhalb von 120 Wörtern und erweitert den Auftrag nicht um Sitzungsregie, Rollenmodell, Vorabunterlagen oder einen formalen Gremienprozess.",
+      "critical": false
+    }
+  ],
+  "name": "v03-gv-02",
+  "word_limit": 120,
+  "published_input": "../source/sources/v03-gv-02.md"
+}

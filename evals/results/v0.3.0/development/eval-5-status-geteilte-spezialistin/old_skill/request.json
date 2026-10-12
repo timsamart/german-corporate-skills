@@ -1,0 +1,8 @@
+{
+  "task": "Schreibe den Status für den Bereichsleiter und die konkrete Unterstützung, die wir benötigen. Keine allgemeine Projektmanagementerklärung. Höchstens 280 Wörter.",
+  "input": "evals/v0.3.0/fixtures/status-geteilte-spezialistin.md",
+  "skill": "evals/results/v0.3.0/baseline/skills/projektstatus",
+  "output": "evals/results/v0.3.0/development/eval-5-status-geteilte-spezialistin/old_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/development/eval-5-status-geteilte-spezialistin/old_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

@@ -1,0 +1,3 @@
+- **Entwurf aus dem Teamabgleich vom 9. Oktober:** Jan hat die Raumverfügbarkeit geprüft. Raum B06 ist für den internen Austausch am 20. Oktober gebucht.
+- Mira schickt die Liste der Teilnehmenden bis 16. Oktober an Jan.
+- Vereinbart wurde ein weiterer Abgleich nur für den Fall, dass die Liste am 16. Oktober fehlt. Ein weiterer Besprechungstermin wurde nicht festgelegt.

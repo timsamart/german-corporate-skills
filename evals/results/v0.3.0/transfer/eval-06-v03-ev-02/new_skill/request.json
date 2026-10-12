@@ -1,0 +1,8 @@
+{
+  "task": "Die Teamleiterin hat den Workshoptermin bereits entschieden. Formuliere daraus einen kurzen Entscheidungseintrag fürs Team-Wiki mit dem Anlass. Ich möchte ihn direkt einfügen können. Maximal 120 Wörter.",
+  "input": "evals/results/v0.3.0/transfer/source/sources/v03-ev-02.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/entscheidungsvorlage",
+  "output": "evals/results/v0.3.0/transfer/eval-06-v03-ev-02/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/transfer/eval-06-v03-ev-02/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

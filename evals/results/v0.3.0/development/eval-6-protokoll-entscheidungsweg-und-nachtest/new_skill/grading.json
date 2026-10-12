@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Erhält Evas Entscheidung nach Beratung für Nord; Alex' Gegenposition wird nicht zu Konsens oder Zustimmung zum Umfang.",
+      "passed": true,
+      "evidence": "Quelle 00:02: Eva entscheidet nach Beratung nur Nord; 00:03: Alex ist gegen den Umfang, akzeptiert den Entscheidungsweg. Ausgabe erhält beides und sagt ausdrücklich 'ein Konsens ist damit nicht belegt'. Eva bleibt die laut Mandat entscheidende Bereichsleiterin."
+    },
+    {
+      "text": "Tom liefert am 16.10.2026 mit der Bedingung Zugang bis 14.10.; bei fehlendem Zugang Terminabstimmung, keine unbedingte Zusage.",
+      "passed": true,
+      "evidence": "Quelle 00:04 und 00:06: Tom liefert Freitag 16.10.; ohne Zugangsdaten bis 14.10. muss er den Liefertermin neu abstimmen. M1 führt 16.10.2026 und diesen Vorbehalt gemeinsam im Feld 'Frist und Bedingung'. Die offenen Punkte nennen die gegebenenfalls notwendige neue Abstimmung, ohne Ersatztermin zu erfinden."
+    },
+    {
+      "text": "Maßnahmenliste erhält den vereinbarten Abschlussnachweis kategorisierte Fehler mit dokumentiertem Nachtest und gemeinsame Prüfung am 19.10.2026.",
+      "passed": true,
+      "evidence": "Quelle 00:05–00:06: kategorisierte Fehler mit dokumentiertem Nachtest und gemeinsame Prüfung Montag 19.10. als Abschlussnachweis; Tom übernimmt beides. Unmittelbar unter M1 nennt die Ausgabe diesen vereinbarten Abschlussnachweis, Toms Übernahme und gemeinsame Prüfung durch Eva und Tom am 19.10.2026. Lieferung allein wird ausdrücklich nicht als Abschluss gewertet."
+    },
+    {
+      "text": "Süd bleibt späterer Vorschlag/Entscheidungspunkt ohne bestätigte Aufgabe oder Besitzer; Nord wird nicht erweitert.",
+      "passed": true,
+      "evidence": "Quelle 00:07–00:08: Mia schlägt Süd vor, Eva bleibt bei Nord; spätere Südentscheidung ohne Aufgabe. Ausgabe erhält dies unter Entscheidungen und offenen Vorschlägen. Die Maßnahmenliste enthält nur den Nord-Testbericht; Süd erhält weder Maßnahme noch Besitzer."
+    },
+    {
+      "text": "Entwurf mit nachvollziehbaren Fundstellen zu wesentlichen Punkten, höchstens 300 Wörter; keine Versand- oder Bestätigungsbehauptung.",
+      "passed": true,
+      "evidence": "Whitespace-Wörter mit mindestens einem Buchstaben oder einer Ziffer: 191, innerhalb 300. Titel 'Entwurf zur Prüfung', Prüfgrundlage 00:02–00:08 und konkrete Zeitmarken für Nord/Alex, M1/Abschluss und Süd sind vorhanden. Kein Versand oder bereits erfolgte Bestätigung wird behauptet."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Ersetzt Absicht/Schuld durch die belegte Anfrage 08.10. und Antwort 09.10.; behauptet nicht fälschlich eine ausgebliebene Antwort.",
+      "passed": true,
+      "evidence": "Quelle: Kostenanfrage 08.10.2026, Berger antwortete 09.10., fehlende Eingaben statt belegter Absicht. Ausgabe nennt die Anfrage und 'Sie haben am 09.10.2026 darauf hingewiesen' und enthält keine Absichts-/Schuldbehauptung oder angeblich ausgebliebene Antwort."
+    },
+    {
+      "text": "Erhält fehlendes Mengengerüst und Integrationskosten sowie offene Budgetentscheidung.",
+      "passed": true,
+      "evidence": "Quelle: Mengengerüst und Integrationskosten fehlen, keine Budgetentscheidung. Ausgabe nennt beide Eingaben, ihre noch fehlende Übermittlung und ausdrücklich 'Eine Budgetentscheidung liegt nicht vor'."
+    },
+    {
+      "text": "Konkrete Klärungsbitte ermöglicht Ergänzung/Korrektur und setzt keine bereits erteilte Zustimmung voraus.",
+      "passed": true,
+      "evidence": "Ausgabe bittet konkret: 'Bitte konkretisieren Sie, welche Angaben zum Mengengerüst und zu den Integrationskosten Sie für die Prüfung benötigen.' Dies ermöglicht fachliche Ergänzung/Korrektur der benötigten Angaben; eine bereits erteilte Zustimmung wird weder vorausgesetzt noch behauptet."
+    },
+    {
+      "text": "Keine neue Frist, Lieferzusage, erfundener Eingabenbesitzer oder Drohung; die Konsequenz für die nächste Entscheidung bleibt sichtbar.",
+      "passed": true,
+      "evidence": "Quelle: Eingabenbesitzer offen, keine Frist dokumentiert; ohne Kostenklärung bleibt nächste Entscheidung offen. Ausgabe hält den Besitzer offen und nennt genau diese Konsequenz. 'sollten zunächst ... geklärt werden' ist ein möglicher Schritt, keine Lieferzusage; es gibt keine neue Frist oder Drohung."
+    },
+    {
+      "text": "Zuerst direkt verwendbare sachliche Sie-Mail an Herrn Berger innerhalb 150 Wörter, keine Gesprächsmethodenerklärung.",
+      "passed": true,
+      "evidence": "Whitespace-Wörter mit mindestens einem Buchstaben oder einer Ziffer: 100, innerhalb 150. Das Artefakt beginnt direkt mit Betreff, 'Sehr geehrter Herr Berger' und der sachlichen Sie-Mail, gefolgt von Grußformel. Keine Gesprächsmethodenerklärung."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

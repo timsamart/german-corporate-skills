@@ -1,0 +1,31 @@
+{
+  "id": 1,
+  "name": "deck-argument-und-lesesituation",
+  "skill": "praesentations-review",
+  "input": "fixtures/deck-argument-und-lesesituation.md",
+  "prompt": "Prüfe diese fünf Textfolien als Vorabunterlage für die Geschäftsführung. Liefere die drei wichtigsten Änderungen mit Folienbezug und einen tragfähigen Vorschlag für den Abschluss. Es stehen keine gerenderten Folien zur Verfügung. Höchstens 350 Wörter.",
+  "word_limit": 350,
+  "assertions": [
+    {
+      "text": "Begrenzt die Rolloutschlussfolgerung aus F2/F3 durch Pilotumfang, Auswahl und fehlende Betriebsdaten; begründet die fehlende Verbindung der Argumentation.",
+      "critical": true
+    },
+    {
+      "text": "Erhält oder rechnet die Zeitänderung als 30 Prozent; behauptet keine gesicherte kausale Wirkung oder Cash-Einsparung.",
+      "critical": true
+    },
+    {
+      "text": "Reparatur für F4 unterscheidet Vorabunterlage und Monitoring; Verdichtung erhält die zwei Ausfälle, ohne ein gesehenes Layout oder eine Achse zu behaupten.",
+      "critical": false
+    },
+    {
+      "text": "Ersetzt auf F5 die unbelegte Einigkeit/Startbehauptung durch einen als Vorschlag erkennbaren, von fehlenden Nachweisen begrenzten nächsten Schritt.",
+      "critical": true
+    },
+    {
+      "text": "Drei priorisierte Änderungen mit eindeutigen Folienbezügen und verwendbarer Abschlussidee; höchstens 350 Wörter, keine erfundenen Verantwortlichen oder Mittel.",
+      "critical": false
+    }
+  ],
+  "published_input": "../../../../v0.3.0/fixtures/deck-argument-und-lesesituation.md"
+}

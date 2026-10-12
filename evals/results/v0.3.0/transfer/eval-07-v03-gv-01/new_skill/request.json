@@ -1,0 +1,8 @@
+{
+  "task": "Bereite den IT-Leitungskreis am 18. November vor. Ich brauche eine realistische Tagesordnung, die entscheidbaren Beschlussformulierungen und die Klärungen, ohne die wir im Termin nur aneinander vorbeireden. Das muss in die Sitzungsunterlage passen. Maximal 300 Wörter.",
+  "input": "evals/results/v0.3.0/transfer/source/sources/v03-gv-01.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/gremienvorbereitung",
+  "output": "evals/results/v0.3.0/transfer/eval-07-v03-gv-01/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/transfer/eval-07-v03-gv-01/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

@@ -1,0 +1,8 @@
+{
+  "task": "Formuliere eine sachliche Klärungsmail in Sie-Form an Herrn Berger. Die Behauptung über Absicht soll durch die belegte Sachlage ersetzt werden. Keine neue Frist und keine zusätzlichen Zusagen. Höchstens 150 Wörter.",
+  "input": "evals/v0.3.0/fixtures/mail-sicht-und-ungeklaerte-eingaben.md",
+  "skill": "evals/results/v0.3.0/baseline/skills/stakeholder-kommunikation",
+  "output": "evals/results/v0.3.0/development/eval-7-mail-sicht-und-ungeklaerte-eingaben/old_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/development/eval-7-mail-sicht-und-ungeklaerte-eingaben/old_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

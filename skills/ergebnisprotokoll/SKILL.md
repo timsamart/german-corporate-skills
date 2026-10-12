@@ -24,6 +24,8 @@ Lies den Zusammenhang einer Aussage, einschließlich späterer Korrekturen. Tren
 
 ## Protokoll entwickeln
 
+Erhalte den belegten Entscheidungsweg: Beratung, Entscheidung durch eine zuständige Person, Abstimmung und Konsens sind unterschiedliche Vorgänge. Halte bei Maßnahmen auch vereinbarte Erledigungsnachweise und Nachverfolgung fest, soweit sie im Material vorkommen. Fehlen sie, bleibt die Zusage bestehen; eine vorgeschlagene Klärung gehört zu den offenen Punkten und wird nicht nachträglich Teil der Vereinbarung.
+
 Formuliere Beschlüsse inhaltlich präzise. Erhalte Umfang, Bedingungen, Gegenstimmen oder Vorbehalte, soweit sie relevant und dokumentiert sind. Behaupte keine rechtliche Wirksamkeit. Fasse Diskussionen nur soweit zusammen, wie sie ein Ergebnis oder einen offenen Punkt erklären.
 
 Erhalte entscheidungsrelevante Gründe, wenn das Material sie nennt. Bei möglicherweise falsch erkannten Beträgen, Daten oder Namen kennzeichne die Unklarheit und prüfe verfügbare Gegenquellen. Wähle nicht stillschweigend die plausibelste Transkriptvariante.
@@ -52,3 +54,5 @@ Halte eigene Empfehlungen außerhalb des protokollierten Ergebnisses und kennzei
 Lies [das Beispiel](references/beispiel.md), wenn ein unverbindlicher Vorschlag leicht mit einem Beschluss verwechselt werden könnte.
 
 Lies bei Bedarf [Grundlagen](references/grundlagen.md) für Dokumentationszweck und Prüfgrenzen.
+
+Lies [Ergebnisse nachhalten](references/arbeitsweise.md), wenn Entscheidungsweg, Abschlussnachweis oder Nachverfolgung für die spätere Arbeit wesentlich sind. Ein kurzes, eindeutiges Ergebnis kann ohne zusätzliche Felder protokolliert werden.

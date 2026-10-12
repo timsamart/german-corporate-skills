@@ -1,0 +1,8 @@
+{
+  "task": "Ich habe morgen 15 Minuten im Portfolioausschuss. Prüfe die fünf Folien auf ihre Eignung für diesen Termin. Gib mir die drei wichtigsten Befunde und jeweils eine konkrete Änderung an einer vorhandenen Folie, die ich direkt umsetzen kann. Die Präsentation soll danach einen brauchbaren Beschluss ermöglichen. Maximal 300 Wörter.",
+  "input": "evals/results/v0.3.0/transfer/source/sources/v03-pr-01.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/praesentations-review",
+  "output": "evals/results/v0.3.0/transfer/eval-01-v03-pr-01/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/transfer/eval-01-v03-pr-01/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

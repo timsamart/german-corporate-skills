@@ -1,0 +1,11 @@
+# Development cases 1-3: grading limitations and criterion critique
+
+This was independent model grading of the nine anonymous output.md artifacts against their case metadata and the three raw synthetic fixtures. No skills under evaluation, candidate/baseline files, identity mapping, execution ledgers, other cases, or other grades were consulted. No human validation, production evidence, or actual rendered-slide quality is established.
+
+Every assertion was graded separately and compound assertions required all parts. Word limits used whitespace-separated tokens containing at least one Unicode letter or number, including headings and table text. Source arithmetic was independently recomputed: 30% time reduction; 800 hours and EUR48,000 annual capacity value; EUR42,000 first-year payments, EUR6,000 first-year capacity balance, EUR36,000 subsequent annual capacity balance; simplified capacity payback 0.8333 years/ten months; annual ongoing-cost threshold 200 hours/3,000 assisted cases, or one minute per each of 12,000 cases.
+
+The slide-review criterion combining pre-read versus monitoring, retention of two outages, and absence of invented visual observations is ambiguous about the required purpose distinction. All three outputs propose useful decision-oriented condensation, retain both outages, and acknowledge absent renderings. None explains the different information needs of operational monitoring and a decision pre-read. The whole compound assertion was therefore failed for this omission alone, without treating it as a false claim and without requiring the literal word Monitoring. A clearer semantic threshold or separate assertions would make this result easier to reproduce.
+
+The economic criteria properly allow capacity benefit for backlog reduction without demanding cash savings. Simplified payback remains conditional and cannot validate adoption or business effects. The decision criteria are well grounded in the given mandate; the fixtures alone cannot validate subsequent execution. No additional clear consequential criterion gap was identified.
+
+Nine grading files contain 45 assertion decisions: 42 passes and 3 failures. Each failure is the omitted purpose distinction described above.

@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Erhält Evas Entscheidung nach Beratung für Nord; Alex' Gegenposition wird nicht zu Konsens oder Zustimmung zum Umfang.",
+      "passed": true,
+      "evidence": "Quelle: Eva ist entscheidende Bereichsleiterin; 00:02–00:03 enthalten Nordentscheidung nach Beratung und Alex' Umfangswiderspruch bei Akzeptanz des Entscheidungswegs. Ausgabe erhält genau diese Differenz und nennt ausdrücklich keine einvernehmliche Entscheidung."
+    },
+    {
+      "text": "Tom liefert am 16.10.2026 mit der Bedingung Zugang bis 14.10.; bei fehlendem Zugang Terminabstimmung, keine unbedingte Zusage.",
+      "passed": true,
+      "evidence": "Quelle 00:04/00:06: Tom 16.10., Zugang bis 14.10., sonst neue Lieferterminabstimmung. Maßnahmenzeile nennt Freitag 16.10.2026; direkt folgende 'Terminvorbehalt'-Passage macht die Lieferung abhängig vom Zugang bis 14.10.2026 und verlangt andernfalls Neuabstimmung. Kein Ersatztermin wird als vereinbart behauptet."
+    },
+    {
+      "text": "Maßnahmenliste erhält den vereinbarten Abschlussnachweis kategorisierte Fehler mit dokumentiertem Nachtest und gemeinsame Prüfung am 19.10.2026.",
+      "passed": true,
+      "evidence": "Quelle 00:05–00:06: kategorisierte Fehler plus dokumentierter Nachtest, gemeinsame Prüfung Montag 19.10.; Tom übernimmt beides. Die Maßnahmenzeile enthält alle diese Bestandteile ausdrücklich, mit Eva und Tom sowie 19.10.2026. Sie definiert den Abschluss anhand des Nachweises statt nur anhand des Lieferdatums."
+    },
+    {
+      "text": "Süd bleibt späterer Vorschlag/Entscheidungspunkt ohne bestätigte Aufgabe oder Besitzer; Nord wird nicht erweitert.",
+      "passed": true,
+      "evidence": "Quelle 00:07–00:08: Süd nur Vorschlag/spätere Entscheidung ohne Aufgabe. Ausgabe nennt Mias Vorschlag, die spätere Entscheidung und 'daraus entsteht keine Aufgabe'. Der einzige Maßnahmenlisteneintrag betrifft Nord; kein Süd-Besitzer oder erweiterter Umfang wird ergänzt."
+    },
+    {
+      "text": "Entwurf mit nachvollziehbaren Fundstellen zu wesentlichen Punkten, höchstens 300 Wörter; keine Versand- oder Bestätigungsbehauptung.",
+      "passed": false,
+      "evidence": "Whitespace-Wörter mit mindestens einem Buchstaben oder einer Ziffer: 132, somit innerhalb 300; keine Versand- oder Bestätigungsbehauptung. Es fehlt aber eine Kennzeichnung als Entwurf und es fehlen nachvollziehbare Fundstellen zu den wesentlichen Entscheidungen/Äußerungen: keine Zeitmarken 00:02–00:08 oder entsprechende Quellenzuordnung. 'im Ausschnitt' betrifft nur den Zugangsdatenbesitzer und ersetzt dies nicht. Zwei erforderliche Bestandteile sind ausgelassen."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "pass_rate": 0.8
+  }
+}

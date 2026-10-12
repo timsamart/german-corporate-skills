@@ -1,0 +1,8 @@
+{
+  "task": "Bitte halte die Ergebnisse dieses kurzen Teamabgleichs in genau drei Stichpunkten fest. Ich füge sie unter die bestehende Wochenüberschrift ein. Maximal 120 Wörter.",
+  "input": "evals/results/v0.3.0/transfer/source/sources/v03-ep-02.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/ergebnisprotokoll",
+  "output": "evals/results/v0.3.0/transfer/eval-12-v03-ep-02/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/transfer/eval-12-v03-ep-02/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

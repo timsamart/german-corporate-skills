@@ -1,0 +1,35 @@
+{
+  "id": "v03-sk-01",
+  "skill": "stakeholder-kommunikation",
+  "prompt": "Formuliere eine Antwort an Sophie, die ich als Projektleiterin senden kann. Sie soll eine klare und verlässliche Aussage zu Termin und Preis bekommen und wissen, was als Nächstes passiert. Die Zusammenarbeit ist gut; bitte freundlich und ohne unnötige interne Details. Maximal 250 Wörter.",
+  "input": "sources/v03-sk-01.md",
+  "assertions": [
+    {
+      "text": "Bestätigt weder den Produktivstart am 1. Dezember noch die 80.000 Euro als verbindlich und überschreitet die Befugnis der Projektleiterin nicht.",
+      "critical": true
+    },
+    {
+      "text": "Nennt die beiden Voraussetzungen für das technische Ziel: 20 anonymisierte Beispielakten von Sophie bis 14. November und Security-Freigabe bis 20. November.",
+      "critical": true
+    },
+    {
+      "text": "Kennzeichnet 80.000 Euro netto als noch nicht freigegebene Schätzung für das erste Jahr; beschreibt den Umfang mit Integration und Jahreslizenz, ohne einen dauerhaften Gesamtpreis oder enthaltene Reisen/Zusatzfunktionen zu behaupten.",
+      "critical": true
+    },
+    {
+      "text": "Macht das bereits zugesagte Update am 21. November zu Security-Ergebnis und verbindlichem Angebot erkennbar.",
+      "critical": false
+    },
+    {
+      "text": "Bietet den tatsächlich möglichen geführten Demonstrationstermin am 1. Dezember als Zwischenstand an und unterscheidet ihn klar vom Produktivbetrieb mit Kundenakten.",
+      "critical": false
+    },
+    {
+      "text": "Liefert eine freundliche direkt verwendbare Kundenantwort innerhalb von 250 Wörtern, die Termin und Preis beantwortet, ohne interne Governance auszubreiten oder neue Zusagen und Anforderungen zu erfinden.",
+      "critical": false
+    }
+  ],
+  "name": "v03-sk-01",
+  "word_limit": 250,
+  "published_input": "../source/sources/v03-sk-01.md"
+}

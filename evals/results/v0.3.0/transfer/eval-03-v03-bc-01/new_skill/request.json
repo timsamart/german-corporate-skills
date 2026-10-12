@@ -1,0 +1,8 @@
+{
+  "task": "Bitte prüfe den Freigabeantrag für die automatische Dokumentenprüfung. Ich brauche eine kurze Empfehlung, eine korrigierte Dreijahresrechnung und die entscheidende Voraussetzung, die wir als Erstes klären sollten. Rechne mit den hier gelieferten Angaben; der Bereich will heute über den Vollausbau entscheiden. Maximal 300 Wörter.",
+  "input": "evals/results/v0.3.0/transfer/source/sources/v03-bc-01.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/business-case-pruefung",
+  "output": "evals/results/v0.3.0/transfer/eval-03-v03-bc-01/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/transfer/eval-03-v03-bc-01/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

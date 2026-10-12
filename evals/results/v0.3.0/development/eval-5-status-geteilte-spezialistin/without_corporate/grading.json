@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Zeigt sieben benötigte gegenüber fünf verfügbaren Tagen, mindestens zwei Tage Kapazitätskonflikt; die beiden Termine sind so nicht zugleich erfüllbar.",
+      "passed": true,
+      "evidence": "Quelle: A braucht vier ganze Tage, B drei; dieselbe Spezialistin ist fünf Tage verfügbar und kann nicht parallel arbeiten. Ausgabe nennt sieben benötigte gegenüber fünf verfügbaren Tagen, zwei fehlende Tage und beide Zusagen als gemeinsam nicht erfüllbar. Rechnung: 4 + 3 = 7; 7 - 5 = 2. A zuerst: B verbleibt 1 von 3 Tagen; B zuerst: A verbleiben 2 von 4 Tagen."
+    },
+    {
+      "text": "Die genehmigten Termine 23.10. bleiben Soll; kein erfundenes verbindliches neues Datum oder stilles Rebaselining.",
+      "passed": true,
+      "evidence": "Quelle: Beide genehmigten Abschlüsse sind der 23.10.2026; keine neue bestätigte Gesamtprognose. Ausgabe erhält dies im Einstieg und sagt, eine neue Gesamtprognose sei nicht bestätigt und ein neuer Abschluss nicht belastbar ableitbar. Es wird kein neues verbindliches Abschlussdatum gesetzt."
+    },
+    {
+      "text": "Benötigte Unterstützung richtet sich auf eine Prioritäts-/Reihenfolgeentscheidung des Bereichsleiters mit Folgen, nicht allein auf generisch mehr Ressourcen.",
+      "passed": true,
+      "evidence": "Ausgabe bittet den Bereichsleiter verbindlich um die Vorrang-/Reihenfolgeentscheidung und Bestätigung der Prioritäts-/Zusageänderung. Sie zeigt die Konsequenzen beider Optionen: A zuerst lässt B zwei Tage fehlen, B zuerst lässt A zwei Tage fehlen. Die Projektleitungen dürfen die fremde Zusage nicht aufheben. Die Unterstützung ist eine autorisierte Entscheidung statt einer allgemeinen Ressourcenbitte."
+    },
+    {
+      "text": "Fehlende Folgekapazität und Abhängigkeiten bleiben offen; Ersatz, Wochenende, Fortschrittsquote oder bereits beschlossene Priorisierung werden nicht erfunden.",
+      "passed": true,
+      "evidence": "Quelle: Ersatz nicht verfügbar, Wochenende nicht zugesagt, anschließende Abnahme und weitere Testkapazität fehlen. Ausgabe erhält diese Einschränkungen ausdrücklich, lässt neue Prognosen offen und erfindet keine Fortschrittsquote oder beschlossene Priorisierung. Die zwei Priorisierungsoptionen bleiben Vorschläge zur Entscheidung."
+    },
+    {
+      "text": "Verwendbarer kompakter Status innerhalb 280 Wörter, der Vorarbeiten von Abnahme/Testabschluss unterscheidet.",
+      "passed": true,
+      "evidence": "Whitespace-Wörter mit mindestens einem Buchstaben oder einer Ziffer: 223, innerhalb 280. Der kompakte Status trennt 'Vorarbeiten abgeschlossen' vom noch nicht abgesicherten gemeinsamen Abschluss der Abnahme A und des Migrationstests B. Er enthält eine konkrete Unterstützungsbitte und die Folgen beider Reihenfolgen."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

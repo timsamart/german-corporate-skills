@@ -1,0 +1,42 @@
+{
+  "expectations": [
+    {
+      "text": "Liefert einen sachlichen Tagesordnungstitel für den Projekt-Phoenix-Beitrag und einen kurzen, direkt einfügbaren Zwecktext.",
+      "passed": true,
+      "evidence": "Source sources/v03-gv-02.md names Projekt Phoenix and an informal information contribution. Output supplies the factual title “Projekt Phoenix: Stand und Demonstration der neuen Suchfunktion” and a short paragraph headed “Zweck”; both requested components are directly usable."
+    },
+    {
+      "text": "Benennt das Kennenlernen der fertigen Suchfunktion und ihre Verfügbarkeit im Teamportal als Informationszweck.",
+      "passed": true,
+      "evidence": "Source aims for colleagues to learn the completed search function and know it is available in the Teamportal since Monday. Output states “lernen die fertige Suchfunktion kennen, die seit Montag im Teamportal verfügbar ist”, preserving both parts."
+    },
+    {
+      "text": "Bewahrt den Charakter der informellen Informationsrunde und stellt keinen Beschluss oder Freigabebedarf her.",
+      "passed": true,
+      "evidence": "Source calls the round informal and excludes approval, decisions and votes. Output says it “dient der Information” and “eine Freigabe, Entscheidung oder Abstimmung ist nicht vorgesehen”, preserving the informational character and no approval need."
+    },
+    {
+      "text": "Widerspricht dem insgesamt 20-minütigen Format aus Status, Demonstration und Fragen nicht.",
+      "passed": true,
+      "evidence": "Source specifies 5 minutes status, 10 demonstration and 5 questions. Independent sum: 5 + 10 + 5 = 20. Output repeats all three durations and the 20-minute total, with no contradiction."
+    },
+    {
+      "text": "Bleibt innerhalb von 120 Wörtern und erweitert den Auftrag nicht um Sitzungsregie, Rollenmodell, Vorabunterlagen oder einen formalen Gremienprozess.",
+      "passed": true,
+      "evidence": "Independent entire-output word count: 56, below 120. Output comprises title and purpose with supplied timings; it adds no session direction, role model, advance materials or formal committee process."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "word_count": 56,
+  "word_count_method": "Split the entire output.md on Unicode whitespace (\\s+); count each resulting token containing at least one Unicode letter or number (\\p{L} or \\p{N}). Include headings, labels and table text; exclude punctuation-only/Markdown-only tokens.",
+  "review_type": "Independent model review; not human validation",
+  "eval_feedback": [
+    "Restating the supplied 5/10/5-minute format does not constitute adding 'Sitzungsregie'.",
+    "Synthetic fixture; independent model review, not human usability validation."
+  ]
+}

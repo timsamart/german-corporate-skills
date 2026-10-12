@@ -1,0 +1,31 @@
+{
+  "id": "v03-sk-02",
+  "skill": "stakeholder-kommunikation",
+  "prompt": "Schreib eine kurze Teams-Nachricht an die fünf Kolleginnen und Kollegen, die an der Vorstellung teilnehmen. Ich möchte nur die Raumänderung sauber weitergeben. Maximal 120 Wörter.",
+  "input": "sources/v03-sk-02.md",
+  "assertions": [
+    {
+      "text": "Teilt die Änderung von Raum B06 auf C12 korrekt mit.",
+      "critical": true
+    },
+    {
+      "text": "Nennt den unveränderten Termin 16. Oktober, 11:00 bis 11:30 Uhr, korrekt oder macht ohne Abweichung deutlich, dass Zeit und Datum gleich bleiben.",
+      "critical": true
+    },
+    {
+      "text": "Stellt den vorhandenen Teams-Link als weiterhin gültig dar und fordert keine Teilnahmebestätigung an.",
+      "critical": true
+    },
+    {
+      "text": "Liefert eine kurze direkt verwendbare Teams-Nachricht innerhalb von 120 Wörtern in passender kollegialer Sprache.",
+      "critical": false
+    },
+    {
+      "text": "Erfindet keine weiteren Änderungen, Risiken oder Gründe und erweitert die reine Raummitteilung nicht um Stakeholderanalyse, Eskalation oder Kommunikationsplan.",
+      "critical": false
+    }
+  ],
+  "name": "v03-sk-02",
+  "word_limit": 120,
+  "published_input": "../source/sources/v03-sk-02.md"
+}

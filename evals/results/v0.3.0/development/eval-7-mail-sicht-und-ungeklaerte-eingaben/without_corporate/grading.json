@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Ersetzt Absicht/Schuld durch die belegte Anfrage 08.10. und Antwort 09.10.; behauptet nicht fälschlich eine ausgebliebene Antwort.",
+      "passed": true,
+      "evidence": "Quelle: Anfrage 08.10.2026 und tatsächliche Antwort 09.10., fehlende Eingaben. Ausgabe nennt beide Ereignisse im ersten Absatz und ersetzt die Absichts-/Schuldnotiz durch diese Sachlage. Eine ausgebliebene Antwort wird nicht behauptet."
+    },
+    {
+      "text": "Erhält fehlendes Mengengerüst und Integrationskosten sowie offene Budgetentscheidung.",
+      "passed": true,
+      "evidence": "Ausgabe erhält Mengengerüst und Integrationskosten als fehlende, bislang nicht übermittelte Angaben sowie 'Eine Budgetentscheidung liegt derzeit nicht vor', entsprechend der Quelle."
+    },
+    {
+      "text": "Konkrete Klärungsbitte ermöglicht Ergänzung/Korrektur und setzt keine bereits erteilte Zustimmung voraus.",
+      "passed": true,
+      "evidence": "Konkrete Bitte: 'Bitte bestätigen Sie, ob damit der aktuelle Klärungsbedarf vollständig erfasst ist.' Das 'ob' ermöglicht eine Verneinung und damit Ergänzung/Korrektur der zuvor konkret genannten Eingaben und Zuständigkeit; eine Budgetzustimmung wird nicht vorausgesetzt."
+    },
+    {
+      "text": "Keine neue Frist, Lieferzusage, erfundener Eingabenbesitzer oder Drohung; die Konsequenz für die nächste Entscheidung bleibt sichtbar.",
+      "passed": true,
+      "evidence": "Quelle: Wer Eingaben liefert, ist offen; keine Frist, ohne Kostenklärung keine nächste Entscheidung. Ausgabe erhält den offenen Besitzer und die Konsequenz. Zuständigkeitsklärung/anschließende Übermittlung wird nur als infrage kommender nächster Schritt beschrieben. Keine neue Frist, feste Lieferzusage oder Drohung."
+    },
+    {
+      "text": "Zuerst direkt verwendbare sachliche Sie-Mail an Herrn Berger innerhalb 150 Wörter, keine Gesprächsmethodenerklärung.",
+      "passed": true,
+      "evidence": "Whitespace-Wörter mit mindestens einem Buchstaben oder einer Ziffer: 101, innerhalb 150. Ausgabe beginnt direkt mit Betreff und 'Sehr geehrter Herr Berger', verwendet sachliche Sie-Form und schließt mit Gruß. Keine vorgelagerte Methodenerklärung."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

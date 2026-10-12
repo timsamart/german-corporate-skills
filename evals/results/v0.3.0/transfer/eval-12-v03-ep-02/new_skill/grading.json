@@ -1,0 +1,42 @@
+{
+  "expectations": [
+    {
+      "text": "Hält Raum B06 für den internen Austausch am 20. Oktober als bereits gebucht fest.",
+      "passed": true,
+      "evidence": "Source sources/v03-ep-02.md says Jan checked availability and B06 is already booked for the internal exchange on 20 October. Output first bullet says “Raum B06 ist für den internen Austausch am 20. Oktober gebucht”, preserving existing booking."
+    },
+    {
+      "text": "Erfasst Mira als Verantwortliche für die Liste der Teilnehmenden an Jan bis 16. Oktober.",
+      "passed": true,
+      "evidence": "Source assigns Mira to send the participant list to Jan by 16 October. Output second bullet preserves owner, list, recipient and deadline."
+    },
+    {
+      "text": "Bewahrt die Bedingung für einen weiteren Abgleich: nur bei fehlender Liste am 16. Oktober; erfindet keinen festgelegten Folgetermin.",
+      "passed": true,
+      "evidence": "Source permits another coordination only if the list is missing on 16 October and sets no next meeting date. Output third bullet preserves the “nur … falls … am 16. Oktober fehlt” condition and explicitly says no further meeting date was set."
+    },
+    {
+      "text": "Liefert genau drei Stichpunkte innerhalb von 120 Wörtern, die unter eine vorhandene Wochenüberschrift passen.",
+      "passed": true,
+      "evidence": "Output contains exactly three Markdown bullets, no separate weekly heading, and 56 independently counted words, below 120. The three bullets fit under the requested existing heading."
+    },
+    {
+      "text": "Erfindet keine zusätzlichen Entscheidungen, Freigaberollen, Aufgaben, Verteiler oder formale Protokollabnahme.",
+      "passed": true,
+      "evidence": "Source says no other matters were discussed. Output only adds source-supported room-check and no-fixed-meeting information, with no new decisions, approval roles, tasks, distribution lists or formal protocol acceptance."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "word_count": 56,
+  "word_count_method": "Split the entire output.md on Unicode whitespace (\\s+); count each resulting token containing at least one Unicode letter or number (\\p{L} or \\p{N}). Include headings, labels and table text; exclude punctuation-only/Markdown-only tokens.",
+  "review_type": "Independent model review; not human validation",
+  "eval_feedback": [
+    "The embedded 'Entwurf aus dem Teamabgleich' label is unnecessary, but stays inside the three bullets and adds no separate heading or formal approval procedure; the frozen assertions do not explicitly forbid draft labeling.",
+    "Synthetic fixture; independent model review, not human validation."
+  ]
+}

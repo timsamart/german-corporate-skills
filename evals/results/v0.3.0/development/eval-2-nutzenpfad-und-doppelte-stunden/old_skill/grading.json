@@ -1,0 +1,39 @@
+{
+  "expectations": [
+    {
+      "text": "Rechnet 800 Stunden und 48.000 Euro Kapazitätsäquivalent; addiert dieselben Stunden nicht zu 96.000 Euro Nutzen.",
+      "passed": true,
+      "evidence": "Die Tabelle enthält 12.000 Fälle × 4 Minuten / 60 = 800 Stunden und 800 × 60 Euro = 48.000 Euro/Jahr, beides korrekt. Die Ausgabe korrigiert die 'behaupteten 96.000 Euro' ausdrücklich auf 48.000 Euro und nennt die Doppelzählung derselben Stunden."
+    },
+    {
+      "text": "Unterscheidet Kapazitätsnutzen vom unbelegten Cash-/Personalabbau; Rückstandsabbau bleibt ein legitimes Ziel.",
+      "passed": true,
+      "evidence": "'Fehlende Personaleinsparungen schließen einen sinnvollen operativen Nutzen nicht aus' und potenzielles Kapazitätsäquivalent für Rückstandsabbau erhalten das legitime Ziel. Die Ausgabe sagt ausdrücklich, ohne beschlossene Stellen-/Auszahlungsreduktion seien keine zahlungswirksamen Einsparungen belegt und eine Zahlungsamortisation sei nicht belegt."
+    },
+    {
+      "text": "Berücksichtigt 30.000 Euro einmalig und 12.000 Euro jährlich; ein gegebenenfalls genannter Netto-/Paybackwert bleibt ein vereinfachtes Kapazitätsmodell mit unbestätigter voller Wirkung.",
+      "passed": true,
+      "evidence": "Die Tabelle berücksichtigt 30.000 Euro Einführung und 12.000 Euro laufend: 48.000 - 12.000 = 36.000 Euro/Jahr; minus 30.000 = 6.000 Euro erstes Jahr. Einfache Amortisation im Kapazitätsmodell: 30.000 / 36.000 = 0,8333 Jahre, zehn Monate. Alle Salden/Amortisation setzen laut Ausgabe 'die unbestätigte volle Wirkung ab Jahr 1 voraus'. 42.000/12.000 Auszahlungen werden getrennt genannt. Die zusätzliche Kapazitätsschwelle ist korrekt: 12.000 / 60 = 200 Stunden; 200 × 60 / 4 = 3.000 Fälle."
+    },
+    {
+      "text": "Klärungen enthalten erforderliche betriebliche Nutzung/Änderung, Nutzenübernahme, Ausgangsrückstand/Ziel sowie Messzeitpunkt; Frau Wolf wird keine bestehende Zuständigkeit zugeschrieben.",
+      "passed": true,
+      "evidence": "Ausgabe verlangt Ausgangsrückstand, messbares Abbauziel und Messzeitpunkt, verbindliche Nutzenverantwortung, Verwendung freier Stunden für Rückstandsfälle und erforderliche Prozessänderung sowie tatsächliche Nutzung/Nettozeitgewinn/Anlauf. 'Frau Wolf ist bislang nur mögliche Ansprechpartnerin' vermeidet die in der Quelle unbelegte Zuständigkeitszuweisung."
+    },
+    {
+      "text": "Verwendbares Urteil und Rechnung innerhalb 330 Wörter; keine erfundenen Gehälter, Adoptionsraten, Diskontsätze oder Freigaben.",
+      "passed": true,
+      "evidence": "Verwendbares Urteil, korrekte Rechnung und wichtigste Klärungen. 279 Wörter nach whitespace-getrennter Zählung der Tokens mit Buchstabe oder Zahl, unter 330. Keine erfundenen Gehälter, Adoptionsraten, Diskontsätze oder Freigaben. Der begrenzte Pilot ist eine Empfehlung, keine behauptete erfolgte Beauftragung."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "word_count": {
+    "count": 279,
+    "method": "Whitespace-separated tokens containing at least one Unicode letter or number; complete output.md including headings and table text."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task": "Erstelle eine kompakte Entscheidungsvorlage aus den Unterlagen. Sie soll in der Sitzung verwendbar sein und die heutige Entscheidungsfrage klar machen. Höchstens 330 Wörter.",
+  "input": "evals/v0.3.0/fixtures/entscheidung-umfang-vor-anbieter.md",
+  "skill": "evals/results/v0.3.0/candidate/skills/entscheidungsvorlage",
+  "output": "evals/results/v0.3.0/development/eval-3-entscheidung-umfang-vor-anbieter/new_skill/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/development/eval-3-entscheidung-umfang-vor-anbieter/new_skill/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

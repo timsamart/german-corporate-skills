@@ -1,0 +1,39 @@
+{
+  "expectations": [
+    {
+      "text": "Rechnet 800 Stunden und 48.000 Euro Kapazitätsäquivalent; addiert dieselben Stunden nicht zu 96.000 Euro Nutzen.",
+      "passed": true,
+      "evidence": "Die Tabelle rechnet '12.000 Fälle × 4 Minuten ÷ 60 = 800 Stunden' und '800 Stunden × 60 Euro = 48.000 Euro jährlich'. Beide Rechnungen sind korrekt. Das Urteil nennt die Doppelzählung derselben Stunden; abschließend dürfen Kapazitätswert und Personaleinsparung 'nicht nochmals gemeinsam angesetzt werden'. Es werden keine 96.000 Euro Nutzen addiert."
+    },
+    {
+      "text": "Unterscheidet Kapazitätsnutzen vom unbelegten Cash-/Personalabbau; Rückstandsabbau bleibt ein legitimes Ziel.",
+      "passed": true,
+      "evidence": "Ausgabe: 'möglichen Kapazitätsgewinn', 'weder Personaleinsparungen noch den angestrebten Rückstandsabbau' bisher belegt. Die belegte Personalauszahlungsersparnis wird mit 0 Euro angegeben, was keine behauptete tatsächliche Gesamtersparnis ist. Freie Zeit tatsächlich für Rückstand einsetzen und deren Nutzen gegenüber Kosten bewerten wird als zulässiges Ziel erhalten; der Bewertungsvergleich wird als 'kein Geldzufluss' abgegrenzt."
+    },
+    {
+      "text": "Berücksichtigt 30.000 Euro einmalig und 12.000 Euro jährlich; ein gegebenenfalls genannter Netto-/Paybackwert bleibt ein vereinfachtes Kapazitätsmodell mit unbestätigter voller Wirkung.",
+      "passed": true,
+      "evidence": "Einführung 30.000 plus laufend 12.000 ergibt korrekt 42.000 Euro Auszahlungen im ersten Jahr, danach 12.000 jährlich. Vereinfachte Kapazitätssalden sind 48.000 - 42.000 = 6.000 und 48.000 - 12.000 = 36.000 Euro. Die Ausgabe erklärt 'Bei vollständiger Wirkung ab Jahr eins', 'Bewertungsvergleich, kein Geldzufluss' und 'volle Wirkung im ersten Jahr ist unbestätigt'. Der negative Zahlungssaldo wird mangels belegter Auszahlungssenkung separat ausgewiesen."
+    },
+    {
+      "text": "Klärungen enthalten erforderliche betriebliche Nutzung/Änderung, Nutzenübernahme, Ausgangsrückstand/Ziel sowie Messzeitpunkt; Frau Wolf wird keine bestehende Zuständigkeit zugeschrieben.",
+      "passed": true,
+      "evidence": "Klärungen fordern Ausgangsbestand, gewünschten Abbau und Messzeitpunkt, tatsächliche Assistenznutzung/Nettozeitgewinn/Anlauf, erforderliche Prozessänderung und verbindliche Verwendung freier Stunden sowie eine Person für Rückstandsabbau und Messung. 'Frau Wolf ist bisher lediglich mögliche Ansprechpartnerin' entspricht der Quelle und schreibt ihr keine bestehende Nutzenverantwortung zu."
+    },
+    {
+      "text": "Verwendbares Urteil und Rechnung innerhalb 330 Wörter; keine erfundenen Gehälter, Adoptionsraten, Diskontsätze oder Freigaben.",
+      "passed": true,
+      "evidence": "Urteil, korrigierte Rechentabelle und entscheidungsrelevante Klärungen sind verwendbar. 264 Wörter nach whitespace-getrennter Zählung der Tokens mit Buchstabe oder Zahl, unter 330. 60 Euro/Stunde wird als vorgegebener Rechenwert verwendet; Gehälter, Adoptionsraten, Diskontsätze oder erfolgte Freigaben werden nicht erfunden."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "word_count": {
+    "count": 264,
+    "method": "Whitespace-separated tokens containing at least one Unicode letter or number; complete output.md including headings and table text."
+  }
+}

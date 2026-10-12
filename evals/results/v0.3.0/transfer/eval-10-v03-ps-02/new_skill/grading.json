@@ -1,0 +1,42 @@
+{
+  "expectations": [
+    {
+      "text": "Berichtet korrekt, dass alle drei vorgesehenen Workshops stattgefunden haben, ohne den gesamten Übergabeprozess für abgeschlossen zu erklären.",
+      "passed": true,
+      "evidence": "Source sources/v03-ps-02.md says all three planned handover workshops occurred while the overall handover continues. Output states “Alle drei Übergabeworkshops haben stattgefunden” and “der Übergabeprozess läuft anschließend weiter”, so the whole process is not declared completed."
+    },
+    {
+      "text": "Nennt die Bereitstellung der Ergebnisprotokolle durch Lea bis Freitag, 16. Oktober, im Teamordner als nächsten Schritt.",
+      "passed": true,
+      "evidence": "Source assigns Lea to provide result minutes in the Teamordner by Friday, 16 October. Output gives all four elements: “Lea stellt die Ergebnisprotokolle bis Freitag, 16. Oktober, im Teamordner bereit”."
+    },
+    {
+      "text": "Liefert zwei direkt verwendbare, kurze Teamchat-Sätze innerhalb von 120 Wörtern.",
+      "passed": true,
+      "evidence": "Output has two grammatical sentences: workshop completion/no open workshop decisions, then Lea's next step/continuing handover. Independent entire-output count: 30 words, below 120. Both sentences are short and directly usable in team chat."
+    },
+    {
+      "text": "Erfindet keine offenen Entscheidungen, Kapazitätsprobleme oder Termingefährdung.",
+      "passed": true,
+      "evidence": "Source explicitly says sufficient time is planned and no workshop decisions remain open. Output's “daraus sind keine Entscheidungen offen” is supported; it invents no capacity problem or deadline risk."
+    },
+    {
+      "text": "Fügt keine Eskalationsbitte, formale Managementampel, Risikoanalyse oder neue Planungsaufgabe hinzu.",
+      "passed": true,
+      "evidence": "Source requests current state and next step only. Output adds no escalation request, formal management status color, risk analysis or new planning task."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  },
+  "word_count": 30,
+  "word_count_method": "Split the entire output.md on Unicode whitespace (\\s+); count each resulting token containing at least one Unicode letter or number (\\p{L} or \\p{N}). Include headings, labels and table text; exclude punctuation-only/Markdown-only tokens.",
+  "review_type": "Independent model review; not human validation",
+  "eval_feedback": [
+    "'Zwei Sätze' means grammatical sentences, not punctuation marks within dates. This output has exactly two.",
+    "Synthetic fixture; independent model review, not human validation."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "task": "Bereite mein vierminütiges Briefing für den Lenkungsausschuss vor: Einstieg, wichtigste Einwände mit kurzen mündlichen Antworten und Abschlussfrage. Ich bin die fachlich beratende Projektleitung. Höchstens 300 Wörter.",
+  "input": "evals/v0.3.0/fixtures/gremium-umsetzung-ohne-zustimmung.md",
+  "skill": null,
+  "output": "evals/results/v0.3.0/development/eval-4-gremium-umsetzung-ohne-zustimmung/without_corporate/outputs/output.md",
+  "ledger": "evals/results/v0.3.0/development/eval-4-gremium-umsetzung-ohne-zustimmung/without_corporate/execution.md",
+  "path_basis": "Repository-relative paths; original harness paths relocated for publication."
+}

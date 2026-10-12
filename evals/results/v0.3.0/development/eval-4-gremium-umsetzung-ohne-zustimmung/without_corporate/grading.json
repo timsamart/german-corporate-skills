@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Einstieg und Abschlussbitte respektieren Pilotmandat und getrennte Geschäftsführungsentscheidung, ohne den kompletten Novemberrollout als freigegeben darzustellen.",
+      "passed": true,
+      "evidence": "Quelle: Pilotentscheidungen sind innerhalb 30.000 Euro möglich; Zusatzmittel sind außerhalb des Ausschussmandats und der vollständige Rollout liegt bei der Geschäftsführung. Ausgabe empfiehlt die Konkretisierung der Pilotoption, verlangt Umfang, Verantwortung und Kapazitätsbindung vor einem Start und nennt die getrennte Geschäftsführungsentscheidung. Die Antwort auf zusätzliche Mittel verneint deren Bewilligung durch den Ausschuss."
+    },
+    {
+      "text": "Macht 80 benötigte gegenüber 20 verfügbaren Stunden monatlich und fehlende Operations-Zusage als zentralen Einwand sichtbar.",
+      "passed": true,
+      "evidence": "Quelle: 80 benötigte Stunden gegenüber 20 verfügbaren Stunden monatlich, Operations ohne Schulungs-/Umstellungszusage. Der Einstieg nennt beide Zahlen, fehlende Zusage und fehlenden zusätzlichen Trainer. Die Antwort 'Operations war doch eingebunden' grenzt Konsultation ausdrücklich von Übernahme ab."
+    },
+    {
+      "text": "Konsultation und Finanzprüfung werden nicht zu Zustimmung oder Freigabe; die beratende Projektleitung wird nicht zum Entscheider oder neutralen Moderator erklärt.",
+      "passed": true,
+      "evidence": "Quelle unterscheidet Konsultation und Finanzprüfung von Zusagen/Freigabe. Ausgabe sagt 'Daraus folgt keine übernommene Schulungs- oder Umstellungszusage' sowie 'Eine Kalkulationsprüfung ist jedoch keine Rolloutfreigabe'. Die Projektleitung gibt eine 'fachliche Empfehlung'; eine Entscheider- oder neutrale Moderatorenrolle wird nicht behauptet."
+    },
+    {
+      "text": "Mindestens eine echte Klärungsfrage erlaubt eine engere oder andere Bitte, statt bereits Umsetzung/Zustimmung vorauszusetzen; fehlende Antworten bleiben offen.",
+      "passed": false,
+      "evidence": "Die Abschlussfrage bittet um Unterstützung der festgelegten Pilotvorbereitung und fragt nach der Person für Umfang, Verantwortung und Kapazitätsklärung. Sie eröffnet keine engere oder andere Bitte und prüft nicht, ob die Kapazität auch einen kleineren Pilot trägt. Die übrigen Fragen sind vorformulierte Einwände mit Antworten. Dies ist eine fehlende adaptive Klärungsfrage, keine falsche Umsetzungszusage."
+    },
+    {
+      "text": "Verwendbarer Einstieg, fallbezogene Einwände/Antworten und Abschluss innerhalb 300 Wörter; Raum für Rückfragen statt vierminütigem Vollmonolog.",
+      "passed": true,
+      "evidence": "Whitespace-Wörter mit mindestens einem Buchstaben oder einer Ziffer: 236, innerhalb 300. Direkter Einstieg, fünf kurze fallbezogene Einwände/Antworten und eine Abschlussfrage sind vorhanden. Das kurze Skript und die Abschlussfrage lassen innerhalb des vierminütigen Briefings Raum für Antworten/Rückfragen; eine genaue Sprechdauer ist am schriftlichen Artefakt nicht messbar."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "pass_rate": 0.8
+  }
+}

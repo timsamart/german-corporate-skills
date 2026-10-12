@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Zeigt sieben benötigte gegenüber fünf verfügbaren Tagen, mindestens zwei Tage Kapazitätskonflikt; die beiden Termine sind so nicht zugleich erfüllbar.",
+      "passed": true,
+      "evidence": "Quelle: A vier ganze Tage plus B drei ergeben sieben benötigte; fünf Tage einer Person sind verfügbar, Parallelität ist ausgeschlossen. Ausgabe nennt 4, 3, 5 und zwei fehlende Spezialistentage sowie die gemeinsam nicht erfüllbaren Zusagen. Beide Optionen rechnen richtig: A zuerst lässt B 2 Tage fehlen, B zuerst lässt A 2 Tage fehlen."
+    },
+    {
+      "text": "Die genehmigten Termine 23.10. bleiben Soll; kein erfundenes verbindliches neues Datum oder stilles Rebaselining.",
+      "passed": true,
+      "evidence": "Quelle: Die genehmigten Zusagen lauten jeweils 23.10.2026, keine bestätigte neue Gesamtprognose. Ausgabe hält beide Solltermine fest, nennt fehlende neue Prognose und verlangt sichtbaren Vergleich zur genehmigten Planung. Der 16.10. ist ausdrücklich ein Entscheidungsvorschlag, kein verbindliches neues Abschlussdatum."
+    },
+    {
+      "text": "Benötigte Unterstützung richtet sich auf eine Prioritäts-/Reihenfolgeentscheidung des Bereichsleiters mit Folgen, nicht allein auf generisch mehr Ressourcen.",
+      "passed": true,
+      "evidence": "Ausgabe bittet den Bereichsleiter verbindlich um Reihenfolge und Änderung der nachrangigen Zusage; die Projektleitungen dürfen die jeweils andere Zusage nicht aufheben. Sie zeigt bei beiden Optionen genau zwei offene Spezialistentage und verweigert eine unbelegte Vorrangempfehlung. Dies ist eine konkrete Prioritätsentscheidung mit Folgen."
+    },
+    {
+      "text": "Fehlende Folgekapazität und Abhängigkeiten bleiben offen; Ersatz, Wochenende, Fortschrittsquote oder bereits beschlossene Priorisierung werden nicht erfunden.",
+      "passed": true,
+      "evidence": "Quelle: Folgeabhängigkeiten unbekannt, Ersatz nicht verfügbar, Wochenende nicht zugesagt, keine Fortschrittsbasis oder bereits beschlossene Reihenfolge. Ausgabe hält sämtliche Punkte offen bzw. nennt sie korrekt, insbesondere fehlende Abnahme-/Testkapazitäten und ungesicherte Termine nach Priorisierung. Folgearbeiten sind als Vorschlag gekennzeichnet."
+    },
+    {
+      "text": "Verwendbarer kompakter Status innerhalb 280 Wörter, der Vorarbeiten von Abnahme/Testabschluss unterscheidet.",
+      "passed": true,
+      "evidence": "Whitespace-Wörter mit mindestens einem Buchstaben oder einer Ziffer: 238, innerhalb 280. Vorarbeiten sind als abgeschlossen beschrieben; Abnahme/Testabschluss bleiben trotz möglicher Reihenfolge unbestätigt. Der Status ist kompakt und direkt für den Bereichsleiter verwendbar."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1
+  }
+}

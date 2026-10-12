@@ -15,6 +15,6 @@ Fiktive Eingabe, Stichtag 05.10.2026: „Projekt grün. Wir hatten drei Abstimmu
 
 **Statusbewertung:** Die vorliegenden Fakten tragen „grün“ nicht. Ohne vereinbarte Ampeldefinition wird keine neue Farbe als offizielle Bewertung gesetzt. Die terminliche Gefährdung ist ausdrücklich benannt.
 
-**Vorgeschlagene Eskalationsnachricht:** „Für den Integrationstest fehlt weiterhin der Infrastrukturzugang. Der Testtermin 30.09.2026 ist überschritten; die Startprognose für 01.11.2026 bleibt offen. Bitte nennen Sie einen belastbaren Bereitstellungstermin und die zuständige Ansprechperson. Eva aktualisiert auf dieser Grundlage den Testplan. Den erforderlichen Antworttermin sollten wir heute vereinbaren.“
+**Vorgeschlagene Eskalationsnachricht:** „Für den Integrationstest fehlt weiterhin der Infrastrukturzugang. Der Testtermin 30.09.2026 ist überschritten; die Startprognose für 01.11.2026 bleibt offen. Bitte nennen Sie einen belastbaren Bereitstellungstermin und die zuständige Ansprechperson. Eva kann auf dieser Grundlage den Testplan aktualisieren. Den erforderlichen Antworttermin sollten wir heute vereinbaren.“
 
 Die Nachricht ist ein Entwurf. Der Text behauptet keinen Versand und keine bereits zugesagte Frist.
