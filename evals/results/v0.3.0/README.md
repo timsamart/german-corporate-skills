@@ -21,6 +21,7 @@ Das sind 21 unterschiedliche Aufgaben und 35 Ausgaben, ein Lauf pro Konfiguratio
 - [benchmark.json](benchmark.json): ausschließlich die sieben Vergleichsaufgaben, gleich je Aufgabe gewichtet; kein allgemeiner Erfolgsprozentsatz. Transfer bleibt getrennt.
 - [viewer.html](viewer.html): lokal zu öffnende Ansicht der Vergleichsantworten mit Bewertungen. Erzeugt mit dem skill-creator-Viewer; [Lizenzhinweis](../../../THIRD_PARTY_NOTICES.md).
 - [grader-feedback/](grader-feedback/): ursprüngliche Kriterienkritik und abschließender Quellen-/Integritätsaudit.
+- [installation.json](installation.json): isolierte Installation aller sieben Skills aus dem öffentlichen GitHub; 28 Dateien bytegenau gegen den ausgewerteten Kandidaten geprüft. Prüft Auffinden und Kopieren, keine automatische Hostauswahl oder reale Aufgabenleistung.
 
 ## Verfahren und Grenzen
 

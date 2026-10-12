@@ -15,6 +15,8 @@ Die [historische v0.2.0-Prüfung](qualitaet-v0.2.0.md) bleibt erhalten. Ihre vis
 | Integrität | 28 Kandidaten- und 21 Baseline-Dateien sowie originale Eingaben und Kriterien per SHA-256 eingefroren und nachgeprüft |
 | Umfang | Alle 35 Ausgaben innerhalb ihres jeweiligen Wortlimits; alle sieben kleinen Transferaufträge bleiben kompakt |
 | Downloadpakete | Sieben einzelne Skill-ZIPs und ein Gesamt-ZIP; archivierte Dateien stimmen bytegenau mit den ausgewerteten Skills überein; wiederholte Builds lieferten identische Hashes |
+| Paket und öffentliche Installation | Systemvalidator für alle sieben Skills; Skills CLI installierte sieben Skills aus dem öffentlichen GitHub in ein isoliertes Windows-Projekt; alle 28 Dateien stimmen bytegenau mit dem Kandidaten überein; [Nachweis](../evals/results/v0.3.0/installation.json) |
+| GitHub CI | Repositoryprüfung, Nachzählungen für v0.2.0 und v0.3.0 sowie ZIP-Build am veröffentlichten Commit erfolgreich; [Run](https://github.com/timsamart/german-corporate-skills/actions/runs/38187873851) |
 
 ## Ergebnisse
 
